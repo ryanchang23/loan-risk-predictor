@@ -1,19 +1,19 @@
-# 📘 如何參與本專案貢獻（Contributing Guide）
+# 📘 How to Contribute to This Project
 
-感謝你有興趣參與本專案的開發！本文件將指引你從安裝 Git 到提交 Pull Request（PR）的完整流程。
+Thank you for your interest in contributing to this project! This guide will walk you through the full process—from installing Git to submitting a Pull Request (PR).
 
 ---
 
-## 1. 安裝 Git
+## 1. Install Git
 
-請先安裝 Git，如果你已經安裝過，請跳至下一步。
+If you don’t already have Git installed, follow the steps below:
 
-### Windows：
+### On Windows:
 
-1. 下載 Git 安裝程式：[https://git-scm.com/download/win](https://git-scm.com/download/win)
-2. 安裝時保持預設選項即可。
+1. Download the Git installer from: [https://git-scm.com/download/win](https://git-scm.com/download/win)  
+2. Run the installer and proceed with the default settings.
 
-### macOS or Linux：
+### On macOS or Linux:
 
 ```bash
 # macOS
@@ -24,20 +24,19 @@ sudo apt update && sudo apt install git
 
 # Arch / Manjaro
 sudo pacman -S git
+
 ```
 
-## 2. 設定 Git 基本資訊 config
+## 2. Configure Git User Info
 ```bash
-git config --global user.name "你的名稱"
-git config --global user.email "你的Email"
+git config --global user.name "your name"
+git config --global user.email "your email"
 ```
 
-## 3. Fork 專案
-打開 GitHub 上的本專案頁面。
+## 3. Fork the Project
+Go to the GitHub repository page and click on the Fork button in the top-right corner to create a copy under your account.
 
-點選右上角的 Fork，建立一份專案副本到你的帳號。
-
-## 4. Clone 你的專案副本 
+## 4. Clone Your Fork 
 ``` bash
 # https
 git clone https://github.com/<your_account>/loan-risk-predictor.git
@@ -49,50 +48,50 @@ cd project_name
 
 ```
 
-## 5. 設定遠端原始倉庫（upstream）
-
-這是為了日後可以同步主專案的更新。
+## 5. Add the Original Repository as a Remote (upstream)
+This allows you to keep your fork up to date with the main project:
 
 ``` bash
 
 git remote add upstream https://github.com/JiaLong0209/loan-risk-predictor.git
 
-#確認遠端設定
+# Verify remotes
 git remote -v
 ``` 
 
-## 6. 建立分支開始開發
-不要在 main 或 master 分支直接開發，請建立新的分支：
+## 6. Create a Feature Branch
+Do not work directly on the main or master branch. Instead, create a new feature branch:
 
 ``` bash
-git checkout -b feat/新增功能名稱
+git checkout -b feat/your-feature-name
 ``` 
 
-## 7. 提交變更
-編輯程式碼後，先將變更加入版本控制：
+## 7. Commit and Push Changes
+After editing the code:
 
 ``` bash
 git add .
 
-# 提交：
-git commit -m "feat: 新增 XX 功能"
+# Commit your changes
+git commit -m "feat: add your feature description"
 
-#  Push 到你自己的 GitHub 倉庫
-git push origin feat/新增功能名稱
-
+# Push to your GitHub  repository
+git push origin feat/your-feature-name
 ```
-## 8. 在 GitHub 上發出 Pull Request（PR）
 
-* 到你的 GitHub 倉庫。
+## 8. Submit ta Pull Request (PR)
 
-* 會看到有個「Compare & pull request」的按鈕，點它。
+1. Go to your GitHub repo.
 
-* 填寫說明後送出 PR。
+2. Click the "Compare & pull request" button.
 
-* 等待專案擁有者審核合併。
+3. Add a meaningful description and submit the PR.
 
-## 9. 與主專案保持同步（更新 upstream）
-請定期從主專案（upstream）拉取更新，確保你的分支是最新的：
+4. Wait for a maintainer to review and merge it.
+
+
+## 9. Keep Your Fork in Sync
+Regularly sync your fork with the main repository to stay updated:
 
 ```bash
 git checkout main
@@ -100,20 +99,24 @@ git pull upstream main
 git push origin main
 ```
 
-## 10. 刪除已合併的本地與遠端分支（可選）
-``` bash
-# 本地分支
-git branch -d feat/新增功能名稱
+## 10. Delete Merged Branches (Optional)
 
-# 遠端分支
-git push origin --delete feat/新增功能名稱
+Once your PR is merged, you can clean up your branches:
+
+``` bash
+# Delete the local branch
+git branch -d feat/your-feature-name
+
+# Delete the remote branch
+git push origin --delete feat/your-feature-name
+
 ```
 
-## 補充
+## Additional
 
-### 使用 SSH 金鑰操作 Git（推薦）
+### Using SSH Key for Git Operations (Recommended)
 
-#### 產生 SSH 金鑰：
+#### Generate SSH Key:
 
 ``` bash    
 ssh-keygen -t rsa -C "your email"
@@ -122,20 +125,19 @@ cat <path_to_id_rsa.pub>
 
 ```
 
-將輸出的內容複製起來。
+Copy the output.
 
-#### 加入 GitHub：
+#### Add SSH Key to GitHub:
 
-* 登入 GitHub。
+1. Log in to GitHub.
 
-* 前往「Settings → SSH and GPG keys」。
+2. Go to Settings -> SSH and GPG Keys.
 
-* 點「New SSH key」。
+3. Click Neww SSH Key.
 
-* 貼上剛剛複製的公鑰，按 Save
+4. Paste the copied key and save.
 
-
-#### ✅ 測試 SSH 是否設定成功：
+#### Verify the SSH:
 ``` bash    
 ssh -T git@github.com
 ```

@@ -1,6 +1,6 @@
 # Loan Risk Predictor
 
-A machine learning system for predicting loan risk using multiple models, including D-LSTM, MLP, CNN-LightGBM, DNN, Random Forest, and RNN.
+A machine learning system for predicting loan risk using multiple models, including D-LSTM, MLP, CNN-LightGBM, DNN, Random Forest, XGBoost and RNN.
 
 ## Features
 
@@ -121,3 +121,5 @@ src/
 3. Commit your changes
 4. Push to the branch
 5. Create a Pull Request
+
+For detailed contribution guidelines, please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.
