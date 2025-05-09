@@ -8,9 +8,11 @@ class RNNModel(BaseModel):
     """Recurrent Neural Network model implementation."""
     
     def __init__(self):
+        super().__init__()
         self.model = None
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    
+        self.input_size = None  # 新增一個屬性，記錄input_size
+        
     def _create_model(self, input_size: int) -> nn.Module:
         """Create the RNN model architecture."""
         class RNN(nn.Module):
@@ -38,7 +40,6 @@ class RNNModel(BaseModel):
                 return self.sigmoid(out)
         
         return RNN(input_size)
-    
 
     def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
         """Train the model."""
@@ -50,7 +51,8 @@ class RNNModel(BaseModel):
         y_train = torch.FloatTensor(y_train).reshape(-1, 1).to(self.device)
         
         # Create model
-        self.model = self._create_model(X_train.shape[2]).to(self.device)
+        self.input_size = X_train.shape[2]
+        self.model = self._create_model(self.input_size).to(self.device)
         
         # Define loss function and optimizer
         criterion = nn.BCELoss()
@@ -64,11 +66,11 @@ class RNNModel(BaseModel):
             loss = criterion(outputs, y_train)
             loss.backward()
             optimizer.step()
-    
+
     def predict(self, X: np.ndarray) -> np.ndarray:
         """Make predictions."""
         if self.model is None:
-            raise ValueError("Model not trained yet")
+            raise ValueError("Model not trained yet.")
         
         # Reshape input for RNN
         X = X.reshape(X.shape[0], 1, X.shape[1])
@@ -93,10 +95,15 @@ class RNNModel(BaseModel):
         """Save the model to disk."""
         if self.model is None:
             raise ValueError("No model to save")
-        torch.save(self.model.state_dict(), path)
+        save_data = {
+            'model_state_dict': self.model.state_dict(),
+            'input_size': self.input_size
+        }
+        torch.save(save_data, path)
     
     def load(self, path: str) -> None:
         """Load the model from disk."""
-        if self.model is None:
-            raise ValueError("Model not initialized")
-        self.model.load_state_dict(torch.load(path)) 
+        checkpoint = torch.load(path, map_location=self.device)
+        self.input_size = checkpoint['input_size']
+        self.model = self._create_model(self.input_size).to(self.device)
+        self.model.load_state_dict(checkpoint['model_state_dict'])
