@@ -14,31 +14,48 @@ class CNNLightGBMModel(BaseModel):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
     def _create_cnn_model(self, input_size: int) -> nn.Module:
-        """Create the CNN model architecture."""
-        class CNN(nn.Module):
-            def __init__(self, input_size):
-                super(CNN, self).__init__()
-                self.conv1 = nn.Conv1d(1, 32, kernel_size=3)
-                self.conv2 = nn.Conv1d(32, 64, kernel_size=3)
+     """Create the CNN model architecture."""
+     class CNN(nn.Module):
+        def __init__(self, input_size):
+            super(CNN, self).__init__()
+
+            if input_size < 3:
+                # 資料太小，直接FC
+                self.use_cnn = False
+                self.fc1 = nn.Linear(input_size, 32)
+            else:
+                self.use_cnn = True
+                self.conv1 = nn.Conv1d(1, 32, kernel_size=3, padding=1)  # 加padding
+                self.conv2 = nn.Conv1d(32, 64, kernel_size=3, padding=1)  # 加padding
                 self.pool = nn.MaxPool1d(2)
-                self.fc1 = nn.Linear(64 * ((input_size - 4) // 2), 32)
-                self.fc2 = nn.Linear(32, 16)
-                self.dropout = nn.Dropout(0.3)
-            
-            def forward(self, x):
-                x = x.unsqueeze(1)  # Add channel dimension
+
+                with torch.no_grad():
+                    dummy_input = torch.zeros(1, 1, input_size)
+                    out = self.pool(torch.relu(self.conv1(dummy_input)))
+                    out = self.pool(torch.relu(self.conv2(out)))
+                    flatten_size = out.view(1, -1).size(1)
+
+                self.fc1 = nn.Linear(flatten_size, 32)
+
+            self.fc2 = nn.Linear(32, 16)
+            self.dropout = nn.Dropout(0.3)
+
+        def forward(self, x):
+            if not self.use_cnn:
+                x = torch.relu(self.fc1(x))
+            else:
+                x = x.unsqueeze(1)  # (batch_size, 1, input_size)
                 x = torch.relu(self.conv1(x))
                 x = self.pool(x)
-                # x = torch.relu(self.conv2(x))
-                # x = self.pool(x)
+                x = torch.relu(self.conv2(x))
+                x = self.pool(x)
                 x = x.view(x.size(0), -1)
                 x = torch.relu(self.fc1(x))
-                x = self.dropout(x)
-                x = self.fc2(x)
-                return x
-        
-        return CNN(input_size)
-    
+            x = self.dropout(x)
+            x = self.fc2(x)
+            return x
+     return CNN(input_size)
+
     def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
         """Train the model."""
         # Train CNN
