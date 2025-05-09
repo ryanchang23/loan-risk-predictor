@@ -15,30 +15,29 @@ class CNNLightGBMModel(BaseModel):
     
     def _create_cnn_model(self, input_size: int) -> nn.Module:
         """Create the CNN model architecture."""
-        # class CNN(nn.Module):
-        #     def __init__(self, input_size):
-        #         super(CNN, self).__init__()
-        #         self.conv1 = nn.Conv1d(1, 32, kernel_size=3)
-        #         self.conv2 = nn.Conv1d(32, 64, kernel_size=3)
-        #         self.pool = nn.MaxPool1d(2)
-        #         self.fc1 = nn.Linear(64 * ((input_size - 4) // 2), 32)
-        #         self.fc2 = nn.Linear(32, 16)
-        #         self.dropout = nn.Dropout(0.3)
+        class CNN(nn.Module):
+            def __init__(self, input_size):
+                super(CNN, self).__init__()
+                self.conv1 = nn.Conv1d(1, 32, kernel_size=3)
+                self.conv2 = nn.Conv1d(32, 64, kernel_size=3)
+                self.pool = nn.MaxPool1d(2)
+                self.fc1 = nn.Linear(64 * ((input_size - 4) // 2), 32)
+                self.fc2 = nn.Linear(32, 16)
+                self.dropout = nn.Dropout(0.3)
             
-        #     def forward(self, x):
-        #         x = x.unsqueeze(1)  # Add channel dimension
-        #         x = torch.relu(self.conv1(x))
-        #         x = self.pool(x)
-        #         x = torch.relu(self.conv2(x))
-        #         x = self.pool(x)
-        #         x = x.view(x.size(0), -1)
-        #         x = torch.relu(self.fc1(x))
-        #         x = self.dropout(x)
-        #         x = self.fc2(x)
-        #         return x
+            def forward(self, x):
+                x = x.unsqueeze(1)  # Add channel dimension
+                x = torch.relu(self.conv1(x))
+                x = self.pool(x)
+                # x = torch.relu(self.conv2(x))
+                # x = self.pool(x)
+                x = x.view(x.size(0), -1)
+                x = torch.relu(self.fc1(x))
+                x = self.dropout(x)
+                x = self.fc2(x)
+                return x
         
-        # return CNN(input_size)
-        pass
+        return CNN(input_size)
     
     def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
         """Train the model."""

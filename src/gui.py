@@ -127,7 +127,7 @@ class LoanRiskPredictorGUI:
         model_frame.pack(pady=5, fill=ctk.X)
         ctk.CTkLabel(model_frame, text="Select Models").pack(anchor=ctk.W, pady=5)
         self.model_vars = {}
-        for model in ["d_lstm", "mlp", "cnn_lightgbm", "dnn", "random_forest", "rnn"]:
+        for model in ["d_lstm", "mlp", "cnn_lightgbm", "dnn", "random_forest", "rnn", "xgboost"]:
             var = ctk.BooleanVar(value=True)
             self.model_vars[model] = var
             ctk.CTkCheckBox(model_frame, text=model, variable=var).pack(anchor=ctk.W, pady=2)

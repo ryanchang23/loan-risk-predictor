@@ -62,7 +62,7 @@ class LoanRiskPredictor:
                     labels = processed_labels
                 else:
                     self.logger.info("Performing feature engineering...")
-                    n_features = 5  # Number of features to select
+                    n_features = self.config.get('features.n_features') # Number of features to select
                     with tqdm(total=3, desc="Feature Engineering") as pbar:
                         processed_features = self.feature_engineer.process_features(normalized_data, labels, n_features)
                         pbar.update(1)
@@ -82,11 +82,14 @@ class LoanRiskPredictor:
                 encoded_features = normalized_data
             
             # Initialize metrics storage
+            global metrics 
             metrics = {
                 'accuracy': [],
                 'sensitivity': [],
                 'specificity': [],
-                'confusion_matrices': []
+                'confusion_matrices': [],
+                'processed_features': None,
+                'processed_labels': None
             }
             
             # Get model name from config if not provided
@@ -173,7 +176,10 @@ class LoanRiskPredictor:
         for model_name in ModelFactory.get_available_models():
             try:
                 self.logger.info(f"\nRunning {model_name} model...")
-                metrics = self.run(model_name, subsample_rate, n_folds, debug_mode)
+                global metrics 
+                metrics = self.run(model_name, subsample_rate, n_folds, debug_mode,
+                                    processed_features=metrics['processed_features'],
+                                    processed_labels=metrics['processed_labels'])
                 results[model_name] = metrics
             except Exception as e:
                 self.logger.error(f"Error running {model_name}: {str(e)}")

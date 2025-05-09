@@ -24,6 +24,7 @@ class ConfigManager:
                 'random_state': 42
             },
             'features': {
+                'n_features': 9,
                 'categorical_columns': [
                     'Married/Single',
                     'House_Ownership',

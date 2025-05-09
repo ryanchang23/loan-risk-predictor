@@ -13,32 +13,31 @@ class RNNModel(BaseModel):
     
     def _create_model(self, input_size: int) -> nn.Module:
         """Create the RNN model architecture."""
-        # class RNN(nn.Module):
-        #     def __init__(self, input_size):
-        #         super(RNN, self).__init__()
-        #         self.hidden_size = 64
-        #         self.num_layers = 2
-        #         self.rnn = nn.RNN(
-        #             input_size,
-        #             self.hidden_size,
-        #             self.num_layers,
-        #             batch_first=True,
-        #             dropout=0.3
-        #         )
-        #         self.fc1 = nn.Linear(self.hidden_size, 32)
-        #         self.fc2 = nn.Linear(32, 1)
-        #         self.sigmoid = nn.Sigmoid()
+        class RNN(nn.Module):
+            def __init__(self, input_size):
+                super(RNN, self).__init__()
+                self.hidden_size = 64
+                self.num_layers = 2
+                self.rnn = nn.RNN(
+                    input_size,
+                    self.hidden_size,
+                    self.num_layers,
+                    batch_first=True,
+                    dropout=0.3
+                )
+                self.fc1 = nn.Linear(self.hidden_size, 32)
+                self.fc2 = nn.Linear(32, 1)
+                self.sigmoid = nn.Sigmoid()
             
-        #     def forward(self, x):
-        #         h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device)
-        #         out, _ = self.rnn(x, h0)
-        #         out = out[:, -1, :]  # Get the last time step
-        #         out = torch.relu(self.fc1(out))
-        #         out = self.fc2(out)
-        #         return self.sigmoid(out)
+            def forward(self, x):
+                h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device)
+                out, _ = self.rnn(x, h0)
+                out = out[:, -1, :]  # Get the last time step
+                out = torch.relu(self.fc1(out))
+                out = self.fc2(out)
+                return self.sigmoid(out)
         
-        # return RNN(input_size)
-        pass
+        return RNN(input_size)
     
 
     def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
