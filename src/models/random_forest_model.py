@@ -12,13 +12,15 @@ class RandomForestModel(BaseModel):
     def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
         """Train the model."""
         self.model = RandomForestClassifier(
-            n_estimators=100,
-            max_depth=None,
+            n_estimators=200,
+            max_depth=10,
             min_samples_split=2,
-            min_samples_leaf=1,
-            random_state=42
+            min_samples_leaf=2,
+            random_state=42,
+            class_weight='balanced'
         )
         self.model.fit(X_train, y_train)
+        pass
     
     def predict(self, X: np.ndarray) -> np.ndarray:
         """Make predictions."""
