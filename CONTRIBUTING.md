@@ -4,7 +4,7 @@
 
 ---
 
-## 📦 1. 安裝 Git
+## 1. 安裝 Git
 
 請先安裝 Git，如果你已經安裝過，請跳至下一步。
 
@@ -37,9 +37,17 @@ git config --global user.email "你的Email"
 
 點選右上角的 Fork，建立一份專案副本到你的帳號。
 
-## 4. Clone 你的專案副本
-git clone https://github.com/JiaLong0209/loan-risk-predictor.git
-cd 本專案名稱
+## 4. Clone 你的專案副本 
+``` bash
+# https
+git clone https://github.com/<your_account>/loan-risk-predictor.git
+cd project_name
+
+# SSH (recommended)
+git clone git@github.com:<your_account>/loan-risk-predictor.git
+cd project_name
+
+```
 
 ## 5. 設定遠端原始倉庫（upstream）
 
@@ -49,10 +57,8 @@ cd 本專案名稱
 
 git remote add upstream https://github.com/JiaLong0209/loan-risk-predictor.git
 
-#確認遠端設定：
-
+#確認遠端設定
 git remote -v
-
 ``` 
 
 ## 6. 建立分支開始開發
@@ -77,13 +83,13 @@ git push origin feat/新增功能名稱
 ```
 ## 8. 在 GitHub 上發出 Pull Request（PR）
 
-到你的 GitHub 倉庫。
+* 到你的 GitHub 倉庫。
 
-會看到有個「Compare & pull request」的按鈕，點它。
+* 會看到有個「Compare & pull request」的按鈕，點它。
 
-填寫說明後送出 PR。
+* 填寫說明後送出 PR。
 
-等待專案擁有者審核合併。
+* 等待專案擁有者審核合併。
 
 ## 9. 與主專案保持同步（更新 upstream）
 請定期從主專案（upstream）拉取更新，確保你的分支是最新的：
@@ -103,15 +109,61 @@ git branch -d feat/新增功能名稱
 git push origin --delete feat/新增功能名稱
 ```
 
-## 補充建議
-每次開發新功能或修正錯誤都請開新分支。
+## 補充
 
-Commit message 請盡量清楚、符合語意化命名，例如：
+### 使用 SSH 金鑰操作 Git（推薦）
 
-feat: 新增貸款風險模型比較功能
+#### 產生 SSH 金鑰：
 
-fix: 修正模型準確率計算錯誤
+``` bash    
+ssh-keygen -t rsa -C "your email"
 
-遇到衝突時請自行解決後再提交。
+cat <path_to_id_rsa.pub>
+
+```
+
+將輸出的內容複製起來。
+
+#### 加入 GitHub：
+
+* 登入 GitHub。
+
+* 前往「Settings → SSH and GPG keys」。
+
+* 點「New SSH key」。
+
+* 貼上剛剛複製的公鑰，按 Save
+
+
+#### ✅ 測試 SSH 是否設定成功：
+``` bash    
+ssh -T git@github.com
+```
+
+### Change Git remote URL from HTTPS to SSH
+
+#### Check your current remotes
+
+```bash
+git remote -v
+```
+
+#### Change the remote URL to SSH
+
+``` bash
+git remote set-url origin git@github.com:your-username/your-repo.git
+```
+
+#### Verify the change
+
+```bash
+git remote -v
+```
+
+#### Test your connection
+
+```bash
+ssh -T git@github.com   
+```
 
 
