@@ -1,0 +1,2479 @@
+1. Project Structure:
+
+loan-risk-predict_refactor/
+├── CONTRIBUTING.md
+├── README.md
+├── src/
+│   ├── __init__.py
+│   ├── app.py
+│   ├── config/
+│   │   ├── config.py
+│   ├── data/
+│   │   ├── data_repository.py
+│   ├── gui.py
+│   ├── main.py
+│   ├── models/
+│   │   ├── autoencoder.py
+│   │   ├── base_model.py
+│   │   ├── cnn_lightgbm_model.py
+│   │   ├── d_lstm_model.py
+│   │   ├── dnn_model.py
+│   │   ├── mlp_model.py
+│   │   ├── model_factory.py
+│   │   ├── random_forest_model.py
+│   │   ├── rnn_model.py
+│   │   ├── xgboost_model.py
+│   ├── utils/
+│   │   ├── feature_engineering.py
+│   │   ├── logger.py
+│   │   └── test_utils.py
+
+
+2. File Contents:
+
+File 1: CONTRIBUTING.md
+--------------------------------------------------
+# 📘 How to Contribute to This Project
+
+Thank you for your interest in contributing to this project! This guide will walk you through the full process—from installing Git to submitting a Pull Request (PR).
+
+---
+
+## 1. Install Git
+
+If you don’t already have Git installed, follow the steps below:
+
+### On Windows:
+
+1. Download the Git installer from: [https://git-scm.com/download/win](https://git-scm.com/download/win)  
+2. Run the installer and proceed with the default settings.
+
+### On macOS or Linux:
+
+```bash
+# macOS
+brew install git
+
+# Ubuntu / Debian
+sudo apt update && sudo apt install git
+
+# Arch / Manjaro
+sudo pacman -S git
+
+```
+
+## 2. Configure Git User Info
+```bash
+git config --global user.name "your name"
+git config --global user.email "your email"
+```
+
+## 3. Fork the Project
+Go to the GitHub repository page and click on the Fork button in the top-right corner to create a copy under your account.
+
+## 4. Clone Your Fork 
+``` bash
+# https
+git clone https://github.com/<your_account>/loan-risk-predictor.git
+cd project_name
+
+# SSH (recommended)
+git clone git@github.com:<your_account>/loan-risk-predictor.git
+cd project_name
+
+```
+
+## 5. Add the Original Repository as a Remote (upstream)
+This allows you to keep your fork up to date with the main project:
+
+``` bash
+
+git remote add upstream https://github.com/JiaLong0209/loan-risk-predictor.git
+
+# Verify remotes
+git remote -v
+``` 
+
+## 6. Create a Feature Branch
+Do not work directly on the main or master branch. Instead, create a new feature branch:
+
+``` bash
+git checkout -b feat/your-feature-name
+``` 
+
+## 7. Commit and Push Changes
+After editing the code:
+
+``` bash
+git add .
+
+# Commit your changes
+git commit -m "feat: add your feature description"
+
+# Push to your GitHub  repository
+git push origin feat/your-feature-name
+```
+
+## 8. Submit ta Pull Request (PR)
+
+1. Go to your GitHub repo.
+
+2. Click the "Compare & pull request" button.
+
+3. Add a meaningful description and submit the PR.
+
+4. Wait for a maintainer to review and merge it.
+
+
+## 9. Keep Your Fork in Sync
+Regularly sync your fork with the main repository to stay updated:
+
+```bash
+git checkout main
+git pull upstream main
+git push origin main
+```
+
+## 10. Delete Merged Branches (Optional)
+
+Once your PR is merged, you can clean up your branches:
+
+``` bash
+# Delete the local branch
+git branch -d feat/your-feature-name
+
+# Delete the remote branch
+git push origin --delete feat/your-feature-name
+
+```
+
+## Additional
+
+### Using SSH Key for Git Operations (Recommended)
+
+#### Generate SSH Key:
+
+``` bash    
+ssh-keygen -t rsa -C "your email"
+
+cat <path_to_id_rsa.pub>
+
+```
+
+Copy the output.
+
+#### Add SSH Key to GitHub:
+
+1. Log in to GitHub.
+
+2. Go to Settings -> SSH and GPG Keys.
+
+3. Click Neww SSH Key.
+
+4. Paste the copied key and save.
+
+#### Verify the SSH:
+``` bash    
+ssh -T git@github.com
+```
+
+### Change Git remote URL from HTTPS to SSH
+
+#### Check your current remotes
+
+```bash
+git remote -v
+```
+
+#### Change the remote URL to SSH
+
+``` bash
+git remote set-url origin git@github.com:your-username/your-repo.git
+```
+
+#### Verify the change
+
+```bash
+git remote -v
+```
+
+#### Test your connection
+
+```bash
+ssh -T git@github.com   
+```
+
+
+
+
+==================================================
+
+File 2: README.md
+--------------------------------------------------
+# Loan Risk Predictor
+
+A machine learning system for predicting loan risk using multiple models, including D-LSTM, MLP, CNN-LightGBM, DNN, Random Forest, XGBoost and RNN.
+
+## Features
+
+- Multiple model implementations
+- Stratified sampling for training
+- K-fold cross-validation
+- Subsample rate control
+- Interactive GUI with real-time visualization
+- Performance metrics visualization (accuracy, sensitivity, specificity)
+- Model comparison charts
+
+## Prerequisites
+
+- Python 3.12 or higher
+- Poetry (Python package manager)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/JiaLong0209/loan-risk-predictor.git
+cd loan-risk-predictor
+```
+
+2. Install dependencies using Poetry:
+```bash
+poetry install
+```
+
+3. Activate the virtual environment:
+```bash
+poetry shell
+```
+
+## Usage
+
+### GUI Application
+
+To run the GUI application:
+
+```bash
+python -m src.main
+```
+
+The GUI provides the following controls:
+- Train Split Rate: Adjust the training/test split ratio (50-90%)
+- K-Fold Number: Set the number of folds for cross-validation (2-10)
+- Subsample Rate: Control the data subsampling rate (10-100%)
+- Model Selection: Choose which models to run
+- Run Models: Start the training and evaluation process
+
+### Command Line Interface
+
+To run specific models from the command line:
+
+```bash
+python -m src.main --model d_lstm  # Run only D-LSTM model
+python -m src.main  # Run all models
+poetry run python -m src.main --gui # Run GUI
+```
+
+## Project Structure
+
+```
+src/
+├── config/
+│   └── config.py
+├── data/
+│   └── data_repository.py
+├── models/
+│   ├── base_model.py
+│   ├── model_factory.py
+│   ├── d_lstm_model.py
+│   ├── mlp_model.py
+│   ├── cnn_lightgbm_model.py
+│   ├── dnn_model.py
+│   ├── random_forest_model.py
+│   └── rnn_model.py
+├── utils/
+│   ├── test_utils.py
+│   ├── feature_engineering.py
+│   └── logger.py
+├── app.py
+├── gui.py
+└── main.py
+```
+
+## Model Descriptions
+
+1. **D-LSTM (Deep Long Short-Term Memory)**
+   - Deep LSTM architecture for sequence modeling
+   - Suitable for capturing temporal dependencies
+
+2. **MLP (Multi-Layer Perceptron)**
+   - Classic neural network architecture
+   - Good for general classification tasks
+
+3. **CNN-LightGBM**
+   - Hybrid model combining CNN for feature extraction
+   - LightGBM for final classification
+
+4. **DNN (Deep Neural Network)**
+   - Deep neural network with batch normalization
+   - Dropout for regularization
+
+5. **Random Forest**
+   - Ensemble of decision trees
+   - Good for handling non-linear relationships
+
+6. **RNN (Recurrent Neural Network)**
+   - Recurrent architecture for sequence modeling
+   - Suitable for time-series data
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+For detailed contribution guidelines, please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
+==================================================
+
+File 3: src\__init__.py
+--------------------------------------------------
+"""
+Loan Risk Predictor package.
+"""
+
+__version__ = "0.1.0" 
+
+==================================================
+
+File 4: src\app.py
+--------------------------------------------------
+from typing import List, Tuple, Dict
+import numpy as np
+from tqdm import tqdm
+from .config.config import ConfigManager
+from .data.data_repository import DataRepository
+from .models.model_factory import ModelFactory
+from .utils.logger import Logger
+from .utils.feature_engineering import FeatureEngineer
+from .models.autoencoder import AutoencoderTrainer
+from .utils.test_utils import TestDataGenerator, DebugLogger
+
+class LoanRiskPredictor:
+    """Main application class for loan risk prediction."""
+    
+    def __init__(self):
+        self.config = ConfigManager()
+        self.data_repo = DataRepository()
+        self.logger = Logger()
+        self.feature_engineer = FeatureEngineer()
+        self.debug_logger = DebugLogger("loan_risk_predictor")
+        # Set random seed for reproducibility
+        np.random.seed(42)
+
+    def run(self, model_name: str = None, subsample_rate: float = 1.0, n_folds: int = 5,
+            debug_mode: bool = False, use_feature_engineering: bool = True,
+            processed_features: np.ndarray = None, processed_labels: np.ndarray = None) -> Dict[str, List[float]]:
+        """Run the loan risk prediction pipeline with K-fold cross-validation."""
+        try:
+            # Load and preprocess data
+            self.logger.info("Loading and preprocessing data...")
+            if debug_mode:
+                # data, labels = TestDataGenerator.generate_synthetic_data(n_samples=1000)
+                data, labels = self.data_repo.load_data()
+                self.debug_logger.log_data_info(data, "Debug Data")
+                self.debug_logger.log_array_info(labels, "Debug Labels")
+            else:
+                data, labels = self.data_repo.load_data()
+            
+            normalized_data = self.data_repo.preprocess_data(data)
+            if debug_mode:
+                self.debug_logger.log_array_info(normalized_data, "Normalized Data")
+            self.logger.info("Normalized Data Shape")
+            self.logger.info(normalized_data.shape)
+            
+            # Subsample data if needed
+            if subsample_rate < 1.0:
+                self.logger.info(f"Subsampling data to {subsample_rate*100}%...")
+                normalized_data, labels = self.data_repo.subsample_data(normalized_data, labels, subsample_rate)
+                if debug_mode:
+                    self.debug_logger.log_array_info(normalized_data, "Subsampled Data")
+                    self.debug_logger.log_array_info(labels, "Subsampled Labels")
+                self.logger.info("Subsample Data Shape")
+                self.logger.info(normalized_data.shape)
+
+                
+            
+            # Feature engineering
+            if use_feature_engineering:
+                if processed_features is not None and processed_labels is not None:
+                    self.logger.info("Using cached feature engineering results...")
+                    encoded_features = processed_features
+                    labels = processed_labels
+                else:
+                    self.logger.info("Performing feature engineering...")
+                    n_features = self.config.get('features.n_features') # Number of features to select
+                    with tqdm(total=3, desc="Feature Engineering") as pbar:
+                        processed_features = self.feature_engineer.process_features(normalized_data, labels, n_features)
+                        pbar.update(1)
+                        if debug_mode:
+                            self.debug_logger.log_array_info(processed_features, "Processed Features")
+                        
+                        # Autoencoder feature extraction
+                        self.logger.info("Performing autoencoder feature extraction...")
+                        autoencoder = AutoencoderTrainer(processed_features.shape[1], n_features)
+                        autoencoder.train(processed_features)
+                        pbar.update(1)
+                        encoded_features = autoencoder.encode(processed_features)
+                        pbar.update(1)
+                        if debug_mode:
+                            self.debug_logger.log_array_info(encoded_features, "Encoded Features")
+            else:
+                encoded_features = normalized_data
+            
+            # Initialize metrics storage
+            global metrics 
+            metrics = {
+                'accuracy': [],
+                'sensitivity': [],
+                'specificity': [],
+                'confusion_matrices': [],
+                'processed_features': None,
+                'processed_labels': None
+            }
+            
+            # Get model name from config if not provided
+            if model_name is None:
+                model_name = self.config.get('models.default_model')
+            
+            # Perform K-fold cross-validation
+            self.logger.info(f"Performing {n_folds}-fold cross-validation...")
+            for fold, (X_train, X_val, y_train, y_val) in enumerate(tqdm(self.data_repo.get_kfold_splits(encoded_features, labels, n_folds), 
+                                                                        total=n_folds, desc="K-fold Cross Validation")):
+                self.logger.info(f"Training fold {fold + 1}/{n_folds}...")
+                
+                if debug_mode:
+                    self.debug_logger.log_array_info(X_train, f"Fold {fold + 1} Training Data")
+                    self.debug_logger.log_array_info(y_train, f"Fold {fold + 1} Training Labels")
+                    self.debug_logger.log_array_info(X_val, f"Fold {fold + 1} Validation Data")
+                    self.debug_logger.log_array_info(y_val, f"Fold {fold + 1} Validation Labels")
+                
+                # Create and train model
+                model = ModelFactory.create_model(model_name)
+                with tqdm(total=1, desc=f"Training {model_name}") as pbar:
+                    model.train(X_train, y_train)
+                    pbar.update(1)
+                
+                # Evaluate model
+                acc, sens, spec, cm = model.evaluate(X_val, y_val)
+                
+                metrics['accuracy'].append(acc)
+                metrics['sensitivity'].append(sens)
+                metrics['specificity'].append(spec)
+                metrics['confusion_matrices'].append(cm)
+                
+                if debug_mode:
+                    self.debug_logger.log_metrics({
+                        'accuracy': acc,
+                        'sensitivity': sens,
+                        'specificity': spec
+                    }, f"Fold {fold + 1} Results")
+                    self.debug_logger.log_array_info(cm, f"Fold {fold + 1} Confusion Matrix")
+                
+                self.logger.info(f"Fold {fold + 1} results:")
+                self.logger.info(f"Accuracy: {acc:.4f}")
+                self.logger.info(f"Sensitivity: {sens:.4f}")
+                self.logger.info(f"Specificity: {spec:.4f}")
+                # self.logger.log_array_info(cm, f"Fold {fold + 1} Confusion Matrix")
+
+            
+            # Calculate and log average metrics
+            avg_metrics = {
+                'accuracy': np.mean(metrics['accuracy']),
+                'sensitivity': np.mean(metrics['sensitivity']),
+                'specificity': np.mean(metrics['specificity'])
+            }
+            
+            # Calculate average confusion matrix
+            avg_cm = np.mean(metrics['confusion_matrices'], axis=0).astype(int)
+            metrics['confusion_matrix'] = avg_cm
+            
+            if debug_mode:
+                self.debug_logger.log_metrics(avg_metrics, "Average Results")
+                self.debug_logger.log_array_info(avg_cm, "Average Confusion Matrix")
+            
+            self.logger.info("\nAverage results across all folds:")
+            self.logger.info(f"Accuracy: {avg_metrics['accuracy']:.4f}")
+            self.logger.info(f"Sensitivity: {avg_metrics['sensitivity']:.4f}")
+            self.logger.info(f"Specificity: {avg_metrics['specificity']:.4f}")
+            # self.logger.log_array_info(avg_cm, "Average Confusion Matrix")
+            
+            # Add processed features to metrics if this is the first run
+            if use_feature_engineering and processed_features is None:
+                metrics['processed_features'] = encoded_features
+                metrics['processed_labels'] = labels
+            
+            return metrics
+            
+        except Exception as e:
+            self.logger.error(f"Error in loan risk prediction: {str(e)}")
+            raise
+    
+    def run_all_models(self, subsample_rate: float = 1.0, n_folds: int = 5, debug_mode: bool = False) -> Dict[str, Dict[str, List[float]]]:
+        """Run all available models with K-fold cross-validation."""
+        results = {}
+        
+        for model_name in ModelFactory.get_available_models():
+            try:
+                self.logger.info(f"\nRunning {model_name} model...")
+                global metrics 
+                metrics = self.run(model_name, subsample_rate, n_folds, debug_mode,
+                                    processed_features=metrics['processed_features'],
+                                    processed_labels=metrics['processed_labels'])
+                results[model_name] = metrics
+            except Exception as e:
+                self.logger.error(f"Error running {model_name}: {str(e)}")
+                continue
+        
+        return results 
+
+==================================================
+
+File 5: src\config\config.py
+--------------------------------------------------
+from typing import Dict, Any
+import yaml
+import os
+
+class ConfigManager:
+    _instance = None
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(ConfigManager, cls).__new__(cls)
+            cls._instance._initialize()
+        return cls._instance
+    
+    def _initialize(self):
+        self.config: Dict[str, Any] = {
+            'data': {
+                'train_path': 'Dataset/Training Data.csv',
+                'test_path': 'Dataset/Test Data.csv',
+                'processed_dir': 'processed'
+            },
+            'models': {
+                'default_model': 'd_lstm',
+                'train_percentage': 80,
+                'random_state': 42
+            },
+            'features': {
+                'n_features': 9,
+                'categorical_columns': [
+                    'Married/Single',
+                    'House_Ownership',
+                    'Car_Ownership',
+                    'Profession',
+                    'CITY',
+                    'STATE'
+                ],
+                'target_column': 'Risk_Flag'
+            },
+            'logging': {
+                'level': 'INFO',
+                'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+            }
+        }
+    
+    def get(self, key: str, default: Any = None) -> Any:
+        """Get a configuration value using dot notation."""
+        keys = key.split('.')
+        value = self.config
+        for k in keys:
+            if isinstance(value, dict):
+                value = value.get(k, default)
+            else:
+                return default
+        return value
+    
+    def set(self, key: str, value: Any) -> None:
+        """Set a configuration value using dot notation."""
+        keys = key.split('.')
+        config = self.config
+        for k in keys[:-1]:
+            config = config.setdefault(k, {})
+        config[keys[-1]] = value
+    
+    def load_from_yaml(self, yaml_path: str) -> None:
+        """Load configuration from a YAML file."""
+        if os.path.exists(yaml_path):
+            with open(yaml_path, 'r') as f:
+                yaml_config = yaml.safe_load(f)
+                self._update_config(self.config, yaml_config)
+    
+    def _update_config(self, base: Dict, update: Dict) -> None:
+        """Recursively update configuration dictionary."""
+        for key, value in update.items():
+            if key in base and isinstance(base[key], dict) and isinstance(value, dict):
+                self._update_config(base[key], value)
+            else:
+                base[key] = value 
+
+==================================================
+
+File 6: src\data\data_repository.py
+--------------------------------------------------
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split, StratifiedKFold
+from typing import Tuple, List, Generator
+import os
+from ..config.config import ConfigManager
+
+class DataRepository:
+    def __init__(self):
+        self.config = ConfigManager()
+        self.scaler = StandardScaler()
+        self._initialize_directories()
+    
+    def _initialize_directories(self):
+        """Create necessary directories if they don't exist."""
+        processed_dir = self.config.get('data.processed_dir')
+        if not os.path.exists(processed_dir):
+            os.makedirs(processed_dir)
+    
+    def load_data(self) -> Tuple[pd.DataFrame, np.ndarray]:
+        """Load and preprocess the training data."""
+        data_path = self.config.get('data.train_path')
+        target_column = self.config.get('features.target_column')
+        
+        # Load data
+        data = pd.read_csv(data_path)
+        
+        # Extract labels
+        labels = data[target_column].values
+        
+        # Remove target column
+        data = data.drop(target_column, axis=1)
+        
+        return data, labels
+    
+    def preprocess_data(self, data: pd.DataFrame) -> np.ndarray:
+        """Preprocess the data including categorical encoding and normalization."""
+        # Handle categorical columns
+        categorical_columns = self.config.get('features.categorical_columns')
+        for col in categorical_columns:
+            if col in data.columns:
+                data[col] = pd.Categorical(data[col]).codes
+        
+        # Normalize data
+        normalized_data = self.scaler.fit_transform(data)
+        
+        # Save processed data
+        processed_path = os.path.join(
+            self.config.get('data.processed_dir'),
+            'normalized_data.csv'
+        )
+        np.savetxt(processed_path, normalized_data, delimiter=',', fmt='%s')
+        
+        return normalized_data
+    
+    def subsample_data(self, X: np.ndarray, y: np.ndarray, subsample_rate: float) -> Tuple[np.ndarray, np.ndarray]:
+        """Perform stratified subsampling of the data."""
+        if subsample_rate >= 1.0:
+            return X, y
+        
+        # Calculate number of samples to keep
+        n_samples = int(len(X) * subsample_rate)
+        
+        # Perform stratified sampling
+        X_subsampled, _, y_subsampled, _ = train_test_split(
+            X, y,
+            train_size=n_samples,
+            stratify=y,
+            random_state=42
+        )
+        
+        return X_subsampled, y_subsampled
+    
+    def split_data(self, X: np.ndarray, y: np.ndarray) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+        """Split data into train and test sets."""
+        train_percentage = self.config.get('models.train_percentage')
+        random_state = self.config.get('models.random_state')
+        
+        test_size = (100 - train_percentage) / 100
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y,
+            test_size=test_size,
+            random_state=random_state,
+            stratify=y
+        )
+        
+        return X_train, X_test, y_train, y_test
+    
+    def get_kfold_splits(self, X: np.ndarray, y: np.ndarray, n_splits: int) -> Generator[Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray], None, None]:
+        """Generate K-fold cross-validation splits."""
+        kf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
+        
+        for train_idx, val_idx in kf.split(X, y):
+            X_train, X_val = X[train_idx], X[val_idx]
+            y_train, y_val = y[train_idx], y[val_idx]
+            yield X_train, X_val, y_train, y_val
+    
+    def get_feature_names(self) -> List[str]:
+        """Get the list of feature names."""
+        data, _ = self.load_data()
+        return list(data.columns) 
+
+==================================================
+
+File 7: src\gui.py
+--------------------------------------------------
+import customtkinter as ctk
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import numpy as np
+from typing import Dict, List, Tuple
+from .app import LoanRiskPredictor
+from .config.config import ConfigManager
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+
+class LoanRiskPredictorGUI:
+    def __init__(self):
+        self.config = ConfigManager()
+        self.predictor = LoanRiskPredictor()
+        
+        # Create main window
+        self.root = ctk.CTk()
+        self.root.title("Loan Risk Predictor")
+        self.root.geometry("1600x900")
+
+        # Set matplotlib style
+        plt.style.use('ggplot')
+ # Create frames
+        self.create_control_frame()
+        self.create_results_frame()
+        self.create_charts_frame()
+        
+        # Initialize results storage
+        self.results: Dict[str, Dict[str, List[float]]] = {}
+        self.confusion_matrices: Dict[str, np.ndarray] = {}
+        
+        # Debug mode flag
+        self.debug_mode = False
+        
+        # Feature engineering flag
+        self.feature_engineering_done = False
+        self.processed_features = None
+        self.processed_labels = None
+    
+    def create_control_frame(self):
+        """Create the control panel frame."""
+        control_frame = ctk.CTkFrame(self.root)
+        control_frame.pack(side=ctk.LEFT, fill=ctk.Y, padx=15, pady=15)
+        
+        # Debug mode toggle
+        self.debug_var = ctk.BooleanVar(value=False)
+        debug_checkbox = ctk.CTkCheckBox(
+            control_frame,
+            text="Debug Mode",
+            variable=self.debug_var,
+            command=self.toggle_debug_mode
+        )
+        debug_checkbox.pack(pady=5)
+        
+        # Feature engineering toggle
+        self.feature_eng_var = ctk.BooleanVar(value=True)
+        feature_eng_checkbox = ctk.CTkCheckBox(
+            control_frame,
+            text="Enable Feature Engineering",
+            variable=self.feature_eng_var,
+            command=self.toggle_feature_engineering
+        )
+        feature_eng_checkbox.pack(pady=5)
+        
+        # Train split rate
+        train_frame = ctk.CTkFrame(control_frame)
+        train_frame.pack(pady=5, fill=ctk.X)
+        ctk.CTkLabel(train_frame, text="Train Split Rate (%)").pack(side=ctk.LEFT, padx=5)
+        self.train_split = ctk.CTkSlider(train_frame, from_=50, to=90, number_of_steps=8)
+        self.train_split.set(80)
+        self.train_split.pack(side=ctk.LEFT, padx=5, fill=ctk.X, expand=True)
+        self.train_split_label = ctk.CTkLabel(train_frame, text="80%")
+        self.train_split_label.pack(side=ctk.LEFT, padx=5)
+        self.train_split.configure(command=self.update_train_split_label)
+        
+        # Train split rate entry
+        train_entry_frame = ctk.CTkFrame(control_frame)
+        train_entry_frame.pack(pady=5, fill=ctk.X)
+        ctk.CTkLabel(train_entry_frame, text="Enter Train Split:").pack(side=ctk.LEFT, padx=5)
+        self.train_split_entry = ctk.CTkEntry(train_entry_frame, width=60)
+        self.train_split_entry.pack(side=ctk.LEFT, padx=5)
+        self.train_split_entry.insert(0, "80")
+        self.train_split_entry.bind('<Return>', self.update_train_split_from_entry)
+        
+        # K-fold number
+        kfold_frame = ctk.CTkFrame(control_frame)
+        kfold_frame.pack(pady=5, fill=ctk.X)
+        ctk.CTkLabel(kfold_frame, text="K-Fold Number").pack(side=ctk.LEFT, padx=5)
+        self.k_fold = ctk.CTkSlider(kfold_frame, from_=2, to=10, number_of_steps=8)
+        self.k_fold.set(5)
+        self.k_fold.pack(side=ctk.LEFT, padx=5, fill=ctk.X, expand=True)
+        self.k_fold_label = ctk.CTkLabel(kfold_frame, text="5")
+        self.k_fold_label.pack(side=ctk.LEFT, padx=5)
+        self.k_fold.configure(command=self.update_kfold_label)
+        
+        # K-fold entry
+        kfold_entry_frame = ctk.CTkFrame(control_frame)
+        kfold_entry_frame.pack(pady=5, fill=ctk.X)
+        ctk.CTkLabel(kfold_entry_frame, text="Enter K-Fold:").pack(side=ctk.LEFT, padx=5)
+        self.k_fold_entry = ctk.CTkEntry(kfold_entry_frame, width=60)
+        self.k_fold_entry.pack(side=ctk.LEFT, padx=5)
+        self.k_fold_entry.insert(0, "5")
+        self.k_fold_entry.bind('<Return>', self.update_kfold_from_entry)
+        
+        # Subsample rate
+        subsample_frame = ctk.CTkFrame(control_frame)
+        subsample_frame.pack(pady=5, fill=ctk.X)
+        ctk.CTkLabel(subsample_frame, text="Subsample Rate (%)").pack(side=ctk.LEFT, padx=5)
+        self.subsample_rate = ctk.CTkSlider(subsample_frame, from_=0.1, to=100, number_of_steps=999)
+        self.subsample_rate.set(100)
+        self.subsample_rate.pack(side=ctk.LEFT, padx=5, fill=ctk.X, expand=True)
+        self.subsample_label = ctk.CTkLabel(subsample_frame, text="100%")
+        self.subsample_label.pack(side=ctk.LEFT, padx=5)
+        self.subsample_rate.configure(command=self.update_subsample_label)
+        
+        # Subsample rate entry
+        subsample_entry_frame = ctk.CTkFrame(control_frame)
+        subsample_entry_frame.pack(pady=5, fill=ctk.X)
+        ctk.CTkLabel(subsample_entry_frame, text="Enter Subsample:").pack(side=ctk.LEFT, padx=5)
+        self.subsample_entry = ctk.CTkEntry(subsample_entry_frame, width=60)
+        self.subsample_entry.pack(side=ctk.LEFT, padx=5)
+        self.subsample_entry.insert(0, "100")
+        self.subsample_entry.bind('<Return>', self.update_subsample_from_entry)
+        
+        # Model selection
+        model_frame = ctk.CTkFrame(control_frame)
+        model_frame.pack(pady=5, fill=ctk.X)
+        ctk.CTkLabel(model_frame, text="Select Models").pack(anchor=ctk.W, pady=5)
+        self.model_vars = {}
+        for model in ["d_lstm", "mlp", "cnn_lightgbm", "dnn", "random_forest", "rnn", "xgboost"]:
+            var = ctk.BooleanVar(value=True)
+            self.model_vars[model] = var
+            ctk.CTkCheckBox(model_frame, text=model, variable=var).pack(anchor=ctk.W, pady=2)
+        
+        # Run button
+        self.run_button = ctk.CTkButton(
+            control_frame,
+            text="Run Models",
+            command=self.run_models
+        )
+        self.run_button.pack(pady=20)
+    
+    def update_train_split_from_entry(self, event=None):
+        """Update train split from entry field."""
+        try:
+            value = float(self.train_split_entry.get())
+            if 50 <= value <= 90:
+                self.train_split.set(value)
+                self.update_train_split_label(value)
+        except ValueError:
+            pass
+    
+    def update_kfold_from_entry(self, event=None):
+        """Update K-fold from entry field."""
+        try:
+            value = int(self.k_fold_entry.get())
+            if 2 <= value <= 10:
+                self.k_fold.set(value)
+                self.update_kfold_label(value)
+        except ValueError:
+            pass
+    
+    def update_subsample_from_entry(self, event=None):
+        """Update subsample rate from entry field."""
+        try:
+            value = float(self.subsample_entry.get())
+            if 0.1 <= value <= 100:
+                self.subsample_rate.set(value)
+                self.update_subsample_label(value)
+        except ValueError:
+            pass
+    
+    def update_train_split_label(self, value):
+        """Update the train split rate label."""
+        self.train_split_label.configure(text=f"{int(value)}%")
+        self.train_split_entry.delete(0, ctk.END)
+        self.train_split_entry.insert(0, str(int(value)))
+    
+    def update_kfold_label(self, value):
+        """Update the K-fold number label."""
+        self.k_fold_label.configure(text=str(int(value)))
+        self.k_fold_entry.delete(0, ctk.END)
+        self.k_fold_entry.insert(0, str(int(value)))
+    
+    def update_subsample_label(self, value):
+        """Update the subsample rate label."""
+        rounded_value = round(value, 1)
+        self.subsample_label.configure(text=f"{rounded_value:.1f}%")
+        self.subsample_entry.delete(0, ctk.END)
+        self.subsample_entry.insert(0, f"{rounded_value:.1f}")
+    
+    def toggle_debug_mode(self):
+        """Toggle debug mode."""
+        self.debug_mode = self.debug_var.get()
+        if self.debug_mode:
+            self.debug_text.configure(state=ctk.NORMAL)
+            self.debug_text.delete("1.0", ctk.END)
+            self.debug_text.insert(ctk.END, "Debug mode enabled\n")
+            self.debug_text.configure(state=ctk.DISABLED)
+            # Set the callback for debug logger
+            self.predictor.debug_logger.set_gui_callback(self.log_debug_message)
+        else:
+            self.debug_text.configure(state=ctk.NORMAL)
+            self.debug_text.delete("1.0", ctk.END)
+            self.debug_text.configure(state=ctk.DISABLED)
+            # Remove the callback
+            self.predictor.debug_logger.set_gui_callback(None)
+    
+    def log_debug_message(self, message):
+        """Log a debug message to the debug text box."""
+        if self.debug_mode:
+            self.debug_text.configure(state=ctk.NORMAL)
+            self.debug_text.insert(ctk.END, message + "\n")
+            self.debug_text.see(ctk.END)  # Scroll to the end
+            self.debug_text.configure(state=ctk.DISABLED)
+    
+    def toggle_feature_engineering(self):
+        """Toggle feature engineering."""
+        if not self.feature_eng_var.get():
+            self.feature_engineering_done = False
+            self.processed_features = None
+            self.processed_labels = None
+    
+    def create_results_frame(self):
+        """Create the results display frame."""
+        results_frame = ctk.CTkFrame(self.root)
+        results_frame.pack(side=ctk.LEFT, fill=ctk.BOTH, expand=True, padx=0, pady=20)
+        
+        # Results text
+        ctk.CTkLabel(results_frame, text="Results").pack(pady=5)
+        self.results_text = ctk.CTkTextbox(results_frame, width=550, height=350)
+        self.results_text.pack(padx=0, pady=0)
+        
+        # Debug text
+        ctk.CTkLabel(results_frame, text="Debug Messages").pack(pady=5)
+        self.debug_text = ctk.CTkTextbox(results_frame, width=550, height=300)
+        self.debug_text.pack(padx=0, pady=0)
+        self.debug_text.configure(state=ctk.DISABLED)
+    
+    def create_charts_frame(self):
+        """Create the charts display frame."""
+        charts_frame = ctk.CTkFrame(self.root)
+        charts_frame.pack(side=ctk.RIGHT, fill=ctk.BOTH, expand=True, padx=20, pady=20)
+        
+        # Create tabview for different chart types
+        self.tabview = ctk.CTkTabview(charts_frame)
+        self.tabview.pack(fill=ctk.BOTH, expand=True)
+        
+        # Create tabs
+        self.tabview.add("Performance Metrics")
+        self.tabview.add("Model Comparison")
+        
+        # Create figures for each tab
+        self.fig1, (self.ax1, self.ax2) = plt.subplots(2, 1, figsize=(6, 8))
+        self.canvas1 = FigureCanvasTkAgg(self.fig1, master=self.tabview.tab("Performance Metrics"))
+        self.canvas1.get_tk_widget().pack(fill=ctk.BOTH, expand=True)
+        
+        # Create two subplots for the second tab
+        self.fig2, (self.ax3, self.ax4) = plt.subplots(2, 1, figsize=(6, 8))
+        self.canvas2 = FigureCanvasTkAgg(self.fig2, master=self.tabview.tab("Model Comparison"))
+        self.canvas2.get_tk_widget().pack(fill=ctk.BOTH, expand=True)
+    
+    def update_charts(self):
+        """Update the charts with the latest results."""
+        # Clear previous charts
+        self.ax1.clear()
+        self.ax2.clear()
+        self.ax3.clear()
+        self.ax4.clear()
+        
+        # Prepare data for charts
+        models = list(self.results.keys())
+        avg_metrics = {
+            'accuracy': [np.mean(self.results[m]['accuracy']) for m in models],
+            'sensitivity': [np.mean(self.results[m]['sensitivity']) for m in models],
+            'specificity': [np.mean(self.results[m]['specificity']) for m in models]
+        }
+        
+        # Set color palette for models
+        model_colors = plt.cm.Set3(np.linspace(0, 1, len(models)))
+        
+        # First tab: Performance Metrics
+        # Bar chart for average metrics
+        x = np.arange(len(models))
+        width = 0.20
+        bars1 = self.ax1.bar(x - width, avg_metrics['accuracy'], width, label='Accuracy', color='#2ecc71')
+        bars2 = self.ax1.bar(x, avg_metrics['sensitivity'], width, label='Sensitivity', color='#3498db')
+        bars3 = self.ax1.bar(x + width, avg_metrics['specificity'], width, label='Specificity', color='#e74c3c')
+        
+        # Add value labels on top of bars
+        def add_value_labels(bars):
+            for bar in bars:
+                height = bar.get_height()
+                self.ax1.text(bar.get_x() + bar.get_width()/2., height,
+                            f'{height:.3f}',
+                            ha='center', va='bottom')
+        
+        add_value_labels(bars1)
+        add_value_labels(bars2)
+        add_value_labels(bars3)
+        
+        self.ax1.set_ylabel('Score')
+        self.ax1.set_title('Average Model Performance Metrics')
+        self.ax1.set_xticks(x)
+        self.ax1.set_xticklabels(models, rotation=45)
+        self.ax1.legend()
+        self.ax1.grid(True, linestyle='--', alpha=0.7)
+
+        # Box plot for fold-wise metrics
+        fold_metrics = {
+            'accuracy': [self.results[m]['accuracy'] for m in models],
+            'sensitivity': [self.results[m]['sensitivity'] for m in models],
+            'specificity': [self.results[m]['specificity'] for m in models]
+        }
+
+        # Create box plot with custom colors
+        box_plot = self.ax2.boxplot(fold_metrics['accuracy'], labels=models, patch_artist=True)
+
+        # Set box colors
+        for box in box_plot['boxes']:
+            box.set(facecolor='#2ecc71', alpha=0.5)
+
+        # Add mean value labels
+        for i, model in enumerate(models):
+            mean_val = np.mean(fold_metrics['accuracy'][i])
+            self.ax2.text(i + 1, mean_val, f'{mean_val:.3f}',
+                         ha='center', va='bottom', color='black', fontweight='bold')
+
+        self.ax2.set_ylabel('Score')
+        self.ax2.set_title('Fold-wise Accuracy Distribution')
+        self.ax2.set_xticklabels(models, rotation=45)
+        self.ax2.grid(True, linestyle='--', alpha=0.7)
+        
+        # Second tab: Model Comparison
+        # Confusion matrix comparison
+        if self.confusion_matrices:
+            # Calculate grid dimensions
+            n_models = len(self.confusion_matrices)
+            n_cols = min(3, n_models)  # Maximum 3 columns
+            n_rows = (n_models + n_cols - 1) // n_cols
+            
+            # Create subplots for confusion matrices
+            for i, (model_name, cm) in enumerate(self.confusion_matrices.items()):
+                row = i // n_cols
+                col = i % n_cols
+                
+                # Create subplot for this confusion matrix
+                ax = self.ax3 if row == 0 else self.ax4
+                if row > 0:
+                    ax = self.ax4
+                
+                # Create heatmap
+                sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax, cbar=False)
+                ax.set_title(f'{model_name}', fontsize=8)
+                ax.set_xlabel('Predicted', fontsize=8)
+                ax.set_ylabel('Actual', fontsize=8)
+                ax.tick_params(axis='both', which='major', labelsize=8)
+        
+        # Metrics comparison bar chart
+        x = np.arange(3)  # 3 metrics: accuracy, sensitivity, specificity
+        width = 0.8 / len(models)  # Adjust width based on number of models
+        
+        for i, model in enumerate(models):
+            metrics = [avg_metrics['accuracy'][i], avg_metrics['sensitivity'][i], avg_metrics['specificity'][i]]
+            bars = self.ax4.bar(x + i * width, metrics, width, label=model, color=model_colors[i])
+            
+            # Add value labels
+            for bar in bars:
+                height = bar.get_height()
+                self.ax4.text(bar.get_x() + bar.get_width()/2., height,
+                            f'{height:.3f}',
+                            ha='center', va='bottom', fontsize=8)
+        
+        self.ax4.set_ylabel('Score')
+        self.ax4.set_title('Model Performance Comparison')
+        self.ax4.set_xticks(x + width * (len(models) - 1) / 2)
+        self.ax4.set_xticklabels(['Accuracy', 'Sensitivity', 'Specificity'])
+        self.ax4.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+        self.ax4.grid(True, linestyle='--', alpha=0.7)
+        
+        # Adjust layout and draw
+        self.fig1.tight_layout()
+        self.fig2.tight_layout()
+        self.canvas1.draw()
+        self.canvas2.draw()
+    
+    def run_models(self):
+        """Run the selected models and update the display."""
+        # Update configuration
+        self.config.set('models.train_percentage', int(self.train_split.get()))
+        n_folds = int(self.k_fold.get())
+        subsample_rate = round(self.subsample_rate.get() / 100.0, 3)
+        
+        # Clear previous results
+        self.results_text.delete("1.0", ctk.END)
+        self.results.clear()
+        self.confusion_matrices.clear()
+        
+        # Run selected models
+        for model_name, var in self.model_vars.items():
+            if var.get():
+                try:
+                    self.results_text.insert(ctk.END, f"\nRunning {model_name}...\n")
+                    self.root.update()
+                    
+                    metrics = self.predictor.run(
+                        model_name,
+                        subsample_rate,
+                        n_folds,
+                        debug_mode=self.debug_mode,
+                        use_feature_engineering=self.feature_eng_var.get(),
+                        processed_features=self.processed_features,
+                        processed_labels=self.processed_labels
+                    )
+                    
+                    # Store processed features for next model
+                    if self.feature_eng_var.get() and not self.feature_engineering_done:
+                        self.processed_features = metrics.pop('processed_features', None)
+                        self.processed_labels = metrics.pop('processed_labels', None)
+                        self.feature_engineering_done = True
+                    
+                    self.results[model_name] = metrics
+                    
+                    # Store confusion matrix if available
+                    if 'confusion_matrix' in metrics:
+                        self.confusion_matrices[model_name] = metrics['confusion_matrix']
+                    
+                    # Display average results
+                    avg_metrics = {
+                        'accuracy': np.mean(metrics['accuracy']),
+                        'sensitivity': np.mean(metrics['sensitivity']),
+                        'specificity': np.mean(metrics['specificity'])
+                    }
+                    
+                    self.results_text.insert(ctk.END, f"Average Accuracy: {avg_metrics['accuracy']:.4f}\n")
+                    self.results_text.insert(ctk.END, f"Average Sensitivity: {avg_metrics['sensitivity']:.4f}\n")
+                    self.results_text.insert(ctk.END, f"Average Specificity: {avg_metrics['specificity']:.4f}\n")
+                    self.results_text.insert(ctk.END, f"Confusion Matrix:\n{metrics['confusion_matrix']}\n")
+                except Exception as e:
+                    self.results_text.insert(ctk.END, f"Error: {str(e)}\n")
+        
+        # Update charts
+        self.update_charts()
+    
+    def run(self):
+        """Start the GUI application."""
+        self.root.mainloop() 
+
+==================================================
+
+File 8: src\main.py
+--------------------------------------------------
+from src.app import LoanRiskPredictor
+import argparse
+import numpy as np
+
+def main():
+    parser = argparse.ArgumentParser(description='Loan Risk Prediction System')
+    parser.add_argument('--model', type=str, help='Model to use (default: use all models)')
+    parser.add_argument('--subsample', type=float, default=1.0, help='Subsample rate (0.1 to 1.0)')
+    parser.add_argument('--folds', type=int, default=5, help='Number of K-fold cross-validation folds')
+    parser.add_argument('--gui', action='store_true', help='Launch GUI interface')
+    parser.add_argument('--debug', action='store_true', help='Enable debug mode')
+    args = parser.parse_args()
+    
+    if args.gui:
+        from src.gui import LoanRiskPredictorGUI
+        app = LoanRiskPredictorGUI()
+        app.run()
+    else:
+        predictor = LoanRiskPredictor()
+        
+        if args.model:
+            results = predictor.run(args.model, args.subsample, args.folds, args.debug)
+        else:
+            results = predictor.run_all_models(args.subsample, args.folds, args.debug)
+        
+        # Print results
+        print("\nResults:")
+        print("--------")
+        for model_name, metrics in results.items():
+            print(f"\n{model_name}:")
+            print(f"Average Accuracy: {np.mean(metrics['accuracy']):.4f}")
+            print(f"Average Sensitivity: {np.mean(metrics['sensitivity']):.4f}")
+            print(f"Average Specificity: {np.mean(metrics['specificity']):.4f}")
+            print(f"Standard Deviation (Accuracy): {np.std(metrics['accuracy']):.4f}")
+
+if __name__ == "__main__":
+    main() 
+
+==================================================
+
+File 9: src\models\autoencoder.py
+--------------------------------------------------
+import torch
+import torch.nn as nn
+from typing import Tuple
+import numpy as np
+from ..config.config import ConfigManager
+
+class Autoencoder(nn.Module):
+    """Autoencoder model for feature extraction."""
+    
+    def __init__(self, input_size: int, encoding_size: int):
+        super(Autoencoder, self).__init__()
+        
+        # Encoder
+        self.encoder = nn.Sequential(
+            nn.Linear(input_size, 128),
+            nn.ReLU(),
+            nn.Linear(128, 64),
+            nn.ReLU(),
+            nn.Linear(64, encoding_size)
+        )
+        
+        # Decoder
+        self.decoder = nn.Sequential(
+            nn.Linear(encoding_size, 64),
+            nn.ReLU(),
+            nn.Linear(64, 128),
+            nn.ReLU(),
+            nn.Linear(128, input_size),
+            nn.Sigmoid()
+        )
+    
+    def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
+        """Forward pass through the autoencoder."""
+        encoded = self.encoder(x)
+        decoded = self.decoder(encoded)
+        return encoded, decoded
+
+class AutoencoderTrainer:
+    """Trainer for the autoencoder model."""
+    
+    def __init__(self, input_size: int, encoding_size: int):
+        self.config = ConfigManager()
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.model = Autoencoder(input_size, encoding_size).to(self.device)
+        self.criterion = nn.MSELoss()
+        self.optimizer = torch.optim.Adam(self.model.parameters())
+    
+    def train(self, X: np.ndarray, epochs: int = 100, batch_size: int = 32) -> None:
+        """Train the autoencoder."""
+        X_tensor = torch.FloatTensor(X).to(self.device)
+        n_samples = X.shape[0]
+        
+        self.model.train()
+        for epoch in range(epochs):
+            # Shuffle data
+            indices = torch.randperm(n_samples)
+            
+            for i in range(0, n_samples, batch_size):
+                batch_indices = indices[i:i + batch_size]
+                batch = X_tensor[batch_indices]
+                
+                # Forward pass
+                encoded, decoded = self.model(batch)
+                
+                # Calculate loss
+                loss = self.criterion(decoded, batch)
+                
+                # Backward pass
+                self.optimizer.zero_grad()
+                loss.backward()
+                self.optimizer.step()
+    
+    def encode(self, X: np.ndarray) -> np.ndarray:
+        """Encode data using the trained autoencoder."""
+        self.model.eval()
+        with torch.no_grad():
+            X_tensor = torch.FloatTensor(X).to(self.device)
+            encoded, _ = self.model(X_tensor)
+            return encoded.cpu().numpy()
+    
+    def save(self, path: str) -> None:
+        """Save the model to disk."""
+        torch.save(self.model.state_dict(), path)
+    
+    def load(self, path: str) -> None:
+        """Load the model from disk."""
+        self.model.load_state_dict(torch.load(path)) 
+
+==================================================
+
+File 10: src\models\base_model.py
+--------------------------------------------------
+from abc import ABC, abstractmethod
+from typing import Tuple, List, Any
+import numpy as np
+from sklearn.metrics import confusion_matrix
+
+class BaseModel(ABC):
+    """Base class for all models implementing the Strategy pattern."""
+    
+    @abstractmethod
+    def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
+        """Train the model on the given data."""
+        pass
+    
+    @abstractmethod
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        """Make predictions on the given data."""
+        pass
+    
+    def evaluate(self, X: np.ndarray, y: np.ndarray) -> tuple:
+        """Evaluate the model and return accuracy, sensitivity, specificity, and confusion matrix."""
+        predictions = self.predict(X)
+        
+        # Calculate confusion matrix
+        cm = confusion_matrix(y, predictions)
+        
+        # Calculate metrics
+        tn, fp, fn, tp = cm.ravel()
+        accuracy = (tp + tn) / (tp + tn + fp + fn)
+        sensitivity = tp / (tp + fn) if (tp + fn) > 0 else 0
+        specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
+        
+        return accuracy, sensitivity, specificity, cm
+    
+    @abstractmethod
+    def save(self, path: str) -> None:
+        """Save the model to disk."""
+        pass
+    
+    @abstractmethod
+    def load(self, path: str) -> None:
+        """Load the model from disk."""
+        pass
+    
+    def _calculate_metrics(self, y_true: np.ndarray, y_pred: np.ndarray):
+        """Calculate accuracy, sensitivity, and specificity."""
+        tp = np.sum((y_true == 1) & (y_pred == 1))
+        tn = np.sum((y_true == 0) & (y_pred == 0))
+        fp = np.sum((y_true == 0) & (y_pred == 1))
+        fn = np.sum((y_true == 1) & (y_pred == 0))
+
+        cm = confusion_matrix(y_true, y_pred)
+        
+        accuracy = (tp + tn) / (tp + tn + fp + fn)
+        sensitivity = tp / (tp + fn) if (tp + fn) > 0 else 0
+        specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
+        
+        return accuracy, sensitivity, specificity , cm
+
+==================================================
+
+File 11: src\models\cnn_lightgbm_model.py
+--------------------------------------------------
+import numpy as np
+import torch
+import torch.nn as nn
+import lightgbm as lgb
+from typing import Tuple
+from .base_model import BaseModel
+
+class CNNLightGBMModel(BaseModel):
+    """CNN-LightGBM hybrid model implementation."""
+    
+    def __init__(self):
+        self.cnn_model = None
+        self.lgb_model = None
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    
+    def _create_cnn_model(self, input_size: int) -> nn.Module:
+     """Create the CNN model architecture."""
+     class CNN(nn.Module):
+        def __init__(self, input_size):
+            super(CNN, self).__init__()
+
+            if input_size < 3:
+                # 資料太小，直接FC
+                self.use_cnn = False
+                self.fc1 = nn.Linear(input_size, 32)
+            else:
+                self.use_cnn = True
+                self.conv1 = nn.Conv1d(1, 32, kernel_size=3, padding=1)  # 加padding
+                self.conv2 = nn.Conv1d(32, 64, kernel_size=3, padding=1)  # 加padding
+                self.pool = nn.MaxPool1d(2)
+
+                with torch.no_grad():
+                    dummy_input = torch.zeros(1, 1, input_size)
+                    out = self.pool(torch.relu(self.conv1(dummy_input)))
+                    out = self.pool(torch.relu(self.conv2(out)))
+                    flatten_size = out.view(1, -1).size(1)
+
+                self.fc1 = nn.Linear(flatten_size, 32)
+
+            self.fc2 = nn.Linear(32, 16)
+            self.dropout = nn.Dropout(0.3)
+
+        def forward(self, x):
+            if not self.use_cnn:
+                x = torch.relu(self.fc1(x))
+            else:
+                x = x.unsqueeze(1)  # (batch_size, 1, input_size)
+                x = torch.relu(self.conv1(x))
+                x = self.pool(x)
+                x = torch.relu(self.conv2(x))
+                x = self.pool(x)
+                x = x.view(x.size(0), -1)
+                x = torch.relu(self.fc1(x))
+            x = self.dropout(x)
+            x = self.fc2(x)
+            return x
+     return CNN(input_size)
+
+    def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
+        """Train the model."""
+        # Train CNN
+        X_train_tensor = torch.FloatTensor(X_train).to(self.device)
+        y_train_tensor = torch.FloatTensor(y_train).to(self.device)
+        
+        self.cnn_model = self._create_cnn_model(X_train.shape[1]).to(self.device)
+        criterion = nn.CrossEntropyLoss()
+        optimizer = torch.optim.Adam(self.cnn_model.parameters())
+        
+        # CNN training loop
+        self.cnn_model.train()
+        for epoch in range(50):
+            optimizer.zero_grad()
+            outputs = self.cnn_model(X_train_tensor)
+            loss = criterion(outputs, y_train_tensor.long())
+            loss.backward()
+            optimizer.step()
+        
+        # Extract features from CNN
+        self.cnn_model.eval()
+        with torch.no_grad():
+            cnn_features = self.cnn_model(X_train_tensor).cpu().numpy()
+        
+        # Train LightGBM
+        lgb_train = lgb.Dataset(cnn_features, y_train)
+        params = {
+            'objective': 'binary',
+            'metric': 'binary_logloss',
+            'boosting_type': 'gbdt',
+            'num_leaves': 31,
+            'learning_rate': 0.05,
+            'feature_fraction': 0.9
+        }
+        
+        self.lgb_model = lgb.train(params, lgb_train, num_boost_round=100)
+    
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        """Make predictions."""
+        if self.cnn_model is None or self.lgb_model is None:
+            raise ValueError("Model not trained yet")
+        
+        # Get CNN features
+        X_tensor = torch.FloatTensor(X).to(self.device)
+        self.cnn_model.eval()
+        with torch.no_grad():
+            cnn_features = self.cnn_model(X_tensor).cpu().numpy()
+        
+        # Make LightGBM predictions
+        predictions = self.lgb_model.predict(cnn_features)
+        return predictions
+    
+    def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
+        """Evaluate the model."""
+        predictions = self.predict(X_test)
+        predictions = (predictions > 0.5).astype(int)
+        return self._calculate_metrics(y_test, predictions)
+    
+    def save(self, path: str) -> None:
+        """Save the model to disk."""
+        if self.cnn_model is None or self.lgb_model is None:
+            raise ValueError("No model to save")
+        
+        # Save CNN model
+        torch.save(self.cnn_model.state_dict(), f"{path}_cnn.pt")
+        
+        # Save LightGBM model
+        self.lgb_model.save_model(f"{path}_lgb.txt")
+    
+    def load(self, path: str) -> None:
+        """Load the model from disk."""
+        if self.cnn_model is None:
+            raise ValueError("CNN model not initialized")
+        
+        # Load CNN model
+        self.cnn_model.load_state_dict(torch.load(f"{path}_cnn.pt"))
+        
+        # Load LightGBM model
+        self.lgb_model = lgb.Booster(model_file=f"{path}_lgb.txt") 
+
+==================================================
+
+File 12: src\models\d_lstm_model.py
+--------------------------------------------------
+import numpy as np
+import torch
+import torch.nn as nn
+from typing import Tuple
+from .base_model import BaseModel
+
+class DLSTMModel(BaseModel):
+    """Deep LSTM model implementation."""
+    
+    def __init__(self):
+        self.model = None
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    
+    def _create_model(self, input_size: int) -> nn.Module:
+        """Create the LSTM model architecture."""
+        class LSTM(nn.Module):
+            def __init__(self, input_size):
+                super(LSTM, self).__init__()
+                self.lstm1 = nn.LSTM(input_size, 64, batch_first=True)
+                self.lstm2 = nn.LSTM(64, 32, batch_first=True)
+                self.fc1 = nn.Linear(32, 16)
+                self.fc2 = nn.Linear(16, 1)
+                self.sigmoid = nn.Sigmoid()
+            
+            def forward(self, x):
+                lstm1_out, _ = self.lstm1(x)
+                lstm2_out, _ = self.lstm2(lstm1_out)
+                fc1_out = torch.relu(self.fc1(lstm2_out[:, -1, :]))
+                fc2_out = self.fc2(fc1_out)
+                return self.sigmoid(fc2_out)
+        
+        return LSTM(input_size)
+    
+    def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
+        """Train the model."""
+        # Reshape input for LSTM (batch_size, sequence_length, features)
+        X_train = X_train.reshape(X_train.shape[0], 1, X_train.shape[1])
+        
+        # Convert to PyTorch tensors
+        X_train = torch.FloatTensor(X_train).to(self.device)
+        y_train = torch.FloatTensor(y_train).reshape(-1, 1).to(self.device)
+        
+        # Create model
+        self.model = self._create_model(X_train.shape[2]).to(self.device)
+        
+        # Define loss function and optimizer
+        criterion = nn.BCELoss()
+        optimizer = torch.optim.Adam(self.model.parameters())
+        
+        # Training loop
+        self.model.train()
+        for epoch in range(100):  # Number of epochs
+            optimizer.zero_grad()
+            outputs = self.model(X_train)
+            loss = criterion(outputs, y_train)
+            loss.backward()
+            optimizer.step()
+    
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        """Make predictions."""
+        if self.model is None:
+            raise ValueError("Model not trained yet")
+        
+        # Reshape input for LSTM
+        X = X.reshape(X.shape[0], 1, X.shape[1])
+        
+        # Convert to PyTorch tensor
+        X = torch.FloatTensor(X).to(self.device)
+        
+        # Make predictions
+        self.model.eval()
+        with torch.no_grad():
+            predictions = self.model(X)
+        
+        return predictions.cpu().numpy()
+    
+    def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
+        """Evaluate the model."""
+        predictions = self.predict(X_test)
+        predictions = (predictions > 0.5).astype(int)
+        return self._calculate_metrics(y_test, predictions)
+    
+    def save(self, path: str) -> None:
+        """Save the model to disk."""
+        if self.model is None:
+            raise ValueError("No model to save")
+        torch.save(self.model.state_dict(), path)
+    
+    def load(self, path: str) -> None:
+        """Load the model from disk."""
+        if self.model is None:
+            raise ValueError("Model not initialized")
+        self.model.load_state_dict(torch.load(path)) 
+
+==================================================
+
+File 13: src\models\dnn_model.py
+--------------------------------------------------
+import numpy as np
+import torch
+import torch.nn as nn
+from typing import Tuple
+from .base_model import BaseModel
+
+class DNNModel(BaseModel):
+    """Deep Neural Network model implementation."""
+    
+    def __init__(self):
+        self.model = None
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    
+    def _create_model(self, input_size: int) -> nn.Module:
+        """Create the DNN model architecture."""
+        class DNN(nn.Module):
+            def __init__(self, input_size):
+                super(DNN, self).__init__()
+                self.fc1 = nn.Linear(input_size, 256)
+                self.fc2 = nn.Linear(256, 128)
+                self.fc3 = nn.Linear(128, 64)
+                self.fc4 = nn.Linear(64, 32)
+                self.fc5 = nn.Linear(32, 1)
+                self.dropout = nn.Dropout(0.3)
+                self.batch_norm1 = nn.BatchNorm1d(256)
+                self.batch_norm2 = nn.BatchNorm1d(128)
+                self.batch_norm3 = nn.BatchNorm1d(64)
+                self.batch_norm4 = nn.BatchNorm1d(32)
+                self.sigmoid = nn.Sigmoid()
+            
+            def forward(self, x):
+                x = self.batch_norm1(torch.relu(self.fc1(x)))
+                x = self.dropout(x)
+                x = self.batch_norm2(torch.relu(self.fc2(x)))
+                x = self.dropout(x)
+                x = self.batch_norm3(torch.relu(self.fc3(x)))
+                x = self.dropout(x)
+                x = self.batch_norm4(torch.relu(self.fc4(x)))
+                x = self.fc5(x)
+                return self.sigmoid(x)
+        
+        return DNN(input_size)
+    
+    def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
+        """Train the model."""
+        # Convert to PyTorch tensors
+        X_train = torch.FloatTensor(X_train).to(self.device)
+        y_train = torch.FloatTensor(y_train).reshape(-1, 1).to(self.device)
+        
+        # Create model
+        self.model = self._create_model(X_train.shape[1]).to(self.device)
+        
+        # Define loss function and optimizer
+        criterion = nn.BCELoss()
+        optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
+        
+        # Training loop
+        self.model.train()
+        for epoch in range(100):  # Number of epochs
+            optimizer.zero_grad()
+            outputs = self.model(X_train)
+            loss = criterion(outputs, y_train)
+            loss.backward()
+            optimizer.step()
+    
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        """Make predictions."""
+        if self.model is None:
+            raise ValueError("Model not trained yet")
+        
+        # Convert to PyTorch tensor
+        X = torch.FloatTensor(X).to(self.device)
+        
+        # Make predictions
+        self.model.eval()
+        with torch.no_grad():
+            predictions = self.model(X)
+        
+        return predictions.cpu().numpy()
+    
+    def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
+        """Evaluate the model."""
+        predictions = self.predict(X_test)
+        predictions = (predictions > 0.5).astype(int)
+        return self._calculate_metrics(y_test, predictions)
+    
+    def save(self, path: str) -> None:
+        """Save the model to disk."""
+        if self.model is None:
+            raise ValueError("No model to save")
+        torch.save(self.model.state_dict(), path)
+    
+    def load(self, path: str) -> None:
+        """Load the model from disk."""
+        if self.model is None:
+            raise ValueError("Model not initialized")
+        self.model.load_state_dict(torch.load(path)) 
+
+==================================================
+
+File 14: src\models\mlp_model.py
+--------------------------------------------------
+import numpy as np
+import torch
+import torch.nn as nn
+from typing import Tuple
+from .base_model import BaseModel
+
+class MLPModel(BaseModel):
+    """Multi-Layer Perceptron model implementation."""
+    
+    def __init__(self):
+        self.model = None
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    
+    def _create_model(self, input_size: int) -> nn.Module:
+        """Create the MLP model architecture."""
+        class MLP(nn.Module):
+            def __init__(self, input_size):
+                super(MLP, self).__init__()
+                self.fc1 = nn.Linear(input_size, 128)
+                self.fc2 = nn.Linear(128, 64)
+                self.fc3 = nn.Linear(64, 32)
+                self.fc4 = nn.Linear(32, 1)
+                self.dropout = nn.Dropout(0.3)
+                self.sigmoid = nn.Sigmoid()
+            
+            def forward(self, x):
+                x = torch.relu(self.fc1(x))
+                x = self.dropout(x)
+                x = torch.relu(self.fc2(x))
+                x = self.dropout(x)
+                x = torch.relu(self.fc3(x))
+                x = self.fc4(x)
+                return self.sigmoid(x)
+        
+        return MLP(input_size)
+    
+    def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
+        """Train the model."""
+        # Convert to PyTorch tensors
+        X_train = torch.FloatTensor(X_train).to(self.device)
+        y_train = torch.FloatTensor(y_train).reshape(-1, 1).to(self.device)
+        
+        # Create model
+        self.model = self._create_model(X_train.shape[1]).to(self.device)
+        
+        # Define loss function and optimizer
+        criterion = nn.BCELoss()
+        optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
+        
+        # Training loop
+        self.model.train()
+        for epoch in range(100):  # Number of epochs
+            optimizer.zero_grad()
+            outputs = self.model(X_train)
+            loss = criterion(outputs, y_train)
+            loss.backward()
+            optimizer.step()
+    
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        """Make predictions."""
+        if self.model is None:
+            raise ValueError("Model not trained yet")
+        
+        # Convert to PyTorch tensor
+        X = torch.FloatTensor(X).to(self.device)
+        
+        # Make predictions
+        self.model.eval()
+        with torch.no_grad():
+            predictions = self.model(X)
+        
+        return predictions.cpu().numpy()
+    
+    def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
+        """Evaluate the model."""
+        predictions = self.predict(X_test)
+        predictions = (predictions > 0.5).astype(int)
+        return self._calculate_metrics(y_test, predictions)
+    
+    def save(self, path: str) -> None:
+        """Save the model to disk."""
+        if self.model is None:
+            raise ValueError("No model to save")
+        torch.save(self.model.state_dict(), path)
+    
+    def load(self, path: str) -> None:
+        """Load the model from disk."""
+        if self.model is None:
+            raise ValueError("Model not initialized")
+        self.model.load_state_dict(torch.load(path)) 
+
+==================================================
+
+File 15: src\models\model_factory.py
+--------------------------------------------------
+import numpy as np
+from typing import Dict, Type, List
+from .base_model import BaseModel
+from .d_lstm_model import DLSTMModel
+from .mlp_model import MLPModel
+from .cnn_lightgbm_model import CNNLightGBMModel
+from .dnn_model import DNNModel
+from .random_forest_model import RandomForestModel
+from .rnn_model import RNNModel
+from .xgboost_model import XGBoostModel
+
+class ModelFactory:
+    """Factory class for creating model instances."""
+    
+    _models: Dict[str, Type[BaseModel]] = {
+        'd_lstm': DLSTMModel,
+        'mlp': MLPModel,
+        'cnn_lightgbm': CNNLightGBMModel,
+        'dnn': DNNModel,
+        'random_forest': RandomForestModel,
+        'rnn': RNNModel,
+        'xgboost': XGBoostModel
+    }
+    
+    @classmethod
+    def create_model(cls, model_name: str) -> BaseModel:
+        """Create a model instance by name."""
+        # Set random seed for reproducibility
+        np.random.seed(42)
+        
+        if model_name not in cls._models:
+            raise ValueError(f"Unknown model type: {model_name}")
+        
+        return cls._models[model_name]()
+    
+    @classmethod
+    def register_model(cls, name: str, model_class: Type[BaseModel]) -> None:
+        """Register a new model type."""
+        cls._models[name] = model_class
+    
+    @classmethod
+    def get_available_models(cls) -> List[str]:
+        """Get list of available model types."""
+        return list(cls._models.keys())
+
+    @staticmethod
+    def create_model(model_name: str):
+        """Create a model instance based on the model name."""
+        # Set random seed for reproducibility
+        np.random.seed(42)
+        
+        if model_name == "mlp":
+            return MLPModel()
+        elif model_name == "cnn_lightgbm":
+            return CNNLightGBMModel()
+        elif model_name == "random_forest":
+            return RandomForestModel()
+        elif model_name == "rnn":
+            return RNNModel()
+        elif model_name == "dnn":
+            return DNNModel()
+        elif model_name == "d_lstm":
+            return DLSTMModel()
+        elif model_name == "xgboost":
+            return XGBoostModel()
+        else:
+            raise ValueError(f"Unknown model: {model_name}")
+    
+    @staticmethod
+    def get_available_models():
+        """Get list of available model names."""
+        return ["mlp", "cnn_lightgbm", "random_forest", "rnn", "dnn", "d_lstm", "xgboost"] 
+
+==================================================
+
+File 16: src\models\random_forest_model.py
+--------------------------------------------------
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from typing import Tuple
+from .base_model import BaseModel
+
+class RandomForestModel(BaseModel):
+    """Random Forest model implementation."""
+    
+    def __init__(self):
+        self.model = None
+    
+    def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
+        """Train the model."""
+        self.model = RandomForestClassifier(
+            n_estimators=200,
+            max_depth=10,
+            min_samples_split=2,
+            min_samples_leaf=2,
+            random_state=42,
+            class_weight='balanced'
+        )
+        self.model.fit(X_train, y_train)
+        pass
+    
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        """Make predictions."""
+        if self.model is None:
+            raise ValueError("Model not trained yet")
+        return self.model.predict_proba(X)[:, 1]
+    
+    def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
+        """Evaluate the model."""
+        predictions = self.predict(X_test)
+        predictions = (predictions > 0.5).astype(int)
+        return self._calculate_metrics(y_test, predictions)
+    
+    def save(self, path: str) -> None:
+        """Save the model to disk."""
+        if self.model is None:
+            raise ValueError("No model to save")
+        import joblib
+        joblib.dump(self.model, path)
+    
+    def load(self, path: str) -> None:
+        """Load the model from disk."""
+        import joblib
+        self.model = joblib.load(path) 
+
+==================================================
+
+File 17: src\models\rnn_model.py
+--------------------------------------------------
+import numpy as np
+import torch
+import torch.nn as nn
+from typing import Tuple
+from .base_model import BaseModel
+
+class RNNModel(BaseModel):
+    """Recurrent Neural Network model implementation."""
+    
+    def __init__(self):
+        super().__init__()
+        self.model = None
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.input_size = None  # 新增一個屬性，記錄input_size
+        
+    def _create_model(self, input_size: int) -> nn.Module:
+        """Create the RNN model architecture."""
+        class RNN(nn.Module):
+            def __init__(self, input_size):
+                super(RNN, self).__init__()
+                self.hidden_size = 64
+                self.num_layers = 2
+                self.rnn = nn.RNN(
+                    input_size,
+                    self.hidden_size,
+                    self.num_layers,
+                    batch_first=True,
+                    dropout=0.3
+                )
+                self.fc1 = nn.Linear(self.hidden_size, 32)
+                self.fc2 = nn.Linear(32, 1)
+                self.sigmoid = nn.Sigmoid()
+            
+            def forward(self, x):
+                h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device)
+                out, _ = self.rnn(x, h0)
+                out = out[:, -1, :]  # Get the last time step
+                out = torch.relu(self.fc1(out))
+                out = self.fc2(out)
+                return self.sigmoid(out)
+        
+        return RNN(input_size)
+
+    def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
+        """Train the model."""
+        # Reshape input for RNN (batch_size, sequence_length, features)
+        X_train = X_train.reshape(X_train.shape[0], 1, X_train.shape[1])
+        
+        # Convert to PyTorch tensors
+        X_train = torch.FloatTensor(X_train).to(self.device)
+        y_train = torch.FloatTensor(y_train).reshape(-1, 1).to(self.device)
+        
+        # Create model
+        self.input_size = X_train.shape[2]
+        self.model = self._create_model(self.input_size).to(self.device)
+        
+        # Define loss function and optimizer
+        criterion = nn.BCELoss()
+        optimizer = torch.optim.Adam(self.model.parameters())
+        
+        # Training loop
+        self.model.train()
+        for epoch in range(100):  # Number of epochs
+            optimizer.zero_grad()
+            outputs = self.model(X_train)
+            loss = criterion(outputs, y_train)
+            loss.backward()
+            optimizer.step()
+
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        """Make predictions."""
+        if self.model is None:
+            raise ValueError("Model not trained yet.")
+        
+        # Reshape input for RNN
+        X = X.reshape(X.shape[0], 1, X.shape[1])
+        
+        # Convert to PyTorch tensor
+        X = torch.FloatTensor(X).to(self.device)
+        
+        # Make predictions
+        self.model.eval()
+        with torch.no_grad():
+            predictions = self.model(X)
+        
+        return predictions.cpu().numpy()
+    
+    def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
+        """Evaluate the model."""
+        predictions = self.predict(X_test)
+        predictions = (predictions > 0.5).astype(int)
+        return self._calculate_metrics(y_test, predictions)
+    
+    def save(self, path: str) -> None:
+        """Save the model to disk."""
+        if self.model is None:
+            raise ValueError("No model to save")
+        save_data = {
+            'model_state_dict': self.model.state_dict(),
+            'input_size': self.input_size
+        }
+        torch.save(save_data, path)
+    
+    def load(self, path: str) -> None:
+        """Load the model from disk."""
+        checkpoint = torch.load(path, map_location=self.device)
+        self.input_size = checkpoint['input_size']
+        self.model = self._create_model(self.input_size).to(self.device)
+        self.model.load_state_dict(checkpoint['model_state_dict'])
+
+
+==================================================
+
+File 18: src\models\xgboost_model.py
+--------------------------------------------------
+import numpy as np
+import xgboost as xgb
+from typing import Tuple, List, Dict, Any
+from .base_model import BaseModel
+
+class XGBoostModel(BaseModel):
+    """XGBoost model for loan risk prediction."""
+    
+    def __init__(self):
+        """Initialize the XGBoost model with default parameters."""
+        self.model = None
+        self.params = {
+            'objective': 'binary:logistic',
+            'eval_metric': 'logloss',
+            'max_depth': 6,
+            'learning_rate': 0.1,
+            'n_estimators': 100,
+            'subsample': 0.8,
+            'colsample_bytree': 0.8,
+            'min_child_weight': 1,
+            'gamma': 0,
+            'random_state': 42
+        }
+    
+    def train(self, X: np.ndarray, y: np.ndarray) -> None:
+        """Train the XGBoost model.
+        
+        Args:
+            X: Training features
+            y: Training labels
+        """
+        # Create DMatrix for XGBoost
+        dtrain = xgb.DMatrix(X, label=y)
+        
+        # Train the model
+        self.model = xgb.train(
+            self.params,
+            dtrain,
+            num_boost_round=self.params['n_estimators'],
+            verbose_eval=False
+        )
+    
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        """Make predictions using the trained model.  """
+        if self.model is None:
+            raise ValueError("Model has not been trained yet.")
+        
+        # Create DMatrix for prediction
+        dtest = xgb.DMatrix(X)
+        
+        # Get probability predictions
+        proba = self.model.predict(dtest)
+        
+        # Convert probabilities to binary predictions
+        return (proba > 0.5).astype(int)
+    
+    def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float, np.ndarray]:
+        """Evaluate the model."""
+        predictions = self.predict(X_test)
+        predictions = (predictions > 0.5).astype(int)
+        return self._calculate_metrics(y_test, predictions)
+    
+    def get_feature_importance(self) -> Dict[str, float]:
+        """Get feature importance scores.  """
+        if self.model is None:
+            raise ValueError("Model has not been trained yet.")
+        
+        # Get feature importance scores
+        importance = self.model.get_score(importance_type='gain')
+        
+        # Normalize scores
+        total = sum(importance.values())
+        return {k: v/total for k, v in importance.items()}
+    
+    def save(self, path: str) -> None:
+        """Save the model to disk.
+        """
+        if self.model is None:
+            raise ValueError("Model has not been trained yet.")
+        
+        self.model.save_model(path)
+ 
+    def load(self, path: str) -> None:
+        """Load the model from disk.  """
+        self.model = xgb.Booster()
+        self.model.load_model(path) 
+
+==================================================
+
+File 19: src\utils\feature_engineering.py
+--------------------------------------------------
+import numpy as np
+from sklearn.feature_selection import mutual_info_classif
+from typing import List, Tuple
+import torch
+import torch.nn as nn
+from tqdm import tqdm 
+from ..config.config import ConfigManager
+
+class FeatureEngineer:
+    """Feature engineering and selection utilities."""
+    
+    def __init__(self):
+        self.config = ConfigManager()
+    
+    def calculate_kraskov_entropy(self, X: np.ndarray, k: int = 5) -> np.ndarray:
+        """Calculate Kraskov entropy for each feature."""
+        n_samples, n_features = X.shape
+        entropy = np.zeros(n_features)
+        
+        for i in range(n_features):
+            # Calculate distances between points
+            distances = np.zeros((n_samples, n_samples))
+            for j in range(n_samples):
+                distances[j] = np.abs(X[:, i] - X[j, i])
+            
+            # Sort distances for each point
+            sorted_distances = np.sort(distances, axis=1)
+            
+            # Calculate entropy using k-nearest neighbors
+            entropy[i] = -np.mean(np.log(sorted_distances[:, k] + 1e-10))
+        
+        return entropy
+    
+    def select_features(self, X: np.ndarray, y: np.ndarray, n_features: int = 5) -> Tuple[np.ndarray, List[int]]:
+        """Select features using mutual information and Kraskov entropy."""
+        # Calculate mutual information
+        mi_scores = mutual_info_classif(X, y)
+        
+        # Calculate Kraskov entropy
+        entropy_scores = self.calculate_kraskov_entropy(X)
+        
+        # Combine scores (you can adjust the weights)
+        mi_w = 0.3
+        entropy_w = 0.7
+        combined_scores =mi_w * mi_scores + entropy_w * entropy_scores
+        
+        # Select top features
+        selected_indices = np.argsort(combined_scores)[-n_features:]
+        selected_features = X[:, selected_indices]
+        
+        return selected_features, selected_indices.tolist()
+    
+    def normalize_features(self, X: np.ndarray) -> np.ndarray:
+        """Normalize features using min-max scaling."""
+        return (X - X.min(axis=0)) / (X.max(axis=0) - X.min(axis=0) + 1e-10)
+    
+    def create_feature_combinations(self, X: np.ndarray) -> np.ndarray:
+        """Create feature combinations using polynomial features."""
+        n_samples, n_features = X.shape
+        combinations = []
+        
+        # Add original features
+        combinations.append(X)
+        
+        # Add squared features
+        squared = X ** 2
+        combinations.append(squared)
+        
+        # Add interaction terms
+        for i in range(n_features):
+            for j in range(i + 1, n_features):
+                interaction = X[:, i:i+1] * X[:, j:j+1]
+                combinations.append(interaction)
+        
+        return np.hstack(combinations)
+    
+    def process_features(self, X: np.ndarray, y: np.ndarray, n_features: int = 5) -> np.ndarray:
+        """Process features through the complete pipeline."""
+        # Normalize features
+        X_normalized = self.normalize_features(X)
+        
+        # Create feature combinations
+        X_combined = self.create_feature_combinations(X_normalized)
+        
+        # Select features
+        X_selected, _ = self.select_features(X_combined, y, n_features)
+        
+        return X_selected 
+
+==================================================
+
+File 20: src\utils\logger.py
+--------------------------------------------------
+import logging
+import numpy as np
+from typing import List, Callable
+from ..config.config import ConfigManager
+
+class LogObserver:
+    """Observer interface for logging."""
+    def update(self, message: str, level: str) -> None:
+        pass
+
+class FileLogObserver(LogObserver):
+    """Observer that writes logs to a file."""
+    def __init__(self, filename: str):
+        self.logger = logging.getLogger('file_logger')
+        self.logger.setLevel(logging.INFO)
+        handler = logging.FileHandler(filename)
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        self.logger.addHandler(handler)
+    
+    def update(self, message: str, level: str) -> None:
+        level_map = {
+            'INFO': self.logger.info,
+            'WARNING': self.logger.warning,
+            'ERROR': self.logger.error,
+            'DEBUG': self.logger.debug
+        }
+        level_map.get(level, self.logger.info)(message)
+
+class ConsoleLogObserver(LogObserver):
+    """Observer that writes logs to console."""
+    def __init__(self):
+        self.logger = logging.getLogger('console_logger')
+        self.logger.setLevel(logging.INFO)
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        self.logger.addHandler(handler)
+    
+    def update(self, message: str, level: str) -> None:
+        level_map = {
+            'INFO': self.logger.info,
+            'WARNING': self.logger.warning,
+            'ERROR': self.logger.error,
+            'DEBUG': self.logger.debug
+        }
+        level_map.get(level, self.logger.info)(message)
+
+class Logger:
+    """Singleton logger class implementing the Observer pattern."""
+    _instance = None
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(Logger, cls).__new__(cls)
+            cls._instance._initialize()
+        return cls._instance
+    
+    def _initialize(self):
+        self.observers: List[LogObserver] = []
+        self.config = ConfigManager()
+        
+        # Add default observers
+        self.add_observer(ConsoleLogObserver())
+        self.add_observer(FileLogObserver('app.log'))
+    
+    def add_observer(self, observer: LogObserver) -> None:
+        """Add a new observer."""
+        self.observers.append(observer)
+    
+    def remove_observer(self, observer: LogObserver) -> None:
+        """Remove an observer."""
+        self.observers.remove(observer)
+    
+    def log(self, message: str, level: str = 'INFO') -> None:
+        """Log a message to all observers."""
+        for observer in self.observers:
+            observer.update(message, level)
+
+    def log_array_info(self, array: np.ndarray, title: str = ""):
+        """Log information about a numpy array."""
+        message = f"\n\n{title}:\n"
+        message += f"Shape: {array.shape}\n"
+        message += f"Type: {array.dtype}\n"
+        message += f"Sample data:\n{array[:5]}\n"
+        self.info(message)
+    
+    def info(self, message: str) -> None:
+        """Log an info message."""
+        self.log(message, 'INFO')
+    
+    def warning(self, message: str) -> None:
+        """Log a warning message."""
+        self.log(message, 'WARNING')
+    
+    def error(self, message: str) -> None:
+        """Log an error message."""
+        self.log(message, 'ERROR')
+    
+    def debug(self, message: str) -> None:
+        """Log a debug message."""
+        self.log(message, 'DEBUG') 
+
+==================================================
+
+File 21: src\utils\test_utils.py
+--------------------------------------------------
+import numpy as np
+import pandas as pd
+from typing import Tuple, Dict, Any
+import logging
+
+class TestDataGenerator:
+    """Generate test data for debugging and testing."""
+    
+    @staticmethod
+    def generate_synthetic_data(n_samples: int = 1000) -> Tuple[pd.DataFrame, np.ndarray]:
+        """Generate synthetic data for testing."""
+        # Generate features
+        data = pd.DataFrame({
+            'Married/Single': np.random.choice(['Married', 'Single'], n_samples),
+            'House_Ownership': np.random.choice(['Own', 'Rent', 'None'], n_samples),
+            'Car_Ownership': np.random.choice(['Yes', 'No'], n_samples),
+            'Profession': np.random.choice(['Engineer', 'Doctor', 'Teacher', 'Other'], n_samples),
+            'CITY': np.random.choice(['City1', 'City2', 'City3'], n_samples),
+            'STATE': np.random.choice(['State1', 'State2', 'State3'], n_samples),
+            'Age': np.random.randint(18, 70, n_samples),
+            'Experience': np.random.randint(0, 30, n_samples),
+            'Income': np.random.randint(20000, 200000, n_samples),
+            'Current_Job_Years': np.random.randint(0, 20, n_samples),
+            'Current_House_Years': np.random.randint(0, 30, n_samples)
+        })
+        
+        # Generate labels (with some correlation to features)
+        labels = np.zeros(n_samples)
+        for i in range(n_samples):
+            risk_score = 0
+            # Higher risk for single people
+            if data['Married/Single'].iloc[i] == 'Single':
+                risk_score += 0.2
+            # Higher risk for renters
+            if data['House_Ownership'].iloc[i] == 'Rent':
+                risk_score += 0.15
+            # Higher risk for no car
+            if data['Car_Ownership'].iloc[i] == 'No':
+                risk_score += 0.1
+            # Higher risk for lower income
+            risk_score += (200000 - data['Income'].iloc[i]) / 200000 * 0.3
+            # Higher risk for less experience
+            risk_score += (30 - data['Experience'].iloc[i]) / 30 * 0.25
+            
+            labels[i] = 1 if risk_score > 0.5 else 0
+        
+        return data, labels
+
+class DebugLogger:
+    """Logger for debug information."""
+    
+    def __init__(self, name: str):
+        self.logger = logging.getLogger(name)
+        self.logger.setLevel(logging.DEBUG)
+        self.gui_callback = None
+    
+    def set_gui_callback(self, callback):
+        """Set the callback function for GUI updates."""
+        self.gui_callback = callback
+    
+    def _log_to_gui(self, message: str):
+        """Log message to GUI if callback is set."""
+        if self.gui_callback:
+            self.gui_callback(message)
+    
+    def log_data_info(self, data: pd.DataFrame, title: str = ""):
+        """Log information about a DataFrame."""
+        message = f"\n\n{title}:\n"
+        message += f"Shape: {data.shape}\n"
+        message += f"Columns: {data.columns.tolist()}\n"
+        message += f"Sample data:\n{data.head()}\n"
+        self.logger.debug(message)
+        self._log_to_gui(message)
+    
+    def log_array_info(self, array: np.ndarray, title: str = ""):
+        """Log information about a numpy array."""
+        message = f"\n\n{title}:\n"
+        message += f"Shape: {array.shape}\n"
+        message += f"Type: {array.dtype}\n"
+        message += f"Sample data:\n{array[:5]}\n"
+        self.logger.debug(message)
+        self._log_to_gui(message)
+    
+    def log_metrics(self, metrics: Dict[str, float], title: str = ""):
+        """Log model metrics."""
+        message = f"\n\n{title}:\n"
+        for metric, value in metrics.items():
+            message += f"{metric}: {value:.4f}\n"
+        self.logger.debug(message)
+        self._log_to_gui(message)
+    
+    def log_message(self, message: str):
+        """Log a general message."""
+        self.logger.debug(message)
+        self._log_to_gui(message)
+
+def test_feature_engineering():
+    """Test feature engineering functionality."""
+    # Generate test data
+    data, labels = TestDataGenerator.generate_synthetic_data(n_samples=100)
+    
+    # Create debug logger
+    logger = DebugLogger("feature_engineering_test")
+    
+    # Log original data
+    logger.log_data_info(data, "Original Data")
+    logger.log_array_info(labels, "Labels")
+    
+    return data, labels
+
+def test_model_training():
+    """Test model training functionality."""
+    # Generate test data
+    data, labels = TestDataGenerator.generate_synthetic_data(n_samples=100)
+    
+    # Create debug logger
+    logger = DebugLogger("model_training_test")
+    
+    # Log test data
+    logger.log_data_info(data, "Test Data")
+    logger.log_array_info(labels, "Test Labels")
+    
+    return data, labels 
+
+==================================================
+

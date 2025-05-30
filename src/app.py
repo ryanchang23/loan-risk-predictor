@@ -2,12 +2,14 @@ from typing import List, Tuple, Dict
 import numpy as np
 from tqdm import tqdm
 from .config.config import ConfigManager
-from .data.data_repository import DataRepository
+from .data_pipeline.data_repository import DataRepository
 from .models.model_factory import ModelFactory
 from .utils.logger import Logger
-from .utils.feature_engineering import FeatureEngineer
+from .data_pipeline.feature_engineering import FeatureEngineer
 from .models.autoencoder import AutoencoderTrainer
 from .utils.test_utils import TestDataGenerator, DebugLogger
+import pandas as pd
+import os
 
 class LoanRiskPredictor:
     """Main application class for loan risk prediction."""
@@ -22,21 +24,29 @@ class LoanRiskPredictor:
         np.random.seed(42)
 
     def run(self, model_name: str = None, subsample_rate: float = 1.0, n_folds: int = 5,
-            debug_mode: bool = False, use_feature_engineering: bool = True,
-            processed_features: np.ndarray = None, processed_labels: np.ndarray = None) -> Dict[str, List[float]]:
+            debug_mode: bool = False, use_feature_engineering: bool = True) -> Dict[str, List[float]]:
         """Run the loan risk prediction pipeline with K-fold cross-validation."""
         try:
             # Load and preprocess data
             self.logger.info("Loading and preprocessing data...")
             if debug_mode:
-                # data, labels = TestDataGenerator.generate_synthetic_data(n_samples=1000)
                 data, labels = self.data_repo.load_data()
                 self.debug_logger.log_data_info(data, "Debug Data")
                 self.debug_logger.log_array_info(labels, "Debug Labels")
             else:
                 data, labels = self.data_repo.load_data()
-            
-            normalized_data = self.data_repo.preprocess_data(data)
+
+            processed_path = os.path.join(
+                self.config.get('data.processed_dir'),
+                self.config.get('data.normalized_data_path')
+            )
+
+            if os.path.exists(processed_path):
+                self.logger.info(f"Using {processed_path} data.")
+                normalized_data = pd.read_csv(processed_path).values
+            else:
+                normalized_data = self.data_repo.preprocess_data(data)
+
             if debug_mode:
                 self.debug_logger.log_array_info(normalized_data, "Normalized Data")
             self.logger.info("Normalized Data Shape")
@@ -52,44 +62,38 @@ class LoanRiskPredictor:
                 self.logger.info("Subsample Data Shape")
                 self.logger.info(normalized_data.shape)
 
-                
-            
             # Feature engineering
             if use_feature_engineering:
-                if processed_features is not None and processed_labels is not None:
-                    self.logger.info("Using cached feature engineering results...")
-                    encoded_features = processed_features
-                    labels = processed_labels
+                fused_features_path = os.path.join(
+                    self.config.get('data.processed_dir'),
+                    self.config.get('data.fused_features_path')
+                )
+                
+                # Check if fused features exist and have matching shape
+                if os.path.exists(fused_features_path):
+                    fused_features = pd.read_csv(fused_features_path).values
+                    if fused_features.shape[0] == normalized_data.shape[0]:
+                        self.logger.info("Using cached fused features...")
+                        encoded_features = fused_features
+                    else:
+                        self.logger.info("Cached fused features shape mismatch, performing feature engineering...")
+                        encoded_features = self._perform_feature_engineering(normalized_data, labels, debug_mode)
+                        # Save the new fused features
+                        pd.DataFrame(encoded_features).to_csv(fused_features_path, index=False)
                 else:
-                    self.logger.info("Performing feature engineering...")
-                    n_features = self.config.get('features.n_features') # Number of features to select
-                    with tqdm(total=3, desc="Feature Engineering") as pbar:
-                        processed_features = self.feature_engineer.process_features(normalized_data, labels, n_features)
-                        pbar.update(1)
-                        if debug_mode:
-                            self.debug_logger.log_array_info(processed_features, "Processed Features")
-                        
-                        # Autoencoder feature extraction
-                        self.logger.info("Performing autoencoder feature extraction...")
-                        autoencoder = AutoencoderTrainer(processed_features.shape[1], n_features)
-                        autoencoder.train(processed_features)
-                        pbar.update(1)
-                        encoded_features = autoencoder.encode(processed_features)
-                        pbar.update(1)
-                        if debug_mode:
-                            self.debug_logger.log_array_info(encoded_features, "Encoded Features")
+                    self.logger.info("No cached fused features found, performing feature engineering...")
+                    encoded_features = self._perform_feature_engineering(normalized_data, labels, debug_mode)
+                    # Save the fused features
+                    pd.DataFrame(encoded_features).to_csv(fused_features_path, index=False)
             else:
                 encoded_features = normalized_data
             
             # Initialize metrics storage
-            global metrics 
             metrics = {
                 'accuracy': [],
                 'sensitivity': [],
                 'specificity': [],
-                'confusion_matrices': [],
-                'processed_features': None,
-                'processed_labels': None
+                'confusion_matrices': []
             }
             
             # Get model name from config if not provided
@@ -134,8 +138,7 @@ class LoanRiskPredictor:
                 self.logger.info(f"Accuracy: {acc:.4f}")
                 self.logger.info(f"Sensitivity: {sens:.4f}")
                 self.logger.info(f"Specificity: {spec:.4f}")
-                # self.logger.log_array_info(cm, f"Fold {fold + 1} Confusion Matrix")
-
+                self.logger.log_confusion_matrix(cm, "Confusion Matrix: ")
             
             # Calculate and log average metrics
             avg_metrics = {
@@ -156,19 +159,34 @@ class LoanRiskPredictor:
             self.logger.info(f"Accuracy: {avg_metrics['accuracy']:.4f}")
             self.logger.info(f"Sensitivity: {avg_metrics['sensitivity']:.4f}")
             self.logger.info(f"Specificity: {avg_metrics['specificity']:.4f}")
-            # self.logger.log_array_info(avg_cm, "Average Confusion Matrix")
-            
-            # Add processed features to metrics if this is the first run
-            if use_feature_engineering and processed_features is None:
-                metrics['processed_features'] = encoded_features
-                metrics['processed_labels'] = labels
             
             return metrics
             
         except Exception as e:
             self.logger.error(f"Error in loan risk prediction: {str(e)}")
             raise
-    
+
+    def _perform_feature_engineering(self, normalized_data: np.ndarray, labels: np.ndarray, debug_mode: bool) -> np.ndarray:
+        """Helper method to perform feature engineering and autoencoder encoding."""
+        n_features = self.config.get('features.n_features')
+        with tqdm(total=3, desc="Feature Engineering") as pbar:
+            processed_features = self.feature_engineer.process_features(normalized_data, labels, n_features)
+            pbar.update(1)
+            if debug_mode:
+                self.debug_logger.log_array_info(processed_features, "Processed Features")
+            
+            # Autoencoder feature extraction
+            self.logger.info("Performing autoencoder feature extraction...")
+            autoencoder = AutoencoderTrainer(processed_features.shape[1], n_features)
+            autoencoder.train(processed_features)
+            pbar.update(1)
+            encoded_features = autoencoder.encode(processed_features)
+            pbar.update(1)
+            if debug_mode:
+                self.debug_logger.log_array_info(encoded_features, "Encoded Features")
+        
+        return encoded_features
+
     def run_all_models(self, subsample_rate: float = 1.0, n_folds: int = 5, debug_mode: bool = False) -> Dict[str, Dict[str, List[float]]]:
         """Run all available models with K-fold cross-validation."""
         results = {}
@@ -176,10 +194,7 @@ class LoanRiskPredictor:
         for model_name in ModelFactory.get_available_models():
             try:
                 self.logger.info(f"\nRunning {model_name} model...")
-                global metrics 
-                metrics = self.run(model_name, subsample_rate, n_folds, debug_mode,
-                                    processed_features=metrics['processed_features'],
-                                    processed_labels=metrics['processed_labels'])
+                metrics = self.run(model_name, subsample_rate, n_folds, debug_mode)
                 results[model_name] = metrics
             except Exception as e:
                 self.logger.error(f"Error running {model_name}: {str(e)}")

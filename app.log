@@ -9708,6 +9708,7 @@ Average results across all folds:
 2025-05-01 11:18:35,458 - file_logger - INFO - Accuracy: 0.8701
 2025-05-01 11:18:35,458 - file_logger - INFO - Sensitivity: 0.0498
 2025-05-01 11:18:35,458 - file_logger - INFO - Specificity: 0.9852
+<<<<<<< HEAD
 2025-05-09 23:19:07,671 - file_logger - INFO - Loading and preprocessing data...
 2025-05-09 23:19:10,275 - file_logger - INFO - Normalized Data Shape
 2025-05-09 23:19:10,277 - file_logger - INFO - (252000, 12)
@@ -10061,3 +10062,3209 @@ Average results across all folds:
 2025-05-09 23:42:03,832 - file_logger - INFO - Specificity: 1.0000
 2025-05-09 23:42:04,057 - file_logger - INFO - Loading and preprocessing data...
 2025-05-09 23:42:04,544 - file_logger - ERROR - Error in loan risk prediction: invalid command name ".!ctkframe2.!ctktextbox2.!text"
+=======
+2025-05-17 21:38:51,911 - file_logger - INFO - 
+Running mlp model...
+2025-05-17 21:38:51,912 - file_logger - ERROR - Error running mlp: name 'metrics' is not defined
+2025-05-17 21:38:51,912 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-17 21:38:51,912 - file_logger - ERROR - Error running cnn_lightgbm: name 'metrics' is not defined
+2025-05-17 21:38:51,913 - file_logger - INFO - 
+Running random_forest model...
+2025-05-17 21:38:51,913 - file_logger - ERROR - Error running random_forest: name 'metrics' is not defined
+2025-05-17 21:38:51,913 - file_logger - INFO - 
+Running rnn model...
+2025-05-17 21:38:51,913 - file_logger - ERROR - Error running rnn: name 'metrics' is not defined
+2025-05-17 21:38:51,913 - file_logger - INFO - 
+Running dnn model...
+2025-05-17 21:38:51,914 - file_logger - ERROR - Error running dnn: name 'metrics' is not defined
+2025-05-17 21:38:51,915 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-17 21:38:51,915 - file_logger - ERROR - Error running d_lstm: name 'metrics' is not defined
+2025-05-17 21:38:51,915 - file_logger - INFO - 
+Running xgboost model...
+2025-05-17 21:38:51,916 - file_logger - ERROR - Error running xgboost: name 'metrics' is not defined
+2025-05-17 21:39:59,307 - file_logger - INFO - Loading and preprocessing data...
+2025-05-17 21:40:02,332 - file_logger - INFO - Normalized Data Shape
+2025-05-17 21:40:02,332 - file_logger - INFO - (252000, 12)
+2025-05-17 21:40:02,332 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-17 21:40:02,478 - file_logger - INFO - Subsample Data Shape
+2025-05-17 21:40:02,478 - file_logger - INFO - (2520, 12)
+2025-05-17 21:40:02,480 - file_logger - INFO - Performing feature engineering...
+2025-05-17 21:40:22,926 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-17 21:40:44,181 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-17 21:40:44,185 - file_logger - INFO - Training fold 1/5...
+2025-05-17 21:40:45,372 - file_logger - INFO - Fold 1 results:
+2025-05-17 21:40:45,372 - file_logger - INFO - Accuracy: 0.8770
+2025-05-17 21:40:45,372 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 21:40:45,372 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 21:40:45,373 - file_logger - INFO - Training fold 2/5...
+2025-05-17 21:40:46,540 - file_logger - INFO - Fold 2 results:
+2025-05-17 21:40:46,540 - file_logger - INFO - Accuracy: 0.8770
+2025-05-17 21:40:46,540 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 21:40:46,541 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 21:40:46,541 - file_logger - INFO - Training fold 3/5...
+2025-05-17 21:40:47,676 - file_logger - INFO - Fold 3 results:
+2025-05-17 21:40:47,677 - file_logger - INFO - Accuracy: 0.8770
+2025-05-17 21:40:47,677 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 21:40:47,678 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 21:40:47,679 - file_logger - INFO - Training fold 4/5...
+2025-05-17 21:40:48,904 - file_logger - INFO - Fold 4 results:
+2025-05-17 21:40:48,904 - file_logger - INFO - Accuracy: 0.8770
+2025-05-17 21:40:48,904 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 21:40:48,905 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 21:40:48,905 - file_logger - INFO - Training fold 5/5...
+2025-05-17 21:40:50,120 - file_logger - INFO - Fold 5 results:
+2025-05-17 21:40:50,120 - file_logger - INFO - Accuracy: 0.8770
+2025-05-17 21:40:50,120 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 21:40:50,121 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 21:40:50,121 - file_logger - INFO - 
+Average results across all folds:
+2025-05-17 21:40:50,122 - file_logger - INFO - Accuracy: 0.8770
+2025-05-17 21:40:50,122 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 21:40:50,122 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:15,849 - file_logger - INFO - Loading and preprocessing data...
+2025-05-17 22:09:18,259 - file_logger - INFO - Normalized Data Shape
+2025-05-17 22:09:18,259 - file_logger - INFO - (252000, 12)
+2025-05-17 22:09:18,260 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-17 22:09:18,408 - file_logger - INFO - Subsample Data Shape
+2025-05-17 22:09:18,408 - file_logger - INFO - (252, 12)
+2025-05-17 22:09:18,408 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-17 22:09:18,412 - file_logger - INFO - Training fold 1/5...
+2025-05-17 22:09:20,688 - file_logger - INFO - Fold 1 results:
+2025-05-17 22:09:20,688 - file_logger - INFO - Accuracy: 0.8627
+2025-05-17 22:09:20,689 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:20,689 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:20,690 - file_logger - INFO - Training fold 2/5...
+2025-05-17 22:09:21,058 - file_logger - INFO - Fold 2 results:
+2025-05-17 22:09:21,058 - file_logger - INFO - Accuracy: 0.8824
+2025-05-17 22:09:21,058 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:21,058 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:21,059 - file_logger - INFO - Training fold 3/5...
+2025-05-17 22:09:21,469 - file_logger - INFO - Fold 3 results:
+2025-05-17 22:09:21,469 - file_logger - INFO - Accuracy: 0.8800
+2025-05-17 22:09:21,470 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:21,470 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:21,471 - file_logger - INFO - Training fold 4/5...
+2025-05-17 22:09:21,915 - file_logger - INFO - Fold 4 results:
+2025-05-17 22:09:21,915 - file_logger - INFO - Accuracy: 0.8800
+2025-05-17 22:09:21,916 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:21,916 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:21,917 - file_logger - INFO - Training fold 5/5...
+2025-05-17 22:09:22,260 - file_logger - INFO - Fold 5 results:
+2025-05-17 22:09:22,260 - file_logger - INFO - Accuracy: 0.8800
+2025-05-17 22:09:22,261 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:22,261 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:22,264 - file_logger - INFO - 
+Average results across all folds:
+2025-05-17 22:09:22,265 - file_logger - INFO - Accuracy: 0.8770
+2025-05-17 22:09:22,265 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:22,265 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:22,310 - file_logger - INFO - Loading and preprocessing data...
+2025-05-17 22:09:24,752 - file_logger - INFO - Normalized Data Shape
+2025-05-17 22:09:24,752 - file_logger - INFO - (252000, 12)
+2025-05-17 22:09:24,752 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-17 22:09:24,887 - file_logger - INFO - Subsample Data Shape
+2025-05-17 22:09:24,888 - file_logger - INFO - (252, 12)
+2025-05-17 22:09:24,888 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-17 22:09:24,888 - file_logger - INFO - Training fold 1/5...
+2025-05-17 22:09:25,062 - file_logger - INFO - Fold 1 results:
+2025-05-17 22:09:25,062 - file_logger - INFO - Accuracy: 0.8627
+2025-05-17 22:09:25,063 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:25,063 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:25,063 - file_logger - INFO - Training fold 2/5...
+2025-05-17 22:09:25,221 - file_logger - INFO - Fold 2 results:
+2025-05-17 22:09:25,221 - file_logger - INFO - Accuracy: 0.8824
+2025-05-17 22:09:25,221 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:25,222 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:25,222 - file_logger - INFO - Training fold 3/5...
+2025-05-17 22:09:25,358 - file_logger - INFO - Fold 3 results:
+2025-05-17 22:09:25,358 - file_logger - INFO - Accuracy: 0.8800
+2025-05-17 22:09:25,358 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:25,358 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:25,359 - file_logger - INFO - Training fold 4/5...
+2025-05-17 22:09:25,507 - file_logger - INFO - Fold 4 results:
+2025-05-17 22:09:25,508 - file_logger - INFO - Accuracy: 0.8800
+2025-05-17 22:09:25,508 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:25,508 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:25,508 - file_logger - INFO - Training fold 5/5...
+2025-05-17 22:09:25,665 - file_logger - INFO - Fold 5 results:
+2025-05-17 22:09:25,665 - file_logger - INFO - Accuracy: 0.8800
+2025-05-17 22:09:25,665 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:25,665 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:25,668 - file_logger - INFO - 
+Average results across all folds:
+2025-05-17 22:09:25,669 - file_logger - INFO - Accuracy: 0.8770
+2025-05-17 22:09:25,669 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:25,669 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:25,685 - file_logger - INFO - Loading and preprocessing data...
+2025-05-17 22:09:27,855 - file_logger - INFO - Normalized Data Shape
+2025-05-17 22:09:27,855 - file_logger - INFO - (252000, 12)
+2025-05-17 22:09:27,855 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-17 22:09:27,948 - file_logger - INFO - Subsample Data Shape
+2025-05-17 22:09:27,948 - file_logger - INFO - (252, 12)
+2025-05-17 22:09:27,949 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-17 22:09:27,950 - file_logger - INFO - Training fold 1/5...
+2025-05-17 22:09:30,003 - file_logger - INFO - Fold 1 results:
+2025-05-17 22:09:30,003 - file_logger - INFO - Accuracy: 0.8039
+2025-05-17 22:09:30,003 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:30,004 - file_logger - INFO - Specificity: 0.9318
+2025-05-17 22:09:30,004 - file_logger - INFO - Training fold 2/5...
+2025-05-17 22:09:30,071 - file_logger - INFO - Fold 2 results:
+2025-05-17 22:09:30,071 - file_logger - INFO - Accuracy: 0.9020
+2025-05-17 22:09:30,071 - file_logger - INFO - Sensitivity: 0.1667
+2025-05-17 22:09:30,071 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:30,072 - file_logger - INFO - Training fold 3/5...
+2025-05-17 22:09:30,148 - file_logger - INFO - Fold 3 results:
+2025-05-17 22:09:30,150 - file_logger - INFO - Accuracy: 0.8800
+2025-05-17 22:09:30,150 - file_logger - INFO - Sensitivity: 0.1667
+2025-05-17 22:09:30,150 - file_logger - INFO - Specificity: 0.9773
+2025-05-17 22:09:30,151 - file_logger - INFO - Training fold 4/5...
+2025-05-17 22:09:30,222 - file_logger - INFO - Fold 4 results:
+2025-05-17 22:09:30,222 - file_logger - INFO - Accuracy: 0.8200
+2025-05-17 22:09:30,223 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:30,223 - file_logger - INFO - Specificity: 0.9318
+2025-05-17 22:09:30,223 - file_logger - INFO - Training fold 5/5...
+2025-05-17 22:09:30,297 - file_logger - INFO - Fold 5 results:
+2025-05-17 22:09:30,297 - file_logger - INFO - Accuracy: 0.8800
+2025-05-17 22:09:30,298 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-17 22:09:30,298 - file_logger - INFO - Specificity: 1.0000
+2025-05-17 22:09:30,302 - file_logger - INFO - 
+Average results across all folds:
+2025-05-17 22:09:30,302 - file_logger - INFO - Accuracy: 0.8572
+2025-05-17 22:09:30,303 - file_logger - INFO - Sensitivity: 0.0667
+2025-05-17 22:09:30,303 - file_logger - INFO - Specificity: 0.9682
+2025-05-19 21:43:11,426 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 21:43:13,542 - file_logger - INFO - Normalized Data Shape
+2025-05-19 21:43:13,542 - file_logger - INFO - (252000, 12)
+2025-05-19 21:43:13,542 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-19 21:43:13,635 - file_logger - INFO - Subsample Data Shape
+2025-05-19 21:43:13,635 - file_logger - INFO - (252, 12)
+2025-05-19 21:43:13,636 - file_logger - INFO - Performing feature engineering...
+2025-05-19 21:43:13,893 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 21:43:16,732 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 21:43:16,734 - file_logger - INFO - Training fold 1/5...
+2025-05-19 21:43:17,053 - file_logger - INFO - Fold 1 results:
+2025-05-19 21:43:17,053 - file_logger - INFO - Accuracy: 0.8627
+2025-05-19 21:43:17,054 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:17,054 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:17,054 - file_logger - INFO - Training fold 2/5...
+2025-05-19 21:43:17,309 - file_logger - INFO - Fold 2 results:
+2025-05-19 21:43:17,310 - file_logger - INFO - Accuracy: 0.8824
+2025-05-19 21:43:17,310 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:17,310 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:17,310 - file_logger - INFO - Training fold 3/5...
+2025-05-19 21:43:17,569 - file_logger - INFO - Fold 3 results:
+2025-05-19 21:43:17,569 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:17,570 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:17,570 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:17,570 - file_logger - INFO - Training fold 4/5...
+2025-05-19 21:43:17,838 - file_logger - INFO - Fold 4 results:
+2025-05-19 21:43:17,838 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:17,838 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:17,838 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:17,840 - file_logger - INFO - Training fold 5/5...
+2025-05-19 21:43:18,091 - file_logger - INFO - Fold 5 results:
+2025-05-19 21:43:18,091 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:18,091 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:18,092 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:18,095 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 21:43:18,095 - file_logger - INFO - Accuracy: 0.8770
+2025-05-19 21:43:18,096 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:18,096 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:18,126 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 21:43:20,197 - file_logger - INFO - Normalized Data Shape
+2025-05-19 21:43:20,198 - file_logger - INFO - (252000, 12)
+2025-05-19 21:43:20,198 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-19 21:43:20,290 - file_logger - INFO - Subsample Data Shape
+2025-05-19 21:43:20,290 - file_logger - INFO - (252, 12)
+2025-05-19 21:43:20,291 - file_logger - INFO - Performing feature engineering...
+2025-05-19 21:43:20,543 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 21:43:21,476 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 21:43:21,477 - file_logger - INFO - Training fold 1/5...
+2025-05-19 21:43:21,605 - file_logger - INFO - Fold 1 results:
+2025-05-19 21:43:21,606 - file_logger - INFO - Accuracy: 0.8627
+2025-05-19 21:43:21,606 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:21,606 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:21,606 - file_logger - INFO - Training fold 2/5...
+2025-05-19 21:43:21,731 - file_logger - INFO - Fold 2 results:
+2025-05-19 21:43:21,731 - file_logger - INFO - Accuracy: 0.8824
+2025-05-19 21:43:21,731 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:21,731 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:21,732 - file_logger - INFO - Training fold 3/5...
+2025-05-19 21:43:21,859 - file_logger - INFO - Fold 3 results:
+2025-05-19 21:43:21,860 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:21,860 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:21,860 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:21,860 - file_logger - INFO - Training fold 4/5...
+2025-05-19 21:43:21,984 - file_logger - INFO - Fold 4 results:
+2025-05-19 21:43:21,984 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:21,984 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:21,984 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:21,984 - file_logger - INFO - Training fold 5/5...
+2025-05-19 21:43:22,112 - file_logger - INFO - Fold 5 results:
+2025-05-19 21:43:22,115 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:22,115 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:22,116 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:22,119 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 21:43:22,119 - file_logger - INFO - Accuracy: 0.8770
+2025-05-19 21:43:22,119 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:22,119 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:22,130 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 21:43:24,187 - file_logger - INFO - Normalized Data Shape
+2025-05-19 21:43:24,187 - file_logger - INFO - (252000, 12)
+2025-05-19 21:43:24,187 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-19 21:43:24,272 - file_logger - INFO - Subsample Data Shape
+2025-05-19 21:43:24,273 - file_logger - INFO - (252, 12)
+2025-05-19 21:43:24,273 - file_logger - INFO - Performing feature engineering...
+2025-05-19 21:43:24,523 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 21:43:25,474 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 21:43:25,475 - file_logger - INFO - Training fold 1/5...
+2025-05-19 21:43:25,801 - file_logger - INFO - Fold 1 results:
+2025-05-19 21:43:25,801 - file_logger - INFO - Accuracy: 0.8627
+2025-05-19 21:43:25,801 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:25,801 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:25,802 - file_logger - INFO - Training fold 2/5...
+2025-05-19 21:43:25,995 - file_logger - INFO - Fold 2 results:
+2025-05-19 21:43:25,995 - file_logger - INFO - Accuracy: 0.8824
+2025-05-19 21:43:25,995 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:25,995 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:25,995 - file_logger - INFO - Training fold 3/5...
+2025-05-19 21:43:26,197 - file_logger - INFO - Fold 3 results:
+2025-05-19 21:43:26,197 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:26,197 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:26,198 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:26,198 - file_logger - INFO - Training fold 4/5...
+2025-05-19 21:43:26,484 - file_logger - INFO - Fold 4 results:
+2025-05-19 21:43:26,484 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:26,485 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:26,485 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:26,485 - file_logger - INFO - Training fold 5/5...
+2025-05-19 21:43:26,680 - file_logger - INFO - Fold 5 results:
+2025-05-19 21:43:26,680 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:26,681 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:26,681 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:26,684 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 21:43:26,684 - file_logger - INFO - Accuracy: 0.8770
+2025-05-19 21:43:26,684 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:26,684 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:26,708 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 21:43:28,770 - file_logger - INFO - Normalized Data Shape
+2025-05-19 21:43:28,771 - file_logger - INFO - (252000, 12)
+2025-05-19 21:43:28,771 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-19 21:43:28,854 - file_logger - INFO - Subsample Data Shape
+2025-05-19 21:43:28,854 - file_logger - INFO - (252, 12)
+2025-05-19 21:43:28,854 - file_logger - INFO - Performing feature engineering...
+2025-05-19 21:43:29,108 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 21:43:30,030 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 21:43:30,031 - file_logger - INFO - Training fold 1/5...
+2025-05-19 21:43:30,273 - file_logger - INFO - Fold 1 results:
+2025-05-19 21:43:30,274 - file_logger - INFO - Accuracy: 0.7774
+2025-05-19 21:43:30,274 - file_logger - INFO - Sensitivity: 0.1176
+2025-05-19 21:43:30,274 - file_logger - INFO - Specificity: 0.8824
+2025-05-19 21:43:30,274 - file_logger - INFO - Training fold 2/5...
+2025-05-19 21:43:30,505 - file_logger - INFO - Fold 2 results:
+2025-05-19 21:43:30,506 - file_logger - INFO - Accuracy: 0.8824
+2025-05-19 21:43:30,506 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:30,506 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:30,506 - file_logger - INFO - Training fold 3/5...
+2025-05-19 21:43:30,730 - file_logger - INFO - Fold 3 results:
+2025-05-19 21:43:30,730 - file_logger - INFO - Accuracy: 0.8648
+2025-05-19 21:43:30,730 - file_logger - INFO - Sensitivity: 0.0200
+2025-05-19 21:43:30,730 - file_logger - INFO - Specificity: 0.9800
+2025-05-19 21:43:30,731 - file_logger - INFO - Training fold 4/5...
+2025-05-19 21:43:30,979 - file_logger - INFO - Fold 4 results:
+2025-05-19 21:43:30,979 - file_logger - INFO - Accuracy: 0.6672
+2025-05-19 21:43:30,980 - file_logger - INFO - Sensitivity: 0.2800
+2025-05-19 21:43:30,980 - file_logger - INFO - Specificity: 0.7200
+2025-05-19 21:43:30,980 - file_logger - INFO - Training fold 5/5...
+2025-05-19 21:43:31,250 - file_logger - INFO - Fold 5 results:
+2025-05-19 21:43:31,250 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:31,250 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:31,250 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:31,254 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 21:43:31,254 - file_logger - INFO - Accuracy: 0.8143
+2025-05-19 21:43:31,255 - file_logger - INFO - Sensitivity: 0.0835
+2025-05-19 21:43:31,255 - file_logger - INFO - Specificity: 0.9165
+2025-05-19 21:43:31,267 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 21:43:33,316 - file_logger - INFO - Normalized Data Shape
+2025-05-19 21:43:33,316 - file_logger - INFO - (252000, 12)
+2025-05-19 21:43:33,317 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-19 21:43:33,400 - file_logger - INFO - Subsample Data Shape
+2025-05-19 21:43:33,401 - file_logger - INFO - (252, 12)
+2025-05-19 21:43:33,401 - file_logger - INFO - Performing feature engineering...
+2025-05-19 21:43:33,652 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 21:43:34,574 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 21:43:34,577 - file_logger - INFO - Training fold 1/5...
+2025-05-19 21:43:34,772 - file_logger - INFO - Fold 1 results:
+2025-05-19 21:43:34,773 - file_logger - INFO - Accuracy: 0.6275
+2025-05-19 21:43:34,773 - file_logger - INFO - Sensitivity: 0.2857
+2025-05-19 21:43:34,773 - file_logger - INFO - Specificity: 0.6818
+2025-05-19 21:43:34,773 - file_logger - INFO - Training fold 2/5...
+2025-05-19 21:43:34,949 - file_logger - INFO - Fold 2 results:
+2025-05-19 21:43:34,949 - file_logger - INFO - Accuracy: 0.6078
+2025-05-19 21:43:34,949 - file_logger - INFO - Sensitivity: 0.5000
+2025-05-19 21:43:34,950 - file_logger - INFO - Specificity: 0.6222
+2025-05-19 21:43:34,950 - file_logger - INFO - Training fold 3/5...
+2025-05-19 21:43:35,144 - file_logger - INFO - Fold 3 results:
+2025-05-19 21:43:35,144 - file_logger - INFO - Accuracy: 0.4200
+2025-05-19 21:43:35,145 - file_logger - INFO - Sensitivity: 0.1667
+2025-05-19 21:43:35,145 - file_logger - INFO - Specificity: 0.4545
+2025-05-19 21:43:35,146 - file_logger - INFO - Training fold 4/5...
+2025-05-19 21:43:35,323 - file_logger - INFO - Fold 4 results:
+2025-05-19 21:43:35,323 - file_logger - INFO - Accuracy: 0.6600
+2025-05-19 21:43:35,323 - file_logger - INFO - Sensitivity: 0.1667
+2025-05-19 21:43:35,324 - file_logger - INFO - Specificity: 0.7273
+2025-05-19 21:43:35,325 - file_logger - INFO - Training fold 5/5...
+2025-05-19 21:43:35,500 - file_logger - INFO - Fold 5 results:
+2025-05-19 21:43:35,501 - file_logger - INFO - Accuracy: 0.6000
+2025-05-19 21:43:35,501 - file_logger - INFO - Sensitivity: 0.8333
+2025-05-19 21:43:35,501 - file_logger - INFO - Specificity: 0.5682
+2025-05-19 21:43:35,505 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 21:43:35,505 - file_logger - INFO - Accuracy: 0.5831
+2025-05-19 21:43:35,505 - file_logger - INFO - Sensitivity: 0.3905
+2025-05-19 21:43:35,506 - file_logger - INFO - Specificity: 0.6108
+2025-05-19 21:43:35,512 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 21:43:37,542 - file_logger - INFO - Normalized Data Shape
+2025-05-19 21:43:37,542 - file_logger - INFO - (252000, 12)
+2025-05-19 21:43:37,542 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-19 21:43:37,683 - file_logger - INFO - Subsample Data Shape
+2025-05-19 21:43:37,683 - file_logger - INFO - (252, 12)
+2025-05-19 21:43:37,683 - file_logger - INFO - Performing feature engineering...
+2025-05-19 21:43:37,955 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 21:43:38,930 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 21:43:38,931 - file_logger - INFO - Training fold 1/5...
+2025-05-19 21:43:39,085 - file_logger - INFO - Fold 1 results:
+2025-05-19 21:43:39,086 - file_logger - INFO - Accuracy: 0.8627
+2025-05-19 21:43:39,086 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:39,086 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:39,086 - file_logger - INFO - Training fold 2/5...
+2025-05-19 21:43:39,248 - file_logger - INFO - Fold 2 results:
+2025-05-19 21:43:39,248 - file_logger - INFO - Accuracy: 0.8824
+2025-05-19 21:43:39,248 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:39,248 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:39,249 - file_logger - INFO - Training fold 3/5...
+2025-05-19 21:43:39,408 - file_logger - INFO - Fold 3 results:
+2025-05-19 21:43:39,409 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:39,409 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:39,409 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:39,409 - file_logger - INFO - Training fold 4/5...
+2025-05-19 21:43:39,567 - file_logger - INFO - Fold 4 results:
+2025-05-19 21:43:39,567 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:39,569 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:39,569 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:39,569 - file_logger - INFO - Training fold 5/5...
+2025-05-19 21:43:39,732 - file_logger - INFO - Fold 5 results:
+2025-05-19 21:43:39,733 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:39,733 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:39,733 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:39,736 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 21:43:39,736 - file_logger - INFO - Accuracy: 0.8770
+2025-05-19 21:43:39,737 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:39,737 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:39,743 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 21:43:41,766 - file_logger - INFO - Normalized Data Shape
+2025-05-19 21:43:41,766 - file_logger - INFO - (252000, 12)
+2025-05-19 21:43:41,766 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-19 21:43:41,851 - file_logger - INFO - Subsample Data Shape
+2025-05-19 21:43:41,851 - file_logger - INFO - (252, 12)
+2025-05-19 21:43:41,852 - file_logger - INFO - Performing feature engineering...
+2025-05-19 21:43:42,108 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 21:43:43,015 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 21:43:43,016 - file_logger - INFO - Training fold 1/5...
+2025-05-19 21:43:44,793 - file_logger - INFO - Fold 1 results:
+2025-05-19 21:43:44,793 - file_logger - INFO - Accuracy: 0.8627
+2025-05-19 21:43:44,793 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:44,794 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:44,794 - file_logger - INFO - Training fold 2/5...
+2025-05-19 21:43:44,828 - file_logger - INFO - Fold 2 results:
+2025-05-19 21:43:44,828 - file_logger - INFO - Accuracy: 0.8824
+2025-05-19 21:43:44,828 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:44,828 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:44,828 - file_logger - INFO - Training fold 3/5...
+2025-05-19 21:43:44,863 - file_logger - INFO - Fold 3 results:
+2025-05-19 21:43:44,863 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:44,863 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:44,863 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:44,863 - file_logger - INFO - Training fold 4/5...
+2025-05-19 21:43:44,904 - file_logger - INFO - Fold 4 results:
+2025-05-19 21:43:44,905 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:44,905 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:44,905 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:44,906 - file_logger - INFO - Training fold 5/5...
+2025-05-19 21:43:44,946 - file_logger - INFO - Fold 5 results:
+2025-05-19 21:43:44,946 - file_logger - INFO - Accuracy: 0.8800
+2025-05-19 21:43:44,946 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:44,946 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 21:43:44,949 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 21:43:44,949 - file_logger - INFO - Accuracy: 0.8770
+2025-05-19 21:43:44,951 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 21:43:44,951 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 22:59:59,886 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 23:00:01,967 - file_logger - INFO - Normalized Data Shape
+2025-05-19 23:00:01,968 - file_logger - INFO - (252000, 12)
+2025-05-19 23:00:01,968 - file_logger - INFO - Subsampling data to 1.0999999999999999%...
+2025-05-19 23:00:02,072 - file_logger - INFO - Subsample Data Shape
+2025-05-19 23:00:02,073 - file_logger - INFO - (2772, 12)
+2025-05-19 23:00:02,073 - file_logger - INFO - Performing feature engineering...
+2025-05-19 23:00:23,015 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 23:00:33,443 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 23:00:33,444 - file_logger - INFO - Training fold 1/5...
+2025-05-19 23:00:34,168 - file_logger - INFO - Fold 1 results:
+2025-05-19 23:00:34,168 - file_logger - INFO - Accuracy: 0.8757
+2025-05-19 23:00:34,168 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:00:34,168 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:00:34,169 - file_logger - INFO - Training fold 2/5...
+2025-05-19 23:00:34,888 - file_logger - INFO - Fold 2 results:
+2025-05-19 23:00:34,889 - file_logger - INFO - Accuracy: 0.8775
+2025-05-19 23:00:34,889 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:00:34,889 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:00:34,890 - file_logger - INFO - Training fold 3/5...
+2025-05-19 23:00:35,610 - file_logger - INFO - Fold 3 results:
+2025-05-19 23:00:35,610 - file_logger - INFO - Accuracy: 0.8773
+2025-05-19 23:00:35,610 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:00:35,611 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:00:35,611 - file_logger - INFO - Training fold 4/5...
+2025-05-19 23:00:36,363 - file_logger - INFO - Fold 4 results:
+2025-05-19 23:00:36,363 - file_logger - INFO - Accuracy: 0.8773
+2025-05-19 23:00:36,363 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:00:36,364 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:00:36,365 - file_logger - INFO - Training fold 5/5...
+2025-05-19 23:00:37,068 - file_logger - INFO - Fold 5 results:
+2025-05-19 23:00:37,068 - file_logger - INFO - Accuracy: 0.8773
+2025-05-19 23:00:37,068 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:00:37,068 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:00:37,072 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 23:00:37,072 - file_logger - INFO - Accuracy: 0.8770
+2025-05-19 23:00:37,072 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:00:37,072 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:00:37,112 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 23:00:39,160 - file_logger - INFO - Normalized Data Shape
+2025-05-19 23:00:39,161 - file_logger - INFO - (252000, 12)
+2025-05-19 23:00:39,161 - file_logger - INFO - Subsampling data to 1.0999999999999999%...
+2025-05-19 23:00:39,245 - file_logger - INFO - Subsample Data Shape
+2025-05-19 23:00:39,245 - file_logger - INFO - (2772, 12)
+2025-05-19 23:00:39,245 - file_logger - INFO - Performing feature engineering...
+2025-05-19 23:00:59,812 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 23:01:11,367 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 23:01:11,368 - file_logger - INFO - Training fold 1/5...
+2025-05-19 23:01:11,698 - file_logger - INFO - Fold 1 results:
+2025-05-19 23:01:11,701 - file_logger - INFO - Accuracy: 0.8757
+2025-05-19 23:01:11,701 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:01:11,701 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:01:11,702 - file_logger - INFO - Training fold 2/5...
+2025-05-19 23:01:12,077 - file_logger - INFO - Fold 2 results:
+2025-05-19 23:01:12,078 - file_logger - INFO - Accuracy: 0.8775
+2025-05-19 23:01:12,079 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:01:12,079 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:01:12,080 - file_logger - INFO - Training fold 3/5...
+2025-05-19 23:01:12,450 - file_logger - INFO - Fold 3 results:
+2025-05-19 23:01:12,453 - file_logger - INFO - Accuracy: 0.8773
+2025-05-19 23:01:12,453 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:01:12,455 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:01:12,456 - file_logger - INFO - Training fold 4/5...
+2025-05-19 23:01:12,882 - file_logger - INFO - Fold 4 results:
+2025-05-19 23:01:12,883 - file_logger - INFO - Accuracy: 0.8773
+2025-05-19 23:01:12,883 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:01:12,883 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:01:12,884 - file_logger - INFO - Training fold 5/5...
+2025-05-19 23:01:13,242 - file_logger - INFO - Fold 5 results:
+2025-05-19 23:01:13,242 - file_logger - INFO - Accuracy: 0.8773
+2025-05-19 23:01:13,242 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:01:13,242 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:01:13,247 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 23:01:13,247 - file_logger - INFO - Accuracy: 0.8770
+2025-05-19 23:01:13,247 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:01:13,247 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:01:13,327 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 23:01:15,850 - file_logger - INFO - Normalized Data Shape
+2025-05-19 23:01:15,851 - file_logger - INFO - (252000, 12)
+2025-05-19 23:01:15,851 - file_logger - INFO - Subsampling data to 1.0999999999999999%...
+2025-05-19 23:01:15,999 - file_logger - INFO - Subsample Data Shape
+2025-05-19 23:01:16,002 - file_logger - INFO - (2772, 12)
+2025-05-19 23:01:16,002 - file_logger - INFO - Performing feature engineering...
+2025-05-19 23:01:52,145 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 23:02:12,952 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 23:02:12,955 - file_logger - INFO - Training fold 1/5...
+2025-05-19 23:02:13,908 - file_logger - INFO - Fold 1 results:
+2025-05-19 23:02:13,909 - file_logger - INFO - Accuracy: 0.8649
+2025-05-19 23:02:13,909 - file_logger - INFO - Sensitivity: 0.0145
+2025-05-19 23:02:13,909 - file_logger - INFO - Specificity: 0.9856
+2025-05-19 23:02:13,910 - file_logger - INFO - Training fold 2/5...
+2025-05-19 23:02:14,858 - file_logger - INFO - Fold 2 results:
+2025-05-19 23:02:14,859 - file_logger - INFO - Accuracy: 0.8721
+2025-05-19 23:02:14,859 - file_logger - INFO - Sensitivity: 0.0441
+2025-05-19 23:02:14,860 - file_logger - INFO - Specificity: 0.9877
+2025-05-19 23:02:14,860 - file_logger - INFO - Training fold 3/5...
+2025-05-19 23:02:15,805 - file_logger - INFO - Fold 3 results:
+2025-05-19 23:02:15,805 - file_logger - INFO - Accuracy: 0.8682
+2025-05-19 23:02:15,806 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:02:15,806 - file_logger - INFO - Specificity: 0.9897
+2025-05-19 23:02:15,807 - file_logger - INFO - Training fold 4/5...
+2025-05-19 23:02:16,775 - file_logger - INFO - Fold 4 results:
+2025-05-19 23:02:16,776 - file_logger - INFO - Accuracy: 0.8718
+2025-05-19 23:02:16,776 - file_logger - INFO - Sensitivity: 0.0147
+2025-05-19 23:02:16,776 - file_logger - INFO - Specificity: 0.9918
+2025-05-19 23:02:16,777 - file_logger - INFO - Training fold 5/5...
+2025-05-19 23:02:17,724 - file_logger - INFO - Fold 5 results:
+2025-05-19 23:02:17,724 - file_logger - INFO - Accuracy: 0.8773
+2025-05-19 23:02:17,725 - file_logger - INFO - Sensitivity: 0.0441
+2025-05-19 23:02:17,725 - file_logger - INFO - Specificity: 0.9938
+2025-05-19 23:02:17,730 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 23:02:17,731 - file_logger - INFO - Accuracy: 0.8709
+2025-05-19 23:02:17,731 - file_logger - INFO - Sensitivity: 0.0235
+2025-05-19 23:02:17,731 - file_logger - INFO - Specificity: 0.9897
+2025-05-19 23:02:17,768 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 23:02:21,877 - file_logger - INFO - Normalized Data Shape
+2025-05-19 23:02:21,877 - file_logger - INFO - (252000, 12)
+2025-05-19 23:02:21,879 - file_logger - INFO - Subsampling data to 1.0999999999999999%...
+2025-05-19 23:02:22,015 - file_logger - INFO - Subsample Data Shape
+2025-05-19 23:02:22,015 - file_logger - INFO - (2772, 12)
+2025-05-19 23:02:22,015 - file_logger - INFO - Performing feature engineering...
+2025-05-19 23:02:58,091 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 23:03:19,365 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 23:03:19,367 - file_logger - INFO - Training fold 1/5...
+2025-05-19 23:03:20,705 - file_logger - INFO - Fold 1 results:
+2025-05-19 23:03:20,707 - file_logger - INFO - Accuracy: 0.8594
+2025-05-19 23:03:20,709 - file_logger - INFO - Sensitivity: 0.0216
+2025-05-19 23:03:20,709 - file_logger - INFO - Specificity: 0.9784
+2025-05-19 23:03:20,710 - file_logger - INFO - Training fold 2/5...
+2025-05-19 23:03:22,089 - file_logger - INFO - Fold 2 results:
+2025-05-19 23:03:22,089 - file_logger - INFO - Accuracy: 0.8707
+2025-05-19 23:03:22,089 - file_logger - INFO - Sensitivity: 0.0090
+2025-05-19 23:03:22,089 - file_logger - INFO - Specificity: 0.9910
+2025-05-19 23:03:22,090 - file_logger - INFO - Training fold 3/5...
+2025-05-19 23:03:23,454 - file_logger - INFO - Fold 3 results:
+2025-05-19 23:03:23,455 - file_logger - INFO - Accuracy: 0.8555
+2025-05-19 23:03:23,455 - file_logger - INFO - Sensitivity: 0.0289
+2025-05-19 23:03:23,455 - file_logger - INFO - Specificity: 0.9711
+2025-05-19 23:03:23,456 - file_logger - INFO - Training fold 4/5...
+2025-05-19 23:03:24,791 - file_logger - INFO - Fold 4 results:
+2025-05-19 23:03:24,791 - file_logger - INFO - Accuracy: 0.8650
+2025-05-19 23:03:24,791 - file_logger - INFO - Sensitivity: 0.0162
+2025-05-19 23:03:24,792 - file_logger - INFO - Specificity: 0.9838
+2025-05-19 23:03:24,792 - file_logger - INFO - Training fold 5/5...
+2025-05-19 23:03:26,127 - file_logger - INFO - Fold 5 results:
+2025-05-19 23:03:26,128 - file_logger - INFO - Accuracy: 0.8732
+2025-05-19 23:03:26,128 - file_logger - INFO - Sensitivity: 0.0054
+2025-05-19 23:03:26,128 - file_logger - INFO - Specificity: 0.9946
+2025-05-19 23:03:26,133 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 23:03:26,134 - file_logger - INFO - Accuracy: 0.8647
+2025-05-19 23:03:26,134 - file_logger - INFO - Sensitivity: 0.0162
+2025-05-19 23:03:26,134 - file_logger - INFO - Specificity: 0.9838
+2025-05-19 23:03:26,148 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 23:03:30,171 - file_logger - INFO - Normalized Data Shape
+2025-05-19 23:03:30,171 - file_logger - INFO - (252000, 12)
+2025-05-19 23:03:30,171 - file_logger - INFO - Subsampling data to 1.0999999999999999%...
+2025-05-19 23:03:30,360 - file_logger - INFO - Subsample Data Shape
+2025-05-19 23:03:30,360 - file_logger - INFO - (2772, 12)
+2025-05-19 23:03:30,361 - file_logger - INFO - Performing feature engineering...
+2025-05-19 23:04:06,892 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 23:04:27,866 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 23:04:27,868 - file_logger - INFO - Training fold 1/5...
+2025-05-19 23:04:29,202 - file_logger - INFO - Fold 1 results:
+2025-05-19 23:04:29,202 - file_logger - INFO - Accuracy: 0.8216
+2025-05-19 23:04:29,205 - file_logger - INFO - Sensitivity: 0.2319
+2025-05-19 23:04:29,205 - file_logger - INFO - Specificity: 0.9053
+2025-05-19 23:04:29,206 - file_logger - INFO - Training fold 2/5...
+2025-05-19 23:04:30,545 - file_logger - INFO - Fold 2 results:
+2025-05-19 23:04:30,545 - file_logger - INFO - Accuracy: 0.7784
+2025-05-19 23:04:30,546 - file_logger - INFO - Sensitivity: 0.2794
+2025-05-19 23:04:30,546 - file_logger - INFO - Specificity: 0.8480
+2025-05-19 23:04:30,546 - file_logger - INFO - Training fold 3/5...
+2025-05-19 23:04:31,970 - file_logger - INFO - Fold 3 results:
+2025-05-19 23:04:31,970 - file_logger - INFO - Accuracy: 0.8014
+2025-05-19 23:04:31,971 - file_logger - INFO - Sensitivity: 0.2794
+2025-05-19 23:04:31,971 - file_logger - INFO - Specificity: 0.8745
+2025-05-19 23:04:31,972 - file_logger - INFO - Training fold 4/5...
+2025-05-19 23:04:33,415 - file_logger - INFO - Fold 4 results:
+2025-05-19 23:04:33,415 - file_logger - INFO - Accuracy: 0.7473
+2025-05-19 23:04:33,416 - file_logger - INFO - Sensitivity: 0.2353
+2025-05-19 23:04:33,416 - file_logger - INFO - Specificity: 0.8189
+2025-05-19 23:04:33,417 - file_logger - INFO - Training fold 5/5...
+2025-05-19 23:04:34,765 - file_logger - INFO - Fold 5 results:
+2025-05-19 23:04:34,765 - file_logger - INFO - Accuracy: 0.7563
+2025-05-19 23:04:34,765 - file_logger - INFO - Sensitivity: 0.2206
+2025-05-19 23:04:34,766 - file_logger - INFO - Specificity: 0.8313
+2025-05-19 23:04:34,769 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 23:04:34,769 - file_logger - INFO - Accuracy: 0.7810
+2025-05-19 23:04:34,770 - file_logger - INFO - Sensitivity: 0.2493
+2025-05-19 23:04:34,770 - file_logger - INFO - Specificity: 0.8556
+2025-05-19 23:04:34,782 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 23:04:38,781 - file_logger - INFO - Normalized Data Shape
+2025-05-19 23:04:38,782 - file_logger - INFO - (252000, 12)
+2025-05-19 23:04:38,782 - file_logger - INFO - Subsampling data to 1.0999999999999999%...
+2025-05-19 23:04:38,912 - file_logger - INFO - Subsample Data Shape
+2025-05-19 23:04:38,913 - file_logger - INFO - (2772, 12)
+2025-05-19 23:04:38,913 - file_logger - INFO - Performing feature engineering...
+2025-05-19 23:05:15,378 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 23:05:35,495 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 23:05:35,497 - file_logger - INFO - Training fold 1/5...
+2025-05-19 23:05:36,081 - file_logger - INFO - Fold 1 results:
+2025-05-19 23:05:36,081 - file_logger - INFO - Accuracy: 0.8757
+2025-05-19 23:05:36,082 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:05:36,082 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:05:36,083 - file_logger - INFO - Training fold 2/5...
+2025-05-19 23:05:36,680 - file_logger - INFO - Fold 2 results:
+2025-05-19 23:05:36,680 - file_logger - INFO - Accuracy: 0.8775
+2025-05-19 23:05:36,681 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:05:36,681 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:05:36,682 - file_logger - INFO - Training fold 3/5...
+2025-05-19 23:05:37,272 - file_logger - INFO - Fold 3 results:
+2025-05-19 23:05:37,273 - file_logger - INFO - Accuracy: 0.8773
+2025-05-19 23:05:37,273 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:05:37,273 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:05:37,274 - file_logger - INFO - Training fold 4/5...
+2025-05-19 23:05:37,950 - file_logger - INFO - Fold 4 results:
+2025-05-19 23:05:37,951 - file_logger - INFO - Accuracy: 0.8773
+2025-05-19 23:05:37,951 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:05:37,951 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:05:37,952 - file_logger - INFO - Training fold 5/5...
+2025-05-19 23:05:38,514 - file_logger - INFO - Fold 5 results:
+2025-05-19 23:05:38,515 - file_logger - INFO - Accuracy: 0.8773
+2025-05-19 23:05:38,515 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:05:38,515 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:05:38,520 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 23:05:38,520 - file_logger - INFO - Accuracy: 0.8770
+2025-05-19 23:05:38,520 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-19 23:05:38,521 - file_logger - INFO - Specificity: 1.0000
+2025-05-19 23:05:38,533 - file_logger - INFO - Loading and preprocessing data...
+2025-05-19 23:05:42,800 - file_logger - INFO - Normalized Data Shape
+2025-05-19 23:05:42,800 - file_logger - INFO - (252000, 12)
+2025-05-19 23:05:42,803 - file_logger - INFO - Subsampling data to 1.0999999999999999%...
+2025-05-19 23:05:42,924 - file_logger - INFO - Subsample Data Shape
+2025-05-19 23:05:42,924 - file_logger - INFO - (2772, 12)
+2025-05-19 23:05:42,924 - file_logger - INFO - Performing feature engineering...
+2025-05-19 23:06:18,795 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-19 23:06:39,111 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-19 23:06:39,114 - file_logger - INFO - Training fold 1/5...
+2025-05-19 23:06:39,237 - file_logger - INFO - Fold 1 results:
+2025-05-19 23:06:39,238 - file_logger - INFO - Accuracy: 0.8613
+2025-05-19 23:06:39,238 - file_logger - INFO - Sensitivity: 0.0145
+2025-05-19 23:06:39,238 - file_logger - INFO - Specificity: 0.9815
+2025-05-19 23:06:39,239 - file_logger - INFO - Training fold 2/5...
+2025-05-19 23:06:39,353 - file_logger - INFO - Fold 2 results:
+2025-05-19 23:06:39,354 - file_logger - INFO - Accuracy: 0.8613
+2025-05-19 23:06:39,354 - file_logger - INFO - Sensitivity: 0.0441
+2025-05-19 23:06:39,354 - file_logger - INFO - Specificity: 0.9754
+2025-05-19 23:06:39,355 - file_logger - INFO - Training fold 3/5...
+2025-05-19 23:06:39,453 - file_logger - INFO - Fold 3 results:
+2025-05-19 23:06:39,454 - file_logger - INFO - Accuracy: 0.8646
+2025-05-19 23:06:39,454 - file_logger - INFO - Sensitivity: 0.0441
+2025-05-19 23:06:39,454 - file_logger - INFO - Specificity: 0.9794
+2025-05-19 23:06:39,455 - file_logger - INFO - Training fold 4/5...
+2025-05-19 23:06:39,549 - file_logger - INFO - Fold 4 results:
+2025-05-19 23:06:39,550 - file_logger - INFO - Accuracy: 0.8556
+2025-05-19 23:06:39,550 - file_logger - INFO - Sensitivity: 0.0294
+2025-05-19 23:06:39,550 - file_logger - INFO - Specificity: 0.9712
+2025-05-19 23:06:39,551 - file_logger - INFO - Training fold 5/5...
+2025-05-19 23:06:39,645 - file_logger - INFO - Fold 5 results:
+2025-05-19 23:06:39,646 - file_logger - INFO - Accuracy: 0.8646
+2025-05-19 23:06:39,647 - file_logger - INFO - Sensitivity: 0.0294
+2025-05-19 23:06:39,647 - file_logger - INFO - Specificity: 0.9815
+2025-05-19 23:06:39,651 - file_logger - INFO - 
+Average results across all folds:
+2025-05-19 23:06:39,651 - file_logger - INFO - Accuracy: 0.8615
+2025-05-19 23:06:39,652 - file_logger - INFO - Sensitivity: 0.0323
+2025-05-19 23:06:39,652 - file_logger - INFO - Specificity: 0.9778
+2025-05-28 03:09:32,652 - file_logger - INFO - Loading and preprocessing data...
+2025-05-28 03:09:34,902 - file_logger - INFO - Normalized Data Shape
+2025-05-28 03:09:34,902 - file_logger - INFO - (252000, 12)
+2025-05-28 03:09:34,902 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-28 03:09:35,011 - file_logger - INFO - Subsample Data Shape
+2025-05-28 03:09:35,011 - file_logger - INFO - (252, 12)
+2025-05-28 03:09:35,011 - file_logger - INFO - Performing feature engineering...
+2025-05-28 03:09:35,298 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-28 03:09:38,522 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-28 03:09:38,523 - file_logger - INFO - Training fold 1/5...
+2025-05-28 03:09:38,856 - file_logger - INFO - Fold 1 results:
+2025-05-28 03:09:38,856 - file_logger - INFO - Accuracy: 0.7916
+2025-05-28 03:09:38,856 - file_logger - INFO - Sensitivity: 0.0980
+2025-05-28 03:09:38,857 - file_logger - INFO - Specificity: 0.9020
+2025-05-28 03:09:38,857 - file_logger - INFO - Training fold 2/5...
+2025-05-28 03:09:39,127 - file_logger - INFO - Fold 2 results:
+2025-05-28 03:09:39,127 - file_logger - INFO - Accuracy: 0.7774
+2025-05-28 03:09:39,127 - file_logger - INFO - Sensitivity: 0.1373
+2025-05-28 03:09:39,127 - file_logger - INFO - Specificity: 0.8627
+2025-05-28 03:09:39,128 - file_logger - INFO - Training fold 3/5...
+2025-05-28 03:09:39,510 - file_logger - INFO - Fold 3 results:
+2025-05-28 03:09:39,511 - file_logger - INFO - Accuracy: 0.7888
+2025-05-28 03:09:39,511 - file_logger - INFO - Sensitivity: 0.1200
+2025-05-28 03:09:39,511 - file_logger - INFO - Specificity: 0.8800
+2025-05-28 03:09:39,511 - file_logger - INFO - Training fold 4/5...
+2025-05-28 03:09:39,829 - file_logger - INFO - Fold 4 results:
+2025-05-28 03:09:39,829 - file_logger - INFO - Accuracy: 0.7584
+2025-05-28 03:09:39,830 - file_logger - INFO - Sensitivity: 0.1600
+2025-05-28 03:09:39,830 - file_logger - INFO - Specificity: 0.8400
+2025-05-28 03:09:39,830 - file_logger - INFO - Training fold 5/5...
+2025-05-28 03:09:40,086 - file_logger - INFO - Fold 5 results:
+2025-05-28 03:09:40,087 - file_logger - INFO - Accuracy: 0.6520
+2025-05-28 03:09:40,087 - file_logger - INFO - Sensitivity: 0.3000
+2025-05-28 03:09:40,087 - file_logger - INFO - Specificity: 0.7000
+2025-05-28 03:09:40,089 - file_logger - INFO - 
+Average results across all folds:
+2025-05-28 03:09:40,090 - file_logger - INFO - Accuracy: 0.7536
+2025-05-28 03:09:40,090 - file_logger - INFO - Sensitivity: 0.1631
+2025-05-28 03:09:40,090 - file_logger - INFO - Specificity: 0.8369
+2025-05-28 03:09:40,176 - file_logger - INFO - Loading and preprocessing data...
+2025-05-28 03:09:43,615 - file_logger - INFO - Normalized Data Shape
+2025-05-28 03:09:43,615 - file_logger - INFO - (252000, 12)
+2025-05-28 03:09:43,615 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-28 03:09:43,706 - file_logger - INFO - Subsample Data Shape
+2025-05-28 03:09:43,706 - file_logger - INFO - (252, 12)
+2025-05-28 03:09:43,707 - file_logger - INFO - Performing feature engineering...
+2025-05-28 03:09:43,972 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-28 03:09:45,762 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-28 03:09:45,763 - file_logger - INFO - Training fold 1/5...
+2025-05-28 03:09:46,147 - file_logger - INFO - Fold 1 results:
+2025-05-28 03:09:46,148 - file_logger - INFO - Accuracy: 0.8627
+2025-05-28 03:09:46,148 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:46,148 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:09:46,149 - file_logger - INFO - Training fold 2/5...
+2025-05-28 03:09:46,533 - file_logger - INFO - Fold 2 results:
+2025-05-28 03:09:46,533 - file_logger - INFO - Accuracy: 0.8824
+2025-05-28 03:09:46,534 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:46,535 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:09:46,535 - file_logger - INFO - Training fold 3/5...
+2025-05-28 03:09:46,876 - file_logger - INFO - Fold 3 results:
+2025-05-28 03:09:46,876 - file_logger - INFO - Accuracy: 0.8800
+2025-05-28 03:09:46,877 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:46,877 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:09:46,877 - file_logger - INFO - Training fold 4/5...
+2025-05-28 03:09:47,222 - file_logger - INFO - Fold 4 results:
+2025-05-28 03:09:47,223 - file_logger - INFO - Accuracy: 0.8800
+2025-05-28 03:09:47,223 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:47,223 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:09:47,224 - file_logger - INFO - Training fold 5/5...
+2025-05-28 03:09:47,548 - file_logger - INFO - Fold 5 results:
+2025-05-28 03:09:47,548 - file_logger - INFO - Accuracy: 0.8800
+2025-05-28 03:09:47,549 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:47,549 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:09:47,555 - file_logger - INFO - 
+Average results across all folds:
+2025-05-28 03:09:47,555 - file_logger - INFO - Accuracy: 0.8770
+2025-05-28 03:09:47,555 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:47,556 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:09:47,695 - file_logger - INFO - Loading and preprocessing data...
+2025-05-28 03:09:50,325 - file_logger - INFO - Normalized Data Shape
+2025-05-28 03:09:50,325 - file_logger - INFO - (252000, 12)
+2025-05-28 03:09:50,325 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-28 03:09:50,438 - file_logger - INFO - Subsample Data Shape
+2025-05-28 03:09:50,438 - file_logger - INFO - (252, 12)
+2025-05-28 03:09:50,440 - file_logger - INFO - Performing feature engineering...
+2025-05-28 03:09:50,740 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-28 03:09:51,968 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-28 03:09:51,970 - file_logger - INFO - Training fold 1/5...
+2025-05-28 03:09:52,634 - file_logger - INFO - Fold 1 results:
+2025-05-28 03:09:52,635 - file_logger - INFO - Accuracy: 0.8627
+2025-05-28 03:09:52,635 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:52,635 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:09:52,635 - file_logger - INFO - Training fold 2/5...
+2025-05-28 03:09:52,657 - file_logger - INFO - Fold 2 results:
+2025-05-28 03:09:52,657 - file_logger - INFO - Accuracy: 0.8824
+2025-05-28 03:09:52,658 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:52,658 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:09:52,658 - file_logger - INFO - Training fold 3/5...
+2025-05-28 03:09:52,679 - file_logger - INFO - Fold 3 results:
+2025-05-28 03:09:52,680 - file_logger - INFO - Accuracy: 0.8800
+2025-05-28 03:09:52,680 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:52,680 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:09:52,680 - file_logger - INFO - Training fold 4/5...
+2025-05-28 03:09:52,707 - file_logger - INFO - Fold 4 results:
+2025-05-28 03:09:52,707 - file_logger - INFO - Accuracy: 0.8800
+2025-05-28 03:09:52,707 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:52,708 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:09:52,708 - file_logger - INFO - Training fold 5/5...
+2025-05-28 03:09:52,729 - file_logger - INFO - Fold 5 results:
+2025-05-28 03:09:52,729 - file_logger - INFO - Accuracy: 0.8800
+2025-05-28 03:09:52,729 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:52,730 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:09:52,734 - file_logger - INFO - 
+Average results across all folds:
+2025-05-28 03:09:52,734 - file_logger - INFO - Accuracy: 0.8770
+2025-05-28 03:09:52,734 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:09:52,734 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:12:17,821 - file_logger - INFO - Loading and preprocessing data...
+2025-05-28 03:12:19,916 - file_logger - INFO - Normalized Data Shape
+2025-05-28 03:12:19,917 - file_logger - INFO - (252000, 12)
+2025-05-28 03:12:19,917 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-28 03:12:20,007 - file_logger - INFO - Subsample Data Shape
+2025-05-28 03:12:20,007 - file_logger - INFO - (252, 12)
+2025-05-28 03:12:20,009 - file_logger - INFO - Performing feature engineering...
+2025-05-28 03:12:20,268 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-28 03:12:22,336 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-28 03:12:22,337 - file_logger - INFO - Training fold 1/5...
+2025-05-28 03:12:22,589 - file_logger - INFO - Fold 1 results:
+2025-05-28 03:12:22,590 - file_logger - INFO - Accuracy: 0.8627
+2025-05-28 03:12:22,590 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:22,590 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:12:22,590 - file_logger - INFO - Training fold 2/5...
+2025-05-28 03:12:22,800 - file_logger - INFO - Fold 2 results:
+2025-05-28 03:12:22,801 - file_logger - INFO - Accuracy: 0.8431
+2025-05-28 03:12:22,801 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:22,801 - file_logger - INFO - Specificity: 0.9556
+2025-05-28 03:12:22,802 - file_logger - INFO - Training fold 3/5...
+2025-05-28 03:12:23,008 - file_logger - INFO - Fold 3 results:
+2025-05-28 03:12:23,008 - file_logger - INFO - Accuracy: 0.8800
+2025-05-28 03:12:23,008 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:23,008 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:12:23,008 - file_logger - INFO - Training fold 4/5...
+2025-05-28 03:12:23,214 - file_logger - INFO - Fold 4 results:
+2025-05-28 03:12:23,214 - file_logger - INFO - Accuracy: 0.8200
+2025-05-28 03:12:23,214 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:23,216 - file_logger - INFO - Specificity: 0.9318
+2025-05-28 03:12:23,216 - file_logger - INFO - Training fold 5/5...
+2025-05-28 03:12:23,420 - file_logger - INFO - Fold 5 results:
+2025-05-28 03:12:23,420 - file_logger - INFO - Accuracy: 0.8200
+2025-05-28 03:12:23,420 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:23,420 - file_logger - INFO - Specificity: 0.9318
+2025-05-28 03:12:23,423 - file_logger - INFO - 
+Average results across all folds:
+2025-05-28 03:12:23,423 - file_logger - INFO - Accuracy: 0.8452
+2025-05-28 03:12:23,423 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:23,423 - file_logger - INFO - Specificity: 0.9638
+2025-05-28 03:12:23,464 - file_logger - INFO - Loading and preprocessing data...
+2025-05-28 03:12:25,560 - file_logger - INFO - Normalized Data Shape
+2025-05-28 03:12:25,560 - file_logger - INFO - (252000, 12)
+2025-05-28 03:12:25,560 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-28 03:12:25,664 - file_logger - INFO - Subsample Data Shape
+2025-05-28 03:12:25,664 - file_logger - INFO - (252, 12)
+2025-05-28 03:12:25,664 - file_logger - INFO - Performing feature engineering...
+2025-05-28 03:12:25,952 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-28 03:12:26,952 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-28 03:12:26,954 - file_logger - INFO - Training fold 1/5...
+2025-05-28 03:12:27,145 - file_logger - INFO - Fold 1 results:
+2025-05-28 03:12:27,145 - file_logger - INFO - Accuracy: 0.8627
+2025-05-28 03:12:27,145 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:27,146 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:12:27,147 - file_logger - INFO - Training fold 2/5...
+2025-05-28 03:12:27,172 - file_logger - INFO - Fold 2 results:
+2025-05-28 03:12:27,172 - file_logger - INFO - Accuracy: 0.8824
+2025-05-28 03:12:27,173 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:27,173 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:12:27,173 - file_logger - INFO - Training fold 3/5...
+2025-05-28 03:12:27,202 - file_logger - INFO - Fold 3 results:
+2025-05-28 03:12:27,202 - file_logger - INFO - Accuracy: 0.8800
+2025-05-28 03:12:27,202 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:27,202 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:12:27,202 - file_logger - INFO - Training fold 4/5...
+2025-05-28 03:12:27,227 - file_logger - INFO - Fold 4 results:
+2025-05-28 03:12:27,227 - file_logger - INFO - Accuracy: 0.8800
+2025-05-28 03:12:27,227 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:27,228 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:12:27,228 - file_logger - INFO - Training fold 5/5...
+2025-05-28 03:12:27,256 - file_logger - INFO - Fold 5 results:
+2025-05-28 03:12:27,256 - file_logger - INFO - Accuracy: 0.8800
+2025-05-28 03:12:27,256 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:27,256 - file_logger - INFO - Specificity: 1.0000
+2025-05-28 03:12:27,260 - file_logger - INFO - 
+Average results across all folds:
+2025-05-28 03:12:27,260 - file_logger - INFO - Accuracy: 0.8770
+2025-05-28 03:12:27,260 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-28 03:12:27,260 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:03:11,386 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:03:11,723 - file_logger - ERROR - Error in loan risk prediction: Need to specify at least one of 'labels', 'index' or 'columns'
+2025-05-30 19:03:11,766 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:03:12,042 - file_logger - ERROR - Error in loan risk prediction: Need to specify at least one of 'labels', 'index' or 'columns'
+2025-05-30 19:03:12,059 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:03:12,332 - file_logger - ERROR - Error in loan risk prediction: Need to specify at least one of 'labels', 'index' or 'columns'
+2025-05-30 19:03:12,348 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:03:12,617 - file_logger - ERROR - Error in loan risk prediction: Need to specify at least one of 'labels', 'index' or 'columns'
+2025-05-30 19:03:12,644 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:03:12,913 - file_logger - ERROR - Error in loan risk prediction: Need to specify at least one of 'labels', 'index' or 'columns'
+2025-05-30 19:05:22,119 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:05:24,245 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:05:24,246 - file_logger - INFO - (252000, 12)
+2025-05-30 19:05:24,246 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:05:24,344 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:05:24,344 - file_logger - INFO - (252, 12)
+2025-05-30 19:05:24,344 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:05:24,349 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:05:26,467 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:05:26,467 - file_logger - INFO - Accuracy: 0.8485
+2025-05-30 19:05:26,467 - file_logger - INFO - Sensitivity: 0.0196
+2025-05-30 19:05:26,468 - file_logger - INFO - Specificity: 0.9804
+2025-05-30 19:05:26,468 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:05:26,946 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:05:26,946 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:05:26,947 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:26,949 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:26,949 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:05:27,293 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:05:27,293 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:27,293 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:27,294 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:27,294 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:05:27,572 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:05:27,572 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:27,574 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:27,574 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:27,574 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:05:27,856 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:05:27,857 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:27,857 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:27,857 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:27,860 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:05:27,860 - file_logger - INFO - Accuracy: 0.8742
+2025-05-30 19:05:27,860 - file_logger - INFO - Sensitivity: 0.0039
+2025-05-30 19:05:27,860 - file_logger - INFO - Specificity: 0.9961
+2025-05-30 19:05:27,965 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:05:30,153 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:05:30,153 - file_logger - INFO - (252000, 12)
+2025-05-30 19:05:30,154 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:05:30,252 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:05:30,254 - file_logger - INFO - (252, 12)
+2025-05-30 19:05:30,254 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:05:30,254 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:05:30,391 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:05:30,391 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:05:30,391 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:30,392 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:30,392 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:05:30,522 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:05:30,523 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:05:30,523 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:30,523 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:30,525 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:05:30,654 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:05:30,654 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:30,654 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:30,655 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:30,655 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:05:30,791 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:05:30,794 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:30,794 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:30,794 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:30,795 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:05:30,939 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:05:30,939 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:30,940 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:30,940 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:30,944 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:05:30,945 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:05:30,945 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:30,945 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:30,956 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:05:34,693 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:05:34,693 - file_logger - INFO - (252000, 12)
+2025-05-30 19:05:34,693 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:05:34,850 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:05:34,851 - file_logger - INFO - (252, 12)
+2025-05-30 19:05:34,851 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:05:34,853 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:05:35,264 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:05:35,268 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:05:35,268 - file_logger - INFO - Sensitivity: 0.2857
+2025-05-30 19:05:35,269 - file_logger - INFO - Specificity: 0.9545
+2025-05-30 19:05:35,269 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:05:35,790 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:05:35,791 - file_logger - INFO - Accuracy: 0.8235
+2025-05-30 19:05:35,791 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:35,791 - file_logger - INFO - Specificity: 0.9333
+2025-05-30 19:05:35,793 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:05:36,106 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:05:36,107 - file_logger - INFO - Accuracy: 0.8600
+2025-05-30 19:05:36,107 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:36,107 - file_logger - INFO - Specificity: 0.9773
+2025-05-30 19:05:36,108 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:05:36,426 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:05:36,426 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:36,426 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:36,427 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:36,428 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:05:36,775 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:05:36,775 - file_logger - INFO - Accuracy: 0.8400
+2025-05-30 19:05:36,775 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:36,776 - file_logger - INFO - Specificity: 0.9545
+2025-05-30 19:05:36,781 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:05:36,781 - file_logger - INFO - Accuracy: 0.8533
+2025-05-30 19:05:36,781 - file_logger - INFO - Sensitivity: 0.0571
+2025-05-30 19:05:36,781 - file_logger - INFO - Specificity: 0.9639
+2025-05-30 19:05:36,956 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:05:40,999 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:05:40,999 - file_logger - INFO - (252000, 12)
+2025-05-30 19:05:40,999 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:05:41,148 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:05:41,148 - file_logger - INFO - (252, 12)
+2025-05-30 19:05:41,148 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:05:41,150 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:05:41,618 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:05:41,619 - file_logger - INFO - Accuracy: 0.7774
+2025-05-30 19:05:41,619 - file_logger - INFO - Sensitivity: 0.1176
+2025-05-30 19:05:41,619 - file_logger - INFO - Specificity: 0.8824
+2025-05-30 19:05:41,620 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:05:42,084 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:05:42,085 - file_logger - INFO - Accuracy: 0.8074
+2025-05-30 19:05:42,085 - file_logger - INFO - Sensitivity: 0.0980
+2025-05-30 19:05:42,085 - file_logger - INFO - Specificity: 0.9020
+2025-05-30 19:05:42,086 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:05:42,550 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:05:42,551 - file_logger - INFO - Accuracy: 0.7736
+2025-05-30 19:05:42,551 - file_logger - INFO - Sensitivity: 0.1400
+2025-05-30 19:05:42,551 - file_logger - INFO - Specificity: 0.8600
+2025-05-30 19:05:42,552 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:05:43,046 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:05:43,047 - file_logger - INFO - Accuracy: 0.7888
+2025-05-30 19:05:43,047 - file_logger - INFO - Sensitivity: 0.1200
+2025-05-30 19:05:43,047 - file_logger - INFO - Specificity: 0.8800
+2025-05-30 19:05:43,048 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:05:43,532 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:05:43,532 - file_logger - INFO - Accuracy: 0.8040
+2025-05-30 19:05:43,532 - file_logger - INFO - Sensitivity: 0.1000
+2025-05-30 19:05:43,533 - file_logger - INFO - Specificity: 0.9000
+2025-05-30 19:05:43,538 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:05:43,538 - file_logger - INFO - Accuracy: 0.7902
+2025-05-30 19:05:43,539 - file_logger - INFO - Sensitivity: 0.1151
+2025-05-30 19:05:43,539 - file_logger - INFO - Specificity: 0.8849
+2025-05-30 19:05:43,760 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:05:47,847 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:05:47,847 - file_logger - INFO - (252000, 12)
+2025-05-30 19:05:47,847 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:05:47,977 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:05:47,977 - file_logger - INFO - (252, 12)
+2025-05-30 19:05:47,977 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:05:47,979 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:05:48,342 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:05:48,343 - file_logger - INFO - Accuracy: 0.8431
+2025-05-30 19:05:48,343 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:48,343 - file_logger - INFO - Specificity: 0.9773
+2025-05-30 19:05:48,344 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:05:48,713 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:05:48,713 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:05:48,714 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:48,714 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:48,714 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:05:49,120 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:05:49,121 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:49,121 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:49,121 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:49,122 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:05:49,478 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:05:49,478 - file_logger - INFO - Accuracy: 0.8600
+2025-05-30 19:05:49,478 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:49,479 - file_logger - INFO - Specificity: 0.9773
+2025-05-30 19:05:49,479 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:05:49,867 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:05:49,867 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:49,867 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:49,868 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:49,872 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:05:49,872 - file_logger - INFO - Accuracy: 0.8691
+2025-05-30 19:05:49,872 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:49,872 - file_logger - INFO - Specificity: 0.9909
+2025-05-30 19:05:49,994 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:05:53,640 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:05:53,640 - file_logger - INFO - (252000, 12)
+2025-05-30 19:05:53,640 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:05:53,734 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:05:53,735 - file_logger - INFO - (252, 12)
+2025-05-30 19:05:53,735 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:05:53,736 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:05:53,940 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:05:53,940 - file_logger - INFO - Accuracy: 0.8485
+2025-05-30 19:05:53,940 - file_logger - INFO - Sensitivity: 0.0196
+2025-05-30 19:05:53,940 - file_logger - INFO - Specificity: 0.9804
+2025-05-30 19:05:53,942 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:05:54,186 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:05:54,186 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:05:54,186 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:54,187 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:54,187 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:05:54,398 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:05:54,398 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:54,398 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:54,399 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:54,399 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:05:54,677 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:05:54,692 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:54,692 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:54,693 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:54,693 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:05:54,874 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:05:54,875 - file_logger - INFO - Accuracy: 0.8648
+2025-05-30 19:05:54,875 - file_logger - INFO - Sensitivity: 0.0200
+2025-05-30 19:05:54,875 - file_logger - INFO - Specificity: 0.9800
+2025-05-30 19:05:54,878 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:05:54,878 - file_logger - INFO - Accuracy: 0.8711
+2025-05-30 19:05:54,878 - file_logger - INFO - Sensitivity: 0.0079
+2025-05-30 19:05:54,878 - file_logger - INFO - Specificity: 0.9921
+2025-05-30 19:05:54,915 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:05:57,049 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:05:57,050 - file_logger - INFO - (252000, 12)
+2025-05-30 19:05:57,050 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:05:57,150 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:05:57,150 - file_logger - INFO - (252, 12)
+2025-05-30 19:05:57,150 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:05:57,152 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:05:57,425 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:05:57,425 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:05:57,426 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:57,426 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:57,426 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:05:57,449 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:05:57,449 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:05:57,449 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:57,449 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:57,450 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:05:57,472 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:05:57,472 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:57,472 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:57,473 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:57,473 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:05:57,495 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:05:57,495 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:57,495 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:57,495 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:57,495 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:05:57,517 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:05:57,517 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:05:57,517 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:57,517 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:05:57,520 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:05:57,520 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:05:57,520 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:05:57,521 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:08:44,102 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:08:46,281 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:08:46,281 - file_logger - INFO - (252000, 12)
+2025-05-30 19:08:46,281 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 19:08:46,368 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:08:46,368 - file_logger - INFO - (2520, 12)
+2025-05-30 19:08:46,368 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:08:46,371 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:08:48,017 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:08:48,017 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:08:48,017 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:08:48,018 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:08:48,018 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:08:48,783 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:08:48,783 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:08:48,784 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:08:48,784 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:08:48,785 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:08:49,643 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:08:49,645 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:08:49,645 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:08:49,645 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:08:49,646 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:08:50,514 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:08:50,514 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:08:50,515 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:08:50,515 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:08:50,516 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:08:51,273 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:08:51,274 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:08:51,274 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:08:51,274 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:08:51,281 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:08:51,281 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:08:51,281 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:08:51,282 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:08:51,403 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:08:53,513 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:08:53,514 - file_logger - INFO - (252000, 12)
+2025-05-30 19:08:53,514 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 19:08:53,610 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:08:53,611 - file_logger - INFO - (2520, 12)
+2025-05-30 19:08:53,611 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:08:53,612 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:08:54,456 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:08:54,457 - file_logger - INFO - Accuracy: 0.8052
+2025-05-30 19:08:54,457 - file_logger - INFO - Sensitivity: 0.0952
+2025-05-30 19:08:54,457 - file_logger - INFO - Specificity: 0.9048
+2025-05-30 19:08:54,458 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:08:55,754 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:08:55,754 - file_logger - INFO - Accuracy: 0.8186
+2025-05-30 19:08:55,755 - file_logger - INFO - Sensitivity: 0.0774
+2025-05-30 19:08:55,755 - file_logger - INFO - Specificity: 0.9226
+2025-05-30 19:08:55,755 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:08:56,921 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:08:56,922 - file_logger - INFO - Accuracy: 0.8142
+2025-05-30 19:08:56,922 - file_logger - INFO - Sensitivity: 0.0833
+2025-05-30 19:08:56,922 - file_logger - INFO - Specificity: 0.9167
+2025-05-30 19:08:56,924 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:08:58,086 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:08:58,086 - file_logger - INFO - Accuracy: 0.7977
+2025-05-30 19:08:58,086 - file_logger - INFO - Sensitivity: 0.1052
+2025-05-30 19:08:58,087 - file_logger - INFO - Specificity: 0.8948
+2025-05-30 19:08:58,087 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:08:59,268 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:08:59,268 - file_logger - INFO - Accuracy: 0.8471
+2025-05-30 19:08:59,268 - file_logger - INFO - Sensitivity: 0.0397
+2025-05-30 19:08:59,268 - file_logger - INFO - Specificity: 0.9603
+2025-05-30 19:08:59,274 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:08:59,275 - file_logger - INFO - Accuracy: 0.8165
+2025-05-30 19:08:59,275 - file_logger - INFO - Sensitivity: 0.0802
+2025-05-30 19:08:59,275 - file_logger - INFO - Specificity: 0.9198
+2025-05-30 19:08:59,408 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:09:03,299 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:09:03,299 - file_logger - INFO - (252000, 12)
+2025-05-30 19:09:03,300 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 19:09:03,460 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:09:03,460 - file_logger - INFO - (2520, 12)
+2025-05-30 19:09:03,461 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:09:03,463 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:09:04,330 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:09:04,331 - file_logger - INFO - Accuracy: 0.8810
+2025-05-30 19:09:04,331 - file_logger - INFO - Sensitivity: 0.0968
+2025-05-30 19:09:04,331 - file_logger - INFO - Specificity: 0.9910
+2025-05-30 19:09:04,332 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:09:05,279 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:09:05,279 - file_logger - INFO - Accuracy: 0.8690
+2025-05-30 19:09:05,279 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:09:05,279 - file_logger - INFO - Specificity: 0.9910
+2025-05-30 19:09:05,280 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:09:06,188 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:09:06,188 - file_logger - INFO - Accuracy: 0.8829
+2025-05-30 19:09:06,189 - file_logger - INFO - Sensitivity: 0.0968
+2025-05-30 19:09:06,189 - file_logger - INFO - Specificity: 0.9932
+2025-05-30 19:09:06,190 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:09:07,104 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:09:07,104 - file_logger - INFO - Accuracy: 0.8790
+2025-05-30 19:09:07,106 - file_logger - INFO - Sensitivity: 0.0484
+2025-05-30 19:09:07,106 - file_logger - INFO - Specificity: 0.9955
+2025-05-30 19:09:07,107 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:09:08,015 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:09:08,015 - file_logger - INFO - Accuracy: 0.8690
+2025-05-30 19:09:08,015 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:09:08,015 - file_logger - INFO - Specificity: 0.9910
+2025-05-30 19:09:08,022 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:09:08,022 - file_logger - INFO - Accuracy: 0.8762
+2025-05-30 19:09:08,023 - file_logger - INFO - Sensitivity: 0.0484
+2025-05-30 19:09:08,023 - file_logger - INFO - Specificity: 0.9923
+2025-05-30 19:09:08,162 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:09:12,034 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:09:12,035 - file_logger - INFO - (252000, 12)
+2025-05-30 19:09:12,035 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 19:09:12,186 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:09:12,187 - file_logger - INFO - (2520, 12)
+2025-05-30 19:09:12,187 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:09:12,189 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:09:12,488 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:09:12,489 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:09:12,489 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:09:12,490 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:09:12,491 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:09:12,589 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:09:12,590 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:09:12,590 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:09:12,590 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:09:12,591 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:09:12,704 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:09:12,705 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:09:12,705 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:09:12,705 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:09:12,706 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:09:12,788 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:09:12,788 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:09:12,788 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:09:12,789 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:09:12,789 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:09:12,897 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:09:12,898 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:09:12,898 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:09:12,898 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:09:12,904 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:09:12,904 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:09:12,905 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:09:12,905 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:09:47,858 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:09:49,958 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:09:49,958 - file_logger - INFO - (252000, 12)
+2025-05-30 19:09:49,958 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:09:49,990 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:11:27,548 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:11:27,548 - file_logger - INFO - Accuracy: 1.1780
+2025-05-30 19:11:27,548 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:11:27,550 - file_logger - INFO - Specificity: 0.0000
+2025-05-30 19:11:27,576 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:13:04,685 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:13:04,686 - file_logger - INFO - Accuracy: 1.1780
+2025-05-30 19:13:04,686 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:13:04,686 - file_logger - INFO - Specificity: 0.0000
+2025-05-30 19:13:04,700 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:14:02,608 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:14:04,801 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:14:04,801 - file_logger - INFO - (252000, 12)
+2025-05-30 19:14:04,801 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:14:04,839 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:15:46,691 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:15:46,691 - file_logger - INFO - Accuracy: 1.1780
+2025-05-30 19:15:46,692 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:15:46,692 - file_logger - INFO - Specificity: 0.0000
+2025-05-30 19:15:46,709 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:20:27,488 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:20:29,586 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:20:29,586 - file_logger - INFO - (252000, 12)
+2025-05-30 19:20:29,587 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:20:29,692 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:20:29,693 - file_logger - INFO - (252, 12)
+2025-05-30 19:20:29,693 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:20:29,695 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:20:31,023 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:20:31,023 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:20:31,024 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:20:31,024 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:20:31,024 - file_logger - ERROR - Error in loan risk prediction: Logger.info() takes 2 positional arguments but 3 were given
+2025-05-30 19:23:25,038 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:23:27,181 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:23:27,181 - file_logger - INFO - (252000, 12)
+2025-05-30 19:23:27,181 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:23:27,268 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:23:27,269 - file_logger - INFO - (252, 12)
+2025-05-30 19:23:27,269 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:23:27,272 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:23:28,782 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:23:28,782 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:23:28,782 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:23:28,782 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:23:28,784 - file_logger - ERROR - Error in loan risk prediction: 'Logger' object has no attribute 'log_confusion_matrix'
+2025-05-30 19:23:29,148 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:23:31,388 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:23:31,388 - file_logger - INFO - (252000, 12)
+2025-05-30 19:23:31,388 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:23:31,479 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:23:31,479 - file_logger - INFO - (252, 12)
+2025-05-30 19:23:31,479 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:23:31,481 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:23:31,759 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:23:31,760 - file_logger - INFO - Accuracy: 0.8485
+2025-05-30 19:23:31,760 - file_logger - INFO - Sensitivity: 0.0196
+2025-05-30 19:23:31,761 - file_logger - INFO - Specificity: 0.9804
+2025-05-30 19:23:31,761 - file_logger - ERROR - Error in loan risk prediction: 'Logger' object has no attribute 'log_confusion_matrix'
+2025-05-30 19:23:31,776 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:23:33,975 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:23:33,975 - file_logger - INFO - (252000, 12)
+2025-05-30 19:23:33,975 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:23:34,061 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:23:34,062 - file_logger - INFO - (252, 12)
+2025-05-30 19:23:34,062 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:23:34,063 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:23:34,221 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:23:34,221 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:23:34,222 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:23:34,222 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:23:34,222 - file_logger - ERROR - Error in loan risk prediction: 'Logger' object has no attribute 'log_confusion_matrix'
+2025-05-30 19:24:04,989 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:24:07,078 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:24:07,079 - file_logger - INFO - (252000, 12)
+2025-05-30 19:24:07,079 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:24:07,166 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:24:07,167 - file_logger - INFO - (252, 12)
+2025-05-30 19:24:07,167 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:24:07,169 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:24:08,358 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:24:08,358 - file_logger - INFO - Accuracy: 0.8485
+2025-05-30 19:24:08,358 - file_logger - INFO - Sensitivity: 0.0196
+2025-05-30 19:24:08,358 - file_logger - INFO - Specificity: 0.9804
+2025-05-30 19:24:08,359 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[43  1]
+ [ 7  0]]
+2025-05-30 19:24:08,359 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:24:09,040 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:24:09,040 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:24:09,041 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:24:09,041 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:24:09,041 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 19:24:09,041 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:24:09,376 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:24:09,376 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:24:09,376 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:24:09,377 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:24:09,377 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:24:09,377 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:24:09,760 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:24:09,761 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:24:09,761 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:24:09,761 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:24:09,762 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:24:09,762 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:24:10,024 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:24:10,024 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:24:10,025 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:24:10,025 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:24:10,025 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:24:10,028 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:24:10,029 - file_logger - INFO - Accuracy: 0.8742
+2025-05-30 19:24:10,029 - file_logger - INFO - Sensitivity: 0.0039
+2025-05-30 19:24:10,029 - file_logger - INFO - Specificity: 0.9961
+2025-05-30 19:24:10,059 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:24:12,250 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:24:12,250 - file_logger - INFO - (252000, 12)
+2025-05-30 19:24:12,251 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:24:12,346 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:24:12,346 - file_logger - INFO - (252, 12)
+2025-05-30 19:24:12,347 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:24:12,348 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:24:12,787 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:24:12,788 - file_logger - INFO - Accuracy: 0.9020
+2025-05-30 19:24:12,788 - file_logger - INFO - Sensitivity: 0.4286
+2025-05-30 19:24:12,788 - file_logger - INFO - Specificity: 0.9773
+2025-05-30 19:24:12,788 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[43  1]
+ [ 4  3]]
+2025-05-30 19:24:12,788 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:24:13,021 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:24:13,021 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:24:13,021 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:24:13,022 - file_logger - INFO - Specificity: 0.9778
+2025-05-30 19:24:13,022 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  1]
+ [ 6  0]]
+2025-05-30 19:24:13,023 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:24:13,258 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:24:13,259 - file_logger - INFO - Accuracy: 0.8600
+2025-05-30 19:24:13,259 - file_logger - INFO - Sensitivity: 0.1667
+2025-05-30 19:24:13,259 - file_logger - INFO - Specificity: 0.9545
+2025-05-30 19:24:13,259 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[42  2]
+ [ 5  1]]
+2025-05-30 19:24:13,261 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:24:13,576 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:24:13,576 - file_logger - INFO - Accuracy: 0.8200
+2025-05-30 19:24:13,576 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:24:13,576 - file_logger - INFO - Specificity: 0.9318
+2025-05-30 19:24:13,577 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[41  3]
+ [ 6  0]]
+2025-05-30 19:24:13,577 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:24:13,914 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:24:13,914 - file_logger - INFO - Accuracy: 0.8400
+2025-05-30 19:24:13,914 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:24:13,914 - file_logger - INFO - Specificity: 0.9545
+2025-05-30 19:24:13,915 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[42  2]
+ [ 6  0]]
+2025-05-30 19:24:13,920 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:24:13,920 - file_logger - INFO - Accuracy: 0.8569
+2025-05-30 19:24:13,921 - file_logger - INFO - Sensitivity: 0.1190
+2025-05-30 19:24:13,921 - file_logger - INFO - Specificity: 0.9592
+2025-05-30 19:24:13,936 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:24:14,573 - file_logger - ERROR - Error in loan risk prediction: [Errno 22] Invalid argument: 'processed\\normalized_data.csv'
+2025-05-30 19:31:12,476 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:31:15,817 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:31:15,819 - file_logger - INFO - (252000, 12)
+2025-05-30 19:31:15,819 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:31:15,982 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:31:15,982 - file_logger - INFO - (252, 12)
+2025-05-30 19:31:15,982 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:31:15,983 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:31:16,354 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:31:16,354 - file_logger - INFO - Accuracy: 0.8485
+2025-05-30 19:31:16,355 - file_logger - INFO - Sensitivity: 0.0196
+2025-05-30 19:31:16,355 - file_logger - INFO - Specificity: 0.9804
+2025-05-30 19:31:16,355 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[43  1]
+ [ 7  0]]
+2025-05-30 19:31:16,356 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:31:16,672 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:31:16,672 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:31:16,672 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:31:16,673 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:31:16,673 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 19:31:16,674 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:31:16,977 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:31:16,977 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:31:16,978 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:31:16,978 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:31:16,978 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:31:16,979 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:31:17,331 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:31:17,331 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:31:17,331 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:31:17,332 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:31:17,332 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:31:17,333 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:31:17,755 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:31:17,755 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:31:17,755 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:31:17,756 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:31:17,756 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:31:17,765 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:31:17,767 - file_logger - INFO - Accuracy: 0.8742
+2025-05-30 19:31:17,767 - file_logger - INFO - Sensitivity: 0.0039
+2025-05-30 19:31:17,767 - file_logger - INFO - Specificity: 0.9961
+2025-05-30 19:37:56,019 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:37:56,324 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 19:37:56,782 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:37:56,783 - file_logger - INFO - (251999, 12)
+2025-05-30 19:37:56,783 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:37:56,784 - file_logger - ERROR - Error in loan risk prediction: Found input variables with inconsistent numbers of samples: [251999, 252000]
+2025-05-30 19:37:56,829 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:37:57,072 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 19:37:57,523 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:37:57,523 - file_logger - INFO - (251999, 12)
+2025-05-30 19:37:57,524 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:37:57,524 - file_logger - ERROR - Error in loan risk prediction: Found input variables with inconsistent numbers of samples: [251999, 252000]
+2025-05-30 19:41:07,107 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:41:09,888 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:41:09,888 - file_logger - INFO - (252000, 12)
+2025-05-30 19:41:09,889 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:41:09,993 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:41:09,993 - file_logger - INFO - (252, 12)
+2025-05-30 19:41:09,993 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:41:09,996 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:41:11,243 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:41:11,243 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:41:11,244 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:11,244 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:41:11,244 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 19:41:11,245 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:41:11,401 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:41:11,401 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:41:11,402 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:11,402 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:41:11,402 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 19:41:11,403 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:41:11,566 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:41:11,566 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:41:11,566 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:11,566 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:41:11,567 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:41:11,567 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:41:11,734 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:41:11,734 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:41:11,735 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:11,735 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:41:11,735 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:41:11,736 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:41:11,909 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:41:11,909 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:41:11,910 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:11,910 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:41:11,910 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:41:11,915 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:41:11,915 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:41:11,916 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:11,916 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:41:11,957 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:41:12,242 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 19:41:12,769 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:41:12,769 - file_logger - INFO - (252000, 12)
+2025-05-30 19:41:12,769 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:41:12,865 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:41:12,866 - file_logger - INFO - (252, 12)
+2025-05-30 19:41:12,866 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:41:12,867 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:41:13,012 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:41:13,012 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:41:13,013 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:13,013 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:41:13,013 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 19:41:13,014 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:41:13,041 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:41:13,041 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:41:13,043 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:13,043 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:41:13,043 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 19:41:13,043 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:41:13,083 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:41:13,084 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:41:13,084 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:13,085 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:41:13,085 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:41:13,085 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:41:13,113 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:41:13,113 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:41:13,113 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:13,113 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:41:13,114 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:41:13,114 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:41:13,144 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:41:13,144 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:41:13,146 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:13,146 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:41:13,147 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:41:13,152 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:41:13,152 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:41:13,152 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:41:13,153 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:22,285 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:43:25,240 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:43:25,240 - file_logger - INFO - (252000, 12)
+2025-05-30 19:43:25,240 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:43:25,346 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:43:25,346 - file_logger - INFO - (252, 12)
+2025-05-30 19:43:25,346 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:43:25,350 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:43:26,729 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:43:26,730 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:43:26,730 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:26,730 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:26,731 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 19:43:26,731 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:43:27,045 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:43:27,045 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:43:27,045 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:27,045 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:27,046 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 19:43:27,047 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:43:27,352 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:43:27,352 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:43:27,352 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:27,353 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:27,353 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:43:27,354 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:43:27,684 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:43:27,685 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:43:27,685 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:27,685 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:27,685 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:43:27,686 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:43:28,076 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:43:28,076 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:43:28,076 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:28,078 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:28,078 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:43:28,083 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:43:28,083 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:43:28,083 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:28,084 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:28,280 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:43:28,562 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 19:43:29,150 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:43:29,152 - file_logger - INFO - (252000, 12)
+2025-05-30 19:43:29,152 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:43:29,312 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:43:29,313 - file_logger - INFO - (252, 12)
+2025-05-30 19:43:29,313 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:43:29,317 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:43:29,615 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:43:29,615 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:43:29,615 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:29,616 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:29,617 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 19:43:29,617 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:43:29,946 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:43:29,946 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:43:29,946 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:29,947 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:29,947 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 19:43:29,948 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:43:30,218 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:43:30,218 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:43:30,218 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:30,218 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:30,218 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:43:30,220 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:43:30,551 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:43:30,551 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:43:30,552 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:30,552 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:30,552 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:43:30,553 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:43:30,755 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:43:30,755 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:43:30,755 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:30,755 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:30,756 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:43:30,760 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:43:30,761 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:43:30,761 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:30,761 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:30,790 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:43:31,121 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 19:43:31,648 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:43:31,648 - file_logger - INFO - (252000, 12)
+2025-05-30 19:43:31,648 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:43:31,760 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:43:31,761 - file_logger - INFO - (252, 12)
+2025-05-30 19:43:31,761 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:43:31,762 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:43:32,126 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:43:32,127 - file_logger - INFO - Accuracy: 0.7489
+2025-05-30 19:43:32,127 - file_logger - INFO - Sensitivity: 0.1569
+2025-05-30 19:43:32,127 - file_logger - INFO - Specificity: 0.8431
+2025-05-30 19:43:32,128 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[37  7]
+ [ 6  1]]
+2025-05-30 19:43:32,128 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:43:32,439 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:43:32,440 - file_logger - INFO - Accuracy: 0.7924
+2025-05-30 19:43:32,440 - file_logger - INFO - Sensitivity: 0.1176
+2025-05-30 19:43:32,440 - file_logger - INFO - Specificity: 0.8824
+2025-05-30 19:43:32,440 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[41  4]
+ [ 4  2]]
+2025-05-30 19:43:32,441 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:43:32,755 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:43:32,756 - file_logger - INFO - Accuracy: 0.7888
+2025-05-30 19:43:32,756 - file_logger - INFO - Sensitivity: 0.1200
+2025-05-30 19:43:32,756 - file_logger - INFO - Specificity: 0.8800
+2025-05-30 19:43:32,756 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[39  5]
+ [ 5  1]]
+2025-05-30 19:43:32,757 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:43:33,051 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:43:33,051 - file_logger - INFO - Accuracy: 0.7128
+2025-05-30 19:43:33,051 - file_logger - INFO - Sensitivity: 0.2200
+2025-05-30 19:43:33,052 - file_logger - INFO - Specificity: 0.7800
+2025-05-30 19:43:33,052 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[35  9]
+ [ 4  2]]
+2025-05-30 19:43:33,052 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:43:33,591 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:43:33,592 - file_logger - INFO - Accuracy: 0.8192
+2025-05-30 19:43:33,592 - file_logger - INFO - Sensitivity: 0.0800
+2025-05-30 19:43:33,592 - file_logger - INFO - Specificity: 0.9200
+2025-05-30 19:43:33,593 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[40  4]
+ [ 6  0]]
+2025-05-30 19:43:33,598 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:43:33,598 - file_logger - INFO - Accuracy: 0.7724
+2025-05-30 19:43:33,598 - file_logger - INFO - Sensitivity: 0.1389
+2025-05-30 19:43:33,599 - file_logger - INFO - Specificity: 0.8611
+2025-05-30 19:43:33,657 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:43:34,187 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 19:43:35,020 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:43:35,020 - file_logger - INFO - (252000, 12)
+2025-05-30 19:43:35,020 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:43:35,177 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:43:35,177 - file_logger - INFO - (252, 12)
+2025-05-30 19:43:35,179 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:43:35,181 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:43:35,414 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:43:35,414 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:43:35,414 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:35,414 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:35,416 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 19:43:35,416 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:43:35,444 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:43:35,445 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:43:35,445 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:35,445 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:35,446 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 19:43:35,446 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:43:35,473 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:43:35,473 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:43:35,473 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:35,475 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:35,475 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:43:35,475 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:43:35,506 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:43:35,506 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:43:35,507 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:35,507 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:35,507 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:43:35,508 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:43:35,537 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:43:35,537 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:43:35,537 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:35,537 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:43:35,538 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:43:35,544 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:43:35,544 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:43:35,544 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:43:35,544 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:44:00,574 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 19:44:00,842 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 19:44:01,312 - file_logger - INFO - Normalized Data Shape
+2025-05-30 19:44:01,312 - file_logger - INFO - (252000, 12)
+2025-05-30 19:44:01,313 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 19:44:01,401 - file_logger - INFO - Subsample Data Shape
+2025-05-30 19:44:01,402 - file_logger - INFO - (252, 12)
+2025-05-30 19:44:01,402 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 19:44:01,404 - file_logger - INFO - Training fold 1/5...
+2025-05-30 19:44:02,860 - file_logger - INFO - Fold 1 results:
+2025-05-30 19:44:02,860 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 19:44:02,861 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:44:02,861 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:44:02,861 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 19:44:02,861 - file_logger - INFO - Training fold 2/5...
+2025-05-30 19:44:03,228 - file_logger - INFO - Fold 2 results:
+2025-05-30 19:44:03,229 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 19:44:03,229 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:44:03,229 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:44:03,230 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 19:44:03,230 - file_logger - INFO - Training fold 3/5...
+2025-05-30 19:44:03,598 - file_logger - INFO - Fold 3 results:
+2025-05-30 19:44:03,598 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:44:03,598 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:44:03,599 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:44:03,599 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:44:03,599 - file_logger - INFO - Training fold 4/5...
+2025-05-30 19:44:03,884 - file_logger - INFO - Fold 4 results:
+2025-05-30 19:44:03,884 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:44:03,884 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:44:03,885 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:44:03,885 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:44:03,885 - file_logger - INFO - Training fold 5/5...
+2025-05-30 19:44:04,173 - file_logger - INFO - Fold 5 results:
+2025-05-30 19:44:04,173 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 19:44:04,173 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:44:04,173 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 19:44:04,173 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 19:44:04,178 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 19:44:04,179 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 19:44:04,179 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 19:44:04,179 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:09:50,900 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:09:51,219 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:09:51,647 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:09:51,648 - file_logger - INFO - (252000, 12)
+2025-05-30 20:09:51,648 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:09:51,745 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:09:51,746 - file_logger - INFO - (252, 12)
+2025-05-30 20:09:51,746 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:09:51,749 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:09:53,659 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:09:53,659 - file_logger - INFO - Accuracy: 0.8039
+2025-05-30 20:09:53,659 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:53,659 - file_logger - INFO - Specificity: 0.9318
+2025-05-30 20:09:53,660 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[41  3]
+ [ 7  0]]
+2025-05-30 20:09:53,660 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:09:53,937 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:09:53,937 - file_logger - INFO - Accuracy: 0.8431
+2025-05-30 20:09:53,937 - file_logger - INFO - Sensitivity: 0.1667
+2025-05-30 20:09:53,937 - file_logger - INFO - Specificity: 0.9333
+2025-05-30 20:09:53,938 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[42  3]
+ [ 5  1]]
+2025-05-30 20:09:53,938 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:09:54,176 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:09:54,176 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:09:54,176 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:54,177 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:09:54,177 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:09:54,178 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:09:54,427 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:09:54,427 - file_logger - INFO - Accuracy: 0.8400
+2025-05-30 20:09:54,427 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:54,428 - file_logger - INFO - Specificity: 0.9545
+2025-05-30 20:09:54,428 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[42  2]
+ [ 6  0]]
+2025-05-30 20:09:54,430 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:09:54,648 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:09:54,648 - file_logger - INFO - Accuracy: 0.8600
+2025-05-30 20:09:54,648 - file_logger - INFO - Sensitivity: 0.1667
+2025-05-30 20:09:54,648 - file_logger - INFO - Specificity: 0.9545
+2025-05-30 20:09:54,650 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[42  2]
+ [ 5  1]]
+2025-05-30 20:09:54,653 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:09:54,653 - file_logger - INFO - Accuracy: 0.8454
+2025-05-30 20:09:54,654 - file_logger - INFO - Sensitivity: 0.0667
+2025-05-30 20:09:54,654 - file_logger - INFO - Specificity: 0.9548
+2025-05-30 20:09:54,694 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:09:54,981 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:09:55,451 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:09:55,451 - file_logger - INFO - (252000, 12)
+2025-05-30 20:09:55,451 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:09:55,546 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:09:55,547 - file_logger - INFO - (252, 12)
+2025-05-30 20:09:55,547 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:09:55,548 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:09:55,745 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:09:55,746 - file_logger - INFO - Accuracy: 0.8485
+2025-05-30 20:09:55,746 - file_logger - INFO - Sensitivity: 0.0196
+2025-05-30 20:09:55,746 - file_logger - INFO - Specificity: 0.9804
+2025-05-30 20:09:55,746 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[43  1]
+ [ 7  0]]
+2025-05-30 20:09:55,747 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:09:55,934 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:09:55,936 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 20:09:55,936 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:55,936 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:09:55,936 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 20:09:55,937 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:09:56,117 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:09:56,117 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:09:56,117 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:56,118 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:09:56,118 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:09:56,118 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:09:56,286 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:09:56,286 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:09:56,287 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:56,287 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:09:56,287 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:09:56,288 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:09:56,472 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:09:56,472 - file_logger - INFO - Accuracy: 0.8648
+2025-05-30 20:09:56,473 - file_logger - INFO - Sensitivity: 0.0200
+2025-05-30 20:09:56,473 - file_logger - INFO - Specificity: 0.9800
+2025-05-30 20:09:56,473 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[43  1]
+ [ 6  0]]
+2025-05-30 20:09:56,476 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:09:56,477 - file_logger - INFO - Accuracy: 0.8711
+2025-05-30 20:09:56,477 - file_logger - INFO - Sensitivity: 0.0079
+2025-05-30 20:09:56,477 - file_logger - INFO - Specificity: 0.9921
+2025-05-30 20:09:56,491 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:09:56,843 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:09:57,690 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:09:57,690 - file_logger - INFO - (252000, 12)
+2025-05-30 20:09:57,690 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:09:57,863 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:09:57,863 - file_logger - INFO - (252, 12)
+2025-05-30 20:09:57,863 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:09:57,864 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:09:58,207 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:09:58,207 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:09:58,208 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:58,208 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:09:58,208 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 20:09:58,209 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:09:58,239 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:09:58,239 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 20:09:58,239 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:58,239 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:09:58,241 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 20:09:58,241 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:09:58,269 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:09:58,269 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:09:58,269 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:58,269 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:09:58,270 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:09:58,270 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:09:58,302 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:09:58,302 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:09:58,302 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:58,302 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:09:58,303 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:09:58,303 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:09:58,334 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:09:58,334 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:09:58,334 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:58,334 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:09:58,335 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:09:58,338 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:09:58,339 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:09:58,339 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:09:58,339 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:03,372 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:11:03,624 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:11:04,064 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:11:04,064 - file_logger - INFO - (252000, 12)
+2025-05-30 20:11:04,065 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:11:04,147 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:11:04,147 - file_logger - INFO - (252, 12)
+2025-05-30 20:11:04,147 - file_logger - INFO - No cached fused features found, performing feature engineering...
+2025-05-30 20:11:04,196 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-30 20:11:06,382 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:11:06,384 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:11:06,694 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:11:06,694 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:11:06,695 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:06,695 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:06,695 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 20:11:06,696 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:11:07,070 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:11:07,070 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 20:11:07,070 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:07,070 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:07,070 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 20:11:07,072 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:11:07,317 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:11:07,317 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:11:07,318 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:07,318 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:07,318 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:11:07,318 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:11:07,601 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:11:07,601 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:11:07,601 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:07,603 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:07,603 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:11:07,603 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:11:07,905 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:11:07,905 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:11:07,905 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:07,906 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:07,906 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:11:07,907 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:11:07,907 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:11:07,907 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:07,907 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:07,927 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:11:08,175 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:11:08,634 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:11:08,634 - file_logger - INFO - (252000, 12)
+2025-05-30 20:11:08,634 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:11:08,723 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:11:08,723 - file_logger - INFO - (252, 12)
+2025-05-30 20:11:08,725 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:11:08,725 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:11:08,726 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:11:08,868 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:11:08,868 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:11:08,868 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:08,868 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:08,870 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 20:11:08,870 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:11:09,022 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:11:09,022 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 20:11:09,022 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:09,024 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:09,024 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 20:11:09,024 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:11:09,165 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:11:09,165 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:11:09,166 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:09,166 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:09,167 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:11:09,167 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:11:09,302 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:11:09,302 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:11:09,302 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:09,302 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:09,303 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:11:09,303 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:11:09,432 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:11:09,432 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:11:09,433 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:09,433 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:09,433 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:11:09,434 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:11:09,434 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:11:09,434 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:09,434 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:09,441 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:11:09,693 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:11:10,510 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:11:10,510 - file_logger - INFO - (252000, 12)
+2025-05-30 20:11:10,512 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:11:10,652 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:11:10,652 - file_logger - INFO - (252, 12)
+2025-05-30 20:11:10,655 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:11:10,655 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:11:10,657 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:11:11,064 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:11:11,065 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:11:11,065 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:11,065 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:11,066 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 20:11:11,067 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:11:11,499 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:11:11,500 - file_logger - INFO - Accuracy: 0.8431
+2025-05-30 20:11:11,500 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:11,500 - file_logger - INFO - Specificity: 0.9556
+2025-05-30 20:11:11,501 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[43  2]
+ [ 6  0]]
+2025-05-30 20:11:11,501 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:11:11,893 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:11:11,893 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:11:11,894 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:11,894 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:11,894 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:11:11,895 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:11:12,257 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:11:12,258 - file_logger - INFO - Accuracy: 0.8400
+2025-05-30 20:11:12,258 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:12,258 - file_logger - INFO - Specificity: 0.9545
+2025-05-30 20:11:12,258 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[42  2]
+ [ 6  0]]
+2025-05-30 20:11:12,260 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:11:12,667 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:11:12,668 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:11:12,668 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:12,668 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:12,669 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:11:12,669 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:11:12,670 - file_logger - INFO - Accuracy: 0.8612
+2025-05-30 20:11:12,670 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:12,670 - file_logger - INFO - Specificity: 0.9820
+2025-05-30 20:11:12,696 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:11:13,105 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:11:13,993 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:11:13,994 - file_logger - INFO - (252000, 12)
+2025-05-30 20:11:13,994 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:11:14,126 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:11:14,126 - file_logger - INFO - (252, 12)
+2025-05-30 20:11:14,129 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:11:14,130 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:11:14,132 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:11:14,295 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:11:14,295 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:11:14,295 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:14,295 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:14,296 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 20:11:14,296 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:11:14,312 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:11:14,313 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 20:11:14,313 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:14,313 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:14,313 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 20:11:14,314 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:11:14,331 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:11:14,332 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:11:14,332 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:14,332 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:14,332 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:11:14,332 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:11:14,349 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:11:14,349 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:11:14,350 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:14,350 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:14,350 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:11:14,351 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:11:14,369 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:11:14,370 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:11:14,370 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:14,370 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:11:14,370 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:11:14,370 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:11:14,370 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:11:14,371 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:11:14,371 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:50,275 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:12:50,561 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:12:51,122 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:12:51,122 - file_logger - INFO - (252000, 12)
+2025-05-30 20:12:51,122 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:12:51,214 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:12:51,214 - file_logger - INFO - (252, 12)
+2025-05-30 20:12:51,215 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:12:51,216 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:12:51,218 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:12:52,422 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:12:52,422 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:12:52,422 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:52,422 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:52,424 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 20:12:52,424 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:12:52,777 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:12:52,778 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 20:12:52,778 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:52,778 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:52,778 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 20:12:52,778 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:12:53,045 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:12:53,045 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:12:53,045 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:53,045 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:53,046 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:12:53,046 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:12:53,378 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:12:53,378 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:12:53,378 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:53,379 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:53,379 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:12:53,380 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:12:53,636 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:12:53,636 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:12:53,636 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:53,636 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:53,636 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:12:53,641 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:12:53,641 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:12:53,641 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:53,642 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:53,677 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:12:53,957 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:12:54,402 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:12:54,402 - file_logger - INFO - (252000, 12)
+2025-05-30 20:12:54,402 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:12:54,487 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:12:54,487 - file_logger - INFO - (252, 12)
+2025-05-30 20:12:54,489 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:12:54,489 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:12:54,490 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:12:54,624 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:12:54,624 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:12:54,625 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:54,625 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:54,625 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 20:12:54,626 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:12:54,760 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:12:54,760 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 20:12:54,760 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:54,760 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:54,761 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 20:12:54,761 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:12:54,906 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:12:54,906 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:12:54,906 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:54,906 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:54,906 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:12:54,907 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:12:55,029 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:12:55,029 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:12:55,029 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:55,029 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:55,029 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:12:55,030 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:12:55,155 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:12:55,155 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:12:55,155 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:55,155 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:55,156 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:12:55,159 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:12:55,159 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:12:55,159 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:55,160 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:55,173 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:12:55,462 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:12:56,156 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:12:56,156 - file_logger - INFO - (252000, 12)
+2025-05-30 20:12:56,156 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:12:56,287 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:12:56,287 - file_logger - INFO - (252, 12)
+2025-05-30 20:12:56,289 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:12:56,290 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:12:56,291 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:12:56,597 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:12:56,597 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:12:56,597 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:56,598 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:12:56,598 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 20:12:56,599 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:12:56,923 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:12:56,924 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:12:56,924 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:56,924 - file_logger - INFO - Specificity: 0.9778
+2025-05-30 20:12:56,925 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  1]
+ [ 6  0]]
+2025-05-30 20:12:56,926 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:12:57,252 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:12:57,252 - file_logger - INFO - Accuracy: 0.8600
+2025-05-30 20:12:57,252 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:57,252 - file_logger - INFO - Specificity: 0.9773
+2025-05-30 20:12:57,253 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[43  1]
+ [ 6  0]]
+2025-05-30 20:12:57,253 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:12:57,624 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:12:57,624 - file_logger - INFO - Accuracy: 0.8000
+2025-05-30 20:12:57,624 - file_logger - INFO - Sensitivity: 0.1667
+2025-05-30 20:12:57,625 - file_logger - INFO - Specificity: 0.8864
+2025-05-30 20:12:57,625 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[39  5]
+ [ 5  1]]
+2025-05-30 20:12:57,626 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:12:57,935 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:12:57,936 - file_logger - INFO - Accuracy: 0.8400
+2025-05-30 20:12:57,936 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:12:57,936 - file_logger - INFO - Specificity: 0.9545
+2025-05-30 20:12:57,937 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[42  2]
+ [ 6  0]]
+2025-05-30 20:12:57,943 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:12:57,943 - file_logger - INFO - Accuracy: 0.8451
+2025-05-30 20:12:57,944 - file_logger - INFO - Sensitivity: 0.0333
+2025-05-30 20:12:57,944 - file_logger - INFO - Specificity: 0.9592
+2025-05-30 20:12:57,994 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:12:58,483 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:12:59,264 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:12:59,265 - file_logger - INFO - (252000, 12)
+2025-05-30 20:12:59,265 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:12:59,423 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:12:59,423 - file_logger - INFO - (252, 12)
+2025-05-30 20:12:59,426 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:12:59,426 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:12:59,428 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:12:59,920 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:12:59,920 - file_logger - INFO - Accuracy: 0.7916
+2025-05-30 20:12:59,921 - file_logger - INFO - Sensitivity: 0.0980
+2025-05-30 20:12:59,921 - file_logger - INFO - Specificity: 0.9020
+2025-05-30 20:12:59,921 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[41  3]
+ [ 5  2]]
+2025-05-30 20:12:59,921 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:13:00,405 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:13:00,406 - file_logger - INFO - Accuracy: 0.7624
+2025-05-30 20:13:00,406 - file_logger - INFO - Sensitivity: 0.1569
+2025-05-30 20:13:00,406 - file_logger - INFO - Specificity: 0.8431
+2025-05-30 20:13:00,406 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[38  7]
+ [ 5  1]]
+2025-05-30 20:13:00,407 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:13:00,905 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:13:00,905 - file_logger - INFO - Accuracy: 0.7888
+2025-05-30 20:13:00,906 - file_logger - INFO - Sensitivity: 0.1200
+2025-05-30 20:13:00,906 - file_logger - INFO - Specificity: 0.8800
+2025-05-30 20:13:00,906 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[38  6]
+ [ 6  0]]
+2025-05-30 20:13:00,907 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:13:01,378 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:13:01,378 - file_logger - INFO - Accuracy: 0.6976
+2025-05-30 20:13:01,379 - file_logger - INFO - Sensitivity: 0.2400
+2025-05-30 20:13:01,379 - file_logger - INFO - Specificity: 0.7600
+2025-05-30 20:13:01,380 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[34 10]
+ [ 4  2]]
+2025-05-30 20:13:01,380 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:13:01,883 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:13:01,883 - file_logger - INFO - Accuracy: 0.7584
+2025-05-30 20:13:01,883 - file_logger - INFO - Sensitivity: 0.1600
+2025-05-30 20:13:01,884 - file_logger - INFO - Specificity: 0.8400
+2025-05-30 20:13:01,884 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[37  7]
+ [ 5  1]]
+2025-05-30 20:13:01,892 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:13:01,893 - file_logger - INFO - Accuracy: 0.7598
+2025-05-30 20:13:01,893 - file_logger - INFO - Sensitivity: 0.1550
+2025-05-30 20:13:01,893 - file_logger - INFO - Specificity: 0.8450
+2025-05-30 20:13:01,920 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:13:02,452 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:13:03,309 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:13:03,310 - file_logger - INFO - (252000, 12)
+2025-05-30 20:13:03,310 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:13:03,436 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:13:03,436 - file_logger - INFO - (252, 12)
+2025-05-30 20:13:03,438 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:13:03,439 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:13:03,440 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:13:03,838 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:13:03,840 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:13:03,841 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:03,841 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:03,841 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 20:13:03,842 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:13:04,239 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:13:04,240 - file_logger - INFO - Accuracy: 0.8431
+2025-05-30 20:13:04,240 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:04,240 - file_logger - INFO - Specificity: 0.9556
+2025-05-30 20:13:04,240 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[43  2]
+ [ 6  0]]
+2025-05-30 20:13:04,241 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:13:04,607 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:13:04,608 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:13:04,608 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:04,608 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:04,608 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:13:04,609 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:13:05,016 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:13:05,016 - file_logger - INFO - Accuracy: 0.8400
+2025-05-30 20:13:05,017 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:05,017 - file_logger - INFO - Specificity: 0.9545
+2025-05-30 20:13:05,017 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[42  2]
+ [ 6  0]]
+2025-05-30 20:13:05,018 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:13:05,384 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:13:05,384 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:13:05,385 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:05,385 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:05,385 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:13:05,389 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:13:05,389 - file_logger - INFO - Accuracy: 0.8612
+2025-05-30 20:13:05,390 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:05,390 - file_logger - INFO - Specificity: 0.9820
+2025-05-30 20:13:05,405 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:13:05,876 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:13:06,651 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:13:06,652 - file_logger - INFO - (252000, 12)
+2025-05-30 20:13:06,652 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:13:06,789 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:13:06,789 - file_logger - INFO - (252, 12)
+2025-05-30 20:13:06,791 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:13:06,792 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:13:06,794 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:13:07,116 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:13:07,116 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:13:07,116 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:07,117 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:07,117 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 20:13:07,118 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:13:07,433 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:13:07,433 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 20:13:07,434 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:07,434 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:07,434 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 20:13:07,435 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:13:07,751 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:13:07,751 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:13:07,751 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:07,751 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:07,751 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:13:07,752 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:13:08,070 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:13:08,070 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:13:08,070 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:08,070 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:08,070 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:13:08,071 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:13:08,384 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:13:08,384 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:13:08,385 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:08,385 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:08,385 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:13:08,392 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:13:08,392 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:13:08,392 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:08,393 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:08,408 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:13:08,868 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:13:09,637 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:13:09,637 - file_logger - INFO - (252000, 12)
+2025-05-30 20:13:09,637 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 20:13:09,764 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:13:09,764 - file_logger - INFO - (252, 12)
+2025-05-30 20:13:09,767 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:13:09,768 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:13:09,770 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:13:09,940 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:13:09,940 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 20:13:09,940 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:09,942 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:09,942 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 20:13:09,943 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:13:09,975 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:13:09,975 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 20:13:09,975 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:09,977 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:09,977 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 20:13:09,978 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:13:10,014 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:13:10,014 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:13:10,014 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:10,014 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:10,015 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:13:10,015 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:13:10,046 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:13:10,046 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:13:10,046 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:10,046 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:10,046 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:13:10,048 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:13:10,078 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:13:10,078 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 20:13:10,078 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:10,078 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:13:10,079 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 20:13:10,084 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:13:10,084 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:13:10,084 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:13:10,084 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:10,319 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:14:10,575 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:14:11,037 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:14:11,037 - file_logger - INFO - (252000, 12)
+2025-05-30 20:14:11,037 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 20:14:11,127 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:14:11,127 - file_logger - INFO - (2520, 12)
+2025-05-30 20:14:11,129 - file_logger - INFO - Cached fused features shape mismatch, performing feature engineering...
+2025-05-30 20:14:13,130 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-30 20:14:24,261 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:14:24,263 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:14:25,083 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:14:25,083 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:25,084 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:25,084 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:25,084 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:25,085 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:14:25,883 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:14:25,883 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:25,883 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:25,883 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:25,883 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:25,884 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:14:26,593 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:14:26,594 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:26,594 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:26,594 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:26,594 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:26,595 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:14:27,499 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:14:27,500 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:27,500 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:27,500 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:27,500 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:27,500 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:14:28,403 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:14:28,403 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:28,404 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:28,404 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:28,405 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:28,406 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:14:28,406 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:28,407 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:28,407 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:28,566 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:14:28,818 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:14:29,294 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:14:29,294 - file_logger - INFO - (252000, 12)
+2025-05-30 20:14:29,294 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 20:14:29,377 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:14:29,377 - file_logger - INFO - (2520, 12)
+2025-05-30 20:14:29,382 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:14:29,382 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:14:29,384 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:14:29,946 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:14:29,946 - file_logger - INFO - Accuracy: 0.8730
+2025-05-30 20:14:29,947 - file_logger - INFO - Sensitivity: 0.0484
+2025-05-30 20:14:29,947 - file_logger - INFO - Specificity: 0.9887
+2025-05-30 20:14:29,947 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[437   5]
+ [ 59   3]]
+2025-05-30 20:14:29,948 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:14:30,510 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:14:30,510 - file_logger - INFO - Accuracy: 0.8710
+2025-05-30 20:14:30,510 - file_logger - INFO - Sensitivity: 0.0645
+2025-05-30 20:14:30,511 - file_logger - INFO - Specificity: 0.9842
+2025-05-30 20:14:30,511 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[435   7]
+ [ 58   4]]
+2025-05-30 20:14:30,511 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:14:31,093 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:14:31,093 - file_logger - INFO - Accuracy: 0.8671
+2025-05-30 20:14:31,093 - file_logger - INFO - Sensitivity: 0.0323
+2025-05-30 20:14:31,093 - file_logger - INFO - Specificity: 0.9842
+2025-05-30 20:14:31,094 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[435   7]
+ [ 60   2]]
+2025-05-30 20:14:31,094 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:14:31,667 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:14:31,667 - file_logger - INFO - Accuracy: 0.8671
+2025-05-30 20:14:31,668 - file_logger - INFO - Sensitivity: 0.0323
+2025-05-30 20:14:31,668 - file_logger - INFO - Specificity: 0.9842
+2025-05-30 20:14:31,668 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[435   7]
+ [ 60   2]]
+2025-05-30 20:14:31,669 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:14:32,240 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:14:32,240 - file_logger - INFO - Accuracy: 0.8790
+2025-05-30 20:14:32,240 - file_logger - INFO - Sensitivity: 0.0323
+2025-05-30 20:14:32,240 - file_logger - INFO - Specificity: 0.9977
+2025-05-30 20:14:32,241 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[441   1]
+ [ 60   2]]
+2025-05-30 20:14:32,242 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:14:32,243 - file_logger - INFO - Accuracy: 0.8714
+2025-05-30 20:14:32,243 - file_logger - INFO - Sensitivity: 0.0419
+2025-05-30 20:14:32,243 - file_logger - INFO - Specificity: 0.9878
+2025-05-30 20:14:32,250 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:14:32,529 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:14:32,976 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:14:32,976 - file_logger - INFO - (252000, 12)
+2025-05-30 20:14:32,977 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 20:14:33,058 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:14:33,058 - file_logger - INFO - (2520, 12)
+2025-05-30 20:14:33,064 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:14:33,064 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:14:33,065 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:14:33,384 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:14:33,385 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:33,385 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:33,385 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:33,385 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:33,385 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:14:33,936 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:14:33,936 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:33,937 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:33,937 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:33,937 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:33,938 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:14:34,530 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:14:34,530 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:34,530 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:34,530 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:34,530 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:34,531 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:14:35,146 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:14:35,146 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:35,146 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:35,147 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:35,147 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:35,148 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:14:35,723 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:14:35,724 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:35,724 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:35,724 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:35,725 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:35,725 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:14:35,726 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:35,726 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:35,726 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:35,755 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:14:36,250 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:14:37,033 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:14:37,033 - file_logger - INFO - (252000, 12)
+2025-05-30 20:14:37,035 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 20:14:37,153 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:14:37,154 - file_logger - INFO - (2520, 12)
+2025-05-30 20:14:37,161 - file_logger - INFO - Using cached fused features...
+2025-05-30 20:14:37,161 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 20:14:37,163 - file_logger - INFO - Training fold 1/5...
+2025-05-30 20:14:37,414 - file_logger - INFO - Fold 1 results:
+2025-05-30 20:14:37,414 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:37,414 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:37,414 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:37,414 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:37,416 - file_logger - INFO - Training fold 2/5...
+2025-05-30 20:14:37,532 - file_logger - INFO - Fold 2 results:
+2025-05-30 20:14:37,532 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:37,533 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:37,533 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:37,533 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:37,534 - file_logger - INFO - Training fold 3/5...
+2025-05-30 20:14:37,685 - file_logger - INFO - Fold 3 results:
+2025-05-30 20:14:37,685 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:37,685 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:37,686 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:37,686 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:37,687 - file_logger - INFO - Training fold 4/5...
+2025-05-30 20:14:37,820 - file_logger - INFO - Fold 4 results:
+2025-05-30 20:14:37,820 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:37,821 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:37,821 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:37,821 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:37,822 - file_logger - INFO - Training fold 5/5...
+2025-05-30 20:14:37,953 - file_logger - INFO - Fold 5 results:
+2025-05-30 20:14:37,953 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:37,953 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:37,954 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:14:37,954 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 20:14:37,955 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 20:14:37,955 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 20:14:37,955 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 20:14:37,955 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 20:21:01,070 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:21:01,349 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 20:21:01,827 - file_logger - INFO - Normalized Data Shape
+2025-05-30 20:21:01,827 - file_logger - INFO - (252000, 12)
+2025-05-30 20:21:01,827 - file_logger - INFO - Subsampling data to 10.0%...
+2025-05-30 20:21:01,965 - file_logger - INFO - Subsample Data Shape
+2025-05-30 20:21:01,965 - file_logger - INFO - (25200, 12)
+2025-05-30 20:21:01,973 - file_logger - INFO - Cached fused features shape mismatch, performing feature engineering...
+>>>>>>> fab879f (Implemented caching of encoded features to fused_features_path in config)

@@ -16,7 +16,9 @@ class ConfigManager:
             'data': {
                 'train_path': 'Dataset/Training Data.csv',
                 'test_path': 'Dataset/Test Data.csv',
-                'processed_dir': 'processed'
+                'processed_dir': 'processed',
+                'normalized_data_path': 'normalized_data.csv',
+                'fused_features_path': 'fused_features.csv'
             },
             'models': {
                 'default_model': 'd_lstm',
@@ -33,6 +35,9 @@ class ConfigManager:
                     'CITY',
                     'STATE'
                 ],
+                'features.drop_columns': [
+                    'Id'
+                ],
                 'target_column': 'Risk_Flag'
             },
             'logging': {
@@ -40,7 +45,7 @@ class ConfigManager:
                 'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
             }
         }
-    
+
     def get(self, key: str, default: Any = None) -> Any:
         """Get a configuration value using dot notation."""
         keys = key.split('.')
@@ -51,7 +56,7 @@ class ConfigManager:
             else:
                 return default
         return value
-    
+
     def set(self, key: str, value: Any) -> None:
         """Set a configuration value using dot notation."""
         keys = key.split('.')

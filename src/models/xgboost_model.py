@@ -10,15 +10,15 @@ class XGBoostModel(BaseModel):
         """Initialize the XGBoost model with default parameters."""
         self.model = None
         self.params = {
-            'objective': 'binary:logistic',
-            'eval_metric': 'logloss',
-            'max_depth': 6,
-            'learning_rate': 0.1,
-            'n_estimators': 100,
-            'subsample': 0.8,
-            'colsample_bytree': 0.8,
-            'min_child_weight': 1,
-            'gamma': 0,
+            'max_depth': 50,
+            'learning_rate': 0.01,
+            'n_estimators': 200,
+            # 'objective': 'binary:logistic',
+            # 'eval_metric': 'logloss',
+            # 'subsample': 0.8,
+            # 'colsample_bytree': 0.8,
+            # 'min_child_weight': 1,
+            # 'gamma': 0,
             'random_state': 42
         }
     
@@ -32,12 +32,11 @@ class XGBoostModel(BaseModel):
         # Create DMatrix for XGBoost
         dtrain = xgb.DMatrix(X, label=y)
         
-        # Train the model
+        # Train the model with specified parameters
         self.model = xgb.train(
-            self.params,
-            dtrain,
-            num_boost_round=self.params['n_estimators'],
-            verbose_eval=False
+            params=self.params,
+            dtrain=dtrain,
+            verbose_eval=False,
         )
     
     def predict(self, X: np.ndarray) -> np.ndarray:

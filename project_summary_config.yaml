@@ -1,0 +1,57 @@
+# Default configuration for project-summary tool
+# Documentation: https://pypi.org/project/project-summary/
+
+# Directory where the summary files will be saved.
+output_dir: summaries/
+
+# List of directories to analyze. You can add multiple entries.
+directories:
+  - path: . # Analyze the current directory (.) or specify a path (e.g., src/)
+
+    # == Inclusion Rules ==
+    # Files with these extensions will be included. Case-insensitive.
+    # Example: ['.py', '.md', '.txt']
+    extensions:
+      - .py
+      - .md
+      # Add other extensions you need
+
+    # Specific files to include, path relative to 'path' above.
+    # Useful for config files or files without standard extensions.
+    # Example: ['config/settings.ini', 'scripts/run_job.sh']
+    files: []
+      # - path/to/specific/file.ext
+
+    # Specific files WITHOUT extensions to include by name. Case-sensitive.
+    # Example: ['Dockerfile', 'Makefile', 'LICENSE']
+    include_no_extension: []
+      # - Dockerfile
+      # - LICENSE
+      # - Makefile
+
+    # == Exclusion Rules ==
+    # Directories to completely exclude from the scan (by name or relative path).
+    # Common examples: virtual environments, build artifacts, git directory.
+    exclude_dirs:
+      - __pycache__
+      - .git
+      - venv
+      - .venv
+      - node_modules
+      - build
+      - dist
+      # Add other directories to exclude
+
+    # Specific files to exclude (by name or relative path).
+    exclude_files:
+      - .env
+      # - secret_key.txt
+
+    # == Other Options ==
+    # Maximum size for a single file in bytes. Files larger than this will be skipped.
+    # Default is 10MB (10 * 1024 * 1024 = 10485760 bytes).
+    max_file_size: 10485760 # 10MB
+
+    # Custom base name for the output file (e.g., 'backend_summary').
+    # If not set, the name of the directory specified in 'path' is used.
+    # output_name: my_project_summary

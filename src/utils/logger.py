@@ -85,6 +85,12 @@ class Logger:
         message += f"Sample data:\n{array[:5]}\n"
         self.info(message)
     
+    def log_confusion_matrix(self, confusion_matrix: np.ndarray, title: str = "Confusion Matrix") -> None:
+        """Log a confusion matrix."""
+        message = f"\n\n{title}:\n"
+        message += str(confusion_matrix)
+        self.info(message)
+
     def info(self, message: str) -> None:
         """Log an info message."""
         self.log(message, 'INFO')

@@ -20,6 +20,7 @@ class LoanRiskPredictorGUI:
 
         # Set matplotlib style
         plt.style.use('ggplot')
+
  # Create frames
         self.create_control_frame()
         self.create_results_frame()
@@ -32,10 +33,6 @@ class LoanRiskPredictorGUI:
         # Debug mode flag
         self.debug_mode = False
         
-        # Feature engineering flag
-        self.feature_engineering_done = False
-        self.processed_features = None
-        self.processed_labels = None
     
     def create_control_frame(self):
         """Create the control panel frame."""
@@ -58,7 +55,6 @@ class LoanRiskPredictorGUI:
             control_frame,
             text="Enable Feature Engineering",
             variable=self.feature_eng_var,
-            command=self.toggle_feature_engineering
         )
         feature_eng_checkbox.pack(pady=5)
         
@@ -213,14 +209,7 @@ class LoanRiskPredictorGUI:
             self.debug_text.insert(ctk.END, message + "\n")
             self.debug_text.see(ctk.END)  # Scroll to the end
             self.debug_text.configure(state=ctk.DISABLED)
-    
-    def toggle_feature_engineering(self):
-        """Toggle feature engineering."""
-        if not self.feature_eng_var.get():
-            self.feature_engineering_done = False
-            self.processed_features = None
-            self.processed_labels = None
-    
+
     def create_results_frame(self):
         """Create the results display frame."""
         results_frame = ctk.CTkFrame(self.root)
@@ -319,13 +308,13 @@ class LoanRiskPredictorGUI:
         # Set box colors
         for box in box_plot['boxes']:
             box.set(facecolor='#2ecc71', alpha=0.5)
-        
+
         # Add mean value labels
         for i, model in enumerate(models):
             mean_val = np.mean(fold_metrics['accuracy'][i])
             self.ax2.text(i + 1, mean_val, f'{mean_val:.3f}',
                          ha='center', va='bottom', color='black', fontweight='bold')
-        
+
         self.ax2.set_ylabel('Score')
         self.ax2.set_title('Fold-wise Accuracy Distribution')
         self.ax2.set_xticklabels(models, rotation=45)
@@ -409,18 +398,10 @@ class LoanRiskPredictorGUI:
                         n_folds,
                         debug_mode=self.debug_mode,
                         use_feature_engineering=self.feature_eng_var.get(),
-                        processed_features=self.processed_features,
-                        processed_labels=self.processed_labels
                     )
-                    
-                    # Store processed features for next model
-                    if self.feature_eng_var.get() and not self.feature_engineering_done:
-                        self.processed_features = metrics.pop('processed_features', None)
-                        self.processed_labels = metrics.pop('processed_labels', None)
-                        self.feature_engineering_done = True
-                    
+
                     self.results[model_name] = metrics
-                    
+
                     # Store confusion matrix if available
                     if 'confusion_matrix' in metrics:
                         self.confusion_matrices[model_name] = metrics['confusion_matrix']
@@ -431,14 +412,14 @@ class LoanRiskPredictorGUI:
                         'sensitivity': np.mean(metrics['sensitivity']),
                         'specificity': np.mean(metrics['specificity'])
                     }
-                    
+
                     self.results_text.insert(ctk.END, f"Average Accuracy: {avg_metrics['accuracy']:.4f}\n")
                     self.results_text.insert(ctk.END, f"Average Sensitivity: {avg_metrics['sensitivity']:.4f}\n")
                     self.results_text.insert(ctk.END, f"Average Specificity: {avg_metrics['specificity']:.4f}\n")
                     self.results_text.insert(ctk.END, f"Confusion Matrix:\n{metrics['confusion_matrix']}\n")
                 except Exception as e:
                     self.results_text.insert(ctk.END, f"Error: {str(e)}\n")
-        
+
         # Update charts
         self.update_charts()
     
