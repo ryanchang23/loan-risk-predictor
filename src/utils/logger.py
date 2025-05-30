@@ -10,11 +10,11 @@ class LogObserver:
 
 class FileLogObserver(LogObserver):
     """Observer that writes logs to a file."""
-    def __init__(self, filename: str):
+    def __init__(self, filename: str, log_level: str = "INFO", log_format: str = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"):
         self.logger = logging.getLogger('file_logger')
-        self.logger.setLevel(logging.INFO)
+        self.logger.setLevel(getattr(logging, log_level.upper(), logging.INFO))
         handler = logging.FileHandler(filename)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter(log_format)
         handler.setFormatter(formatter)
         self.logger.addHandler(handler)
     
@@ -29,11 +29,11 @@ class FileLogObserver(LogObserver):
 
 class ConsoleLogObserver(LogObserver):
     """Observer that writes logs to console."""
-    def __init__(self):
+    def __init__(self, log_level: str = "INFO", log_format: str = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"):
         self.logger = logging.getLogger('console_logger')
-        self.logger.setLevel(logging.INFO)
+        self.logger.setLevel(getattr(logging, log_level.upper(), logging.INFO))
         handler = logging.StreamHandler()
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter(log_format)
         handler.setFormatter(formatter)
         self.logger.addHandler(handler)
     
@@ -59,10 +59,12 @@ class Logger:
     def _initialize(self):
         self.observers: List[LogObserver] = []
         self.config = ConfigManager()
-        
-        # Add default observers
-        self.add_observer(ConsoleLogObserver())
-        self.add_observer(FileLogObserver('app.log'))
+        # Load logging config from ConfigManager (or use defaults)
+        log_level = self.config.get("logging.level", "INFO")
+        log_format = self.config.get("logging.format", "%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+        # Add default observers (using config values)
+        self.add_observer(ConsoleLogObserver(log_level, log_format))
+        self.add_observer(FileLogObserver("app.log", log_level, log_format))
     
     def add_observer(self, observer: LogObserver) -> None:
         """Add a new observer."""

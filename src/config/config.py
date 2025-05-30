@@ -35,7 +35,7 @@ class ConfigManager:
                     'CITY',
                     'STATE'
                 ],
-                'features.drop_columns': [
+                'drop_columns': [
                     'Id'
                 ],
                 'target_column': 'Risk_Flag'

@@ -16,6 +16,8 @@ class LoanRiskPredictor:
     
     def __init__(self):
         self.config = ConfigManager()
+        # Load config from config.yaml (adjust the path if needed)
+        self.config.load_from_yaml("config.yaml")
         self.data_repo = DataRepository()
         self.logger = Logger()
         self.feature_engineer = FeatureEngineer()

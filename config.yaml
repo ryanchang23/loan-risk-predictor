@@ -1,0 +1,26 @@
+# config.yaml
+data:
+  train_path: 'Dataset/Training Data.csv'
+  test_path: 'Dataset/Test Data.csv'
+  processed_dir: 'processed'
+  normalized_data_path: 'normalized_data.csv'
+  fused_features_path: 'fused_features.csv'
+models:
+  default_model: 'd_lstm'
+  train_percentage: 80
+  random_state: 42
+features:
+  n_features: 5
+  categorical_columns:
+    - 'Married/Single'
+    - 'House_Ownership'
+    - 'Car_Ownership'
+    - 'Profession'
+    - 'CITY'
+    - 'STATE'
+  drop_columns:
+    - 'Id'
+  target_column: 'Risk_Flag'
+logging:
+  level: 'INFO'
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s' 

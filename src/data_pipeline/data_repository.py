@@ -40,7 +40,7 @@ class DataRepository:
         categorical_columns = self.config.get('features.categorical_columns')
 
         drop_columns = self.config.get('features.drop_columns')
-        # data.drop(columns=drop_columns, inplace=True, axis=1)
+        data.drop(columns=drop_columns, inplace=True, axis=1)
         
         for col in categorical_columns:
             if col in data.columns:
