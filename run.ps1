@@ -2,4 +2,6 @@
 
 poetry run python -m src.main --gui --debug
 
-# poetry run python -m src.main --model d_lstm --subsample 0.1 --folds 5 --debug
+# poetry run python -m src.main --model d_lstm --subsample 0.01 --folds 5 --debug
+
+# poetry run python -m src.main --subsample 0.01 --folds 5 --debug

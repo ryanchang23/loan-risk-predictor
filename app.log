@@ -13268,3 +13268,1227 @@ Average results across all folds:
 2025-05-30 20:21:01,965 - file_logger - INFO - (25200, 12)
 2025-05-30 20:21:01,973 - file_logger - INFO - Cached fused features shape mismatch, performing feature engineering...
 >>>>>>> fab879f (Implemented caching of encoded features to fused_features_path in config)
+2025-05-30 20:52:06,457 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:52:06,913 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 20:52:06,925 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:52:07,317 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 20:54:32,800 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:54:33,178 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 20:54:33,260 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:54:33,702 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 20:54:33,711 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:54:34,113 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 20:54:34,121 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:54:34,512 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 20:54:34,517 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:54:34,918 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 20:54:34,924 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:54:35,329 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 20:54:35,336 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:54:35,737 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 20:58:55,005 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:58:55,257 - file_logger - ERROR - Error in loan risk prediction: cannot access local variable 'processed_dir' where it is not associated with a value
+2025-05-30 20:58:55,272 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:58:55,537 - file_logger - ERROR - Error in loan risk prediction: cannot access local variable 'processed_dir' where it is not associated with a value
+2025-05-30 20:58:55,550 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:58:55,776 - file_logger - ERROR - Error in loan risk prediction: cannot access local variable 'processed_dir' where it is not associated with a value
+2025-05-30 20:58:55,786 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 20:58:56,024 - file_logger - ERROR - Error in loan risk prediction: cannot access local variable 'processed_dir' where it is not associated with a value
+2025-05-30 21:00:13,000 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:00:13,001 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:00:13,277 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:00:13,411 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:13,412 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:13,415 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:00:13,415 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:00:13,655 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:00:13,793 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:13,793 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:13,797 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:00:13,797 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:00:14,033 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:00:14,177 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:14,177 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:14,180 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:00:14,181 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:00:14,427 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:00:14,564 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:14,564 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:14,568 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:00:14,568 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:00:14,811 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:00:14,950 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:14,950 - file_logger - ERROR - Error running dnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:14,954 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:00:14,956 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:00:15,205 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:00:15,345 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:15,346 - file_logger - ERROR - Error running d_lstm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:15,349 - file_logger - INFO - 
+Running xgboost model...
+2025-05-30 21:00:15,349 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:00:15,592 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:00:15,725 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:00:15,726 - file_logger - ERROR - Error running xgboost: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:24,334 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:03:24,334 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:03:24,609 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:03:24,761 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:24,761 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:24,767 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:03:24,767 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:03:25,056 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:03:25,203 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:25,204 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:25,207 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:03:25,207 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:03:25,461 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:03:25,607 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:25,607 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:25,611 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:03:25,612 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:03:25,861 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:03:26,004 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:26,005 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:26,009 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:03:26,009 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:03:26,272 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:03:26,429 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:26,429 - file_logger - ERROR - Error running dnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:26,433 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:03:26,433 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:03:26,700 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:03:26,860 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:26,860 - file_logger - ERROR - Error running d_lstm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:26,863 - file_logger - INFO - 
+Running xgboost model...
+2025-05-30 21:03:26,864 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:03:27,125 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:03:27,274 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:03:27,275 - file_logger - ERROR - Error running xgboost: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:54,695 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:04:54,696 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:04:54,967 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:04:55,154 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:55,155 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:55,159 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:04:55,160 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:04:55,447 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:04:55,591 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:55,591 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:55,596 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:04:55,596 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:04:55,859 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:04:56,001 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:56,001 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:56,005 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:04:56,005 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:04:56,260 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:04:56,406 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:56,406 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:56,410 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:04:56,411 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:04:56,661 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:04:56,802 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:56,802 - file_logger - ERROR - Error running dnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:56,806 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:04:56,806 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:04:57,059 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:04:57,206 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:57,206 - file_logger - ERROR - Error running d_lstm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:57,210 - file_logger - INFO - 
+Running xgboost model...
+2025-05-30 21:04:57,210 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:04:57,464 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:04:57,609 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:04:57,609 - file_logger - ERROR - Error running xgboost: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:05:59,207 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:05:59,207 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:05:59,446 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:05:59,446 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:05:59,571 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:05:59,571 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:05:59,575 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:05:59,575 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:05:59,812 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:05:59,812 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:05:59,937 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:05:59,937 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:05:59,941 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:05:59,941 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:06:00,187 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:06:00,188 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:06:00,339 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:06:00,340 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:06:00,345 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:06:00,345 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:06:00,589 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:06:00,589 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:06:00,717 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:06:00,717 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:06:00,720 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:06:00,720 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:06:00,967 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:06:00,968 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:06:01,097 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:06:01,099 - file_logger - ERROR - Error running dnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:06:01,102 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:06:01,102 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:06:01,349 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:06:01,351 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:06:01,481 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:06:01,482 - file_logger - ERROR - Error running d_lstm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:06:01,486 - file_logger - INFO - 
+Running xgboost model...
+2025-05-30 21:06:01,486 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:06:01,726 - file_logger - INFO - ('processed', 'normalized_data.csv')
+2025-05-30 21:06:01,727 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:06:01,851 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:06:01,852 - file_logger - ERROR - Error running xgboost: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:18,409 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:07:18,410 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:18,783 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:18,784 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:18,787 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:07:18,787 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:19,189 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:19,189 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:19,193 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:07:19,194 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:19,578 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:19,579 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:19,582 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:07:19,582 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:19,964 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:19,965 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:19,968 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:07:19,968 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:20,356 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:20,357 - file_logger - ERROR - Error running dnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:20,362 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:07:20,362 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:20,795 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:20,795 - file_logger - ERROR - Error running d_lstm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:20,800 - file_logger - INFO - 
+Running xgboost model...
+2025-05-30 21:07:20,800 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:21,199 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:21,199 - file_logger - ERROR - Error running xgboost: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:41,695 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:07:41,695 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:42,051 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:42,052 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:42,054 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:07:42,054 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:42,412 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:42,412 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:42,414 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:07:42,414 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:42,784 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:42,784 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:42,787 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:07:42,787 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:43,177 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:43,177 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:43,180 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:07:43,180 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:43,551 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:43,552 - file_logger - ERROR - Error running dnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:43,554 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:07:43,554 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:43,904 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:43,905 - file_logger - ERROR - Error running d_lstm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:43,907 - file_logger - INFO - 
+Running xgboost model...
+2025-05-30 21:07:43,907 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:07:44,265 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:07:44,265 - file_logger - ERROR - Error running xgboost: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:45,485 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:17:45,485 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:17:45,903 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:45,904 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:45,908 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:17:45,909 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:17:46,301 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:46,301 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:46,305 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:17:46,305 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:17:46,700 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:46,700 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:46,704 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:17:46,704 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:17:47,110 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:47,110 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:47,114 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:17:47,114 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:17:47,503 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:47,503 - file_logger - ERROR - Error running dnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:47,508 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:17:47,508 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:17:47,895 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:47,895 - file_logger - ERROR - Error running d_lstm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:47,900 - file_logger - INFO - 
+Running xgboost model...
+2025-05-30 21:17:47,900 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:17:48,299 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:17:48,300 - file_logger - ERROR - Error running xgboost: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:00,462 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:21:00,462 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:21:00,705 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:21:00,827 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:00,828 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:00,830 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:21:00,830 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:21:01,061 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:21:01,183 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:01,183 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:01,185 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:21:01,185 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:21:01,419 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:21:01,539 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:01,540 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:01,542 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:21:01,542 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:21:01,772 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:21:01,894 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:01,894 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:01,896 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:21:01,896 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:21:02,127 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:21:02,251 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:02,251 - file_logger - ERROR - Error running dnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:02,253 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:21:02,255 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:21:02,490 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:21:02,608 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:02,609 - file_logger - ERROR - Error running d_lstm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:02,612 - file_logger - INFO - 
+Running xgboost model...
+2025-05-30 21:21:02,612 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:21:02,846 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:21:02,982 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:02,982 - file_logger - ERROR - Error running xgboost: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:30,133 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:21:30,133 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:21:30,376 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:21:30,500 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:30,500 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:30,503 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:21:30,503 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:21:30,743 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:21:30,878 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:30,878 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:30,881 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:21:30,881 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:21:31,150 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:21:31,280 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:31,280 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:31,282 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:21:31,282 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:21:31,520 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:21:31,642 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:31,644 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:21:31,645 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:21:31,645 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:22:22,821 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:22:22,822 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:22:23,071 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:23,196 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:23,198 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:23,200 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:22:23,200 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:22:23,456 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:23,582 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:23,582 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:23,585 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:22:23,586 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:22:23,839 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:23,969 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:23,969 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:23,971 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:22:23,973 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:22:24,216 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:24,340 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:24,340 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:24,342 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:22:24,342 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:22:24,575 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:24,704 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:24,705 - file_logger - ERROR - Error running dnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:24,707 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:22:24,708 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:22:24,956 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:25,085 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:25,085 - file_logger - ERROR - Error running d_lstm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:25,087 - file_logger - INFO - 
+Running xgboost model...
+2025-05-30 21:22:25,087 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:22:25,341 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:25,460 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:25,460 - file_logger - ERROR - Error running xgboost: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:35,313 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:22:35,314 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:22:35,556 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:35,556 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:35,689 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:35,690 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:35,692 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:22:35,692 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:22:35,928 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:35,928 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:36,053 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:36,053 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:36,055 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:22:36,055 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:22:36,296 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:36,296 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:22:36,419 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:36,419 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:22:36,421 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:22:36,421 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:07,203 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:23:07,204 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:07,468 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:07,468 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:07,621 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:07,621 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:07,624 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:23:07,625 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:07,880 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:07,880 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:08,005 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:08,005 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:08,008 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:23:08,008 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:08,238 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:08,239 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:08,360 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:08,360 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:08,363 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:23:08,363 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:08,592 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:08,593 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:08,717 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:08,717 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:08,720 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:23:08,721 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:08,952 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:08,952 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:09,074 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:09,074 - file_logger - ERROR - Error running dnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:09,077 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:23:09,077 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:09,308 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:09,309 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:09,428 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:09,429 - file_logger - ERROR - Error running d_lstm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:09,432 - file_logger - INFO - 
+Running xgboost model...
+2025-05-30 21:23:09,433 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:39,256 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:23:39,257 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:39,488 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:39,488 - file_logger - INFO - 2
+2025-05-30 21:23:39,609 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:39,610 - file_logger - ERROR - Error running mlp: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:39,613 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:23:39,613 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:39,848 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:39,848 - file_logger - INFO - 2
+2025-05-30 21:23:39,976 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:39,978 - file_logger - ERROR - Error running cnn_lightgbm: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:39,981 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:23:39,981 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:40,207 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:40,207 - file_logger - INFO - 2
+2025-05-30 21:23:40,335 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:40,335 - file_logger - ERROR - Error running random_forest: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:40,338 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:23:40,338 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:40,591 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:40,592 - file_logger - INFO - 2
+2025-05-30 21:23:40,718 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:40,718 - file_logger - ERROR - Error running rnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:40,721 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:23:40,721 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:40,956 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:40,956 - file_logger - INFO - 2
+2025-05-30 21:23:41,078 - file_logger - ERROR - Error in loan risk prediction: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:41,079 - file_logger - ERROR - Error running dnn: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
+2025-05-30 21:23:41,081 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:23:41,082 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:23:41,319 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:23:41,319 - file_logger - INFO - 2
+2025-05-30 21:24:15,497 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:24:15,497 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:24:15,745 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:24:15,746 - file_logger - INFO - 2
+2025-05-30 21:24:18,284 - file_logger - INFO - 3
+2025-05-30 21:24:18,285 - file_logger - INFO - Normalized Data Shape
+2025-05-30 21:24:18,285 - file_logger - INFO - (252000, 12)
+2025-05-30 21:24:18,285 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 21:24:18,389 - file_logger - INFO - Subsample Data Shape
+2025-05-30 21:24:18,390 - file_logger - INFO - (2520, 12)
+2025-05-30 21:24:18,390 - file_logger - INFO - ('processed', 'fused_features.csv')
+2025-05-30 21:24:18,390 - file_logger - INFO - No cached fused features found, performing feature engineering...
+2025-05-30 21:24:20,613 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-30 21:24:34,408 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 21:24:34,411 - file_logger - INFO - Training fold 1/5...
+2025-05-30 21:24:34,894 - file_logger - INFO - Fold 1 results:
+2025-05-30 21:24:34,894 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:34,894 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:34,894 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:34,894 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:34,895 - file_logger - INFO - Training fold 2/5...
+2025-05-30 21:24:35,198 - file_logger - INFO - Fold 2 results:
+2025-05-30 21:24:35,198 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:35,199 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:35,199 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:35,199 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:35,200 - file_logger - INFO - Training fold 3/5...
+2025-05-30 21:24:35,681 - file_logger - INFO - Fold 3 results:
+2025-05-30 21:24:35,681 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:35,681 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:35,681 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:35,682 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:35,683 - file_logger - INFO - Training fold 4/5...
+2025-05-30 21:24:36,112 - file_logger - INFO - Fold 4 results:
+2025-05-30 21:24:36,112 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:36,112 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:36,112 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:36,112 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:36,114 - file_logger - INFO - Training fold 5/5...
+2025-05-30 21:24:36,533 - file_logger - INFO - Fold 5 results:
+2025-05-30 21:24:36,533 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:36,533 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:36,534 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:36,534 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:36,535 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 21:24:36,535 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:36,535 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:36,535 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:36,538 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:24:36,538 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:24:36,841 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:24:36,841 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 21:24:36,842 - file_logger - INFO - 1
+2025-05-30 21:24:37,302 - file_logger - INFO - 3
+2025-05-30 21:24:37,304 - file_logger - INFO - Normalized Data Shape
+2025-05-30 21:24:37,304 - file_logger - INFO - (252000, 12)
+2025-05-30 21:24:37,304 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 21:24:37,390 - file_logger - INFO - Subsample Data Shape
+2025-05-30 21:24:37,390 - file_logger - INFO - (2520, 12)
+2025-05-30 21:24:37,390 - file_logger - INFO - ('processed', 'fused_features.csv')
+2025-05-30 21:24:37,396 - file_logger - INFO - Using cached fused features...
+2025-05-30 21:24:37,396 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 21:24:37,397 - file_logger - INFO - Training fold 1/5...
+2025-05-30 21:24:38,296 - file_logger - INFO - Fold 1 results:
+2025-05-30 21:24:38,296 - file_logger - INFO - Accuracy: 0.8671
+2025-05-30 21:24:38,297 - file_logger - INFO - Sensitivity: 0.0645
+2025-05-30 21:24:38,297 - file_logger - INFO - Specificity: 0.9796
+2025-05-30 21:24:38,297 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[433   9]
+ [ 58   4]]
+2025-05-30 21:24:38,298 - file_logger - INFO - Training fold 2/5...
+2025-05-30 21:24:38,864 - file_logger - INFO - Fold 2 results:
+2025-05-30 21:24:38,864 - file_logger - INFO - Accuracy: 0.8730
+2025-05-30 21:24:38,864 - file_logger - INFO - Sensitivity: 0.0806
+2025-05-30 21:24:38,865 - file_logger - INFO - Specificity: 0.9842
+2025-05-30 21:24:38,865 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[435   7]
+ [ 57   5]]
+2025-05-30 21:24:38,866 - file_logger - INFO - Training fold 3/5...
+2025-05-30 21:24:39,440 - file_logger - INFO - Fold 3 results:
+2025-05-30 21:24:39,440 - file_logger - INFO - Accuracy: 0.8730
+2025-05-30 21:24:39,443 - file_logger - INFO - Sensitivity: 0.0484
+2025-05-30 21:24:39,443 - file_logger - INFO - Specificity: 0.9887
+2025-05-30 21:24:39,444 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[437   5]
+ [ 59   3]]
+2025-05-30 21:24:39,444 - file_logger - INFO - Training fold 4/5...
+2025-05-30 21:24:40,057 - file_logger - INFO - Fold 4 results:
+2025-05-30 21:24:40,058 - file_logger - INFO - Accuracy: 0.8690
+2025-05-30 21:24:40,058 - file_logger - INFO - Sensitivity: 0.0161
+2025-05-30 21:24:40,058 - file_logger - INFO - Specificity: 0.9887
+2025-05-30 21:24:40,058 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[437   5]
+ [ 61   1]]
+2025-05-30 21:24:40,059 - file_logger - INFO - Training fold 5/5...
+2025-05-30 21:24:40,706 - file_logger - INFO - Fold 5 results:
+2025-05-30 21:24:40,706 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:40,706 - file_logger - INFO - Sensitivity: 0.0484
+2025-05-30 21:24:40,706 - file_logger - INFO - Specificity: 0.9932
+2025-05-30 21:24:40,707 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[439   3]
+ [ 59   3]]
+2025-05-30 21:24:40,708 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 21:24:40,708 - file_logger - INFO - Accuracy: 0.8718
+2025-05-30 21:24:40,708 - file_logger - INFO - Sensitivity: 0.0516
+2025-05-30 21:24:40,708 - file_logger - INFO - Specificity: 0.9869
+2025-05-30 21:24:40,713 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:24:40,713 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:24:40,982 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:24:40,982 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 21:24:40,983 - file_logger - INFO - 1
+2025-05-30 21:24:41,454 - file_logger - INFO - 3
+2025-05-30 21:24:41,455 - file_logger - INFO - Normalized Data Shape
+2025-05-30 21:24:41,455 - file_logger - INFO - (252000, 12)
+2025-05-30 21:24:41,456 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 21:24:41,538 - file_logger - INFO - Subsample Data Shape
+2025-05-30 21:24:41,538 - file_logger - INFO - (2520, 12)
+2025-05-30 21:24:41,539 - file_logger - INFO - ('processed', 'fused_features.csv')
+2025-05-30 21:24:41,544 - file_logger - INFO - Using cached fused features...
+2025-05-30 21:24:41,544 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 21:24:41,546 - file_logger - INFO - Training fold 1/5...
+2025-05-30 21:24:42,392 - file_logger - INFO - Fold 1 results:
+2025-05-30 21:24:42,392 - file_logger - INFO - Accuracy: 0.8651
+2025-05-30 21:24:42,392 - file_logger - INFO - Sensitivity: 0.1129
+2025-05-30 21:24:42,393 - file_logger - INFO - Specificity: 0.9706
+2025-05-30 21:24:42,393 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[429  13]
+ [ 55   7]]
+2025-05-30 21:24:42,393 - file_logger - INFO - Training fold 2/5...
+2025-05-30 21:24:43,172 - file_logger - INFO - Fold 2 results:
+2025-05-30 21:24:43,172 - file_logger - INFO - Accuracy: 0.8810
+2025-05-30 21:24:43,172 - file_logger - INFO - Sensitivity: 0.1613
+2025-05-30 21:24:43,173 - file_logger - INFO - Specificity: 0.9819
+2025-05-30 21:24:43,173 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[434   8]
+ [ 52  10]]
+2025-05-30 21:24:43,174 - file_logger - INFO - Training fold 3/5...
+2025-05-30 21:24:43,967 - file_logger - INFO - Fold 3 results:
+2025-05-30 21:24:43,968 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:43,968 - file_logger - INFO - Sensitivity: 0.1452
+2025-05-30 21:24:43,968 - file_logger - INFO - Specificity: 0.9796
+2025-05-30 21:24:43,968 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[433   9]
+ [ 53   9]]
+2025-05-30 21:24:43,969 - file_logger - INFO - Training fold 4/5...
+2025-05-30 21:24:44,756 - file_logger - INFO - Fold 4 results:
+2025-05-30 21:24:44,756 - file_logger - INFO - Accuracy: 0.8690
+2025-05-30 21:24:44,757 - file_logger - INFO - Sensitivity: 0.0484
+2025-05-30 21:24:44,758 - file_logger - INFO - Specificity: 0.9842
+2025-05-30 21:24:44,758 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[435   7]
+ [ 59   3]]
+2025-05-30 21:24:44,759 - file_logger - INFO - Training fold 5/5...
+2025-05-30 21:24:45,542 - file_logger - INFO - Fold 5 results:
+2025-05-30 21:24:45,542 - file_logger - INFO - Accuracy: 0.8829
+2025-05-30 21:24:45,543 - file_logger - INFO - Sensitivity: 0.0968
+2025-05-30 21:24:45,543 - file_logger - INFO - Specificity: 0.9932
+2025-05-30 21:24:45,543 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[439   3]
+ [ 56   6]]
+2025-05-30 21:24:45,544 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 21:24:45,544 - file_logger - INFO - Accuracy: 0.8750
+2025-05-30 21:24:45,545 - file_logger - INFO - Sensitivity: 0.1129
+2025-05-30 21:24:45,545 - file_logger - INFO - Specificity: 0.9819
+2025-05-30 21:24:45,548 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:24:45,548 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:24:45,793 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:24:45,793 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 21:24:45,793 - file_logger - INFO - 1
+2025-05-30 21:24:46,268 - file_logger - INFO - 3
+2025-05-30 21:24:46,269 - file_logger - INFO - Normalized Data Shape
+2025-05-30 21:24:46,269 - file_logger - INFO - (252000, 12)
+2025-05-30 21:24:46,269 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 21:24:46,355 - file_logger - INFO - Subsample Data Shape
+2025-05-30 21:24:46,355 - file_logger - INFO - (2520, 12)
+2025-05-30 21:24:46,355 - file_logger - INFO - ('processed', 'fused_features.csv')
+2025-05-30 21:24:46,362 - file_logger - INFO - Using cached fused features...
+2025-05-30 21:24:46,362 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 21:24:46,364 - file_logger - INFO - Training fold 1/5...
+2025-05-30 21:24:46,717 - file_logger - INFO - Fold 1 results:
+2025-05-30 21:24:46,718 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:46,718 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:46,718 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:46,718 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:46,719 - file_logger - INFO - Training fold 2/5...
+2025-05-30 21:24:47,066 - file_logger - INFO - Fold 2 results:
+2025-05-30 21:24:47,067 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:47,067 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:47,067 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:47,068 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:47,068 - file_logger - INFO - Training fold 3/5...
+2025-05-30 21:24:47,410 - file_logger - INFO - Fold 3 results:
+2025-05-30 21:24:47,410 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:47,411 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:47,411 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:47,411 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:47,411 - file_logger - INFO - Training fold 4/5...
+2025-05-30 21:24:47,739 - file_logger - INFO - Fold 4 results:
+2025-05-30 21:24:47,739 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:47,739 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:47,739 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:47,739 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:47,740 - file_logger - INFO - Training fold 5/5...
+2025-05-30 21:24:48,127 - file_logger - INFO - Fold 5 results:
+2025-05-30 21:24:48,127 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:48,127 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:48,127 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:48,128 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:48,129 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 21:24:48,130 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:48,130 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:48,130 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:48,135 - file_logger - INFO - 
+Running dnn model...
+2025-05-30 21:24:48,135 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:24:48,426 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:24:48,426 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 21:24:48,428 - file_logger - INFO - 1
+2025-05-30 21:24:48,899 - file_logger - INFO - 3
+2025-05-30 21:24:48,899 - file_logger - INFO - Normalized Data Shape
+2025-05-30 21:24:48,900 - file_logger - INFO - (252000, 12)
+2025-05-30 21:24:48,900 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 21:24:48,992 - file_logger - INFO - Subsample Data Shape
+2025-05-30 21:24:48,992 - file_logger - INFO - (2520, 12)
+2025-05-30 21:24:48,992 - file_logger - INFO - ('processed', 'fused_features.csv')
+2025-05-30 21:24:48,998 - file_logger - INFO - Using cached fused features...
+2025-05-30 21:24:48,998 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 21:24:49,001 - file_logger - INFO - Training fold 1/5...
+2025-05-30 21:24:49,793 - file_logger - INFO - Fold 1 results:
+2025-05-30 21:24:49,794 - file_logger - INFO - Accuracy: 0.8366
+2025-05-30 21:24:49,794 - file_logger - INFO - Sensitivity: 0.0536
+2025-05-30 21:24:49,794 - file_logger - INFO - Specificity: 0.9464
+2025-05-30 21:24:49,794 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[421  21]
+ [ 56   6]]
+2025-05-30 21:24:49,795 - file_logger - INFO - Training fold 2/5...
+2025-05-30 21:24:50,617 - file_logger - INFO - Fold 2 results:
+2025-05-30 21:24:50,617 - file_logger - INFO - Accuracy: 0.8171
+2025-05-30 21:24:50,617 - file_logger - INFO - Sensitivity: 0.0794
+2025-05-30 21:24:50,617 - file_logger - INFO - Specificity: 0.9206
+2025-05-30 21:24:50,618 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[409  33]
+ [ 55   7]]
+2025-05-30 21:24:50,618 - file_logger - INFO - Training fold 3/5...
+2025-05-30 21:24:51,430 - file_logger - INFO - Fold 3 results:
+2025-05-30 21:24:51,430 - file_logger - INFO - Accuracy: 0.8575
+2025-05-30 21:24:51,431 - file_logger - INFO - Sensitivity: 0.0258
+2025-05-30 21:24:51,431 - file_logger - INFO - Specificity: 0.9742
+2025-05-30 21:24:51,431 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[433   9]
+ [ 58   4]]
+2025-05-30 21:24:51,431 - file_logger - INFO - Training fold 4/5...
+2025-05-30 21:24:52,224 - file_logger - INFO - Fold 4 results:
+2025-05-30 21:24:52,224 - file_logger - INFO - Accuracy: 0.8590
+2025-05-30 21:24:52,225 - file_logger - INFO - Sensitivity: 0.0238
+2025-05-30 21:24:52,225 - file_logger - INFO - Specificity: 0.9762
+2025-05-30 21:24:52,225 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[434   8]
+ [ 58   4]]
+2025-05-30 21:24:52,226 - file_logger - INFO - Training fold 5/5...
+2025-05-30 21:24:53,016 - file_logger - INFO - Fold 5 results:
+2025-05-30 21:24:53,016 - file_logger - INFO - Accuracy: 0.8530
+2025-05-30 21:24:53,017 - file_logger - INFO - Sensitivity: 0.0317
+2025-05-30 21:24:53,017 - file_logger - INFO - Specificity: 0.9683
+2025-05-30 21:24:53,017 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[431  11]
+ [ 57   5]]
+2025-05-30 21:24:53,018 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 21:24:53,018 - file_logger - INFO - Accuracy: 0.8447
+2025-05-30 21:24:53,018 - file_logger - INFO - Sensitivity: 0.0429
+2025-05-30 21:24:53,019 - file_logger - INFO - Specificity: 0.9571
+2025-05-30 21:24:53,023 - file_logger - INFO - 
+Running d_lstm model...
+2025-05-30 21:24:53,023 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:24:53,288 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:24:53,288 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 21:24:53,288 - file_logger - INFO - 1
+2025-05-30 21:24:53,758 - file_logger - INFO - 3
+2025-05-30 21:24:53,758 - file_logger - INFO - Normalized Data Shape
+2025-05-30 21:24:53,758 - file_logger - INFO - (252000, 12)
+2025-05-30 21:24:53,760 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 21:24:53,846 - file_logger - INFO - Subsample Data Shape
+2025-05-30 21:24:53,846 - file_logger - INFO - (2520, 12)
+2025-05-30 21:24:53,846 - file_logger - INFO - ('processed', 'fused_features.csv')
+2025-05-30 21:24:53,853 - file_logger - INFO - Using cached fused features...
+2025-05-30 21:24:53,853 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 21:24:53,855 - file_logger - INFO - Training fold 1/5...
+2025-05-30 21:24:54,601 - file_logger - INFO - Fold 1 results:
+2025-05-30 21:24:54,602 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:54,602 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:54,602 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:54,603 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:54,603 - file_logger - INFO - Training fold 2/5...
+2025-05-30 21:24:55,323 - file_logger - INFO - Fold 2 results:
+2025-05-30 21:24:55,323 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:55,323 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:55,323 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:55,324 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:55,324 - file_logger - INFO - Training fold 3/5...
+2025-05-30 21:24:56,060 - file_logger - INFO - Fold 3 results:
+2025-05-30 21:24:56,061 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:56,061 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:56,061 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:56,061 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:56,062 - file_logger - INFO - Training fold 4/5...
+2025-05-30 21:24:56,825 - file_logger - INFO - Fold 4 results:
+2025-05-30 21:24:56,825 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:56,825 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:56,825 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:56,826 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:56,826 - file_logger - INFO - Training fold 5/5...
+2025-05-30 21:24:57,604 - file_logger - INFO - Fold 5 results:
+2025-05-30 21:24:57,604 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:57,604 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:57,604 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:57,604 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:57,605 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 21:24:57,605 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:57,605 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:57,605 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:57,610 - file_logger - INFO - 
+Running xgboost model...
+2025-05-30 21:24:57,610 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:24:57,886 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:24:57,888 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 21:24:57,888 - file_logger - INFO - 1
+2025-05-30 21:24:58,419 - file_logger - INFO - 3
+2025-05-30 21:24:58,422 - file_logger - INFO - Normalized Data Shape
+2025-05-30 21:24:58,422 - file_logger - INFO - (252000, 12)
+2025-05-30 21:24:58,422 - file_logger - INFO - Subsampling data to 1.0%...
+2025-05-30 21:24:58,532 - file_logger - INFO - Subsample Data Shape
+2025-05-30 21:24:58,532 - file_logger - INFO - (2520, 12)
+2025-05-30 21:24:58,532 - file_logger - INFO - ('processed', 'fused_features.csv')
+2025-05-30 21:24:58,538 - file_logger - INFO - Using cached fused features...
+2025-05-30 21:24:58,538 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 21:24:58,540 - file_logger - INFO - Training fold 1/5...
+2025-05-30 21:24:59,043 - file_logger - INFO - Fold 1 results:
+2025-05-30 21:24:59,043 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:59,043 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:59,044 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:59,044 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:59,044 - file_logger - INFO - Training fold 2/5...
+2025-05-30 21:24:59,213 - file_logger - INFO - Fold 2 results:
+2025-05-30 21:24:59,214 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:59,214 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:59,214 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:59,214 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:59,215 - file_logger - INFO - Training fold 3/5...
+2025-05-30 21:24:59,420 - file_logger - INFO - Fold 3 results:
+2025-05-30 21:24:59,420 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:59,420 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:59,421 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:59,421 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:59,422 - file_logger - INFO - Training fold 4/5...
+2025-05-30 21:24:59,586 - file_logger - INFO - Fold 4 results:
+2025-05-30 21:24:59,586 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:59,586 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:59,586 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:59,588 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:59,588 - file_logger - INFO - Training fold 5/5...
+2025-05-30 21:24:59,759 - file_logger - INFO - Fold 5 results:
+2025-05-30 21:24:59,759 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:59,759 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:59,760 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:24:59,760 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[442   0]
+ [ 62   0]]
+2025-05-30 21:24:59,761 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 21:24:59,761 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:24:59,761 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:24:59,761 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:07,194 - file_logger - INFO - 
+Running mlp model...
+2025-05-30 21:31:07,196 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:31:07,462 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:31:07,463 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 21:31:07,966 - file_logger - INFO - Normalized Data Shape
+2025-05-30 21:31:07,966 - file_logger - INFO - (252000, 12)
+2025-05-30 21:31:07,966 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 21:31:08,063 - file_logger - INFO - Subsample Data Shape
+2025-05-30 21:31:08,063 - file_logger - INFO - (252, 12)
+2025-05-30 21:31:08,063 - file_logger - INFO - ('processed', 'fused_features.csv')
+2025-05-30 21:31:08,069 - file_logger - INFO - Cached fused features shape mismatch, performing feature engineering...
+2025-05-30 21:31:08,107 - file_logger - INFO - Performing autoencoder feature extraction...
+2025-05-30 21:31:10,177 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 21:31:10,178 - file_logger - INFO - Training fold 1/5...
+2025-05-30 21:31:10,327 - file_logger - INFO - Fold 1 results:
+2025-05-30 21:31:10,327 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 21:31:10,328 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:10,328 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:10,328 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 21:31:10,329 - file_logger - INFO - Training fold 2/5...
+2025-05-30 21:31:10,473 - file_logger - INFO - Fold 2 results:
+2025-05-30 21:31:10,473 - file_logger - INFO - Accuracy: 0.8824
+2025-05-30 21:31:10,473 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:10,473 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:10,473 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[45  0]
+ [ 6  0]]
+2025-05-30 21:31:10,474 - file_logger - INFO - Training fold 3/5...
+2025-05-30 21:31:10,599 - file_logger - INFO - Fold 3 results:
+2025-05-30 21:31:10,599 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 21:31:10,600 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:10,600 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:10,600 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 21:31:10,600 - file_logger - INFO - Training fold 4/5...
+2025-05-30 21:31:10,764 - file_logger - INFO - Fold 4 results:
+2025-05-30 21:31:10,764 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 21:31:10,764 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:10,764 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:10,765 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 21:31:10,766 - file_logger - INFO - Training fold 5/5...
+2025-05-30 21:31:10,925 - file_logger - INFO - Fold 5 results:
+2025-05-30 21:31:10,925 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 21:31:10,925 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:10,925 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:10,926 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 21:31:10,926 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 21:31:10,926 - file_logger - INFO - Accuracy: 0.8770
+2025-05-30 21:31:10,927 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:10,927 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:10,931 - file_logger - INFO - 
+Running cnn_lightgbm model...
+2025-05-30 21:31:10,931 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:31:11,236 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:31:11,236 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 21:31:11,775 - file_logger - INFO - Normalized Data Shape
+2025-05-30 21:31:11,775 - file_logger - INFO - (252000, 12)
+2025-05-30 21:31:11,775 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 21:31:11,875 - file_logger - INFO - Subsample Data Shape
+2025-05-30 21:31:11,875 - file_logger - INFO - (252, 12)
+2025-05-30 21:31:11,875 - file_logger - INFO - ('processed', 'fused_features.csv')
+2025-05-30 21:31:11,877 - file_logger - INFO - Using cached fused features...
+2025-05-30 21:31:11,877 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 21:31:11,878 - file_logger - INFO - Training fold 1/5...
+2025-05-30 21:31:12,075 - file_logger - INFO - Fold 1 results:
+2025-05-30 21:31:12,075 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 21:31:12,075 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:12,075 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:12,075 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 21:31:12,077 - file_logger - INFO - Training fold 2/5...
+2025-05-30 21:31:12,348 - file_logger - INFO - Fold 2 results:
+2025-05-30 21:31:12,348 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 21:31:12,348 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:12,349 - file_logger - INFO - Specificity: 0.9778
+2025-05-30 21:31:12,349 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  1]
+ [ 6  0]]
+2025-05-30 21:31:12,350 - file_logger - INFO - Training fold 3/5...
+2025-05-30 21:31:12,555 - file_logger - INFO - Fold 3 results:
+2025-05-30 21:31:12,555 - file_logger - INFO - Accuracy: 0.8600
+2025-05-30 21:31:12,555 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:12,556 - file_logger - INFO - Specificity: 0.9773
+2025-05-30 21:31:12,556 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[43  1]
+ [ 6  0]]
+2025-05-30 21:31:12,557 - file_logger - INFO - Training fold 4/5...
+2025-05-30 21:31:12,763 - file_logger - INFO - Fold 4 results:
+2025-05-30 21:31:12,764 - file_logger - INFO - Accuracy: 0.7800
+2025-05-30 21:31:12,764 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:12,764 - file_logger - INFO - Specificity: 0.8864
+2025-05-30 21:31:12,764 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[39  5]
+ [ 6  0]]
+2025-05-30 21:31:12,765 - file_logger - INFO - Training fold 5/5...
+2025-05-30 21:31:12,968 - file_logger - INFO - Fold 5 results:
+2025-05-30 21:31:12,968 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 21:31:12,968 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:12,968 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:12,969 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 21:31:12,970 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 21:31:12,970 - file_logger - INFO - Accuracy: 0.8491
+2025-05-30 21:31:12,970 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:12,971 - file_logger - INFO - Specificity: 0.9683
+2025-05-30 21:31:12,976 - file_logger - INFO - 
+Running random_forest model...
+2025-05-30 21:31:12,976 - file_logger - INFO - Loading and preprocessing data...
+2025-05-30 21:31:13,268 - file_logger - INFO - processed\normalized_data.csv
+2025-05-30 21:31:13,269 - file_logger - INFO - Using processed\normalized_data.csv data.
+2025-05-30 21:31:13,750 - file_logger - INFO - Normalized Data Shape
+2025-05-30 21:31:13,750 - file_logger - INFO - (252000, 12)
+2025-05-30 21:31:13,751 - file_logger - INFO - Subsampling data to 0.1%...
+2025-05-30 21:31:13,861 - file_logger - INFO - Subsample Data Shape
+2025-05-30 21:31:13,863 - file_logger - INFO - (252, 12)
+2025-05-30 21:31:13,863 - file_logger - INFO - ('processed', 'fused_features.csv')
+2025-05-30 21:31:13,866 - file_logger - INFO - Using cached fused features...
+2025-05-30 21:31:13,866 - file_logger - INFO - Performing 5-fold cross-validation...
+2025-05-30 21:31:13,867 - file_logger - INFO - Training fold 1/5...
+2025-05-30 21:31:14,084 - file_logger - INFO - Fold 1 results:
+2025-05-30 21:31:14,084 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 21:31:14,084 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:14,084 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:14,084 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 7  0]]
+2025-05-30 21:31:14,085 - file_logger - INFO - Training fold 2/5...
+2025-05-30 21:31:14,302 - file_logger - INFO - Fold 2 results:
+2025-05-30 21:31:14,305 - file_logger - INFO - Accuracy: 0.8627
+2025-05-30 21:31:14,305 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:14,306 - file_logger - INFO - Specificity: 0.9778
+2025-05-30 21:31:14,306 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  1]
+ [ 6  0]]
+2025-05-30 21:31:14,307 - file_logger - INFO - Training fold 3/5...
+2025-05-30 21:31:14,514 - file_logger - INFO - Fold 3 results:
+2025-05-30 21:31:14,514 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 21:31:14,514 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:14,515 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:14,515 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 21:31:14,515 - file_logger - INFO - Training fold 4/5...
+2025-05-30 21:31:14,723 - file_logger - INFO - Fold 4 results:
+2025-05-30 21:31:14,723 - file_logger - INFO - Accuracy: 0.8600
+2025-05-30 21:31:14,723 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:14,724 - file_logger - INFO - Specificity: 0.9773
+2025-05-30 21:31:14,724 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[43  1]
+ [ 6  0]]
+2025-05-30 21:31:14,725 - file_logger - INFO - Training fold 5/5...
+2025-05-30 21:31:14,935 - file_logger - INFO - Fold 5 results:
+2025-05-30 21:31:14,935 - file_logger - INFO - Accuracy: 0.8800
+2025-05-30 21:31:14,936 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:14,936 - file_logger - INFO - Specificity: 1.0000
+2025-05-30 21:31:14,936 - file_logger - INFO - 
+
+Confusion Matrix: :
+[[44  0]
+ [ 6  0]]
+2025-05-30 21:31:14,937 - file_logger - INFO - 
+Average results across all folds:
+2025-05-30 21:31:14,937 - file_logger - INFO - Accuracy: 0.8691
+2025-05-30 21:31:14,937 - file_logger - INFO - Sensitivity: 0.0000
+2025-05-30 21:31:14,938 - file_logger - INFO - Specificity: 0.9910
+2025-05-30 21:31:14,942 - file_logger - INFO - 
+Running rnn model...
+2025-05-30 21:31:14,942 - file_logger - INFO - Loading and preprocessing data...

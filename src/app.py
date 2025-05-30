@@ -3,9 +3,9 @@ import numpy as np
 from tqdm import tqdm
 from .config.config import ConfigManager
 from .data_pipeline.data_repository import DataRepository
+from .data_pipeline.feature_engineering import FeatureEngineer
 from .models.model_factory import ModelFactory
 from .utils.logger import Logger
-from .data_pipeline.feature_engineering import FeatureEngineer
 from .models.autoencoder import AutoencoderTrainer
 from .utils.test_utils import TestDataGenerator, DebugLogger
 import pandas as pd
@@ -36,10 +36,15 @@ class LoanRiskPredictor:
             else:
                 data, labels = self.data_repo.load_data()
 
-            processed_path = os.path.join(
-                self.config.get('data.processed_dir'),
-                self.config.get('data.normalized_data_path')
-            )
+            processed_dir = self.config.get('data.processed_dir')
+
+            # self.logger.info(f"{processed_dir, self.config.get('data.normalized_data_path')}")
+
+            if not os.path.exists(processed_dir):
+                os.makedirs(processed_dir)
+
+            processed_path = os.path.join(processed_dir, self.config.get('data.normalized_data_path'))
+            self.logger.info(f"{processed_path}")
 
             if os.path.exists(processed_path):
                 self.logger.info(f"Using {processed_path} data.")
@@ -64,10 +69,17 @@ class LoanRiskPredictor:
 
             # Feature engineering
             if use_feature_engineering:
-                fused_features_path = os.path.join(
-                    self.config.get('data.processed_dir'),
-                    self.config.get('data.fused_features_path')
-                )
+
+                self.logger.info(f"{processed_dir, self.config.get('data.fused_features_path')}")
+                fused_features_path = self.config.get('data.fused_features_path')
+                
+
+                # Check if the paths are valid before joining
+                if processed_dir is None or fused_features_path is None:
+                    self.logger.error("Configuration for processed_dir or fused_features_path is not set.")
+                    raise ValueError("Invalid configuration: processed_dir or fused_features_path is None.")
+
+                fused_features_path = os.path.join(processed_dir, fused_features_path)
                 
                 # Check if fused features exist and have matching shape
                 if os.path.exists(fused_features_path):

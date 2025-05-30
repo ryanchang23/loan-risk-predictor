@@ -52,7 +52,7 @@ class DataRepository:
         # Save processed data
         processed_path = os.path.join(
             self.config.get('data.processed_dir'),
-            self.config.get('normalized_data_path')
+            self.config.get('data.normalized_data_path')
         )
         pd.DataFrame(normalized_data).to_csv(processed_path, index=False, header=True)
         return normalized_data
