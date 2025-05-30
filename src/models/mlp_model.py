@@ -10,7 +10,7 @@ class MLPModel(BaseModel):
     def __init__(self):
         self.model = None
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    
+
     def _create_model(self, input_size: int) -> nn.Module:
         """Create the MLP model architecture."""
         class MLP(nn.Module):
@@ -33,7 +33,8 @@ class MLPModel(BaseModel):
                 return self.sigmoid(x)
         
         return MLP(input_size)
-    
+
+
     def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
         """Train the model."""
         # Convert to PyTorch tensors

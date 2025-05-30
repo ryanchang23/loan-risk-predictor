@@ -7,6 +7,7 @@ from .app import LoanRiskPredictor
 from .config.config import ConfigManager
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
+import os
 
 class LoanRiskPredictorGUI:
     def __init__(self):
@@ -18,6 +19,8 @@ class LoanRiskPredictorGUI:
         self.root.title("Loan Risk Predictor")
         self.root.geometry("1600x900")
 
+        
+        ctk.set_appearance_mode("Dark")
         # Set matplotlib style
         plt.style.use('ggplot')
 
@@ -155,7 +158,7 @@ class LoanRiskPredictorGUI:
                 self.update_kfold_label(value)
         except ValueError:
             pass
-    
+
     def update_subsample_from_entry(self, event=None):
         """Update subsample rate from entry field."""
         try:
@@ -165,26 +168,26 @@ class LoanRiskPredictorGUI:
                 self.update_subsample_label(value)
         except ValueError:
             pass
-    
+
     def update_train_split_label(self, value):
         """Update the train split rate label."""
         self.train_split_label.configure(text=f"{int(value)}%")
         self.train_split_entry.delete(0, ctk.END)
         self.train_split_entry.insert(0, str(int(value)))
-    
+
     def update_kfold_label(self, value):
         """Update the K-fold number label."""
         self.k_fold_label.configure(text=str(int(value)))
         self.k_fold_entry.delete(0, ctk.END)
         self.k_fold_entry.insert(0, str(int(value)))
-    
+
     def update_subsample_label(self, value):
         """Update the subsample rate label."""
         rounded_value = round(value, 1)
         self.subsample_label.configure(text=f"{rounded_value:.1f}%")
         self.subsample_entry.delete(0, ctk.END)
         self.subsample_entry.insert(0, f"{rounded_value:.1f}")
-    
+
     def toggle_debug_mode(self):
         """Toggle debug mode."""
         self.debug_mode = self.debug_var.get()
@@ -201,7 +204,7 @@ class LoanRiskPredictorGUI:
             self.debug_text.configure(state=ctk.DISABLED)
             # Remove the callback
             self.predictor.debug_logger.set_gui_callback(None)
-    
+
     def log_debug_message(self, message):
         """Log a debug message to the debug text box."""
         if self.debug_mode:
@@ -214,12 +217,12 @@ class LoanRiskPredictorGUI:
         """Create the results display frame."""
         results_frame = ctk.CTkFrame(self.root)
         results_frame.pack(side=ctk.LEFT, fill=ctk.BOTH, expand=True, padx=0, pady=20)
-        
+
         # Results text
         ctk.CTkLabel(results_frame, text="Results").pack(pady=5)
         self.results_text = ctk.CTkTextbox(results_frame, width=550, height=350)
         self.results_text.pack(padx=0, pady=0)
-        
+
         # Debug text
         ctk.CTkLabel(results_frame, text="Debug Messages").pack(pady=5)
         self.debug_text = ctk.CTkTextbox(results_frame, width=550, height=300)
@@ -230,6 +233,7 @@ class LoanRiskPredictorGUI:
         """Create the charts display frame."""
         charts_frame = ctk.CTkFrame(self.root)
         charts_frame.pack(side=ctk.RIGHT, fill=ctk.BOTH, expand=True, padx=20, pady=20)
+        figsize = (15, 20)
         
         # Create tabview for different chart types
         self.tabview = ctk.CTkTabview(charts_frame)
@@ -240,12 +244,12 @@ class LoanRiskPredictorGUI:
         self.tabview.add("Model Comparison")
         
         # Create figures for each tab
-        self.fig1, (self.ax1, self.ax2) = plt.subplots(2, 1, figsize=(6, 8))
+        self.fig1, (self.ax1, self.ax2) = plt.subplots(2, 1, figsize=figsize)
         self.canvas1 = FigureCanvasTkAgg(self.fig1, master=self.tabview.tab("Performance Metrics"))
         self.canvas1.get_tk_widget().pack(fill=ctk.BOTH, expand=True)
         
         # Create two subplots for the second tab
-        self.fig2, (self.ax3, self.ax4) = plt.subplots(2, 1, figsize=(6, 8))
+        self.fig2, (self.ax3, self.ax4) = plt.subplots(2, 1, figsize=figsize)
         self.canvas2 = FigureCanvasTkAgg(self.fig2, master=self.tabview.tab("Model Comparison"))
         self.canvas2.get_tk_widget().pack(fill=ctk.BOTH, expand=True)
     
@@ -266,15 +270,21 @@ class LoanRiskPredictorGUI:
         }
         
         # Set color palette for models
-        model_colors = plt.cm.Set3(np.linspace(0, 1, len(models)))
+        model_colors = plt.cm.Pastel1(np.linspace(0, 0.8, len(models)))
+        metrics_colors = ['#90dcf5', '#f4f5ba', '#f0b2a1']
+        rotation = 45
+        fontsize = 9
+        facecolors = ['#f2f2f2', '#fafafa']
+
         
         # First tab: Performance Metrics
         # Bar chart for average metrics
         x = np.arange(len(models))
         width = 0.20
-        bars1 = self.ax1.bar(x - width, avg_metrics['accuracy'], width, label='Accuracy', color='#2ecc71')
-        bars2 = self.ax1.bar(x, avg_metrics['sensitivity'], width, label='Sensitivity', color='#3498db')
-        bars3 = self.ax1.bar(x + width, avg_metrics['specificity'], width, label='Specificity', color='#e74c3c')
+
+        bars1 = self.ax1.bar(x - width, avg_metrics['accuracy'], width, label='Accuracy', color=metrics_colors[0])
+        bars2 = self.ax1.bar(x, avg_metrics['sensitivity'], width, label='Sensitivity', color=metrics_colors[1])
+        bars3 = self.ax1.bar(x + width, avg_metrics['specificity'], width, label='Specificity', color=metrics_colors[2])
         
         # Add value labels on top of bars
         def add_value_labels(bars):
@@ -289,9 +299,10 @@ class LoanRiskPredictorGUI:
         add_value_labels(bars3)
         
         self.ax1.set_ylabel('Score')
+        self.ax1.set_facecolor(facecolors[0])
         self.ax1.set_title('Average Model Performance Metrics')
         self.ax1.set_xticks(x)
-        self.ax1.set_xticklabels(models, rotation=45)
+        self.ax1.set_xticklabels(models, rotation=rotation)
         self.ax1.legend()
         self.ax1.grid(True, linestyle='--', alpha=0.7)
 
@@ -313,78 +324,91 @@ class LoanRiskPredictorGUI:
         for i, model in enumerate(models):
             mean_val = np.mean(fold_metrics['accuracy'][i])
             self.ax2.text(i + 1, mean_val, f'{mean_val:.3f}',
-                         ha='center', va='bottom', color='black', fontweight='bold')
+                         ha='center', va='bottom', color='black', fontweight='bold', fontsize=fontsize)
 
-        self.ax2.set_ylabel('Score')
+        self.ax2.set_ylabel('Score', fontsize=fontsize)
+        self.ax2.set_facecolor(facecolors[0])
         self.ax2.set_title('Fold-wise Accuracy Distribution')
         self.ax2.set_xticklabels(models, rotation=45)
         self.ax2.grid(True, linestyle='--', alpha=0.7)
         
-        # Second tab: Model Comparison
-        # Confusion matrix comparison
+        # # Second tab: Model Comparison
         if self.confusion_matrices:
             # Calculate grid dimensions
             n_models = len(self.confusion_matrices)
-            n_cols = min(3, n_models)  # Maximum 3 columns
-            n_rows = (n_models + n_cols - 1) // n_cols
             
-            # Create subplots for confusion matrices
-            for i, (model_name, cm) in enumerate(self.confusion_matrices.items()):
-                row = i // n_cols
-                col = i % n_cols
+            model_name = self.config.get("models.default_model")
+            cm = self.confusion_matrices[model_name]
+            ax = self.ax3 
                 
-                # Create subplot for this confusion matrix
-                ax = self.ax3 if row == 0 else self.ax4
-                if row > 0:
-                    ax = self.ax4
-                
-                # Create heatmap
-                sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax, cbar=False)
-                ax.set_title(f'{model_name}', fontsize=8)
-                ax.set_xlabel('Predicted', fontsize=8)
-                ax.set_ylabel('Actual', fontsize=8)
-                ax.tick_params(axis='both', which='major', labelsize=8)
-        
+            # # Create heatmap
+            sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax, cbar=False)
+            ax.set_title(f'{model_name}', fontsize=8)
+            ax.set_xlabel('Predicted', fontsize=8)
+            ax.set_ylabel('Actual', fontsize=8)
+            ax.tick_params(axis='both', which='major', labelsize=8)
+
         # Metrics comparison bar chart
-        x = np.arange(3)  # 3 metrics: accuracy, sensitivity, specificity
-        width = 0.8 / len(models)  # Adjust width based on number of models
-        
+        y = np.arange(3)  
+        height = 0.75 / len(models)  # Adjust height based on number of models
+
         for i, model in enumerate(models):
             metrics = [avg_metrics['accuracy'][i], avg_metrics['sensitivity'][i], avg_metrics['specificity'][i]]
-            bars = self.ax4.bar(x + i * width, metrics, width, label=model, color=model_colors[i])
-            
+            bars = self.ax4.barh(y + i * height, metrics, height, label=model, color=model_colors[i])
+
             # Add value labels
             for bar in bars:
-                height = bar.get_height()
-                self.ax4.text(bar.get_x() + bar.get_width()/2., height,
-                            f'{height:.3f}',
-                            ha='center', va='bottom', fontsize=8)
+                width = bar.get_width()
+                self.ax4.text(width, bar.get_y() + bar.get_height()/2.,
+                            f'{width:.3f}',
+                            ha='left', va='center', fontsize=fontsize)
         
-        self.ax4.set_ylabel('Score')
-        self.ax4.set_title('Model Performance Comparison')
-        self.ax4.set_xticks(x + width * (len(models) - 1) / 2)
-        self.ax4.set_xticklabels(['Accuracy', 'Sensitivity', 'Specificity'])
-        self.ax4.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+        self.ax4.set_facecolor(facecolors[1])
+        self.ax4.set_xlabel('Score', fontsize=fontsize)  # Set x-axis label for horizontal bar chart
+        self.ax4.set_title('Model Performance Comparison', fontsize=fontsize*1.3)
+        self.ax4.set_yticks(y + height * (len(models) - 1) / 2)
+        self.ax4.set_yticklabels(['Accuracy', 'Sensitivity', 'Specificity'], fontsize=fontsize, rotation=rotation)
+        self.ax4.legend(loc='upper left', bbox_to_anchor=(1.03, 0.4), facecolor='white', fontsize=fontsize)
         self.ax4.grid(True, linestyle='--', alpha=0.7)
-        
+
         # Adjust layout and draw
         self.fig1.tight_layout()
         self.fig2.tight_layout()
+        self.fig2.subplots_adjust(left=0.1, right=0.8, top=0.95, bottom=0.1, wspace=0.2, hspace=0.2)
+
         self.canvas1.draw()
         self.canvas2.draw()
-    
+
+
+        # Save charts (performance metrics and model comparison) to graph_dir (from config)
+        graph_dir = self.config.get("data.graph_dir")
+        if not os.path.exists(graph_dir):
+            os.makedirs(graph_dir)
+        self.fig1.savefig(os.path.join(graph_dir, "performance_metrics.png"))
+        self.fig2.savefig(os.path.join(graph_dir, "model_comparison.png"))
+
+        # (Optional) Save individual confusion matrix heatmaps (for each model) into graph_dir
+        for (model_name, cm) in self.confusion_matrices.items():
+            fig, ax = plt.subplots(figsize=(6, 6))
+            sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", ax=ax, cbar=False)
+            ax.set_title(f"Confusion Matrix ({model_name})")
+            ax.set_xlabel("Predicted")
+            ax.set_ylabel("Actual")
+            fig.tight_layout()
+            fig.savefig(os.path.join(graph_dir, f"confusion_matrix_{model_name}.png"))
+            plt.close(fig)
+
     def run_models(self):
-        """Run the selected models and update the display."""
-        # Update configuration
+        """Run the selected models and update the display.""" # Update configuration
         self.config.set('models.train_percentage', int(self.train_split.get()))
         n_folds = int(self.k_fold.get())
         subsample_rate = round(self.subsample_rate.get() / 100.0, 3)
-        
+
         # Clear previous results
         self.results_text.delete("1.0", ctk.END)
         self.results.clear()
         self.confusion_matrices.clear()
-        
+
         # Run selected models
         for model_name, var in self.model_vars.items():
             if var.get():
@@ -405,7 +429,7 @@ class LoanRiskPredictorGUI:
                     # Store confusion matrix if available
                     if 'confusion_matrix' in metrics:
                         self.confusion_matrices[model_name] = metrics['confusion_matrix']
-                    
+
                     # Display average results
                     avg_metrics = {
                         'accuracy': np.mean(metrics['accuracy']),

@@ -28,7 +28,9 @@ class BaseModel(ABC):
         accuracy = (tp + tn) / (tp + tn + fp + fn)
         sensitivity = tp / (tp + fn) if (tp + fn) > 0 else 0
         specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
-        
+
+        # TN FP
+        # FN TP
         return accuracy, sensitivity, specificity, cm
     
     @abstractmethod

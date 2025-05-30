@@ -17,6 +17,7 @@ class ConfigManager:
                 'train_path': 'Dataset/Training Data.csv',
                 'test_path': 'Dataset/Test Data.csv',
                 'processed_dir': 'processed',
+                'graph_dir': 'graph',
                 'normalized_data_path': 'normalized_data.csv',
                 'fused_features_path': 'fused_features.csv'
             },
