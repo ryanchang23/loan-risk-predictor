@@ -220,12 +220,12 @@ class LoanRiskPredictorGUI:
 
         # Results text
         ctk.CTkLabel(results_frame, text="Results").pack(pady=5)
-        self.results_text = ctk.CTkTextbox(results_frame, width=550, height=350)
+        self.results_text = ctk.CTkTextbox(results_frame, width=450, height=400)
         self.results_text.pack(padx=0, pady=0)
 
         # Debug text
         ctk.CTkLabel(results_frame, text="Debug Messages").pack(pady=5)
-        self.debug_text = ctk.CTkTextbox(results_frame, width=550, height=300)
+        self.debug_text = ctk.CTkTextbox(results_frame, width=450, height=400)
         self.debug_text.pack(padx=0, pady=0)
         self.debug_text.configure(state=ctk.DISABLED)
     
@@ -298,12 +298,12 @@ class LoanRiskPredictorGUI:
         add_value_labels(bars2)
         add_value_labels(bars3)
         
-        self.ax1.set_ylabel('Score')
+        self.ax1.set_ylabel('Score', fontsize=fontsize)
         self.ax1.set_facecolor(facecolors[0])
-        self.ax1.set_title('Average Model Performance Metrics')
+        self.ax1.set_title('Average Model Performance Metrics', fontsize=fontsize * 1.3)
         self.ax1.set_xticks(x)
-        self.ax1.set_xticklabels(models, rotation=rotation)
-        self.ax1.legend()
+        self.ax1.set_xticklabels(models, rotation=rotation , fontsize=fontsize)
+        self.ax1.legend(loc='upper left', bbox_to_anchor=(1.03, 0.4), facecolor='white', fontsize=fontsize)
         self.ax1.grid(True, linestyle='--', alpha=0.7)
 
         # Box plot for fold-wise metrics
@@ -324,12 +324,12 @@ class LoanRiskPredictorGUI:
         for i, model in enumerate(models):
             mean_val = np.mean(fold_metrics['accuracy'][i])
             self.ax2.text(i + 1, mean_val, f'{mean_val:.3f}',
-                         ha='center', va='bottom', color='black', fontweight='bold', fontsize=fontsize)
+                         ha='center', va='bottom', color='black', fontsize=fontsize)
 
         self.ax2.set_ylabel('Score', fontsize=fontsize)
         self.ax2.set_facecolor(facecolors[0])
-        self.ax2.set_title('Fold-wise Accuracy Distribution')
-        self.ax2.set_xticklabels(models, rotation=45)
+        self.ax2.set_title('Fold-wise Accuracy Distribution', fontsize=fontsize * 1.3)
+        self.ax2.set_xticklabels(models, rotation=45, fontsize=fontsize)
         self.ax2.grid(True, linestyle='--', alpha=0.7)
         
         # # Second tab: Model Comparison
@@ -373,6 +373,7 @@ class LoanRiskPredictorGUI:
 
         # Adjust layout and draw
         self.fig1.tight_layout()
+        # self.fig1.subplots_adjust(left=0.05, right=0.95, top=0.95, bottom=0.05, wspace=0.1, hspace=0.1)
         self.fig2.tight_layout()
         self.fig2.subplots_adjust(left=0.1, right=0.8, top=0.95, bottom=0.1, wspace=0.2, hspace=0.2)
 
