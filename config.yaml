@@ -5,6 +5,7 @@ data:
   processed_dir: 'processed'
   normalized_data_path: 'normalized_data.csv'
   fused_features_path: 'fused_features.csv'
+  graph_dir: 'charts'
 models:
   default_model: 'd_lstm'
   train_percentage: 80

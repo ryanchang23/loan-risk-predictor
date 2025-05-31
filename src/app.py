@@ -86,8 +86,10 @@ class LoanRiskPredictor:
                 # Check if fused features exist and have matching shape
                 if os.path.exists(fused_features_path):
                     fused_features = pd.read_csv(fused_features_path).values
+                    self.logger.info(f"fused features' shape: {fused_features.shape}")
+                    self.logger.info(f"normalized_data's shape: {normalized_data.shape}")
                     if fused_features.shape[0] == normalized_data.shape[0]:
-                        self.logger.info("Using cached fused features...")
+                        self.logger.info(f"Using cached fused features: {fused_features_path}")
                         encoded_features = fused_features
                     else:
                         self.logger.info("Cached fused features shape mismatch, performing feature engineering...")
@@ -107,6 +109,7 @@ class LoanRiskPredictor:
                 'accuracy': [],
                 'sensitivity': [],
                 'specificity': [],
+                'f1_score': [],
                 'confusion_matrices': []
             }
             
@@ -133,18 +136,20 @@ class LoanRiskPredictor:
                     pbar.update(1)
                 
                 # Evaluate model
-                acc, sens, spec, cm = model.evaluate(X_val, y_val)
+                acc, sens, spec, f1, cm = model.evaluate(X_val, y_val)
                 
                 metrics['accuracy'].append(acc)
                 metrics['sensitivity'].append(sens)
                 metrics['specificity'].append(spec)
+                metrics['f1_score'].append(f1)
                 metrics['confusion_matrices'].append(cm)
                 
                 if debug_mode:
                     self.debug_logger.log_metrics({
                         'accuracy': acc,
                         'sensitivity': sens,
-                        'specificity': spec
+                        'specificity': spec,
+                        'f1_score': f1
                     }, f"Fold {fold + 1} Results")
                     self.debug_logger.log_array_info(cm, f"Fold {fold + 1} Confusion Matrix")
                 
@@ -152,13 +157,15 @@ class LoanRiskPredictor:
                 self.logger.info(f"Accuracy: {acc:.4f}")
                 self.logger.info(f"Sensitivity: {sens:.4f}")
                 self.logger.info(f"Specificity: {spec:.4f}")
+                self.logger.info(f"F1-Score: {f1:.4f}")
                 self.logger.log_confusion_matrix(cm, "Confusion Matrix: ")
             
             # Calculate and log average metrics
             avg_metrics = {
                 'accuracy': np.mean(metrics['accuracy']),
                 'sensitivity': np.mean(metrics['sensitivity']),
-                'specificity': np.mean(metrics['specificity'])
+                'specificity': np.mean(metrics['specificity']),
+                'f1_score': np.mean(metrics['f1_score'])
             }
             
             # Calculate average confusion matrix
@@ -173,6 +180,7 @@ class LoanRiskPredictor:
             self.logger.info(f"Accuracy: {avg_metrics['accuracy']:.4f}")
             self.logger.info(f"Sensitivity: {avg_metrics['sensitivity']:.4f}")
             self.logger.info(f"Specificity: {avg_metrics['specificity']:.4f}")
+            self.logger.info(f"F1-Score: {avg_metrics['f1_score']:.4f}")
             
             return metrics
             

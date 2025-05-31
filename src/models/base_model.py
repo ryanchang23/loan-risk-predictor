@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Tuple, List, Any
 import numpy as np
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, f1_score
 
 class BaseModel(ABC):
     """Base class for all models implementing the Strategy pattern."""
@@ -17,7 +17,7 @@ class BaseModel(ABC):
         pass
     
     def evaluate(self, X: np.ndarray, y: np.ndarray) -> tuple:
-        """Evaluate the model and return accuracy, sensitivity, specificity, and confusion matrix."""
+        """Evaluate the model and return accuracy, sensitivity, specificity, f1_score, and confusion matrix."""
         predictions = self.predict(X)
         
         # Calculate confusion matrix
@@ -28,10 +28,11 @@ class BaseModel(ABC):
         accuracy = (tp + tn) / (tp + tn + fp + fn)
         sensitivity = tp / (tp + fn) if (tp + fn) > 0 else 0
         specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
+        f1 = f1_score(y, predictions)
 
         # TN FP
         # FN TP
-        return accuracy, sensitivity, specificity, cm
+        return accuracy, sensitivity, specificity, f1, cm
     
     @abstractmethod
     def save(self, path: str) -> None:
@@ -44,7 +45,7 @@ class BaseModel(ABC):
         pass
     
     def _calculate_metrics(self, y_true: np.ndarray, y_pred: np.ndarray):
-        """Calculate accuracy, sensitivity, and specificity."""
+        """Calculate accuracy, sensitivity, specificity, and f1_score."""
         tp = np.sum((y_true == 1) & (y_pred == 1))
         tn = np.sum((y_true == 0) & (y_pred == 0))
         fp = np.sum((y_true == 0) & (y_pred == 1))
@@ -55,5 +56,6 @@ class BaseModel(ABC):
         accuracy = (tp + tn) / (tp + tn + fp + fn)
         sensitivity = tp / (tp + fn) if (tp + fn) > 0 else 0
         specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
+        f1 = f1_score(y_true, y_pred)
         
-        return accuracy, sensitivity, specificity , cm
+        return accuracy, sensitivity, specificity, f1, cm

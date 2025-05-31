@@ -233,7 +233,6 @@ class LoanRiskPredictorGUI:
         """Create the charts display frame."""
         charts_frame = ctk.CTkFrame(self.root)
         charts_frame.pack(side=ctk.RIGHT, fill=ctk.BOTH, expand=True, padx=20, pady=20)
-        figsize = (15, 20)
         
         # Create tabview for different chart types
         self.tabview = ctk.CTkTabview(charts_frame)
@@ -242,16 +241,27 @@ class LoanRiskPredictorGUI:
         # Create tabs
         self.tabview.add("Performance Metrics")
         self.tabview.add("Model Comparison")
+
+        figsize1 = (15, 20)
+        figsize2 = (10, 10)
         
         # Create figures for each tab
-        self.fig1, (self.ax1, self.ax2) = plt.subplots(2, 1, figsize=figsize)
+        self.fig1 = plt.figure(figsize=figsize1)
+        self.ax1 = self.fig1.add_subplot(211)  # Regular subplot for bar chart
+        self.ax2 = self.fig1.add_subplot(212)  # Horizontal bar chart
         self.canvas1 = FigureCanvasTkAgg(self.fig1, master=self.tabview.tab("Performance Metrics"))
         self.canvas1.get_tk_widget().pack(fill=ctk.BOTH, expand=True)
         
-        # Create two subplots for the second tab
-        self.fig2, (self.ax3, self.ax4) = plt.subplots(2, 1, figsize=figsize)
+        # Create figure for radar chart
+        self.fig2 = plt.figure(figsize=figsize2)
+        self.ax3 = self.fig2.add_subplot(111, projection='polar')  # Radar chart
         self.canvas2 = FigureCanvasTkAgg(self.fig2, master=self.tabview.tab("Model Comparison"))
         self.canvas2.get_tk_widget().pack(fill=ctk.BOTH, expand=True)
+
+        # Adjust layout to accommodate the legend
+        self.fig1.subplots_adjust(left = 0.1, right=0.8, hspace=0.2, wspace=0.2, top=0.95, bottom=0.05)
+        self.fig2.subplots_adjust(right=0.9)
+        
     
     def update_charts(self):
         """Update the charts with the latest results."""
@@ -259,32 +269,31 @@ class LoanRiskPredictorGUI:
         self.ax1.clear()
         self.ax2.clear()
         self.ax3.clear()
-        self.ax4.clear()
         
         # Prepare data for charts
         models = list(self.results.keys())
         avg_metrics = {
             'accuracy': [np.mean(self.results[m]['accuracy']) for m in models],
             'sensitivity': [np.mean(self.results[m]['sensitivity']) for m in models],
-            'specificity': [np.mean(self.results[m]['specificity']) for m in models]
+            'specificity': [np.mean(self.results[m]['specificity']) for m in models],
+            'f1_score': [np.mean(self.results[m]['f1_score']) for m in models]
         }
         
-        # Set color palette for models
-        model_colors = plt.cm.Pastel1(np.linspace(0, 0.8, len(models)))
-        metrics_colors = ['#90dcf5', '#f4f5ba', '#f0b2a1']
-        rotation = 45
-        fontsize = 9
+        model_colors = plt.cm.Set3(np.linspace(0, 1, len(models)))
+        fontsize = 8
+        rotation = 23
         facecolors = ['#f2f2f2', '#fafafa']
-
+        metrics_colors = ['#a7ed8a', '#e6eb88' ,'#88ebeb' ,'#f09595']
+        grid_colors = ["#a0a0a0", "white"]
         
         # First tab: Performance Metrics
-        # Bar chart for average metrics
+        # Bar chart for average metrics (ax1)
         x = np.arange(len(models))
-        width = 0.20
-
-        bars1 = self.ax1.bar(x - width, avg_metrics['accuracy'], width, label='Accuracy', color=metrics_colors[0])
-        bars2 = self.ax1.bar(x, avg_metrics['sensitivity'], width, label='Sensitivity', color=metrics_colors[1])
-        bars3 = self.ax1.bar(x + width, avg_metrics['specificity'], width, label='Specificity', color=metrics_colors[2])
+        width = 0.15  # Adjusted width for 4 metrics
+        bars1 = self.ax1.bar(x - 1.5*width, avg_metrics['accuracy'], width, label='Accuracy', color=metrics_colors[0])
+        bars2 = self.ax1.bar(x - 0.5*width, avg_metrics['sensitivity'], width, label='Sensitivity', color=metrics_colors[1])
+        bars3 = self.ax1.bar(x + 0.5*width, avg_metrics['specificity'], width, label='Specificity', color=metrics_colors[2])
+        bars4 = self.ax1.bar(x + 1.5*width, avg_metrics['f1_score'], width, label='F1-Score', color=metrics_colors[3])
         
         # Add value labels on top of bars
         def add_value_labels(bars):
@@ -292,103 +301,127 @@ class LoanRiskPredictorGUI:
                 height = bar.get_height()
                 self.ax1.text(bar.get_x() + bar.get_width()/2., height,
                             f'{height:.3f}',
-                            ha='center', va='bottom')
+                            ha='center', va='bottom', fontsize=fontsize-1, rotation=0)
         
         add_value_labels(bars1)
         add_value_labels(bars2)
         add_value_labels(bars3)
+        add_value_labels(bars4)
         
         self.ax1.set_ylabel('Score', fontsize=fontsize)
+        self.ax1.set_title('Average Model Performance Metrics', fontsize=fontsize*1.5)
         self.ax1.set_facecolor(facecolors[0])
-        self.ax1.set_title('Average Model Performance Metrics', fontsize=fontsize * 1.3)
         self.ax1.set_xticks(x)
-        self.ax1.set_xticklabels(models, rotation=rotation , fontsize=fontsize)
-        self.ax1.legend(loc='upper left', bbox_to_anchor=(1.03, 0.4), facecolor='white', fontsize=fontsize)
-        self.ax1.grid(True, linestyle='--', alpha=0.7)
+        self.ax1.set_xticklabels(models, rotation=rotation, fontsize=fontsize)
+        self.ax1.legend(loc='upper left', bbox_to_anchor=(1.0, 0.4), facecolor=facecolors[1], fontsize=fontsize)
+        self.ax1.grid(True, linestyle='--', alpha=0.7, color=grid_colors[1])
 
-        # Box plot for fold-wise metrics
-        fold_metrics = {
-            'accuracy': [self.results[m]['accuracy'] for m in models],
-            'sensitivity': [self.results[m]['sensitivity'] for m in models],
-            'specificity': [self.results[m]['specificity'] for m in models]
-        }
-
-        # Create box plot with custom colors
-        box_plot = self.ax2.boxplot(fold_metrics['accuracy'], labels=models, patch_artist=True)
-
-        # Set box colors
-        for box in box_plot['boxes']:
-            box.set(facecolor='#2ecc71', alpha=0.5)
-
-        # Add mean value labels
-        for i, model in enumerate(models):
-            mean_val = np.mean(fold_metrics['accuracy'][i])
-            self.ax2.text(i + 1, mean_val, f'{mean_val:.3f}',
-                         ha='center', va='bottom', color='black', fontsize=fontsize)
-
-        self.ax2.set_ylabel('Score', fontsize=fontsize)
-        self.ax2.set_facecolor(facecolors[0])
-        self.ax2.set_title('Fold-wise Accuracy Distribution', fontsize=fontsize * 1.3)
-        self.ax2.set_xticklabels(models, rotation=45, fontsize=fontsize)
-        self.ax2.grid(True, linestyle='--', alpha=0.7)
-        
-        # # Second tab: Model Comparison
-        if self.confusion_matrices:
-            # Calculate grid dimensions
-            n_models = len(self.confusion_matrices)
-            
-            model_name = self.config.get("models.default_model")
-            cm = self.confusion_matrices[model_name]
-            ax = self.ax3 
-                
-            # # Create heatmap
-            sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax, cbar=False)
-            ax.set_title(f'{model_name}', fontsize=8)
-            ax.set_xlabel('Predicted', fontsize=8)
-            ax.set_ylabel('Actual', fontsize=8)
-            ax.tick_params(axis='both', which='major', labelsize=8)
-
-        # Metrics comparison bar chart
+        # Horizontal bar chart (ax2)
         y = np.arange(3)  
         height = 0.75 / len(models)  # Adjust height based on number of models
 
         for i, model in enumerate(models):
             metrics = [avg_metrics['accuracy'][i], avg_metrics['sensitivity'][i], avg_metrics['specificity'][i]]
-            bars = self.ax4.barh(y + i * height, metrics, height, label=model, color=model_colors[i])
+            bars = self.ax2.barh(y + i * height, metrics, height, label=model, color=model_colors[i])
 
             # Add value labels
             for bar in bars:
                 width = bar.get_width()
-                self.ax4.text(width, bar.get_y() + bar.get_height()/2.,
+                self.ax2.text(width, bar.get_y() + bar.get_height()/2.,
                             f'{width:.3f}',
                             ha='left', va='center', fontsize=fontsize)
         
-        self.ax4.set_facecolor(facecolors[1])
-        self.ax4.set_xlabel('Score', fontsize=fontsize)  # Set x-axis label for horizontal bar chart
-        self.ax4.set_title('Model Performance Comparison', fontsize=fontsize*1.3)
-        self.ax4.set_yticks(y + height * (len(models) - 1) / 2)
-        self.ax4.set_yticklabels(['Accuracy', 'Sensitivity', 'Specificity'], fontsize=fontsize, rotation=rotation)
-        self.ax4.legend(loc='upper left', bbox_to_anchor=(1.03, 0.4), facecolor='white', fontsize=fontsize)
-        self.ax4.grid(True, linestyle='--', alpha=0.7)
+        self.ax2.set_facecolor(facecolors[1])
+        self.ax2.set_xlabel('Score', fontsize=fontsize)
+        self.ax2.set_title('Model Performance Comparison', fontsize=fontsize*1.3)
+        self.ax2.set_yticks(y + height * (len(models) - 1) / 2)
+        self.ax2.set_yticklabels(['Accuracy', 'Sensitivity', 'Specificity'], fontsize=fontsize, rotation=rotation)
+        self.ax2.legend(loc='upper left', bbox_to_anchor=(1.0, 0.4), facecolor=facecolors[1], fontsize=fontsize)
+        self.ax2.grid(True, linestyle='--', alpha=0.7, color=grid_colors[1])
 
-        # Adjust layout and draw
-        self.fig1.tight_layout()
-        # self.fig1.subplots_adjust(left=0.05, right=0.95, top=0.95, bottom=0.05, wspace=0.1, hspace=0.1)
-        self.fig2.tight_layout()
-        self.fig2.subplots_adjust(left=0.1, right=0.8, top=0.95, bottom=0.1, wspace=0.2, hspace=0.2)
+        # Radar chart (ax3)
+        metrics = ['Accuracy', 'Specificity', 'Sensitivity', 'F1-Score']
+        num_metrics = len(metrics)
+        
+        # Compute angle for each metric
+        angles = [n / float(num_metrics) * 2 * np.pi for n in range(num_metrics)]
+        angles += angles[:1]  # Close the loop
+        
+        # Set up the radar chart
+        self.ax3.set_theta_offset(np.pi / 2)  # Start from top
+        self.ax3.set_theta_direction(-1)  # Clockwise
+        
+        # Draw axis lines for each metric
+        self.ax3.set_thetagrids(np.degrees(angles[:-1]), metrics, fontsize=fontsize, rotation=45)
+        
+        # Draw y-axis labels (0-1)
+        self.ax3.set_ylim(0, 1)
+        self.ax3.set_facecolor(facecolors[0])
+        self.ax3.set_yticks([0.2, 0.4, 0.6, 0.8, 1.0])
+        self.ax3.set_yticklabels(['0.2', '0.4', '0.6', '0.8', '1.0'], fontsize=fontsize)
+        self.ax3.grid(True, linestyle='--', alpha=0.7, color=grid_colors[0])
+        
+        # Plot each model's metrics
+        for i, model in enumerate(models):
+            values = [
+                avg_metrics['accuracy'][i],
+                avg_metrics['specificity'][i],
+                avg_metrics['sensitivity'][i],
+                avg_metrics['f1_score'][i],
+            ]
+            values += values[:1]  # Close the loop
+            
+            # Plot the model's metrics with more transparent fill
+            self.ax3.plot(angles, values, linewidth=2, linestyle='solid', label=model, color=model_colors[i])
+            self.ax3.fill(angles, values, alpha=0.3, color=model_colors[i])
+            
+            # Add value labels with smaller font and rotation
+            for angle, value in zip(angles[:-1], values[:-1]):
+                self.ax3.text(angle, value + 0.02, f'{value:.2f}', 
+                            ha='center', va='center', fontsize=fontsize-1, rotation=45)
+        
+        self.ax3.set_title('Model Performance Comparison (Radar Chart)', fontsize=fontsize*1.5)
+        # Move legend outside the plot to avoid overlap
+        self.ax3.legend(loc='upper right', bbox_to_anchor=(1.2, 1.1), fontsize=fontsize*1.3, facecolor=facecolors[1])
 
+        leg = self.ax3.legend()
+
+        # change the line width for the legend
+        for line in leg.get_lines():
+            line.set_linewidth(4.0)
+        
+        # Update the results text display
+        def update_results_text():
+            self.results_text.delete("1.0", ctk.END)
+            for model_name, metrics in self.results.items():
+                self.results_text.insert(ctk.END, f"\nResults for {model_name}:\n")
+                avg_metrics = {
+                    'accuracy': np.mean(metrics['accuracy']),
+                    'sensitivity': np.mean(metrics['sensitivity']),
+                    'specificity': np.mean(metrics['specificity']),
+                    'f1_score': np.mean(metrics['f1_score'])
+                }
+                self.results_text.insert(ctk.END, f"Average Accuracy: {avg_metrics['accuracy']:.4f}\n")
+                self.results_text.insert(ctk.END, f"Average Sensitivity: {avg_metrics['sensitivity']:.4f}\n")
+                self.results_text.insert(ctk.END, f"Average Specificity: {avg_metrics['specificity']:.4f}\n")
+                self.results_text.insert(ctk.END, f"Average F1-Score: {avg_metrics['f1_score']:.4f}\n")
+                self.results_text.insert(ctk.END, f"Confusion Matrix:\n{metrics['confusion_matrix']}\n")
+                self.results_text.insert(ctk.END, "-" * 50 + "\n")
+
+        update_results_text()
+
+        # Draw both canvases
         self.canvas1.draw()
         self.canvas2.draw()
 
-
-        # Save charts (performance metrics and model comparison) to graph_dir (from config)
+        # Save charts
         graph_dir = self.config.get("data.graph_dir")
         if not os.path.exists(graph_dir):
             os.makedirs(graph_dir)
         self.fig1.savefig(os.path.join(graph_dir, "performance_metrics.png"))
         self.fig2.savefig(os.path.join(graph_dir, "model_comparison.png"))
 
-        # (Optional) Save individual confusion matrix heatmaps (for each model) into graph_dir
+        # Save individual confusion matrix heatmaps
         for (model_name, cm) in self.confusion_matrices.items():
             fig, ax = plt.subplots(figsize=(6, 6))
             sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", ax=ax, cbar=False)
@@ -435,12 +468,14 @@ class LoanRiskPredictorGUI:
                     avg_metrics = {
                         'accuracy': np.mean(metrics['accuracy']),
                         'sensitivity': np.mean(metrics['sensitivity']),
-                        'specificity': np.mean(metrics['specificity'])
+                        'specificity': np.mean(metrics['specificity']),
+                        'f1_score': np.mean(metrics['f1_score'])
                     }
 
                     self.results_text.insert(ctk.END, f"Average Accuracy: {avg_metrics['accuracy']:.4f}\n")
                     self.results_text.insert(ctk.END, f"Average Sensitivity: {avg_metrics['sensitivity']:.4f}\n")
                     self.results_text.insert(ctk.END, f"Average Specificity: {avg_metrics['specificity']:.4f}\n")
+                    self.results_text.insert(ctk.END, f"Average F1-Score: {avg_metrics['f1_score']:.4f}\n")
                     self.results_text.insert(ctk.END, f"Confusion Matrix:\n{metrics['confusion_matrix']}\n")
                 except Exception as e:
                     self.results_text.insert(ctk.END, f"Error: {str(e)}\n")
