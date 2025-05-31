@@ -6,7 +6,7 @@ from .data_pipeline.data_repository import DataRepository
 from .data_pipeline.feature_engineering import FeatureEngineer
 from .models.model_factory import ModelFactory
 from .utils.logger import Logger
-from .models.autoencoder import AutoencoderTrainer
+from .models.autoencoder import AutoencoderModel
 from .utils.test_utils import TestDataGenerator, DebugLogger
 import pandas as pd
 import os
@@ -168,13 +168,13 @@ class LoanRiskPredictor:
                 'f1_score': np.mean(metrics['f1_score'])
             }
             
-            # Calculate average confusion matrix
-            avg_cm = np.mean(metrics['confusion_matrices'], axis=0).astype(int)
-            metrics['confusion_matrix'] = avg_cm
+            # Calculate total confusion matrix
+            total_cm = np.sum(metrics['confusion_matrices'], axis=0).astype(int)
+            metrics['confusion_matrix'] = total_cm
             
             if debug_mode:
                 self.debug_logger.log_metrics(avg_metrics, "Average Results")
-                self.debug_logger.log_array_info(avg_cm, "Average Confusion Matrix")
+                self.debug_logger.log_array_info(total_cm, "Total Confusion Matrix")
             
             self.logger.info("\nAverage results across all folds:")
             self.logger.info(f"Accuracy: {avg_metrics['accuracy']:.4f}")

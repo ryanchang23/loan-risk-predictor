@@ -421,6 +421,9 @@ class LoanRiskPredictorGUI:
         self.fig1.savefig(os.path.join(graph_dir, "performance_metrics.png"))
         self.fig2.savefig(os.path.join(graph_dir, "model_comparison.png"))
 
+        cm_dir = self.config.get("data.cm_dir")
+        if not os.path.exists(cm_dir):
+            os.makedirs(cm_dir)
         # Save individual confusion matrix heatmaps
         for (model_name, cm) in self.confusion_matrices.items():
             fig, ax = plt.subplots(figsize=(6, 6))
@@ -429,7 +432,7 @@ class LoanRiskPredictorGUI:
             ax.set_xlabel("Predicted")
             ax.set_ylabel("Actual")
             fig.tight_layout()
-            fig.savefig(os.path.join(graph_dir, f"confusion_matrix_{model_name}.png"))
+            fig.savefig(os.path.join(cm_dir, f"confusion_matrix_{model_name}.png"))
             plt.close(fig)
 
     def run_models(self):

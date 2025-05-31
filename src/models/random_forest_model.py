@@ -7,6 +7,7 @@ class RandomForestModel(BaseModel):
     """Random Forest model implementation."""
     
     def __init__(self):
+        super().__init__()
         self.model = None
     
     def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:

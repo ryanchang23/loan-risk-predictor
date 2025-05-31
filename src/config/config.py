@@ -18,6 +18,8 @@ class ConfigManager:
                 'test_path': 'Dataset/Test Data.csv',
                 'processed_dir': 'processed',
                 'graph_dir': 'charts',
+                'train_loss_dir': 'charts/train_loss',
+                'cm_dir': 'charts/confusion_matrix',
                 'normalized_data_path': 'normalized_data.csv',
                 'fused_features_path': 'fused_features.csv'
             },

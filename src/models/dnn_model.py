@@ -8,38 +8,46 @@ class DNNModel(BaseModel):
     """Deep Neural Network model implementation."""
     
     def __init__(self):
+        super().__init__()
         self.model = None
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        
+        # Load hyperparameters from config
+        self.hyperparams = self.config.get(f"models.hyperparameters.{self.model_name}")
     
-    def _create_model(self, input_size: int) -> nn.Module:
+    def _create_model(self, input_size: int)-> nn.Module:
         """Create the DNN model architecture."""
         class DNN(nn.Module):
-            def __init__(self, input_size):
+            def __init__(self, input_size, hidden_layers, dropout_rate):
                 super(DNN, self).__init__()
-                self.fc1 = nn.Linear(input_size, 256)
-                self.fc2 = nn.Linear(256, 128)
-                self.fc3 = nn.Linear(128, 64)
-                self.fc4 = nn.Linear(64, 32)
-                self.fc5 = nn.Linear(32, 1)
-                self.dropout = nn.Dropout(0.3)
-                self.batch_norm1 = nn.BatchNorm1d(256)
-                self.batch_norm2 = nn.BatchNorm1d(128)
-                self.batch_norm3 = nn.BatchNorm1d(64)
-                self.batch_norm4 = nn.BatchNorm1d(32)
-                self.sigmoid = nn.Sigmoid()
+                
+                # Create layers dynamically based on hidden_layers
+                layers = []
+                prev_size = input_size
+                
+                for hidden_size in hidden_layers:
+                    layers.extend([
+                        nn.Linear(prev_size, hidden_size),
+                        nn.BatchNorm1d(hidden_size),
+                        nn.ReLU(),
+                        nn.Dropout(dropout_rate)
+                    ])
+                    prev_size = hidden_size
+                
+                # Add final layer
+                layers.append(nn.Linear(prev_size, 1))
+                layers.append(nn.Sigmoid())
+                
+                self.layers = nn.Sequential(*layers)
             
             def forward(self, x):
-                x = self.batch_norm1(torch.relu(self.fc1(x)))
-                x = self.dropout(x)
-                x = self.batch_norm2(torch.relu(self.fc2(x)))
-                x = self.dropout(x)
-                x = self.batch_norm3(torch.relu(self.fc3(x)))
-                x = self.dropout(x)
-                x = self.batch_norm4(torch.relu(self.fc4(x)))
-                x = self.fc5(x)
-                return self.sigmoid(x)
+                return self.layers(x)
         
-        return DNN(input_size)
+        return DNN(
+            input_size=input_size,
+            hidden_layers=self.hyperparams['hidden_layers'],
+            dropout_rate=self.hyperparams['dropout_rate']
+        )
     
     def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
         """Train the model."""
@@ -52,16 +60,42 @@ class DNNModel(BaseModel):
         
         # Define loss function and optimizer
         criterion = nn.BCELoss()
-        optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
+        optimizer = torch.optim.Adam(
+            self.model.parameters(),
+            lr=self.hyperparams['learning_rate']
+        )
         
         # Training loop
+        batch_size = self.hyperparams['batch_size']
+        n_samples = X_train.shape[0]
+        
         self.model.train()
-        for epoch in range(100):  # Number of epochs
-            optimizer.zero_grad()
-            outputs = self.model(X_train)
-            loss = criterion(outputs, y_train)
-            loss.backward()
-            optimizer.step()
+        for epoch in range(self.hyperparams['epochs']):
+            # Shuffle data
+            indices = torch.randperm(n_samples)
+            epoch_loss = 0.0
+            
+            for i in range(0, n_samples, batch_size):
+                batch_indices = indices[i:i + batch_size]
+                X_batch = X_train[batch_indices]
+                y_batch = y_train[batch_indices]
+                
+                # Forward pass
+                outputs = self.model(X_batch)
+                loss = criterion(outputs, y_batch)
+                
+                # Backward pass
+                optimizer.zero_grad()
+                loss.backward()
+                optimizer.step()
+                
+                epoch_loss += loss.item()
+            
+            # Record average loss for the epoch
+            self.record_loss(epoch_loss / (n_samples / batch_size))
+        
+        # Plot and save the training loss curve
+        self.plot_train_loss()
     
     def predict(self, X: np.ndarray) -> np.ndarray:
         """Make predictions."""

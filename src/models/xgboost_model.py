@@ -8,6 +8,7 @@ class XGBoostModel(BaseModel):
     
     def __init__(self):
         """Initialize the XGBoost model with default parameters."""
+        super().__init__()
         self.model = None
         self.params = {
             'max_depth': 50,

@@ -6,10 +6,8 @@ data:
   normalized_data_path: 'normalized_data.csv'
   fused_features_path: 'fused_features.csv'
   graph_dir: 'charts'
-models:
-  default_model: 'd_lstm'
-  train_percentage: 80
-  random_state: 42
+  train_loss_dir: "charts/train_loss"
+
 features:
   n_features: 5
   categorical_columns:
@@ -22,6 +20,72 @@ features:
   drop_columns:
     - 'Id'
   target_column: 'Risk_Flag'
+
 logging:
   level: 'INFO'
-  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s' 
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  file: "logs/app.log" 
+
+models:
+  default_model: 'd_lstm'
+  train_percentage: 80
+  random_state: 42
+
+  hyperparameters:
+    dlstm:
+      epochs: 200
+      learning_rate: 0.001
+      batch_size: 32
+      hidden_size: 64
+      num_layers: 2
+      dropout_rate: 0.3
+      optimizer: "adam"
+
+    dnn:
+      epochs: 200
+      learning_rate: 0.001
+      batch_size: 32
+      hidden_layers: [256, 128, 64, 32]
+      dropout_rate: 0.3
+      optimizer: "adam"
+
+    mlp:
+      epochs: 200
+      learning_rate: 0.001
+      batch_size: 32
+      hidden_layers: [128, 64, 32]
+      dropout_rate: 0.3
+      optimizer: "adam"
+
+    rnn:
+      epochs: 200
+      learning_rate: 0.001
+      batch_size: 32
+      hidden_size: 64
+      num_layers: 2
+      dropout_rate: 0.3
+      optimizer: "adam"
+
+    cnnlightgbm:
+      cnn:
+        epochs: 100
+        learning_rate: 0.001
+        batch_size: 32
+        conv_channels: [32, 64]
+        kernel_size: 3
+        dropout_rate: 0.3
+        optimizer: "adam"
+      lightgbm:
+        num_leaves: 31
+        learning_rate: 0.05
+        num_boost_round: 100
+        feature_fraction: 0.9
+
+    autoencoder:
+      epochs: 200
+      learning_rate: 0.001
+      batch_size: 32
+      encoding_size: 32
+      hidden_layers: [128, 64]
+      dropout_rate: 0.3
+      optimizer: "adam"
