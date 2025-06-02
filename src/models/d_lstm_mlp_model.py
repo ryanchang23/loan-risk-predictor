@@ -1,11 +1,11 @@
 import numpy as np
 import torch
 import torch.nn as nn
-from typing import Tuple
+from typing import Tuple, Optional
 from .base_model import BaseModel
 
-class DLSTMModel(BaseModel):
-    """Deep LSTM model implementation."""
+class DLSTMMLPModel(BaseModel):
+    """Hybrid model combining LSTM for temporal feature extraction and MLP for final prediction."""
     
     def __init__(self):
         super().__init__()
@@ -13,55 +13,71 @@ class DLSTMModel(BaseModel):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.input_size = None
         
-        self.model_name = "d_lstm"
+        self.model_name = "d_lstm_mlp"
+
         # Load hyperparameters from config
         self.hyperparams = self.config.get(f"models.hyperparameters.{self.model_name}")
     
     def _create_model(self, input_size: int) -> nn.Module:
-        """Create the LSTM model architecture."""
-        class LSTM(nn.Module):
-            def __init__(self, input_size, hidden_size, num_layers, dropout_rate):
-                super(LSTM, self).__init__()
-                self.hidden_size = hidden_size
-                self.num_layers = num_layers
+        """Create the hybrid LSTM-MLP model architecture."""
+        class HybridModel(nn.Module):
+            def __init__(self, input_size, lstm_hidden_size, lstm_num_layers, lstm_dropout_rate,
+                         mlp_hidden_layers, mlp_dropout_rate):
+                super(HybridModel, self).__init__()
                 
+                # LSTM component for temporal feature extraction
                 self.lstm = nn.LSTM(
                     input_size,
-                    hidden_size,
-                    num_layers,
+                    lstm_hidden_size,
+                    lstm_num_layers,
                     batch_first=True,
-                    dropout=dropout_rate,
+                    dropout=lstm_dropout_rate,
                     bidirectional=True
                 )
                 
-                # Double hidden size due to bidirectional LSTM
-                self.fc1 = nn.Linear(hidden_size * 2, 64)
-                self.fc2 = nn.Linear(64, 32)
-                self.fc3 = nn.Linear(32, 1)
-                self.dropout = nn.Dropout(dropout_rate)
-                self.sigmoid = nn.Sigmoid()
+                # Calculate LSTM output size (doubled due to bidirectional)
+                lstm_output_size = lstm_hidden_size * 2
+                
+                # MLP component for final prediction
+                mlp_layers = []
+                prev_size = lstm_output_size
+                
+                for hidden_size in mlp_hidden_layers:
+                    mlp_layers.extend([
+                        nn.Linear(prev_size, hidden_size),
+                        nn.ReLU(),
+                        nn.Dropout(mlp_dropout_rate)
+                    ])
+                    prev_size = hidden_size
+                
+                # Add final layer
+                mlp_layers.extend([
+                    nn.Linear(prev_size, 1),
+                    nn.Sigmoid()
+                ])
+                
+                self.mlp = nn.Sequential(*mlp_layers)
             
             def forward(self, x):
-                h0 = torch.zeros(self.num_layers * 2, x.size(0), self.hidden_size).to(x.device)
-                c0 = torch.zeros(self.num_layers * 2, x.size(0), self.hidden_size).to(x.device)
+                # LSTM forward pass
+                h0 = torch.zeros(self.lstm.num_layers * 2, x.size(0), self.lstm.hidden_size).to(x.device)
+                c0 = torch.zeros(self.lstm.num_layers * 2, x.size(0), self.lstm.hidden_size).to(x.device)
                 
-                out, _ = self.lstm(x, (h0, c0))
-                out = out[:, -1, :]  # Get the last time step
+                lstm_out, _ = self.lstm(x, (h0, c0))
+                lstm_features = lstm_out[:, -1, :]  # Get the last time step
                 
-                out = torch.relu(self.fc1(out))
-                out = self.dropout(out)
-                out = torch.relu(self.fc2(out))
-                out = self.dropout(out)
-                out = self.fc3(out)
-                return self.sigmoid(out)
+                # MLP forward pass
+                return self.mlp(lstm_features)
         
-        return LSTM(
+        return HybridModel(
             input_size=input_size,
-            hidden_size=self.hyperparams['hidden_size'],
-            num_layers=self.hyperparams['num_layers'],
-            dropout_rate=self.hyperparams['dropout_rate']
+            lstm_hidden_size=self.hyperparams['lstm']['hidden_size'],
+            lstm_num_layers=self.hyperparams['lstm']['num_layers'],
+            lstm_dropout_rate=self.hyperparams['lstm']['dropout_rate'],
+            mlp_hidden_layers=self.hyperparams['mlp']['hidden_layers'],
+            mlp_dropout_rate=self.hyperparams['mlp']['dropout_rate']
         )
-    
+
     def train(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
         """Train the model."""
         # Reshape input for LSTM (batch_size, sequence_length, features)
@@ -79,17 +95,15 @@ class DLSTMModel(BaseModel):
         criterion = nn.BCELoss()
         optimizer = torch.optim.Adam(
             self.model.parameters(),
-            lr=self.hyperparams['learning_rate']
+            lr=self.hyperparams['lstm']['learning_rate']  # Use LSTM learning rate for initial training
         )
         
         # Training loop
-        batch_size = self.hyperparams['batch_size']
+        batch_size = self.hyperparams['lstm']['batch_size']
         n_samples = X_train.shape[0]
         
         self.model.train()
-
-        print(f"LSTM epochs: {self.hyperparams['epochs']}")
-        for epoch in range(self.hyperparams['epochs']):
+        for epoch in range(self.hyperparams['lstm']['epochs']):
             # Shuffle data
             indices = torch.randperm(n_samples)
             epoch_loss = 0.0
@@ -120,26 +134,26 @@ class DLSTMModel(BaseModel):
         """Make predictions."""
         if self.model is None:
             raise ValueError("Model not trained yet")
-
+        
         # Reshape input for LSTM
         X = X.reshape(X.shape[0], 1, X.shape[1])
         
         # Convert to PyTorch tensor
         X = torch.FloatTensor(X).to(self.device)
-
+        
         # Make predictions
         self.model.eval()
         with torch.no_grad():
             predictions = self.model(X)
         
         return predictions.cpu().numpy()
-
+    
     def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
         """Evaluate the model."""
         predictions = self.predict(X_test)
         predictions = (predictions > 0.5).astype(int)
         return self._calculate_metrics(y_test, predictions)
-
+    
     def save(self, path: str) -> None:
         """Save the model to disk."""
         if self.model is None:
@@ -151,7 +165,7 @@ class DLSTMModel(BaseModel):
             'hyperparams': self.hyperparams
         }
         torch.save(save_data, path)
-
+    
     def load(self, path: str) -> None:
         """Load the model from disk."""
         checkpoint = torch.load(path, map_location=self.device)

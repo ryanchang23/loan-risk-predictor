@@ -126,11 +126,16 @@ class LoanRiskPredictorGUI:
         model_frame.pack(pady=5, fill=ctk.X)
         ctk.CTkLabel(model_frame, text="Select Models").pack(anchor=ctk.W, pady=5)
         self.model_vars = {}
-        for model in ["d_lstm", "mlp", "cnn_lightgbm", "dnn", "random_forest", "rnn", "xgboost"]:
+
+        # model_names = ["d_lstm_mlp", "d_lstm", "mlp", "cnn_lightgbm", "dnn", "rnn", "random_forest", "xgboost"]
+        model_names = ["d_lstm_mlp", "d_lstm", "mlp", "cnn_lightgbm", "rnn", "random_forest", "xgboost"]
+        
+        for model in model_names:
             var = ctk.BooleanVar(value=True)
             self.model_vars[model] = var
             ctk.CTkCheckBox(model_frame, text=model, variable=var).pack(anchor=ctk.W, pady=2)
         
+
         # Run button
         self.run_button = ctk.CTkButton(
             control_frame,
@@ -336,7 +341,14 @@ class LoanRiskPredictorGUI:
         self.ax2.set_title('Model Performance Comparison', fontsize=fontsize*1.3)
         self.ax2.set_yticks(y + height * (len(models) - 1) / 2)
         self.ax2.set_yticklabels(['Accuracy', 'Sensitivity', 'Specificity'], fontsize=fontsize, rotation=rotation)
-        self.ax2.legend(loc='upper left', bbox_to_anchor=(1.0, 0.4), facecolor=facecolors[1], fontsize=fontsize)
+
+        # Reversing Legend Order
+        handles, labels = self.ax2.get_legend_handles_labels()
+        self.ax2.legend(handles[::-1], labels[::-1],
+                        loc='upper left',
+                        bbox_to_anchor=(1.0, 0.4),
+                        facecolor=facecolors[1],
+                        fontsize=fontsize)
         self.ax2.grid(True, linestyle='--', alpha=0.7, color=grid_colors[1])
 
         # Radar chart (ax3)

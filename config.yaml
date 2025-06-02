@@ -9,7 +9,7 @@ data:
   train_loss_dir: "charts/train_loss"
 
 features:
-  n_features: 5
+  n_features: 9
   categorical_columns:
     - 'Married/Single'
     - 'House_Ownership'
@@ -32,8 +32,8 @@ models:
   random_state: 42
 
   hyperparameters:
-    dlstm:
-      epochs: 200
+    d_lstm:
+      epochs: 100
       learning_rate: 0.001
       batch_size: 32
       hidden_size: 64
@@ -42,7 +42,7 @@ models:
       optimizer: "adam"
 
     dnn:
-      epochs: 200
+      epochs: 100
       learning_rate: 0.001
       batch_size: 32
       hidden_layers: [256, 128, 64, 32]
@@ -50,7 +50,7 @@ models:
       optimizer: "adam"
 
     mlp:
-      epochs: 200
+      epochs: 100
       learning_rate: 0.001
       batch_size: 32
       hidden_layers: [128, 64, 32]
@@ -58,7 +58,7 @@ models:
       optimizer: "adam"
 
     rnn:
-      epochs: 200
+      epochs: 100
       learning_rate: 0.001
       batch_size: 32
       hidden_size: 64
@@ -66,9 +66,9 @@ models:
       dropout_rate: 0.3
       optimizer: "adam"
 
-    cnnlightgbm:
+    cnn_lightgbm:
       cnn:
-        epochs: 100
+        epochs: 50
         learning_rate: 0.001
         batch_size: 32
         conv_channels: [32, 64]
@@ -89,3 +89,20 @@ models:
       hidden_layers: [128, 64]
       dropout_rate: 0.3
       optimizer: "adam"
+
+    d_lstm_mlp:
+      lstm:
+        epochs: 100
+        learning_rate: 0.001
+        batch_size: 32
+        hidden_size: 64
+        num_layers: 2
+        dropout_rate: 0.3
+        optimizer: "adam"
+      mlp:
+        epochs: 100
+        learning_rate: 0.001
+        batch_size: 32
+        hidden_layers: [128, 64, 32]
+        dropout_rate: 0.3
+        optimizer: "adam"

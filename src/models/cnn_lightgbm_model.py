@@ -15,6 +15,7 @@ class CNNLightGBMModel(BaseModel):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.input_size = None
         
+        self.model_name = "cnn_lightgbm"
         # Load hyperparameters from config
         self.hyperparams = self.config.get(f"models.hyperparameters.{self.model_name}")
     
