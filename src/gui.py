@@ -6,6 +6,7 @@ from typing import Dict, List, Tuple
 from .app import LoanRiskPredictor
 from .config.config import ConfigManager
 from sklearn.metrics import confusion_matrix
+import torch
 import seaborn as sns
 import os
 
@@ -500,4 +501,5 @@ class LoanRiskPredictorGUI:
     
     def run(self):
         """Start the GUI application."""
+        print(f"Device: {torch.device('cuda' if torch.cuda.is_available() else 'cpu')}")
         self.root.mainloop() 

@@ -54,11 +54,11 @@ class XGBoostModel(BaseModel):
         # Convert probabilities to binary predictions
         return (proba > 0.5).astype(int)
     
-    def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float, np.ndarray]:
-        """Evaluate the model."""
-        predictions = self.predict(X_test)
-        predictions = (predictions > 0.5).astype(int)
-        return self._calculate_metrics(y_test, predictions)
+    # def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float, np.ndarray]:
+    #     """Evaluate the model."""
+    #     predictions = self.predict(X_test)
+    #     predictions = (predictions > 0.5).astype(int)
+    #     return self._calculate_metrics(y_test, predictions)
     
     def get_feature_importance(self) -> Dict[str, float]:
         """Get feature importance scores.  """

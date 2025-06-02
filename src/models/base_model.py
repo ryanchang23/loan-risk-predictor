@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Tuple, List, Any, Optional
 import numpy as np
 from sklearn.metrics import confusion_matrix, f1_score
+from sklearn.metrics import precision_recall_curve, f1_score
 import matplotlib.pyplot as plt
 import os
 from ..config.config import ConfigManager
@@ -24,24 +25,35 @@ class BaseModel(ABC):
     def predict(self, X: np.ndarray) -> np.ndarray:
         """Make predictions on the given data."""
         pass
-    
-    def evaluate(self, X: np.ndarray, y: np.ndarray) -> tuple:
-        """Evaluate the model and return accuracy, sensitivity, specificity, f1_score, and confusion matrix."""
-        predictions = self.predict(X)
-        
-        # Calculate confusion matrix
-        cm = confusion_matrix(y, predictions)
-        
-        # Calculate metrics
-        tn, fp, fn, tp = cm.ravel()
-        accuracy = (tp + tn) / (tp + tn + fp + fn)
-        sensitivity = tp / (tp + fn) if (tp + fn) > 0 else 0
-        specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
-        f1 = f1_score(y, predictions)
 
-        # TN FP
-        # FN TP
-        return accuracy, sensitivity, specificity, f1, cm
+    def find_best_threshold(self, y_true, y_probs):
+        """
+        Find the threshold that gives the best F1 score.
+        y_true : array-like, true binary labels (0 or 1)
+        y_probs: array-like, predicted probabilities (float between 0 and 1)
+        """
+        precisions, recalls, thresholds = precision_recall_curve(y_true, y_probs)
+        f1s = 2 * (precisions * recalls) / (precisions + recalls + 1e-10)  # avoid division by zero
+
+        best_index = f1s.argmax()
+        best_threshold = thresholds[best_index]
+        
+        print(f"Best Threshold = {best_threshold:.3f}")
+        print(f"Precision = {precisions[best_index]:.3f}")
+        print(f"Recall = {recalls[best_index]:.3f}")
+        print(f"F1 Score = {f1s[best_index]:.3f}")
+        
+        return best_threshold
+
+    def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
+        """Evaluate the model."""
+        predictions = self.predict(X_test)
+        # Ensure predictions are 1D array
+        predictions = predictions.reshape(-1)
+
+        best_thresh = self.find_best_threshold(y_test, predictions)
+        predictions = (predictions > best_thresh).astype(int)
+        return self._calculate_metrics(y_test, predictions)
     
     def plot_train_loss(self, save_path: Optional[str] = None) -> None:
         """Plot and optionally save the training loss curve.
@@ -99,10 +111,20 @@ class BaseModel(ABC):
     
     def _calculate_metrics(self, y_true: np.ndarray, y_pred: np.ndarray):
         """Calculate accuracy, sensitivity, specificity, and f1_score."""
+        # Debug logging
+        print(f"True labels shape: {y_true.shape}, unique values: {np.unique(y_true)}")
+        print(f"Predictions shape: {y_pred.shape}, unique values: {np.unique(y_pred)}")
+        print(f"True labels distribution: {np.bincount(y_true.astype(int))}")
+        print(f"Predictions distribution: {np.bincount(y_pred.astype(int))}")
+        
         tp = np.sum((y_true == 1) & (y_pred == 1))
         tn = np.sum((y_true == 0) & (y_pred == 0))
         fp = np.sum((y_true == 0) & (y_pred == 1))
         fn = np.sum((y_true == 1) & (y_pred == 0))
+
+        # Debug logging for confusion matrix components
+        print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
+        print(f"Total samples: {tp + tn + fp + fn}")
 
         cm = confusion_matrix(y_true, y_pred)
         

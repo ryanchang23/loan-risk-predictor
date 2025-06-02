@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 from typing import Tuple
 from .base_model import BaseModel
+from tqdm import tqdm
 
 class MLPModel(BaseModel):
     """Multi-Layer Perceptron model implementation."""
@@ -69,7 +70,9 @@ class MLPModel(BaseModel):
         n_samples = X_train.shape[0]
         
         self.model.train()
-        for epoch in range(self.hyperparams['epochs']):
+        # Add progress bar for epochs
+        pbar = tqdm(range(self.hyperparams['epochs']), desc=f'Training {self.model_name}')
+        for epoch in pbar:
             # Shuffle data
             indices = torch.randperm(n_samples)
             epoch_loss = 0.0
@@ -91,7 +94,10 @@ class MLPModel(BaseModel):
                 epoch_loss += loss.item()
             
             # Record average loss for the epoch
-            self.record_loss(epoch_loss / (n_samples / batch_size))
+            avg_loss = epoch_loss / (n_samples / batch_size)
+            self.record_loss(avg_loss)
+            # Update progress bar with current loss
+            pbar.set_postfix({'loss': f'{avg_loss:.4f}'})
         
         # Plot and save the training loss curve
         self.plot_train_loss()
@@ -111,11 +117,11 @@ class MLPModel(BaseModel):
         
         return predictions.cpu().numpy()
     
-    def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
-        """Evaluate the model."""
-        predictions = self.predict(X_test)
-        predictions = (predictions > 0.5).astype(int)
-        return self._calculate_metrics(y_test, predictions)
+    # def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
+    #     """Evaluate the model."""
+    #     predictions = self.predict(X_test)
+    #     predictions = (predictions > 0.5).astype(int)
+    #     return self._calculate_metrics(y_test, predictions)
     
     def save(self, path: str) -> None:
         """Save the model to disk."""

@@ -4,7 +4,8 @@ data:
   test_path: 'Dataset/Test Data.csv'
   processed_dir: 'processed'
   normalized_data_path: 'normalized_data.csv'
-  fused_features_path: 'fused_features.csv'
+  # fused_features_path: 'fused_features.csv'
+  fused_features_path: '2) Fused Feature.csv'
   graph_dir: 'charts'
   train_loss_dir: "charts/train_loss"
 
@@ -32,35 +33,44 @@ models:
   random_state: 42
 
   hyperparameters:
+    d_lstm_mlp:
+      lstm:
+        epochs: 5
+        learning_rate: 0.001
+        batch_size: 64
+        hidden_size: 64
+        num_layers: 2
+        dropout_rate: 0.3
+        optimizer: "adam"
+      mlp:
+        epochs: 5
+        learning_rate: 0.001
+        batch_size: 64
+        hidden_layers: [256, 128, 64, 32]
+        dropout_rate: 0.3
+        optimizer: "adam"
+
     d_lstm:
-      epochs: 100
+      epochs: 5
       learning_rate: 0.001
-      batch_size: 32
+      batch_size: 64
       hidden_size: 64
       num_layers: 2
       dropout_rate: 0.3
       optimizer: "adam"
 
-    dnn:
-      epochs: 100
+    mlp:
+      epochs: 5
       learning_rate: 0.001
-      batch_size: 32
+      batch_size: 64
       hidden_layers: [256, 128, 64, 32]
       dropout_rate: 0.3
       optimizer: "adam"
 
-    mlp:
-      epochs: 100
-      learning_rate: 0.001
-      batch_size: 32
-      hidden_layers: [128, 64, 32]
-      dropout_rate: 0.3
-      optimizer: "adam"
-
     rnn:
-      epochs: 100
+      epochs: 5
       learning_rate: 0.001
-      batch_size: 32
+      batch_size: 64
       hidden_size: 64
       num_layers: 2
       dropout_rate: 0.3
@@ -68,9 +78,9 @@ models:
 
     cnn_lightgbm:
       cnn:
-        epochs: 50
+        epochs: 5
         learning_rate: 0.001
-        batch_size: 32
+        batch_size: 64
         conv_channels: [32, 64]
         kernel_size: 3
         dropout_rate: 0.3
@@ -82,27 +92,18 @@ models:
         feature_fraction: 0.9
 
     autoencoder:
-      epochs: 200
+      epochs: 5
       learning_rate: 0.001
-      batch_size: 32
+      batch_size: 64
       encoding_size: 32
-      hidden_layers: [128, 64]
+      hidden_layers: [256, 128]
       dropout_rate: 0.3
       optimizer: "adam"
 
-    d_lstm_mlp:
-      lstm:
-        epochs: 100
-        learning_rate: 0.001
-        batch_size: 32
-        hidden_size: 64
-        num_layers: 2
-        dropout_rate: 0.3
-        optimizer: "adam"
-      mlp:
-        epochs: 100
-        learning_rate: 0.001
-        batch_size: 32
-        hidden_layers: [128, 64, 32]
-        dropout_rate: 0.3
-        optimizer: "adam"
+    dnn:
+      epochs: 5
+      learning_rate: 0.001
+      batch_size: 64
+      hidden_layers: [256, 128, 64, 32]
+      dropout_rate: 0.3
+      optimizer: "adam"
