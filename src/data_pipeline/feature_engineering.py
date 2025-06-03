@@ -41,7 +41,7 @@ class FeatureEngineer:
             feature_column = X_sub[:, i].reshape(-1, 1)
 
             # Fit KNN and get distances to k+1 neighbors (first neighbor is the point itself)
-            nn = NearestNeighbors(n_neighbors=k + 1, metric='chebyshev')  # or 'manhattan'
+            nn = NearestNeighbors(n_neighbors=k + 1, metric='manhattan')  
             nn.fit(feature_column)
             distances, _ = nn.kneighbors(feature_column)
             epsilon = distances[:, k]  # Distance to the k-th neighbor
@@ -55,52 +55,11 @@ class FeatureEngineer:
 
         return mi_scores
 
-    # def calculate_kraskov_mi(self, X: np.ndarray, y: np.ndarray, k: int = 5) -> np.ndarray:
-    #     """Calculate Kraskov mutual information between features and target using subsampling."""
-    #     n_samples, n_features = X.shape
-    #     mi_scores = np.zeros(n_features)
-
-    #     # Subsample data if needed while maintaining class balance
-    #     if n_samples > self.max_samples:
-    #         X_sub, _, y_sub, _ = train_test_split(
-    #             X, y, 
-    #             train_size=self.max_samples,
-    #             stratify=y,
-    #             random_state=42
-    #         )
-    #     else:
-    #         X_sub, y_sub = X, y
-
-    #     n_sub_samples = X_sub.shape[0]
-        
-    #     # Calculate mutual information using Kraskov method with efficient distance calculation
-    #     for i in range(n_features):
-    #         # Use NearestNeighbors for efficient k-nearest neighbor search
-    #         nn = NearestNeighbors(n_neighbors=k+1, metric='manhattan')
-    #         nn.fit(X_sub[:, i:i+1])
-            
-    #         # Get distances to k-th nearest neighbor for each point
-    #         distances, _ = nn.kneighbors(X_sub[:, i:i+1])
-    #         epsilon = distances[:, k]  # Distance to k-th neighbor
-            
-    #         # Count points within epsilon ball for both feature and target
-    #         n_x = np.zeros(n_sub_samples)
-    #         n_y = np.zeros(n_sub_samples)
-            
-    #         # Use broadcasting for efficient distance calculation
-    #         for j in range(n_sub_samples):
-    #             n_x[j] = np.sum(np.abs(X_sub[:, i] - X_sub[j, i]) <= epsilon[j])
-    #             n_y[j] = np.sum(np.abs(y_sub - y_sub[j]) <= epsilon[j])
-            
-    #         # Calculate MI using Kraskov estimator
-    #         mi_scores[i] = psi(k) - np.mean(psi(n_x + 1) + psi(n_y + 1)) + psi(n_sub_samples)
-        
-    #     return mi_scores
-
     def weight_features(self, X: np.ndarray, y: np.ndarray, n_features: int = 5) -> np.ndarray:
         """Weight features using Kraskov mutual information."""
         # Calculate Kraskov MI scores
-        mi_scores = self.calculate_kraskov_mi(X, y)
+        k = self.config.get('feature_engineering.kraskov_mi.k_neighbors')
+        mi_scores = self.calculate_kraskov_mi(X, y, k)
 
         # Normalize scores to get weights
         total_score = np.sum(mi_scores)

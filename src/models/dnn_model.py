@@ -77,12 +77,12 @@ class DNNModel(BaseModel):
             # Shuffle data
             indices = torch.randperm(n_samples)
             epoch_loss = 0.0
-            
+
             for i in range(0, n_samples, batch_size):
                 batch_indices = indices[i:i + batch_size]
                 X_batch = X_train[batch_indices]
                 y_batch = y_train[batch_indices]
-                
+
                 # Forward pass
                 outputs = self.model(X_batch)
                 loss = criterion(outputs, y_batch)

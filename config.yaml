@@ -6,24 +6,11 @@ data:
   processed_dir: 'processed'
   normalized_data_path: 'normalized_data.csv'
   fused_features_path: 'fused_features.csv'
-  # fused_features_path: '2) Fused Feature.csv'
   graph_dir: 'charts'
   train_loss_dir: "charts/train_loss"
 
 features:
   n_features: 5
-  feature_names:
-    - 'Age'
-    - 'Experience'
-    - 'Income'
-    - 'Married/Single'
-    - 'House_Ownership'
-    - 'Car_Ownership'
-    - 'Profession'
-    - 'CITY'
-    - 'STATE'
-    - 'Current_Job_Years'
-    - 'Current_House_Years'
   categorical_columns:
     - 'Married/Single'
     - 'House_Ownership'
@@ -36,26 +23,18 @@ features:
   target_column: 'Risk_Flag'
 
 feature_engineering:
-  max_samples: 1000
+  max_samples: 10000
   use_autoencoder: true
   append_autoencoder_features: true
   kraskov_mi:
-    k_neighbors: 5
-    min_features: 5
-    max_features: 20
-  use_smote: true
-  smote:
-    sampling_strategy: 'auto'
     k_neighbors: 5
 
 logging:
   level: 'INFO'
   format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-  file: "logs/app.log" 
 
 models:
-  default_model: 'd_lstm'
-  train_percentage: 80
+  default_model: 'd_lstm_mlp'
   random_state: 42
 
   hyperparameters:
