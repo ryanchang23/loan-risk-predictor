@@ -35,7 +35,7 @@ models:
   hyperparameters:
     d_lstm_mlp:
       lstm:
-        epochs: 5
+        epochs: 20
         learning_rate: 0.001
         batch_size: 64
         hidden_size: 64
@@ -43,7 +43,7 @@ models:
         dropout_rate: 0.3
         optimizer: "adam"
       mlp:
-        epochs: 5
+        epochs: 20
         learning_rate: 0.001
         batch_size: 64
         hidden_layers: [256, 128, 64, 32]
@@ -51,7 +51,7 @@ models:
         optimizer: "adam"
 
     d_lstm:
-      epochs: 5
+      epochs: 20
       learning_rate: 0.001
       batch_size: 64
       hidden_size: 64
@@ -60,7 +60,7 @@ models:
       optimizer: "adam"
 
     mlp:
-      epochs: 5
+      epochs: 20
       learning_rate: 0.001
       batch_size: 64
       hidden_layers: [256, 128, 64, 32]
@@ -68,7 +68,7 @@ models:
       optimizer: "adam"
 
     rnn:
-      epochs: 5
+      epochs: 20
       learning_rate: 0.001
       batch_size: 64
       hidden_size: 64
@@ -78,7 +78,7 @@ models:
 
     cnn_lightgbm:
       cnn:
-        epochs: 5
+        epochs: 20
         learning_rate: 0.001
         batch_size: 64
         conv_channels: [32, 64]
@@ -92,7 +92,7 @@ models:
         feature_fraction: 0.9
 
     autoencoder:
-      epochs: 5
+      epochs: 20
       learning_rate: 0.001
       batch_size: 64
       encoding_size: 32

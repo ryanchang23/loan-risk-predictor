@@ -307,7 +307,7 @@ class LoanRiskPredictorGUI:
                 height = bar.get_height()
                 self.ax1.text(bar.get_x() + bar.get_width()/2., height,
                             f'{height:.3f}',
-                            ha='center', va='bottom', fontsize=fontsize-1, rotation=0)
+                            ha='center', va='bottom', fontsize=fontsize -2, rotation=0 , color='#222222')
         
         add_value_labels(bars1)
         add_value_labels(bars2)
@@ -323,11 +323,11 @@ class LoanRiskPredictorGUI:
         self.ax1.grid(True, linestyle='--', alpha=0.7, color=grid_colors[1])
 
         # Horizontal bar chart (ax2)
-        y = np.arange(3)  
-        height = 0.75 / len(models)  # Adjust height based on number of models
+        y = np.arange(4)  
+        height = 0.65 / len(models)  # Adjust height based on number of models
 
         for i, model in enumerate(models):
-            metrics = [avg_metrics['accuracy'][i], avg_metrics['sensitivity'][i], avg_metrics['specificity'][i]]
+            metrics = [avg_metrics['accuracy'][i], avg_metrics['sensitivity'][i], avg_metrics['specificity'][i], avg_metrics['f1_score'][i]]
             bars = self.ax2.barh(y + i * height, metrics, height, label=model, color=model_colors[i])
 
             # Add value labels
@@ -335,13 +335,13 @@ class LoanRiskPredictorGUI:
                 width = bar.get_width()
                 self.ax2.text(width, bar.get_y() + bar.get_height()/2.,
                             f'{width:.3f}',
-                            ha='left', va='center', fontsize=fontsize)
+                            ha='left', va='center', fontsize=fontsize-1, color='#222222')
         
         self.ax2.set_facecolor(facecolors[1])
         self.ax2.set_xlabel('Score', fontsize=fontsize)
         self.ax2.set_title('Model Performance Comparison', fontsize=fontsize*1.3)
         self.ax2.set_yticks(y + height * (len(models) - 1) / 2)
-        self.ax2.set_yticklabels(['Accuracy', 'Sensitivity', 'Specificity'], fontsize=fontsize, rotation=rotation)
+        self.ax2.set_yticklabels(['Accuracy', 'Sensitivity', 'Specificity', 'F1-Score'], fontsize=fontsize, rotation=rotation)
 
         # Reversing Legend Order
         handles, labels = self.ax2.get_legend_handles_labels()
@@ -391,7 +391,7 @@ class LoanRiskPredictorGUI:
             # Add value labels with smaller font and rotation
             for angle, value in zip(angles[:-1], values[:-1]):
                 self.ax3.text(angle, value + 0.02, f'{value:.2f}', 
-                            ha='center', va='center', fontsize=fontsize-1, rotation=45)
+                            ha='center', va='center', fontsize=fontsize-2, rotation=23, color="#222222")
         
         self.ax3.set_title('Model Performance Comparison (Radar Chart)', fontsize=fontsize*1.5)
         # Move legend outside the plot to avoid overlap

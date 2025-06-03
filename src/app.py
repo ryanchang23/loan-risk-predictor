@@ -10,6 +10,7 @@ from .models.autoencoder import AutoencoderModel
 from .utils.test_utils import TestDataGenerator, DebugLogger
 import pandas as pd
 import os
+import time  # Add time module
 
 class LoanRiskPredictor:
     """Main application class for loan risk prediction."""
@@ -24,11 +25,25 @@ class LoanRiskPredictor:
         self.debug_logger = DebugLogger("loan_risk_predictor")
         # Set random seed for reproducibility
         np.random.seed(42)
+        # Initialize timing metrics
+        self.timing_metrics = {
+            'fold_times': [],
+            'total_time': 0.0
+        }
 
     def run(self, model_name: str = None, subsample_rate: float = 1.0, n_folds: int = 5,
             debug_mode: bool = False, use_feature_engineering: bool = True) -> Dict[str, List[float]]:
         """Run the loan risk prediction pipeline with K-fold cross-validation."""
         try:
+            # Reset timing metrics
+            self.timing_metrics = {
+                'fold_times': [],
+                'total_time': 0.0
+            }
+            
+            # Start total timing
+            total_start_time = time.time()
+            
             # Load and preprocess data
             self.logger.info("Loading and preprocessing data...")
             if debug_mode:
@@ -121,6 +136,9 @@ class LoanRiskPredictor:
             self.logger.info(f"Performing {n_folds}-fold cross-validation...")
             for fold, (X_train, X_val, y_train, y_val) in enumerate(tqdm(self.data_repo.get_kfold_splits(encoded_features, labels, n_folds), 
                                                                         total=n_folds, desc="K-fold Cross Validation")):
+                # Start timing for this fold
+                fold_start_time = time.time()
+                
                 self.logger.info(f"Training fold {fold + 1}/{n_folds}...")
                 
                 if debug_mode:
@@ -134,6 +152,13 @@ class LoanRiskPredictor:
                 with tqdm(total=1, desc=f"Training {model_name}") as pbar:
                     model.train(X_train, y_train)
                     pbar.update(1)
+                
+                # Calculate fold training time
+                fold_time = time.time() - fold_start_time
+                self.timing_metrics['fold_times'].append(fold_time)
+                
+                # Log fold timing
+                self.logger.info(f"Fold {fold + 1} training time: {fold_time:.2f} seconds")
                 
                 # Evaluate model
                 acc, sens, spec, f1, cm = model.evaluate(X_val, y_val)
@@ -160,6 +185,17 @@ class LoanRiskPredictor:
                 self.logger.info(f"F1-Score: {f1:.4f}")
                 self.logger.log_confusion_matrix(cm, "Confusion Matrix: ")
             
+            # Calculate total training time
+            total_time = time.time() - total_start_time
+            self.timing_metrics['total_time'] = total_time
+            
+            # Log timing metrics
+            self.logger.info("\nTraining Time Metrics:")
+            self.logger.info(f"Total training time: {total_time:.2f} seconds")
+            self.logger.info(f"Average fold training time: {np.mean(self.timing_metrics['fold_times']):.2f} seconds")
+            self.logger.info(f"Min fold training time: {min(self.timing_metrics['fold_times']):.2f} seconds")
+            self.logger.info(f"Max fold training time: {max(self.timing_metrics['fold_times']):.2f} seconds")
+            
             # Calculate and log average metrics
             avg_metrics = {
                 'accuracy': np.mean(metrics['accuracy']),
@@ -181,6 +217,15 @@ class LoanRiskPredictor:
             self.logger.info(f"Sensitivity: {avg_metrics['sensitivity']:.4f}")
             self.logger.info(f"Specificity: {avg_metrics['specificity']:.4f}")
             self.logger.info(f"F1-Score: {avg_metrics['f1_score']:.4f}")
+            
+            # Add timing metrics to the returned metrics dictionary
+            metrics['timing'] = {
+                'total_time': total_time,
+                'fold_times': self.timing_metrics['fold_times'],
+                'avg_fold_time': np.mean(self.timing_metrics['fold_times']),
+                'min_fold_time': min(self.timing_metrics['fold_times']),
+                'max_fold_time': max(self.timing_metrics['fold_times'])
+            }
             
             return metrics
             
@@ -212,14 +257,21 @@ class LoanRiskPredictor:
     def run_all_models(self, subsample_rate: float = 1.0, n_folds: int = 5, debug_mode: bool = False) -> Dict[str, Dict[str, List[float]]]:
         """Run all available models with K-fold cross-validation."""
         results = {}
+        total_start_time = time.time()
         
         for model_name in ModelFactory.get_available_models():
             try:
+                model_start_time = time.time()
                 self.logger.info(f"\nRunning {model_name} model...")
                 metrics = self.run(model_name, subsample_rate, n_folds, debug_mode)
+                model_time = time.time() - model_start_time
+                self.logger.info(f"Total time for {model_name}: {model_time:.2f} seconds")
                 results[model_name] = metrics
             except Exception as e:
                 self.logger.error(f"Error running {model_name}: {str(e)}")
                 continue
+        
+        total_time = time.time() - total_start_time
+        self.logger.info(f"\nTotal time for all models: {total_time:.2f} seconds")
         
         return results 
