@@ -2,15 +2,28 @@
 data:
   train_path: 'Dataset/Training Data.csv'
   test_path: 'Dataset/Test Data.csv'
+  test_label_path: 'Dataset/Sample Prediction Dataset.csv'
   processed_dir: 'processed'
   normalized_data_path: 'normalized_data.csv'
-  # fused_features_path: 'fused_features.csv'
-  fused_features_path: '2) Fused Feature.csv'
+  fused_features_path: 'fused_features.csv'
+  # fused_features_path: '2) Fused Feature.csv'
   graph_dir: 'charts'
   train_loss_dir: "charts/train_loss"
 
 features:
-  n_features: 9
+  n_features: 5
+  feature_names:
+    - 'Age'
+    - 'Experience'
+    - 'Income'
+    - 'Married/Single'
+    - 'House_Ownership'
+    - 'Car_Ownership'
+    - 'Profession'
+    - 'CITY'
+    - 'STATE'
+    - 'Current_Job_Years'
+    - 'Current_House_Years'
   categorical_columns:
     - 'Married/Single'
     - 'House_Ownership'
@@ -21,6 +34,19 @@ features:
   drop_columns:
     - 'Id'
   target_column: 'Risk_Flag'
+
+feature_engineering:
+  max_samples: 1000
+  use_autoencoder: true
+  append_autoencoder_features: true
+  kraskov_mi:
+    k_neighbors: 5
+    min_features: 5
+    max_features: 20
+  use_smote: true
+  smote:
+    sampling_strategy: 'auto'
+    k_neighbors: 5
 
 logging:
   level: 'INFO'
@@ -78,7 +104,7 @@ models:
 
     cnn_lightgbm:
       cnn:
-        epochs: 20
+        epochs: 10
         learning_rate: 0.001
         batch_size: 64
         conv_channels: [32, 64]
@@ -92,11 +118,11 @@ models:
         feature_fraction: 0.9
 
     autoencoder:
-      epochs: 20
+      epochs: 10
       learning_rate: 0.001
       batch_size: 64
-      encoding_size: 32
-      hidden_layers: [256, 128]
+      encoding_size: 3
+      hidden_layers: [128, 64]
       dropout_rate: 0.3
       optimizer: "adam"
 
@@ -107,3 +133,13 @@ models:
       hidden_layers: [256, 128, 64, 32]
       dropout_rate: 0.3
       optimizer: "adam"
+
+    xgboost:
+      max_depth: 6
+      learning_rate: 0.1
+      num_boost_round: 100
+      subsample: 0.8
+      colsample_bytree: 0.8
+      min_child_weight: 1
+      gamma: 0
+      tree_method: 'hist'

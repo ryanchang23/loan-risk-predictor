@@ -198,12 +198,6 @@ class CNNLightGBMModel(BaseModel):
         predictions = self.lgb_model.predict(cnn_features)
         return predictions.reshape(-1)  # Ensure 1D output
     
-    # def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
-    #     """Evaluate the model."""
-    #     predictions = self.predict(X_test)
-    #     predictions = (predictions > 0.5).astype(int)
-    #     return self._calculate_metrics(y_test, predictions)
-    
     def save(self, path: str) -> None:
         """Save the model to disk."""
         if self.cnn_model is None or self.lgb_model is None:

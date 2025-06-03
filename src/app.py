@@ -11,6 +11,7 @@ from .utils.test_utils import TestDataGenerator, DebugLogger
 import pandas as pd
 import os
 import time  # Add time module
+import json  # Add this import at the top with other imports
 
 class LoanRiskPredictor:
     """Main application class for loan risk prediction."""
@@ -86,34 +87,33 @@ class LoanRiskPredictor:
 
             # Feature engineering
             if use_feature_engineering:
-
-                self.logger.info(f"{processed_dir, self.config.get('data.fused_features_path')}")
-                fused_features_path = self.config.get('data.fused_features_path')
-                
-
-                # Check if the paths are valid before joining
-                if processed_dir is None or fused_features_path is None:
-                    self.logger.error("Configuration for processed_dir or fused_features_path is not set.")
-                    raise ValueError("Invalid configuration: processed_dir or fused_features_path is None.")
-
-                fused_features_path = os.path.join(processed_dir, fused_features_path)
+                fused_features_path = os.path.join(
+                    processed_dir,
+                    self.config.get('data.fused_features_path')
+                )
                 
                 # Check if fused features exist and have matching shape
                 if os.path.exists(fused_features_path):
-                    fused_features = pd.read_csv(fused_features_path).values
-                    self.logger.info(f"fused features' shape: {fused_features.shape}")
-                    self.logger.info(f"normalized_data's shape: {normalized_data.shape}")
-                    if fused_features.shape[0] == normalized_data.shape[0]:
-                        self.logger.info(f"Using cached fused features: {fused_features_path}")
-                        encoded_features = fused_features
-                    else:
-                        self.logger.info("Cached fused features shape mismatch, performing feature engineering...")
-                        encoded_features = self._perform_feature_engineering(normalized_data, labels, debug_mode)
+                    try:
+                        fused_features = pd.read_csv(fused_features_path).values
+                        if fused_features.shape[0] == normalized_data.shape[0]:
+                            self.logger.info(f"Using cached fused features: {fused_features_path}")
+                            encoded_features = fused_features
+                        else:
+                            raise ValueError("Feature shape mismatch")
+                    except Exception as e:
+                        self.logger.warning(f"Error loading cached features: {str(e)}")
+                        self.logger.info("Performing feature engineering...")
+                        encoded_features = self._perform_feature_engineering(
+                            normalized_data, labels, debug_mode
+                        )
                         # Save the new fused features
                         pd.DataFrame(encoded_features).to_csv(fused_features_path, index=False)
                 else:
                     self.logger.info("No cached fused features found, performing feature engineering...")
-                    encoded_features = self._perform_feature_engineering(normalized_data, labels, debug_mode)
+                    encoded_features = self._perform_feature_engineering(
+                        normalized_data, labels, debug_mode
+                    )
                     # Save the fused features
                     pd.DataFrame(encoded_features).to_csv(fused_features_path, index=False)
             else:
@@ -122,8 +122,8 @@ class LoanRiskPredictor:
             # Initialize metrics storage
             metrics = {
                 'accuracy': [],
-                'sensitivity': [],
-                'specificity': [],
+                'recall': [],
+                'precision': [],
                 'f1_score': [],
                 'confusion_matrices': []
             }
@@ -161,27 +161,27 @@ class LoanRiskPredictor:
                 self.logger.info(f"Fold {fold + 1} training time: {fold_time:.2f} seconds")
                 
                 # Evaluate model
-                acc, sens, spec, f1, cm = model.evaluate(X_val, y_val)
+                acc, rec, prec, f1, cm = model.evaluate(X_val, y_val)
                 
                 metrics['accuracy'].append(acc)
-                metrics['sensitivity'].append(sens)
-                metrics['specificity'].append(spec)
+                metrics['recall'].append(rec)
+                metrics['precision'].append(prec)
                 metrics['f1_score'].append(f1)
                 metrics['confusion_matrices'].append(cm)
                 
                 if debug_mode:
                     self.debug_logger.log_metrics({
                         'accuracy': acc,
-                        'sensitivity': sens,
-                        'specificity': spec,
+                        'recall': rec,
+                        'precision': prec,
                         'f1_score': f1
                     }, f"Fold {fold + 1} Results")
                     self.debug_logger.log_array_info(cm, f"Fold {fold + 1} Confusion Matrix")
                 
                 self.logger.info(f"Fold {fold + 1} results:")
                 self.logger.info(f"Accuracy: {acc:.4f}")
-                self.logger.info(f"Sensitivity: {sens:.4f}")
-                self.logger.info(f"Specificity: {spec:.4f}")
+                self.logger.info(f"Recall: {rec:.4f}")
+                self.logger.info(f"Precision: {prec:.4f}")
                 self.logger.info(f"F1-Score: {f1:.4f}")
                 self.logger.log_confusion_matrix(cm, "Confusion Matrix: ")
             
@@ -199,8 +199,8 @@ class LoanRiskPredictor:
             # Calculate and log average metrics
             avg_metrics = {
                 'accuracy': np.mean(metrics['accuracy']),
-                'sensitivity': np.mean(metrics['sensitivity']),
-                'specificity': np.mean(metrics['specificity']),
+                'recall': np.mean(metrics['recall']),
+                'precision': np.mean(metrics['precision']),
                 'f1_score': np.mean(metrics['f1_score'])
             }
             
@@ -214,8 +214,8 @@ class LoanRiskPredictor:
             
             self.logger.info("\nAverage results across all folds:")
             self.logger.info(f"Accuracy: {avg_metrics['accuracy']:.4f}")
-            self.logger.info(f"Sensitivity: {avg_metrics['sensitivity']:.4f}")
-            self.logger.info(f"Specificity: {avg_metrics['specificity']:.4f}")
+            self.logger.info(f"Recall: {avg_metrics['recall']:.4f}")
+            self.logger.info(f"Precision: {avg_metrics['precision']:.4f}")
             self.logger.info(f"F1-Score: {avg_metrics['f1_score']:.4f}")
             
             # Add timing metrics to the returned metrics dictionary
@@ -234,25 +234,53 @@ class LoanRiskPredictor:
             raise
 
     def _perform_feature_engineering(self, normalized_data: np.ndarray, labels: np.ndarray, debug_mode: bool) -> np.ndarray:
-        """Helper method to perform feature engineering and autoencoder encoding."""
-        n_features = self.config.get('features.n_features')
-        with tqdm(total=3, desc="Feature Engineering") as pbar:
-            processed_features = self.feature_engineer.process_features(normalized_data, labels, n_features)
-            pbar.update(1)
-            if debug_mode:
-                self.debug_logger.log_array_info(processed_features, "Processed Features")
-            
-            # Autoencoder feature extraction
-            self.logger.info("Performing autoencoder feature extraction...")
-            autoencoder = AutoencoderTrainer(processed_features.shape[1], n_features)
-            autoencoder.train(processed_features)
-            pbar.update(1)
-            encoded_features = autoencoder.encode(processed_features)
-            pbar.update(1)
-            if debug_mode:
-                self.debug_logger.log_array_info(encoded_features, "Encoded Features")
+        """Helper method to perform feature engineering and autoencoder encoding.
         
-        return encoded_features
+        Args:
+            normalized_data: Normalized input features
+            labels: Target labels
+            debug_mode: Whether to enable debug logging
+            
+        Returns:
+            Processed features (either weighted features or fused features)
+        """
+        n_features = self.config.get('features.n_features')
+        append_autoencoder_features = self.config.get('feature_engineering.append_autoencoder_features', True)
+        
+        with tqdm(total=3, desc="Feature Engineering") as pbar:
+            # Step 1: Compute Kraskov MI and weight features
+            self.logger.info("Computing Kraskov MI and weighting features...")
+            weighted_features = self.feature_engineer.process_features(
+                normalized_data, labels, n_features
+            )
+            pbar.update(1)
+            if debug_mode:
+                self.debug_logger.log_array_info(weighted_features, "Weighted Features")
+            
+            # Step 2: Autoencoder feature extraction
+            if self.config.get('feature_engineering.use_autoencoder', True):
+                self.logger.info("Performing autoencoder feature extraction...")
+                autoencoder = AutoencoderModel()
+                autoencoder.train(weighted_features)
+                pbar.update(1)
+                encoded_features = autoencoder.predict(weighted_features)
+                pbar.update(1)
+                
+                if debug_mode:
+                    self.debug_logger.log_array_info(encoded_features, "Encoded Features")
+                
+                # Combine features if configured
+                if append_autoencoder_features:
+                    final_features = np.hstack([weighted_features, encoded_features])
+                    self.logger.info(f"Combined features shape: {final_features.shape}")
+                else:
+                    final_features = encoded_features
+                    self.logger.info(f"Using only autoencoder features, shape: {final_features.shape}")
+            else:
+                final_features = weighted_features
+                pbar.update(2)  # Skip autoencoder steps
+            
+            return final_features
 
     def run_all_models(self, subsample_rate: float = 1.0, n_folds: int = 5, debug_mode: bool = False) -> Dict[str, Dict[str, List[float]]]:
         """Run all available models with K-fold cross-validation."""

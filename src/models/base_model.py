@@ -64,30 +64,36 @@ class BaseModel(ABC):
         if not self.train_losses:
             print(f"No training losses recorded for {self.model_name}")
             return
-            
+
         plt.figure(figsize=(10, 6))
         plt.plot(self.train_losses, label='Training Loss', color='#2ecc71', linewidth=2)
         plt.title(f'Training Loss Curve - {self.model_name.upper()}', fontsize=12)
         plt.xlabel('Epoch', fontsize=10)
+
+        epochs = len(self.train_losses)
+        # plt.xticks(np.linspace(0, epochs - 1, num=5).tolist() + [epochs - 1])
+        plt.xticks(ticks=range(epochs), labels=[str(i + 1) for i in range(epochs)])
+        plt.xlim(0, epochs-1)
+
         plt.ylabel('Loss', fontsize=10)
         plt.grid(True, linestyle='--', alpha=0.7)
         plt.legend(fontsize=10)
-        
+
         # Add final loss value annotation
         final_loss = self.train_losses[-1]
         plt.annotate(f'Final Loss: {final_loss:.4f}',
                     xy=(len(self.train_losses)-1, final_loss),
                     xytext=(len(self.train_losses)-1, final_loss*1.1),
-                    arrowprops=dict(facecolor='black', shrink=0.05, width=1.5),
+                    arrowprops=dict(facecolor='#333333', shrink=0.05, width=1),
                     fontsize=10)
-        
+
         # Save the plot if path is provided or use default
         if save_path is None:
             graph_dir = self.config.get("data.train_loss_dir")
             if not os.path.exists(graph_dir):
                 os.makedirs(graph_dir)
             save_path = os.path.join(graph_dir, f"{self.model_name}_train_loss.png")
-        
+
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         plt.close()
     
@@ -110,7 +116,7 @@ class BaseModel(ABC):
         pass
     
     def _calculate_metrics(self, y_true: np.ndarray, y_pred: np.ndarray):
-        """Calculate accuracy, sensitivity, specificity, and f1_score."""
+        """Calculate accuracy, recall, precision, and f1_score."""
         # Debug logging
         print(f"True labels shape: {y_true.shape}, unique values: {np.unique(y_true)}")
         print(f"Predictions shape: {y_pred.shape}, unique values: {np.unique(y_pred)}")
@@ -129,8 +135,8 @@ class BaseModel(ABC):
         cm = confusion_matrix(y_true, y_pred)
         
         accuracy = (tp + tn) / (tp + tn + fp + fn)
-        sensitivity = tp / (tp + fn) if (tp + fn) > 0 else 0
-        specificity = tn / (tn + fp) if (tn + fp) > 0 else 0
+        recall = tp / (tp + fn) if (tp + fn) > 0 else 0  # Previously sensitivity
+        precision = tp / (tp + fp) if (tp + fp) > 0 else 0  # Previously specificity
         f1 = f1_score(y_true, y_pred)
         
-        return accuracy, sensitivity, specificity, f1, cm
+        return accuracy, recall, precision, f1, cm

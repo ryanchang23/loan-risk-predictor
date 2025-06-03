@@ -7,102 +7,130 @@ import torch
 import torch.nn as nn
 from tqdm import tqdm 
 from ..config.config import ConfigManager
+from sklearn.model_selection import train_test_split
 
 class FeatureEngineer:
     """Feature engineering and selection utilities."""
     
     def __init__(self):
         self.config = ConfigManager()
-    
-    def calculate_kraskov_entropy(self, X: np.ndarray, k: int = 5) -> np.ndarray:
-        """Calculate Kraskov entropy for each feature."""
+        self.feature_weights = None
+        self.selected_indices = None
+        self.max_samples = self.config.get('feature_engineering.max_samples')  # Maximum samples for MI calculation
 
-
-        # n_samples, n_features = X.shape
-
-        # # Fit k-NN model once
-        # knn = NearestNeighbors(n_neighbors=k + 1)  # +1 because it includes itself
-        # knn.fit(X)
-        # distances, _ = knn.kneighbors(X)
-
-        # # Distance to the k-th nearest neighbor
-        # rho_k = distances[:, -1]
-
-        # # Compute entropy per sample
-        # entropy_values = -psi(k) + psi(n_samples) + np.log(rho_k) * n_features
-
-        # return entropy_values  # Now returns an array of shape (n_samples,)
-
+    def calculate_kraskov_mi(self, X: np.ndarray, y: np.ndarray, k: int = 5) -> np.ndarray:
+        """Calculate Kraskov mutual information between each feature and the target using KNN and optional subsampling."""
         n_samples, n_features = X.shape
-        entropy = np.zeros(n_features)
+        mi_scores = np.zeros(n_features)
+
+        # Subsample to reduce memory and computation (stratified to preserve class distribution)
+        if n_samples > self.max_samples:
+            X_sub, _, y_sub, _ = train_test_split(
+                X, y,
+                train_size=self.max_samples,
+                stratify=y,
+                random_state=42
+            )
+        else:
+            X_sub, y_sub = X, y
+
+        n_sub_samples = X_sub.shape[0]
 
         for i in range(n_features):
-            # Calculate distances between points
-            distances = np.zeros((n_samples, n_samples))
-            for j in range(n_samples):
-                distances[j] = np.abs(X[:, i] - X[j, i])
+            # Use 1D feature vector for KNN
+            feature_column = X_sub[:, i].reshape(-1, 1)
 
-            # Sort distances for each point
-            sorted_distances = np.sort(distances, axis=1)
+            # Fit KNN and get distances to k+1 neighbors (first neighbor is the point itself)
+            nn = NearestNeighbors(n_neighbors=k + 1, metric='chebyshev')  # or 'manhattan'
+            nn.fit(feature_column)
+            distances, _ = nn.kneighbors(feature_column)
+            epsilon = distances[:, k]  # Distance to the k-th neighbor
 
-            # Calculate entropy using k-nearest neighbors
-            entropy[i] = -np.mean(np.log(sorted_distances[:, k] + 1e-10))
+            # Count neighbors within epsilon for X and for y
+            n_x = np.sum(np.abs(feature_column - feature_column.T) <= epsilon[:, None], axis=1)
+            n_y = np.sum(np.abs(y_sub[:, None] - y_sub) <= epsilon[:, None], axis=1)
 
-        return entropy
+            # Kraskov mutual information estimate
+            mi_scores[i] = psi(k) - np.mean(psi(n_x + 1) + psi(n_y + 1)) + psi(n_sub_samples)
 
-    def select_features(self, X: np.ndarray, y: np.ndarray, n_features: int = 5) -> Tuple[np.ndarray, List[int]]:
-        """Select features using mutual information and Kraskov entropy."""
-        # Calculate mutual information
-        mi_scores = mutual_info_classif(X, y)
+        return mi_scores
 
-        # Calculate Kraskov entropy
-        entropy_scores = self.calculate_kraskov_entropy(X)
+    # def calculate_kraskov_mi(self, X: np.ndarray, y: np.ndarray, k: int = 5) -> np.ndarray:
+    #     """Calculate Kraskov mutual information between features and target using subsampling."""
+    #     n_samples, n_features = X.shape
+    #     mi_scores = np.zeros(n_features)
+
+    #     # Subsample data if needed while maintaining class balance
+    #     if n_samples > self.max_samples:
+    #         X_sub, _, y_sub, _ = train_test_split(
+    #             X, y, 
+    #             train_size=self.max_samples,
+    #             stratify=y,
+    #             random_state=42
+    #         )
+    #     else:
+    #         X_sub, y_sub = X, y
+
+    #     n_sub_samples = X_sub.shape[0]
         
-        # Combine scores (you can adjust the weights)
-        # mi_w = 0.3
-        # entropy_w = 0.7
-        combined_scores = mi_scores + entropy_scores
+    #     # Calculate mutual information using Kraskov method with efficient distance calculation
+    #     for i in range(n_features):
+    #         # Use NearestNeighbors for efficient k-nearest neighbor search
+    #         nn = NearestNeighbors(n_neighbors=k+1, metric='manhattan')
+    #         nn.fit(X_sub[:, i:i+1])
+            
+    #         # Get distances to k-th nearest neighbor for each point
+    #         distances, _ = nn.kneighbors(X_sub[:, i:i+1])
+    #         epsilon = distances[:, k]  # Distance to k-th neighbor
+            
+    #         # Count points within epsilon ball for both feature and target
+    #         n_x = np.zeros(n_sub_samples)
+    #         n_y = np.zeros(n_sub_samples)
+            
+    #         # Use broadcasting for efficient distance calculation
+    #         for j in range(n_sub_samples):
+    #             n_x[j] = np.sum(np.abs(X_sub[:, i] - X_sub[j, i]) <= epsilon[j])
+    #             n_y[j] = np.sum(np.abs(y_sub - y_sub[j]) <= epsilon[j])
+            
+    #         # Calculate MI using Kraskov estimator
+    #         mi_scores[i] = psi(k) - np.mean(psi(n_x + 1) + psi(n_y + 1)) + psi(n_sub_samples)
+        
+    #     return mi_scores
+
+    def weight_features(self, X: np.ndarray, y: np.ndarray, n_features: int = 5) -> np.ndarray:
+        """Weight features using Kraskov mutual information."""
+        # Calculate Kraskov MI scores
+        mi_scores = self.calculate_kraskov_mi(X, y)
+
+        # Normalize scores to get weights
+        total_score = np.sum(mi_scores)
+        self.feature_weights = mi_scores / total_score if total_score > 0 else np.ones_like(mi_scores) / len(mi_scores)
         
         # Select top features
-        selected_indices = np.argsort(combined_scores)[-n_features:]
-        selected_features = X[:, selected_indices]
+        self.selected_indices = np.argsort(mi_scores)[-n_features:]
+        weighted_features = X[:, self.selected_indices] * self.feature_weights[self.selected_indices]
         
-        return selected_features, selected_indices.tolist()
+        return weighted_features
     
     def normalize_features(self, X: np.ndarray) -> np.ndarray:
         """Normalize features using min-max scaling."""
         return (X - X.min(axis=0)) / (X.max(axis=0) - X.min(axis=0) + 1e-10)
     
-    def create_feature_combinations(self, X: np.ndarray) -> np.ndarray:
-        """Create feature combinations using polynomial features."""
-        n_samples, n_features = X.shape
-        combinations = []
-        
-        # Add original features
-        combinations.append(X)
-        
-        # Add squared features
-        squared = X ** 2
-        combinations.append(squared)
-        
-        # Add interaction terms
-        for i in range(n_features):
-            for j in range(i + 1, n_features):
-                interaction = X[:, i:i+1] * X[:, j:j+1]
-                combinations.append(interaction)
-        
-        return np.hstack(combinations)
-    
     def process_features(self, X: np.ndarray, y: np.ndarray, n_features: int = 5) -> np.ndarray:
-        """Process features through the complete pipeline."""
+        """Process features through the complete pipeline.
+        
+        Args:
+            X: Input features
+            y: Target labels
+            n_features: Number of features to select
+            
+        Returns:
+            Processed features (weighted and selected)
+        """
         # Normalize features
-
-        X = self.normalize_features(X)
+        X_normalized = self.normalize_features(X)
         
-        # Create feature combinations
-        # X = self.create_feature_combinations(X)
+        # Weight and select features using Kraskov MI
+        weighted_features = self.weight_features(X_normalized, y, n_features)
         
-        # Select features
-        X_selected, _ = self.select_features(X, y, n_features)
-        
-        return X_selected 
+        return weighted_features 

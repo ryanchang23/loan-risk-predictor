@@ -86,43 +86,37 @@ class DNNModel(BaseModel):
                 # Forward pass
                 outputs = self.model(X_batch)
                 loss = criterion(outputs, y_batch)
-                
+
                 # Backward pass
                 optimizer.zero_grad()
                 loss.backward()
                 optimizer.step()
                 
                 epoch_loss += loss.item()
-            
+
             # Record average loss for the epoch
             avg_loss = epoch_loss / (n_samples / batch_size)
             self.record_loss(avg_loss)
             # Update progress bar with current loss
             pbar.set_postfix({'loss': f'{avg_loss:.4f}'})
-        
+
         # Plot and save the training loss curve
         self.plot_train_loss()
-    
+
     def predict(self, X: np.ndarray) -> np.ndarray:
         """Make predictions."""
         if self.model is None:
             raise ValueError("Model not trained yet")
-        
+
         # Convert to PyTorch tensor
         X = torch.FloatTensor(X).to(self.device)
-        
+
         # Make predictions
         self.model.eval()
         with torch.no_grad():
             predictions = self.model(X)
         
         return predictions.cpu().numpy()
-    
-    # def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
-    #     """Evaluate the model."""
-    #     predictions = self.predict(X_test)
-    #     predictions = (predictions > 0.5).astype(int)
-    #     return self._calculate_metrics(y_test, predictions)
     
     def save(self, path: str) -> None:
         """Save the model to disk."""

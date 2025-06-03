@@ -9,6 +9,7 @@ from sklearn.metrics import confusion_matrix
 import torch
 import seaborn as sns
 import os
+import pandas as pd
 
 class LoanRiskPredictorGUI:
     def __init__(self):
@@ -39,9 +40,18 @@ class LoanRiskPredictorGUI:
         
     
     def create_control_frame(self):
-        """Create the control panel frame."""
+        """Create the control frame with buttons and options."""
         control_frame = ctk.CTkFrame(self.root)
-        control_frame.pack(side=ctk.LEFT, fill=ctk.Y, padx=15, pady=15)
+        control_frame.pack(side=ctk.LEFT, fill=ctk.Y, padx=20, pady=20)
+        
+        # Add test evaluation button
+        # self.evaluate_test_btn = ctk.CTkButton(
+        #     control_frame,
+        #     text="Evaluate Test Data",
+        #     command=self.evaluate_test_data,
+        #     width=200
+        # )
+        # self.evaluate_test_btn.pack(pady=10)
         
         # Debug mode toggle
         self.debug_var = ctk.BooleanVar(value=False)
@@ -280,8 +290,8 @@ class LoanRiskPredictorGUI:
         models = list(self.results.keys())
         avg_metrics = {
             'accuracy': [np.mean(self.results[m]['accuracy']) for m in models],
-            'sensitivity': [np.mean(self.results[m]['sensitivity']) for m in models],
-            'specificity': [np.mean(self.results[m]['specificity']) for m in models],
+            'recall': [np.mean(self.results[m]['recall']) for m in models],
+            'precision': [np.mean(self.results[m]['precision']) for m in models],
             'f1_score': [np.mean(self.results[m]['f1_score']) for m in models]
         }
         
@@ -297,8 +307,8 @@ class LoanRiskPredictorGUI:
         x = np.arange(len(models))
         width = 0.15  # Adjusted width for 4 metrics
         bars1 = self.ax1.bar(x - 1.5*width, avg_metrics['accuracy'], width, label='Accuracy', color=metrics_colors[0])
-        bars2 = self.ax1.bar(x - 0.5*width, avg_metrics['sensitivity'], width, label='Sensitivity', color=metrics_colors[1])
-        bars3 = self.ax1.bar(x + 0.5*width, avg_metrics['specificity'], width, label='Specificity', color=metrics_colors[2])
+        bars2 = self.ax1.bar(x - 0.5*width, avg_metrics['recall'], width, label='Recall', color=metrics_colors[1])
+        bars3 = self.ax1.bar(x + 0.5*width, avg_metrics['precision'], width, label='Precision', color=metrics_colors[2])
         bars4 = self.ax1.bar(x + 1.5*width, avg_metrics['f1_score'], width, label='F1-Score', color=metrics_colors[3])
         
         # Add value labels on top of bars
@@ -327,7 +337,7 @@ class LoanRiskPredictorGUI:
         height = 0.65 / len(models)  # Adjust height based on number of models
 
         for i, model in enumerate(models):
-            metrics = [avg_metrics['accuracy'][i], avg_metrics['sensitivity'][i], avg_metrics['specificity'][i], avg_metrics['f1_score'][i]]
+            metrics = [avg_metrics['accuracy'][i], avg_metrics['recall'][i], avg_metrics['precision'][i], avg_metrics['f1_score'][i]]
             bars = self.ax2.barh(y + i * height, metrics, height, label=model, color=model_colors[i])
 
             # Add value labels
@@ -341,7 +351,7 @@ class LoanRiskPredictorGUI:
         self.ax2.set_xlabel('Score', fontsize=fontsize)
         self.ax2.set_title('Model Performance Comparison', fontsize=fontsize*1.3)
         self.ax2.set_yticks(y + height * (len(models) - 1) / 2)
-        self.ax2.set_yticklabels(['Accuracy', 'Sensitivity', 'Specificity', 'F1-Score'], fontsize=fontsize, rotation=rotation)
+        self.ax2.set_yticklabels(['Accuracy', 'Recall', 'Precision', 'F1-Score'], fontsize=fontsize, rotation=rotation)
 
         # Reversing Legend Order
         handles, labels = self.ax2.get_legend_handles_labels()
@@ -353,7 +363,7 @@ class LoanRiskPredictorGUI:
         self.ax2.grid(True, linestyle='--', alpha=0.7, color=grid_colors[1])
 
         # Radar chart (ax3)
-        metrics = ['Accuracy', 'Specificity', 'Sensitivity', 'F1-Score']
+        metrics = ['Accuracy', 'Precision', 'Recall', 'F1-Score']
         num_metrics = len(metrics)
         
         # Compute angle for each metric
@@ -378,8 +388,8 @@ class LoanRiskPredictorGUI:
         for i, model in enumerate(models):
             values = [
                 avg_metrics['accuracy'][i],
-                avg_metrics['specificity'][i],
-                avg_metrics['sensitivity'][i],
+                avg_metrics['precision'][i],
+                avg_metrics['recall'][i],
                 avg_metrics['f1_score'][i],
             ]
             values += values[:1]  # Close the loop
@@ -410,13 +420,13 @@ class LoanRiskPredictorGUI:
                 self.results_text.insert(ctk.END, f"\nResults for {model_name}:\n")
                 avg_metrics = {
                     'accuracy': np.mean(metrics['accuracy']),
-                    'sensitivity': np.mean(metrics['sensitivity']),
-                    'specificity': np.mean(metrics['specificity']),
+                    'recall': np.mean(metrics['recall']),
+                    'precision': np.mean(metrics['precision']),
                     'f1_score': np.mean(metrics['f1_score'])
                 }
                 self.results_text.insert(ctk.END, f"Average Accuracy: {avg_metrics['accuracy']:.4f}\n")
-                self.results_text.insert(ctk.END, f"Average Sensitivity: {avg_metrics['sensitivity']:.4f}\n")
-                self.results_text.insert(ctk.END, f"Average Specificity: {avg_metrics['specificity']:.4f}\n")
+                self.results_text.insert(ctk.END, f"Average Recall: {avg_metrics['recall']:.4f}\n")
+                self.results_text.insert(ctk.END, f"Average Precision: {avg_metrics['precision']:.4f}\n")
                 self.results_text.insert(ctk.END, f"Average F1-Score: {avg_metrics['f1_score']:.4f}\n")
                 self.results_text.insert(ctk.END, f"Confusion Matrix:\n{metrics['confusion_matrix']}\n")
                 self.results_text.insert(ctk.END, "-" * 50 + "\n")
@@ -426,7 +436,6 @@ class LoanRiskPredictorGUI:
         # Draw both canvases
         self.canvas1.draw()
         self.canvas2.draw()
-
         # Save charts
         graph_dir = self.config.get("data.graph_dir")
         if not os.path.exists(graph_dir):
@@ -440,7 +449,32 @@ class LoanRiskPredictorGUI:
         # Save individual confusion matrix heatmaps
         for (model_name, cm) in self.confusion_matrices.items():
             fig, ax = plt.subplots(figsize=(6, 6))
-            sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", ax=ax, cbar=False)
+            
+            # Calculate percentages
+            cm_percentages = cm / np.sum(cm) * 100
+            
+            # Create custom annotations combining count and percentage
+            annot = np.empty_like(cm, dtype=object)
+            for i in range(len(cm)):
+                for j in range(len(cm)):
+                    annot[i, j] = f"{cm[i, j]}\n({cm_percentages[i, j]:.1f}%)"
+            
+            # Create heatmap without default annotations
+            sns.heatmap(cm, annot=False, fmt="d", cmap="Blues", ax=ax, cbar=False)
+            
+            # Add custom annotations with dynamic text color
+            for i in range(len(cm)):
+                for j in range(len(cm)):
+                    # Calculate background color intensity
+                    color_intensity = cm[i, j] / cm.max()
+                    # Use white text for dark backgrounds, black for light backgrounds
+                    text_color = '#fafafa' if color_intensity > 0.5 else '#222222'
+                    
+                    ax.text(j + 0.5, i + 0.5, annot[i, j],
+                           ha='center', va='center',
+                           color=text_color,
+                           fontsize=fontsize)
+            
             ax.set_title(f"Confusion Matrix ({model_name})")
             ax.set_xlabel("Predicted")
             ax.set_ylabel("Actual")
@@ -483,14 +517,14 @@ class LoanRiskPredictorGUI:
                     # Display average results
                     avg_metrics = {
                         'accuracy': np.mean(metrics['accuracy']),
-                        'sensitivity': np.mean(metrics['sensitivity']),
-                        'specificity': np.mean(metrics['specificity']),
+                        'recall': np.mean(metrics['recall']),
+                        'precision': np.mean(metrics['precision']),
                         'f1_score': np.mean(metrics['f1_score'])
                     }
 
                     self.results_text.insert(ctk.END, f"Average Accuracy: {avg_metrics['accuracy']:.4f}\n")
-                    self.results_text.insert(ctk.END, f"Average Sensitivity: {avg_metrics['sensitivity']:.4f}\n")
-                    self.results_text.insert(ctk.END, f"Average Specificity: {avg_metrics['specificity']:.4f}\n")
+                    self.results_text.insert(ctk.END, f"Average Recall: {avg_metrics['recall']:.4f}\n")
+                    self.results_text.insert(ctk.END, f"Average Precision: {avg_metrics['precision']:.4f}\n")
                     self.results_text.insert(ctk.END, f"Average F1-Score: {avg_metrics['f1_score']:.4f}\n")
                     self.results_text.insert(ctk.END, f"Confusion Matrix:\n{metrics['confusion_matrix']}\n")
                 except Exception as e:
@@ -503,3 +537,140 @@ class LoanRiskPredictorGUI:
         """Start the GUI application."""
         print(f"Device: {torch.device('cuda' if torch.cuda.is_available() else 'cpu')}")
         self.root.mainloop() 
+
+    def evaluate_test_data(self):
+        """Evaluate models on test data and save metrics and charts."""
+        try:
+            # Clear previous results
+            self.results_text.delete("1.0", ctk.END)
+            self.results.clear()
+            self.confusion_matrices.clear()
+            
+            # Load test data
+            test_path = self.config.get("data.test_path")
+            self.results_text.insert(ctk.END, f"\nLoading test data from {test_path}...\n")
+            self.root.update()
+            
+            # Get test data
+            test_data, test_labels = self.predictor.data_repo.load_test_data()
+            
+            # Run evaluation for each selected model
+            for model_name, var in self.model_vars.items():
+                if var.get():
+                    try:
+                        self.results_text.insert(ctk.END, f"\nEvaluating {model_name} on test data...\n")
+                        self.root.update()
+                        
+                        # Create and train model
+                        model = self.predictor.create_model(model_name)
+                        model.train(self.predictor.data_repo.X_train, self.predictor.data_repo.y_train)
+                        
+                        # Evaluate on test data
+                        accuracy, recall, precision = model.evaluate(test_data, test_labels)
+                        
+                        # Get predictions for confusion matrix
+                        predictions = model.predict(test_data)
+                        predictions = (predictions > model.find_best_threshold(test_labels, predictions)).astype(int)
+                        cm = confusion_matrix(test_labels, predictions)
+                        
+                        # Store results
+                        self.results[model_name] = {
+                            'accuracy': [accuracy],
+                            'recall': [recall],
+                            'precision': [precision],
+                            'f1_score': [2 * (recall * precision) / (recall + precision)],
+                            'confusion_matrix': cm
+                        }
+                        self.confusion_matrices[model_name] = cm
+                        
+                        # Display results
+                        self.results_text.insert(ctk.END, f"Test Accuracy: {accuracy:.4f}\n")
+                        self.results_text.insert(ctk.END, f"Test Recall: {recall:.4f}\n")
+                        self.results_text.insert(ctk.END, f"Test Precision: {precision:.4f}\n")
+                        self.results_text.insert(ctk.END, f"Test F1-Score: {self.results[model_name]['f1_score'][0]:.4f}\n")
+                        self.results_text.insert(ctk.END, f"Confusion Matrix:\n{cm}\n")
+                        self.results_text.insert(ctk.END, "-" * 50 + "\n")
+                        
+                        # Save model's training loss curve
+                        model.plot_train_loss()
+                        
+                    except Exception as e:
+                        self.results_text.insert(ctk.END, f"Error evaluating {model_name}: {str(e)}\n")
+            
+            # Update and save charts
+            self.update_charts()
+            
+            # Save test results to file
+            results_dir = os.path.join(self.config.get("data.graph_dir"), "test_results")
+            if not os.path.exists(results_dir):
+                os.makedirs(results_dir)
+            
+            # Save metrics to CSV
+            metrics_df = pd.DataFrame({
+                'Model': [],
+                'Accuracy': [],
+                'Recall': [],
+                'Precision': [],
+                'F1-Score': []
+            })
+            
+            for model_name, metrics in self.results.items():
+                metrics_df = pd.concat([metrics_df, pd.DataFrame({
+                    'Model': [model_name],
+                    'Accuracy': [metrics['accuracy'][0]],
+                    'Recall': [metrics['recall'][0]],
+                    'Precision': [metrics['precision'][0]],
+                    'F1-Score': [metrics['f1_score'][0]]
+                })], ignore_index=True)
+            
+            metrics_df.to_csv(os.path.join(results_dir, "test_metrics.csv"), index=False)
+            
+            # Save charts with test-specific names
+            self.fig1.savefig(os.path.join(results_dir, "test_performance_metrics.png"))
+            self.fig2.savefig(os.path.join(results_dir, "test_model_comparison.png"))
+            
+            # Save individual confusion matrices
+            cm_dir = os.path.join(results_dir, "confusion_matrices")
+            if not os.path.exists(cm_dir):
+                os.makedirs(cm_dir)
+            
+            for model_name, cm in self.confusion_matrices.items():
+                fig, ax = plt.subplots(figsize=(6, 6))
+                
+                # Calculate percentages
+                cm_percentages = cm / np.sum(cm) * 100
+                
+                # Create custom annotations combining count and percentage
+                annot = np.empty_like(cm, dtype=object)
+                for i in range(len(cm)):
+                    for j in range(len(cm)):
+                        annot[i, j] = f"{cm[i, j]}\n({cm_percentages[i, j]:.1f}%)"
+                
+                # Create heatmap without default annotations
+                sns.heatmap(cm, annot=False, fmt="d", cmap="Blues", ax=ax, cbar=False)
+                
+                # Add custom annotations with dynamic text color
+                for i in range(len(cm)):
+                    for j in range(len(cm)):
+                        # Calculate background color intensity
+                        color_intensity = cm[i, j] / cm.max()
+                        # Use white text for dark backgrounds, black for light backgrounds
+                        text_color = 'white' if color_intensity > 0.5 else 'black'
+                        
+                        ax.text(j + 0.5, i + 0.5, annot[i, j],
+                               ha='center', va='center',
+                               color=text_color,
+                               fontsize=9,
+                               fontweight='bold')
+                
+                ax.set_title(f"Test Confusion Matrix ({model_name})")
+                ax.set_xlabel("Predicted")
+                ax.set_ylabel("Actual")
+                fig.tight_layout()
+                fig.savefig(os.path.join(cm_dir, f"test_confusion_matrix_{model_name}.png"))
+                plt.close(fig)
+            
+            self.results_text.insert(ctk.END, f"\nTest evaluation results saved to {results_dir}\n")
+            
+        except Exception as e:
+            self.results_text.insert(ctk.END, f"Error in test evaluation: {str(e)}\n") 

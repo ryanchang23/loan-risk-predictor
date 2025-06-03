@@ -129,12 +129,6 @@ class RNNModel(BaseModel):
         
         return predictions.cpu().numpy()
     
-    # def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Tuple[float, float, float]:
-    #     """Evaluate the model."""
-    #     predictions = self.predict(X_test)
-    #     predictions = (predictions > 0.5).astype(int)
-    #     return self._calculate_metrics(y_test, predictions)
-    
     def save(self, path: str) -> None:
         """Save the model to disk."""
         if self.model is None:

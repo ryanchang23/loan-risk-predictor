@@ -17,18 +17,30 @@ class DataRepository:
         processed_dir = self.config.get('data.processed_dir')
         if not os.path.exists(processed_dir):
             os.makedirs(processed_dir)
+
+    def load_test_data(self, data_path: str = None, labels_path: str = None) -> Tuple[pd.DataFrame, np.ndarray]:
+        """Load and preprocess the training data."""
+        if data_path is None:
+            data_path = self.config.get('data.test_path')
+        if labels_path is None:
+            labels_path = self.config.get('data.test_label_path')
+        # Load data
+        data = pd.read_csv(data_path)
+        # Extract labels
+        labels = pd.read_csv(labels_path)
+        # Remove target column
+        
+        return data, labels
     
     def load_data(self) -> Tuple[pd.DataFrame, np.ndarray]:
         """Load and preprocess the training data."""
         data_path = self.config.get('data.train_path')
         target_column = self.config.get('features.target_column')
-        
         # Load data
         data = pd.read_csv(data_path)
-        
         # Extract labels
         labels = data[target_column].values
-        
+
         # Remove target column
         data = data.drop(target_column, axis=1)
         
